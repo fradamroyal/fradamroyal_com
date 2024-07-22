@@ -21,6 +21,8 @@
 {{ range .AlternativeOutputFormats -}}
     {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
 {{ end -}}
-<link rel="stylesheet" href="{{ .Site.BaseURL }}css/latex.css" />
-<link rel="stylesheet" href="{{ .Site.BaseURL }}css/main.css" />
+{{ $style_latex := resources.Get "css/style.css" | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $style_latex.Permalink }}" integrity="{{ $style_latex.Data.Integrity }}">
+{{ $style_main := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $style_main.Permalink }}" integrity="{{ $style_main.Data.Integrity }}"/>
 {{ hugo.Generator -}}
