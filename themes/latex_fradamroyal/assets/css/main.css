@@ -1,22 +1,27 @@
-body {
-  color: #222;
-  font-family: sans-serif;
-  line-height: 1.5;
-  margin: 1rem;
-  max-width: 768px;
+footer .theme-by {
+  text-align: center;
+  margin: 100px 0 0;
 }
 
-header {
-  border-bottom: 1px solid #222;
-  margin-bottom: 1rem;
+.pager {
+  list-style: none;
+  text-align: center;
+  margin: 20px 0 0;
+  padding-left: 0;
 }
 
-footer {
-  border-top: 1px solid #222;
-  margin-top: 1rem;
+.pager ul {
+  display: block;
 }
 
-a {
-  color: #00e;
-  text-decoration: none;
+.pager .previous > a {
+  margin: 20px 0 0;
+  float: left;
+  display: block;
+}
+
+.pager .next > a {
+  margin: 20px 0 0;
+  float: right;
+  display: block;
 }
