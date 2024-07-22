@@ -12,3 +12,8 @@ footnoteReturnLinkContents = "^"
   A collection of homilies and reflections to, hopefully, inspire and guide your faith.
   """
 
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  series = "series"
+
