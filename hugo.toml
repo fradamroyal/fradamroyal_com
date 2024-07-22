@@ -1,4 +1,14 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://fradamroyal.com/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'Homilies & Thoughts'
 theme = 'latex_fradamroyal'
+paginate = 3
+enableInlineShortcodes = true
+footnoteReturnLinkContents = "^"
+
+[Params.author]
+  name = "Rev. Adam Royal"
+  abstract = """
+  A collection of homilies and reflections to, hopefully, inspire and guide your faith.
+  """
+
