@@ -2,7 +2,7 @@
 <div class="container" role="main">
     <div class="posts-list">
       {{ if .IsHome }}
-        {{ $pag := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) }}
+        {{ $pag := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
       {{ else }}
         {{ $pag := .Paginator.Pages }}
       {{ end }}

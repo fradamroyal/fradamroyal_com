@@ -17,3 +17,5 @@ footnoteReturnLinkContents = "^"
   tag = "tags"
   series = "series"
 
+[params]
+mainSections = ["homilies", "posts"]
