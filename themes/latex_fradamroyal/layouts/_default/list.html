@@ -1,26 +1,27 @@
 {{ define "main" }}
 <div class="container" role="main">
     <div class="posts-list">
+      {{ $pag := slice }}
       {{ if .IsHome }}
-        {{ $pag := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
+        {{ $pag = .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
       {{ else }}
-        {{ $pag := .Paginator.Pages }}
+        {{ $pag = .Paginate .Pages }}
       {{ end }}
 
-      {{ range .Paginator.Pages }}
+      {{ range $pag.Pages }}
         {{ partial "preview.html" . }}
       {{ end }}
       </div>
-    {{ if or (.Paginator.HasPrev) (.Paginator.HasNext) }}
+    {{ if or ($pag.HasPrev) ($pag.HasNext) }}
     <ul class="pager">
-      {{ if .Paginator.HasPrev }}
+      {{ if $pag.HasPrev }}
         <li class="previous">
-          <a href="{{ .Permalink }}page/{{ .Paginator.Prev.PageNumber }}/">&larr; Newer</a>
+          <a href="{{ .Permalink }}page/{{ $pag.Prev.PageNumber }}/">&larr; Newer</a>
         </li>
       {{ end }}
-      {{ if .Paginator.HasNext }}
+      {{ if $pag.HasNext }}
         <li class="next">
-          <a href="{{ .Permalink }}page/{{ .Paginator.Next.PageNumber }}/">Older &rarr;</a>
+          <a href="{{ .Permalink }}page/{{ $pag.Next.PageNumber }}/">Older &rarr;</a>
         </li>
       {{ end }}
     </ul>
