@@ -1,6 +1,6 @@
 name = 'LaTeX'
 license = 'MIT'
-licenselink = 'LICENSE'
+licenselink = 'https://github.com/fradamroyal/fradamroyal_com/blob/main/themes/latex_fradamroyal/LICENSE'
 description = 'LaTeX inspired Hugo theme'
 
 # The home page of the theme, where the source can be found
