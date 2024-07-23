@@ -20,10 +20,6 @@ footnoteReturnLinkContents = "^"
     name = 'Homilies'
     pageRef = '/homilies'
     weight = 20
-  [[menus.main]]
-    name = 'About'
-    pageRef = '/about'
-    weight = 30
 
 [taxonomies]
   category = "categories"

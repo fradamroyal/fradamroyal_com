@@ -1,7 +1,7 @@
 +++
-title = 'Sixteenth Sunday in Ordinary Time 2024'
+title = 'Sixteenth Sunday Per Annum'
 date = 2024-07-21
-draft = true
+draft = false
 +++
 
 Nearly 2,600 years ago, Jeremiah spoke to a people burdened by violence and loss, people exiled from their beloved Jerusalem. In their deepest despair, God promised a future of harmony and right relationship with him and each other.
