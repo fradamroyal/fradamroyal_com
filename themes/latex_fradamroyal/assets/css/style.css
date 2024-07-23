@@ -445,6 +445,10 @@ h1:first-child {
   text-align: center;
 }
 
+/* Topnav bar */
+.topnav {
+    text-align: center;
+}
 /* Nested ordered list for ToC */
 nav ol {
   counter-reset: item;

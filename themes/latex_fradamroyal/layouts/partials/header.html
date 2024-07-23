@@ -12,7 +12,6 @@
 {{ $title := $.Scratch.Get "title" }}
 {{ if $title }}
 <header>
-  {{ partial "nav.html" . }}
   <div class="intro-header">
     <div class="container">
       <div class="{{ .Type }}-heading">
@@ -30,6 +29,7 @@
                   {{ .Site.Params.Author.abstract }}
                 </p>
               </div>
+	      {{ partial "nav.html" . }}
             {{ end }}
           {{ end }}
         {{ end }}
