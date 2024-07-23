@@ -448,6 +448,7 @@ h1:first-child {
 /* Topnav bar */
 .topnav {
     text-align: center;
+    word-spacing: 1rem;
 }
 /* Nested ordered list for ToC */
 nav ol {

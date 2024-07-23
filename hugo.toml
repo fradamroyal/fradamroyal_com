@@ -2,7 +2,6 @@ baseURL = 'https://fradamroyal.com/'
 languageCode = 'en-us'
 title = 'Homilies & Thoughts'
 theme = 'latex_fradamroyal'
-sectionPagesMenu = 'main'
 paginate = 3
 enableInlineShortcodes = true
 footnoteReturnLinkContents = "^"
@@ -12,6 +11,19 @@ footnoteReturnLinkContents = "^"
   abstract = """
   A collection of homilies and reflections to, hopefully, inspire and guide your faith.
   """
+[menus]
+  [[menus.main]]
+    name = 'Home'
+    pageRef = '/'
+    weight = 10
+  [[menus.main]]
+    name = 'Homilies'
+    pageRef = '/homilies'
+    weight = 20
+  [[menus.main]]
+    name = 'About'
+    pageRef = '/about'
+    weight = 30
 
 [taxonomies]
   category = "categories"

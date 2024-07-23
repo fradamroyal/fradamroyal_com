@@ -14,6 +14,9 @@
 <header>
   <div class="intro-header">
     <div class="container">
+      {{ if not .IsHome }}
+        {{ partial "nav.html" . }}
+      {{ end }}
       <div class="{{ .Type }}-heading">
         {{ if eq .Type "list" }}
           <h1>{{ if .Data.Singular }}#{{ end }}{{ .Title }}</h1>
