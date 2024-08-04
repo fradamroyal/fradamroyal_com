@@ -1,0 +1,28 @@
++++
+title = 'Eighteenth Sunday Per Annum'
+date = 2024-08-04
+draft = false
++++
+
+It is easy to talk about doctrine, the set of things that we are required to believe as Catholics. Today marks one of those days when it is even easier. Today begins what is called the bread of life discourse. Over the next few Sundays, Jesus will elucidate how he embodies the true bread of life, illustrating how Old Testament accounts of miraculous feedings foreshadowed his own presence. He will emphasize that partaking in his body and blood is essential for attaining eternal life within us. So we can see how easy it would be to write off the next few Sundays as moments just to talk doctrine: the real presence, transubstantiation, and all of those things. But that wouldn’t be helpful. We all know what the Church teaches. Many of us have heard it time and again our entire lives. So, let’s not talk about that today.
+
+
+Instead, let us consider some other things that are easy to do. It is easy to come to mass on Sunday. It is easy to listen to the Gospel, to hear how Jesus lived his life. It is easy to receive communion. It is easy to go home afterwards and forget everything we just did. But none of those things is truly Christian. If we come to mass but are not open to God entering into our lives we have missed the point. If we listen to the Gospel but are not open to God calling us to change, then we have missed the point. If we receive Holy Communion but do not act like Christ then we have really missed the point. The fact is all of those things the mass, the Gospel, the Eucharist, communicate to us the presence of Christ in our midst. They are all calling us to live the life of Christ in the world. And the life of Christ is a life of sacrifice. It is a life dedicated to living for others and not living for ourselves. A life that gives itself over completely, that holds nothing back.
+
+
+Jesus gives himself entirely to us in Holy Communion not so that we can feel good about ourselves, or for us to have some place to socialize on Sundays. He gives himself to us so that we have the strength to follow him to the Cross. He gives himself to us so that we can make of our lives a sacrifice to God just as he made himself a sacrifice. God did not have to come into our world. He did not have to sacrifice himself. But he loved us, and this is what love looks like. Love looks like sacrifice. Love endures any suffering, any trial, to reach its beloved. Love, authentic love, recognizes no barrier to itself, but continually pours itself out in the hope that the beloved will return that love.
+
+
+But what does this really look like in our lives? God does not expect us all literally to be nailed to a cross so that others may have life. For most of us, a life of sacrifice looks a bit more ordinary. But in a culture obsessed with individualism and enthralled by its own selfish desires the ordinary life of a Christian is extraordinary.
+
+
+For the married, to live the life of Christ, to live the Eucharist, means to give yourselves over completely to your marriage. In your vows you promised to God and to the whole world that you would hold nothing back from your spouse. You promised to give yourself, your life, your possessions, even your body over entirely to another just as Christ gave himself over to us, and gives himself to us now in the Eucharist. Your life of sacrifice looks like fidelity to that promise. It looks like the blood and sweat of labor and work so that you can put food on the table, clothes upon one another and your children, and provide a shelter against the elements. It looks like considering the needs of your spouse before your own. It looks like listening to each other when, especially when, you have reached the point of exhaustion and think you have nothing left to give. It even looks like cleaning the dishes, or giving the other a complement, or any of those other seemingly small but still meaningful tokens of love.
+
+
+It also means being open to new life. Just as the sacrifice of Christ on the cross opens the way to new life, so the sacrifice of love that is marriage opens the way to new life. Life that should not be feared or avoided but welcomed as a gift from God. Mothers, you have been specially gifted by God in this regard. You know what it means to give yourself entirely over for another. You know what it means to give your whole body so that another can have life.
+
+
+For those who are single or widowed, your life of sacrifice looks different. It is first and foremost a life of openness to God. Openness to his call, to discernment of his will for you. To the young especially, God may be calling you to a life consecrated entirely to himself. He may be calling you to the religious life or the priesthood. But young or old, God is calling all single people to lives of service to family and to the community. We are to learn to love all peoples just as Christ loves them. We are to reject the trivial and banal entertainments our culture gives to distract us from true love. The single life is an opportunity to dedicate ourselves to prayer, to come to know God, to learn to trust and depend upon God, so that no matter what he ultimately calls us to we will be prepared to say yes, we will be prepared to carry the cross that he gives us.
+
+
+Married or single, religious or priest, whatever our state in life the message of the Eucharist, of Christ’s total giving of himself to us, as the bread of life, is essentially the same. Our lives are a gift from God. To show him true thanksgiving is to give our lives away, to give them away in service and love to one another confident that in doing so we will receive the even greater gift he has in store.
