@@ -4,7 +4,7 @@ date = 2024-08-18
 draft = false
 +++
 
-I think one of the reasons people struggle with the idea of the Eucharist today is its simplicity. The Mass has certainly undergone significant changes over the millennia. At times, it has been more elaborate and had many elements added; at other times, it has been more direct and austere. But at its heart has always been a very simple rite: sharing a meal with God himself—a basic meal that appears to be bread and wine. In our culture, and even at the time of Jesus himself, this ritual has a baffling simplicity. We want to see more because we live in a culture of spectacle.
+I think one of the reasons people struggle with the idea of the Eucharist today is its simplicity. The mass has certainly undergone significant changes over the millennia. At times, it has been more elaborate and had many elements added; at other times, it has been more direct and austere. But at its heart has always been a very simple rite: sharing a meal with God himself—a basic meal that appears to be bread and wine. In our culture, and even at the time of Jesus himself, this ritual has a baffling simplicity. We want to see more because we live in a culture of spectacle.
 
 
 We need more and novel entertainments. We spend our lives seeking more. Every movie and show has to push the boundaries and do something new that we have never seen before. The news must be increasingly graphic and incendiary to keep our attention 24/7. Even our vacations have become a chasing of novelty. We must find new places, see new sites, and have new experiences. We can't get enough. And if we are not saturated with continual inflows of more and new, then we are not satisfied. But this is a delusion.
