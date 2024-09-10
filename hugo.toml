@@ -20,6 +20,10 @@ footnoteReturnLinkContents = "^"
     name = 'Homilies'
     pageRef = '/homilies'
     weight = 20
+  [[menus.main]]
+    name = 'Reflections'
+    pageRef = '/reflections'
+    weight = 30
 
 [taxonomies]
   category = "categories"
@@ -27,4 +31,4 @@ footnoteReturnLinkContents = "^"
   series = "series"
 
 [params]
-mainSections = ["homilies", "posts"]
+mainSections = ["homilies", "reflections"]

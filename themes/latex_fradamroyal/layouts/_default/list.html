@@ -3,7 +3,8 @@
     <div class="posts-list">
       {{ $pag := slice }}
       {{ if .IsHome }}
-        {{ $pag = .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
+      {{ $pages := .Site.RegularPages }}
+        {{ $pag = .Paginate $pages.ByDate.Reverse }}
       {{ else }}
         {{ $pag = .Paginate .Pages }}
       {{ end }}
