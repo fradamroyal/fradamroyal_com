@@ -1,13 +1,22 @@
 {{ define "main" }}
 <div class="container" role="main">
     <div class="posts-list">
-      {{ $pag := slice }}
+      {{ $allPages := slice }}
       {{ if .IsHome }}
-      {{ $pages := .Site.RegularPages }}
-        {{ $pag = .Paginate $pages.ByDate.Reverse }}
+        {{/* Grab pages from mainSections param */}}
+        {{ $mainSections := .Site.MainSections }}
+          {{/* Loop through each section provided in mainSections */}}
+        {{ range $mainSections }}
+          {{/* Get the pages for each section */}}
+          {{ $sectionPages := (where $.Site.RegularPages "Section" .) }}
+          {{/* Append the pages from this section to the allPages slice */}}
+          {{ $allPages = $allPages | append $sectionPages }}
+        {{ end }}
       {{ else }}
-        {{ $pag = .Paginate .Pages }}
+        {{ $allPages = .Pages }}
       {{ end }}
+
+      {{ $pag := .Paginate $allPages.ByDate.Reverse }}
 
       {{ range $pag.Pages }}
         {{ partial "preview.html" . }}

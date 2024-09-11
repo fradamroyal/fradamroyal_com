@@ -2,15 +2,17 @@ baseURL = 'https://fradamroyal.com/'
 languageCode = 'en-us'
 title = 'Homilies & Thoughts'
 theme = 'latex_fradamroyal'
-paginate = 3
+pagination.pagerSize = 3
 enableInlineShortcodes = true
 footnoteReturnLinkContents = "^"
 
-[Params.author]
-  name = "Rev. Adam Royal"
-  abstract = """
-  A collection of homilies and reflections to, hopefully, inspire and guide your faith.
-  """
+[params]
+  mainSections = ['reflections', 'homilies']
+  [params.author]
+    name = "Rev. Adam Royal"
+    abstract = """
+    A collection of homilies and reflections to, hopefully, inspire and guide your faith.
+    """
 [menus]
   [[menus.main]]
     name = 'Home'
@@ -29,6 +31,3 @@ footnoteReturnLinkContents = "^"
   category = "categories"
   tag = "tags"
   series = "series"
-
-[params]
-mainSections = ["homilies", "reflections"]
