@@ -1,3 +1,7 @@
 .hugo_build.lock
 public/
 .DS_Store
+.prettierrc
+package.json
+package-lock.json
+node_modules
