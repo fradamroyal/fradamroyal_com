@@ -17,9 +17,9 @@ This form of hypocrisy, though common, is often easy to detect. When we see it, 
 
 
 There is, however, another form of hypocrisy that is far more subtle and, I believe, more pervasive in our culture. It is the kind St. Josemaría Escrivá addresses in this quote:
->You are constantly talking about the need to change and reform things. Good… Reform yourself! For you need it badly, and already you will have begun the great reform. 
+>You are constantly talking about the need to change and reform things. Good… Reform yourself! For you need it badly, and already you will have begun the great reform.
 >
->In the meantime, I shall not be putting too much faith in your proclamations of reform.
+>In the meantime, I shall not be putting too much faith in your proclamations of reform. {{< sidenote >}} [Furrow 636](https://escriva.org/en/surco/636/) {{< /sidenote >}}
 
 
 It is all too easy to adopt a posture of constant criticism—of others, of society, of the world around us. We often speak of the need for reform, for change, and we believe that if everyone simply followed our advice, the world would be a better place. Yet, as St. Josemaría points out, this is not the way of the Gospel. The Gospel calls us to reform ourselves first. True and lasting reform in the world comes not through the criticism of others but through our own self-examination and transformation. The kingdom of God will be manifest in this world only if we, individually, live out the Gospel as Christ has called us to.
