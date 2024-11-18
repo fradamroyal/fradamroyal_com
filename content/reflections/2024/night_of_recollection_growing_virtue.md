@@ -1,7 +1,7 @@
 +++
 title = 'Night of Recollection - Growing in Virtue'
-date = 2024-11-18T15:00:10-05:00
-draft = true
+date = 2024-11-04
+draft = false
 +++
 
 Tonight, our reflection centers on growing in virtue—how we actively cultivate a life rooted in Christ and aligned with his teachings, beginning in the small, ordinary moments of our day. However, I’d like to begin with a brief reading from the Gospel of Luke.
