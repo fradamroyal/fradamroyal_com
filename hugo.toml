@@ -31,3 +31,7 @@ footnoteReturnLinkContents = "^"
   category = "categories"
   tag = "tags"
   series = "series"
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
