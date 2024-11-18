@@ -1,5 +1,5 @@
 +++
-title = 'Thirtythird_sunday_per_annum'
+title = 'Thirty-third Sunday Per Annum'
 date = 2024-11-17
 draft = false
 +++
