@@ -1,7 +1,7 @@
 +++
 title = 'Night of Recollection - Advent Through the Eyes of Our Lady'
 date = 2024-12-02
-draft = true
+draft = false
 +++
 
 Tonight, I invite you to explore a profound way of praying—one that can deepen our experience of this Advent season. To begin, let us reflect on the words of St. Josemaría Escrivá:
