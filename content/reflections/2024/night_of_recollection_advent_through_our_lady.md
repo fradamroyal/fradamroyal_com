@@ -6,15 +6,18 @@ draft = true
 
 Tonight, I invite you to explore a profound way of praying—one that can deepen our experience of this Advent season. To begin, let us reflect on the words of St. Josemaría Escrivá:
 
-> “This time of Advent is a time for hope. These great horizons of our Christian vocation, this unity of life built on the presence of God, our Father, can and ought to be a daily reality. Ask Our Lady, along with me, to make it come true. Try to imagine how she spent these months waiting for her Son to be born, and Our Lady, Holy Mary, will make of you *alter Christus*, *ipse Christus*, another Christ, Christ himself.” {{< sidenote >}} (Christ is Passing By, 11)[https://escriva.org/en/es-cristo-que-pasa/the-christian-vocation/] {{< /sidenote >}}
+> “This time of Advent is a time for hope. These great horizons of our Christian vocation, this unity of life built on the presence of God, our Father, can and ought to be a daily reality.
+
+
+>Ask Our Lady, along with me, to make it come true. Try to imagine how she spent these months waiting for her Son to be born. And Our Lady, Holy Mary, will make of you *alter Christus*, *ipse Christus*, another Christ, Christ himself!” {{< sidenote >}} [Christ is Passing By, 11](https://escriva.org/en/es-cristo-que-pasa/11/) {{< /sidenote >}}
 
 Advent, as St. Josemaría reminds us, is a time to turn to Our Lady. She stands as the model of Advent spirituality—waiting, preparing, and hoping in perfect harmony with God’s will. Reflecting on her journey helps us embrace this sacred season in its fullness.
 
-Interestingly, earlier generations of the Church emphasized this Marian aspect of Advent more explicitly than we often do today. In medieval England, for example, the Gloria continued to be sung during Advent, but it was altered to include an explicit reference to the Blessed Virgin. Advent was seen as her season, a time to turn to Mary for guidance as she prepared for the coming of Christ in a way no one else ever could—carrying him in her womb.
+Interestingly, earlier generations of the Church emphasized this Marian aspect of Advent more explicitly than we often do today. In medieval England, for example, the Gloria was sung during the almost daily Rorate masses of Advent, and it was altered to include explicit references to the Blessed Virgin. She was also commemorated, with an additional collect, at every mass. Advent was seen as her season, a time to turn to Mary for guidance as she prepared for the coming of Christ in a way no one else ever could—carrying him in her womb.
 
 St. Josemaría challenges us to go beyond simply praying to Our Lady. He invites us to enter into her experience by imagining how she spent those sacred months of waiting. Imagination, when rightly directed, plays a vital role in deepening our spiritual lives. Far from being fanciful or distracting, it can become a powerful tool for prayer, especially in a practice known as *Lectio Divina*.
 
-# The Gift of Advent: Waiting with Mary
+# Waiting with Mary
 
 Before diving into the specifics of *Lectio Divina*, it is worth pausing to consider why Advent is such a powerful season for this practice. Advent is unique in the liturgical calendar—a season of joyful anticipation and solemn preparation. It invites us to wait with hope, something profoundly countercultural in a world that values instant gratification.
 
@@ -28,7 +31,7 @@ The challenge for us is to embrace Advent in the same spirit, to allow its quiet
 
 This practice is particularly well-suited to Advent, as it allows us to meditate on the moments leading to Christ’s birth and align our hearts with the patient anticipation of Mary.
 
-# Step 1: *Lectio* (Reading)
+# *Lectio* (Reading)
 
 The journey begins with reading the Sacred Scriptures. Open the Bible and choose a short passage—perhaps a few verses from the Gospels recounting the Annunciation, the Visitation, or the Nativity. In *Lectio Divina*, the goal is not to cover a lot of ground but to approach Scripture attentively and reverently, allowing a word, phrase, or detail to stand out.
 
@@ -36,7 +39,7 @@ Consider this: How often do we hear the same Gospel passages year after year wit
 
 This first step is about openness. By reading slowly and attentively, we create the space for God to speak to us.
 
-# Step 2: *Meditatio* (Meditation)
+# *Meditatio* (Meditation)
 
 Having read the passage, we enter meditation. Here, imagination becomes a sacred instrument. Place yourself within the scene—walk the dusty roads of Nazareth, stand in awe before the angel, or sit beside Mary as she sings her Magnificat.
 
@@ -46,7 +49,7 @@ As you meditate, you may find yourself identifying with one of the characters in
 
 St. Josemaría encourages us to meditate on how Mary waited for Christ. Imagine her daily life during those months—her prayers, her conversations with Joseph, her quiet reflections on the promises of God. What can her example teach us about waiting with faith and hope?
 
-# Step 3: *Oratio* (Prayer)
+# *Oratio* (Prayer)
 
 When meditation has run its course—when the scene has been explored and its lessons begin to crystallize—we turn to prayer. *Oratio* is our response to God’s Word. Here, we speak to him about what we have encountered.
 
@@ -54,9 +57,9 @@ This is the moment of conversation with God. Thank him for the insights he has r
 
 Prayer is where the Word begins to transform us. It is not just a dialogue but a step toward aligning our hearts with God’s will.
 
-# Step 4: *Contemplatio* (Contemplation)
+# *Contemplatio* (Contemplation)
 
-The final step, contemplation, is a gift of grace. Unlike the earlier stages, it is not something we achieve through effort. The tradition calls it an infused gift, a grace placed directly into the mind and sould by God. Contemplation is God’s work in the soul—a moment when he draws us into his presence in a profound and transformative way.
+The final step, contemplation, is a gift of grace. Unlike the earlier stages, it is not something we achieve through effort. The tradition calls it an infused gift, a grace placed directly into the mind and soul by God. Contemplation is God’s work in the soul—a moment when he draws us into his presence in a profound and transformative way.
 
 If contemplation occurs, it is unmistakable. It is an experience of God’s love and presence that transcends words and thoughts. Time seems to stand still, and the soul rests in a deep communion with the divine. While contemplation cannot be forced, we can create the conditions for it by approaching prayer with humility and openness.
 
