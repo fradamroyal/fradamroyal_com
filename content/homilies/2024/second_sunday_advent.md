@@ -1,7 +1,7 @@
 +++
 title = 'Second Sunday of Advent'
 date = 2024-12-08
-draft = true
+draft = false
 +++
 
 “Prepare the way of the Lord, make straight his paths,” is not a call to control or coercion but an invitation to transformation. We are called to prepare our hearts and lives for the Lord’s coming, not by forcing his ways on others but by imitating his love and mercy.
