@@ -1,5 +1,5 @@
 +++
-title = 'Fourth Sunday Advent'
+title = 'Fourth Sunday of Advent'
 date = 2024-12-22
 draft = false
 +++
