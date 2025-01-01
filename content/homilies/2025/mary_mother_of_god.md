@@ -1,7 +1,7 @@
 +++
 title = 'Mary, Mother of God'
 date = 2025-01-01
-draft = true
+draft = false
 +++
 
 The Blessed Virgin Mary is the supreme model for the Church and for every believer. Yet, it is unfortunate that we so often misunderstand and mischaracterize her. For far too long, Mary has been seen as merely demure and maidenly, a passive vessel who carried God rather than an active participant in the drama of salvation.
