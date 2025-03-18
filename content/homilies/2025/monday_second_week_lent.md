@@ -12,9 +12,9 @@ The Church Fathers urge us to turn inward instead. By examining our own hearts a
 
 ## Letting Go of Vengeance
 
-The second step in the journey toward mercy is learning to let go of vengeance. Often we think of mercy as immediate and unconditional. And this frustrates us because this can seem like an impossible goal to achieve. We must begin with something easier. The Church Fathers encourage us to begin with letting go of vengance. This is a critical turning point because our instinct is often to respond to wrongs done to us by wishing harm on those who wronged us.
+The second step on the path to mercy is learning to relinquish vengeance. Too often, we think of mercy as something immediate and unconditional, which can leave us frustrated, as if we are being asked to reach an impossible ideal. But we do not begin with perfection—we must start with what is within our grasp. The Church Fathers urge us to take the first step by letting go of vengeance, a crucial turning point, since our natural instinct is to respond to wrongdoing with the desire to see the offender suffer.
 
-Instead, we are called to resist that urge. By accepting that we have been wronged without seeking retribution, we take a significant step toward cultivating a merciful heart. This does not mean we must immediately reach full forgiveness, but it does mean we must resist the desire to repay evil with evil. It is only by removing this vengeful inclination that we can begin to truly forgive and let go of the harm done to us.
+Instead, we are called to resist that impulse. By choosing not to seek retribution, we loosen the grip of resentment on our hearts and prepare the way for mercy to grow. Before we can fully forgive, we must first practice restraint, refusing to be ruled by anger. It is only by setting aside vengeance that we become capable of moving toward true forgiveness and healing.
 
 ## Showing Compassion
 
