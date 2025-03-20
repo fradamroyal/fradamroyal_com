@@ -1,5 +1,5 @@
 +++
-title = 'Thursday Second Week of Lent'
+title = 'Thursday of the Second Week of Lent'
 date = 2025-03-20
 draft = false
 +++
