@@ -1,7 +1,7 @@
 +++
 title = 'Third Sunday of Lent'
 date = 2025-03-23
-draft = true
+draft = false
 +++
 
 Whenever tragedy strikes, our first impulse is to search for meaning. We want explanations: Why did this happen? Who is to blame? We instinctively wonder if suffering is punishment for wrongdoing. Yet, Jesus sharply challenges this notion, asking, “Do you think that because these Galileans suffered in this way they were greater sinners than all other Galileans?” His response is clear: tragedy is not a measure of guilt.
