@@ -1,0 +1,15 @@
++++
+title = 'Monday of the Third Week of Lent'
+date = 2025-03-24
+draft = false
++++
+
+When we hear this familiar Gospel story—especially the words, "no prophet is accepted in his own native place"—we often think of the old saying: familiarity breeds contempt. And certainly, that is part of what's happening here. The people who have known Jesus since childhood cannot believe he is someone extraordinary. But there is something deeper at play.
+
+In this passage, Jesus brings Israel's history to the forefront. Throughout their history, God's people have often misunderstood their relationship with him. They believed that because God chose them, he owed them something—that blessings and protection were guaranteed simply because they were his chosen people. They even voiced it aloud at times: "The temple is here, so surely God will protect us." Yet repeatedly, God reminded them that being chosen does not create obligations for God; rather, it places responsibilities upon his people. Israel was chosen for holiness, chosen to cultivate a genuine relationship with God, chosen to faithfully follow him. Their privilege was matched by a profound responsibility, and they frequently struggled with this reality. Instead of responding with holiness, they relied on entitlement, believing God had to protect and bless them simply because they were chosen.
+
+This is why Jesus points them to their own history. During times of trouble and famine, to whom did the prophets go? Not to the Israelites, who took God's presence for granted, but to pagans whose hearts were open and responsive to God. These outsiders, because of their openness, received true blessings, while God's own people, who turned their backs on him, missed those blessings entirely. This truth infuriates Jesus' listeners. He confronts them, saying, in essence, "I'm not here to perform miracles just to entertain you. Your hearts are closed. You lack genuine faith. You don't truly seek a relationship with God—you just want a spectacle." Their angry reaction, attempting to throw Jesus off the cliff, only confirms his point.
+
+We must recognize this same temptation in ourselves. How easy it is to say, just like ancient Israel, "God, you called me. I'm in your Church. You dwell here. Surely nothing bad will happen to me. Surely you owe me your blessings." But that's not how God works. God's calling doesn't relieve us of responsibility—it intensifies it. We are called to holiness, called to grow continually in faith, called to deepen our relationship with him every day. We cannot assume that God's past generosity guarantees our future blessings. Instead, we must constantly pursue holiness, continually seeking closeness with God. Being called by God is an immense privilege, but it is one we can lose if we take it for granted.
+
+So let us renew our commitment daily. Let us never rest on past blessings, but strive always to become the people God calls us to be. That is our purpose; that is the essence of the Christian life—to be holy, just as God himself is holy.
