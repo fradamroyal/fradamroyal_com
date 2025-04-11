@@ -1,7 +1,7 @@
 +++
 title = 'Fifth Sunday of Lent'
-date = 2025-04-11T10:53:11-05:00
-draft = true
+date = 2025-04-06
+draft = false
 +++
 
 **NB:** This Sunday we had the third scrutiny. The [homily for the mass with the scrutiny](#the-third-scrutiny) can be found below. The homily for the Year C reading used at the other masses follows immediately:
