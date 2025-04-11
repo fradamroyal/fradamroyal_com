@@ -1,5 +1,5 @@
 +++
-title = 'Fifth_sunday_lent'
+title = 'Fifth Sunday of Lent'
 date = 2025-04-11T10:53:11-05:00
 draft = true
 +++
@@ -21,7 +21,7 @@ How easily we place others—or even ourselves—in boxes marked 'worthy' or 'un
 Let us remember Jesus’ merciful posture and words, and allow ourselves to be transformed by them. Let us accept his gentle invitation to release judgment and embrace compassion. For in doing so, we step forward into the freedom Christ offers—the freedom to love as generously as we are loved.
 
 
-## The Third scrutiny
+## The Third Scrutiny
 When Martha confronted Jesus after her brother’s death, her voice carried the sorrow of every human heart: “Lord, if you had been here, my brother would not have died.” We understand Martha’s cry because it mirrors our own: If God truly loves us, why does he sometimes seem distant precisely when we need him most?&#x20;
 
 Jesus’s deliberate delay upon hearing of Lazarus’s illness appears puzzling, even troubling. He loved Lazarus deeply, yet he waited two days. We might see this as neglect or even indifference, but it was neither. Rather, in that intentional pause, we witness the full depth of Christ’s compassion. Lazarus’ death makes room for  Jesus to demonstrate the limitless mercy of God—a mercy that conquers even death itself.
