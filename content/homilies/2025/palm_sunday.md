@@ -1,7 +1,7 @@
 +++
 title = 'Palm Sunday'
 date = 2025-04-13
-draft = true
+draft = false
 +++
 
 Jesus rides into Jerusalem today not as a conquering king but as the one who willingly goes to the cross. Every step, every gesture of his procession speaks clearly of one thing: the limitless depth of God’s love for us. Yet how often do we doubt this love, feeling isolated by pain, misunderstood by others, or burdened by hidden wounds?
