@@ -4,7 +4,7 @@ date = 2025-06-15
 draft = false
 +++
 
-At the very heart of reality, beyond the boundaries of space and time, relationship reigns supreme. Before the stars first ignited, before human voices reverberated through history, relationship already existed, eternal and unbounded. “He will take from what is mine and declare it to you,” Jesus assures us, unveiling a divine intimacy that stretches from the Father through the Son to the Spirit and into our lives.
+At the very heart of reality, beyond the boundaries of space and time, relationship reigns supreme. Before the stars first ignited, before human voices reverberated through history, relationship already existed, eternal and unbounded. “He will take from what is mine and declare it to you,” Jesus assures us, unveiling a divine intimacy that stretches from the Father through the Son to the Holy Spirit and into our lives.
 
 This relationship is not theological poetry; it is the essence of our existence. We glimpse here the inner life of God, a community of love—the Father eternally pouring forth into the Son, the Son reflecting that love fully, and the Holy Spirit binding and breathing through their union. This eternal communion is not merely about God’s identity; it profoundly shapes our understanding of who we are and why we exist.
 
