@@ -1,7 +1,7 @@
 +++
 title = 'Pride & Humility in Franciscan Spirituality'
 date = 2025-08-24T18:30:00-00:00
-draft = true
+draft = false
 +++
 
 Pride and humility stand in sharp opposition. Pride has long been considered the root of all sin, while humility is the cornerstone of holiness. For those who walk in the footsteps of St. Francis of Assisi, humility is not an optional virtue but the very ground on which the Franciscan life is built. Francis himself called his followers the fratres minores, the “lesser brothers,” and referred to himself as “the least of the brothers,” echoing Christ’s own humility in the Incarnation. To understand this tension, we must first consider how pride manifests in human life, then reflect on the Franciscan witness of humility, and finally turn to the cultivation of humility in daily practice.
