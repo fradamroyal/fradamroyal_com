@@ -1,7 +1,7 @@
 +++
 title = 'Twenty-ninth Sunday in Ordinary Time'
 date = 2025-10-19
-draft = true
+draft = false
 +++
 
 At the city gate, the dust never settles. Merchants haggle, travelers shout, carts rattle by. Here the courts meet in the open: respected elders and judges sit from morning to evening, hearing disputes where anyone may step forward. A widow has no husband to represent her; she must speak for herself before neighbors and strangers alike. There—at the busiest spot in town—a widow appears again. She stands where everyone can see. She is not proud. She is not powerful. She simply returns, day after day, to plead for justice.
