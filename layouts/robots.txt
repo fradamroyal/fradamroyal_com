@@ -1,0 +1,7 @@
+User-agent: *
+Content-signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+Sitemap: {{ .Site.BaseURL }}sitemap.xml
+Host: {{ .Site.BaseURL }}
+

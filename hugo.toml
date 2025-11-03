@@ -5,6 +5,7 @@ theme = 'latex_fradamroyal'
 pagination.pagerSize = 3
 enableInlineShortcodes = true
 footnoteReturnLinkContents = "^"
+enableRobotsTXT = true
 
 [params]
   mainSections = ['reflections', 'homilies']
