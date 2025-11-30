@@ -1,7 +1,7 @@
 +++
 title = 'First Sunday of Advent'
 date = 2025-11-30
-draft = true
+draft = false
 +++
 
 Advent arrives like an alarm clock in the dark. The world keeps moving at its usual pace—work and meals, holidays and travel, screens glowing late into the night—yet the Lord gently shakes our shoulder and gives a single, urgent command: “Therefore, stay awake!”
