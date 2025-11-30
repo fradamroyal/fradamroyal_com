@@ -1,7 +1,7 @@
 +++
 title = 'Solemnity of Our Lord Jesus Christ, King of the Universe (Christ the King)'
 date = 2025-11-23
-draft = true
+draft = false
 +++
 
 The throne of our King does not look like a throne. It is a cross planted outside the city, with a crude sign nailed above his head and a handful of people watching while the crowd mocks and walks away. The rulers scoff, the soldiers make jokes, even a dying criminal joins in. It looks like weakness and failure.
