@@ -1,5 +1,5 @@
 +++
-title = 'Solemnity of Our Lord Jesus Christ King of the Universe (Christ the King)'
+title = 'Solemnity of Our Lord Jesus Christ, King of the Universe (Christ the King)'
 date = 2025-11-23
 draft = true
 +++
