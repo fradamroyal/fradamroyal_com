@@ -1,7 +1,7 @@
 +++
 title = 'Advent by Candlelight'
 date = 2025-12-09
-draft = true
+draft = false
 +++
 
 A series of reflections on the 4 Sunday Gospels of Advent.
