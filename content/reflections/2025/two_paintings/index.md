@@ -2,6 +2,7 @@
 title = 'Two Resurrections'
 date = 2025-12-19
 draft = false
+summary = 'Two images of the Resurrection—one traditional, one contemporary—reveal more than artistic taste. A Renaissance anachronism quietly proclaims the Incarnation: Christ rose for every age, not only first-century Jerusalem. But when modern soldiers and concrete appear around the empty tomb, many of us flinch. Why? This reflection explores that discomfort, exposing how easily we confine faith to the past, and invites us to see the risen Lord as present here and now—judging, redeeming, and remaking our world.'
 +++
 
 {{< figure src="painting_1.jpeg" alt="First Painting of the Resurrection" caption="First Painting" >}}
