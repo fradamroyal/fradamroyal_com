@@ -6,9 +6,14 @@
     {{ partial "postmeta.html" . }}
   </div>
   <div class="post-entry">
-    {{ if .Truncated }}
-      <p>{{ .Summary }}</p>
+    {{ with .Params.summary }}
+      <p>{{ . }}</p>
+      <a href="{{ $.Permalink }}" class="post-read-more">Read More</a>
+    {{ else }}
+      {{ if .Truncated }}
+        <p>{{ .Summary }}</p>
         <a href="{{ .Permalink }}" class="post-read-more">Read More</a>
+      {{ end }}
     {{ end }}
   </div>
 </article>
