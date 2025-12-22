@@ -2,6 +2,7 @@
 title = 'Advent by Candlelight'
 date = 2025-12-09
 draft = false
+summary = 'By candlelight, these four Advent reflections trace a path from wakefulness to repentance, from fragile faith to renewed trust. Beginning with Jesus’ warning to stay awake, they move through John’s call to bear fruit, Christ’s assurance that grace is truly at work, and the quiet courage of Joseph. Together they invite us to let God enter ordinary life, weakness, and uncertainty, so the light of Emmanuel can be born anew.'
 +++
 
 A series of reflections on the 4 Sunday Gospels of Advent.
