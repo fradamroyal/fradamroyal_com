@@ -2,6 +2,7 @@
 title = 'Widow Ministry Reflection - Luke 7:11-17'
 date = 2024-11-12
 draft = false
+summary = "At the gates of Nain, Jesus meets a widow carrying the weight of grief and vulnerability—and he steps in without being asked. This reflection lingers over Christ’s compassion, his touch that stops the funeral procession, and the startling command: “Young man, rise.” More than a miracle, it is restoration: a son returned, dignity renewed, hope reborn. It also becomes a call to the Church to share that same mercy, especially with the overlooked and sorrowful, trusting that death never has the final word."
 +++
 
 ><small>11</small> Soon afterwards he went to a town called Nain, and his disciples and a large crowd went with him. <small>12</small> As he approached the gate of the town, a man who had died was being carried out. He was his mother’s only son, and she was a widow; and with her was a large crowd from the town. <small>13</small> When the Lord saw her, he had compassion for her and said to her, “Do not weep.” <small>14</small> Then he came forward and touched the bier, and the bearers stood still. And he said, “Young man, I say to you, rise!” <small>15</small> The dead man sat up and began to speak, and Jesus gave him to his mother. <small>16</small> Fear seized all of them; and they glorified God, saying, “A great prophet has risen among us!” and “God has looked favorably on his people!” <small>17</small> This word about him spread throughout Judea and all the surrounding country.<br>

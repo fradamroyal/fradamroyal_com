@@ -2,6 +2,7 @@
 title = 'The Tragedy of Solomon'
 date = 2025-08-07T16:37:43-05:00
 draft = false
+summary = "Solomon seems untouchable: wisdom like water, a temple rising in glory, a kingdom at peace. Yet his story turns tragic as multiplied loves divide his heart and altars to lesser gods eclipse devotion—until the kingdom itself begins to tear. This reflection looks at why gifted people still fall, how private drift becomes communal ruin, and why Solomon’s legacy is finally not achievement but mercy: the God who remains faithful when we do not—and invites us to return, undivided, to the One who loves us still."
 +++
 
 ## Tragedy & Grace

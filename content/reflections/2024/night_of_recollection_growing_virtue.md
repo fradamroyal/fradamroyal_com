@@ -2,6 +2,7 @@
 title = 'Night of Recollection - Growing in Virtue'
 date = 2024-11-04
 draft = false
+summary = "Virtue rarely grows through heroic leaps; it is formed in quiet choices made with Christ. Beginning with Jesus’ call to invite those who cannot repay us, this night of recollection explores charity as a selfless love freed from the need for recognition. It offers a practical path: start small, practice in hidden moments, and let grace strengthen you step by step—like a muscle trained over time. The goal is not anxious perfectionism, but the joy and freedom of a heart steadily united to God."
 +++
 
 Tonight, our reflection centers on growing in virtue—how we actively cultivate a life rooted in Christ and aligned with his teachings, beginning in the small, ordinary moments of our day. However, I’d like to begin with a brief reading from the Gospel of Luke.

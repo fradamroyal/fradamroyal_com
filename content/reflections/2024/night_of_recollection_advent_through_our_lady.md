@@ -2,6 +2,7 @@
 title = 'Night of Recollection - Advent Through the Eyes of Our Lady'
 date = 2024-12-02
 draft = false
+summary = "Advent is not only a countdown—it is a school of hope, and Mary is its best teacher. This night of recollection invites you to pray the season “through Our Lady’s eyes,” entering her waiting with trust rather than restlessness. Drawing on St. Josemaría, it introduces Lectio Divina as a concrete way to slow down, listen to Scripture, and let the Word reshape daily life. Learn to read, ponder, pray, and rest with Mary, so Christmas arrives not as noise, but as grace."
 +++
 
 Tonight, I invite you to explore a profound way of praying—one that can deepen our experience of this Advent season. To begin, let us reflect on the words of St. Josemaría Escrivá:

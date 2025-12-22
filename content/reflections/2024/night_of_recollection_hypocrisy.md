@@ -2,6 +2,7 @@
 title = 'Night of Recollection - Hypocrisy'
 date = 2024-09-09
 draft = false
+summary = "Hypocrisy isn’t only the loud scandal we recognize from afar; it’s often the quieter habit of criticizing the world while neglecting our own conversion. This night of recollection traces both forms: the public denunciation that can hide private weakness, and the constant talk of “reform” that never begins with the heart. Drawing on St. Josemaría, it calls us back to the real instruments of change—prayer, fasting, penance, and mortification—because holiness, not outrage, is what truly converts and renews the world."
 +++
 
 Tonight, I would like to reflect on the topic of hypocrisy, particularly the various ways in which it tends to manifest. Whenever I hear the word hypocrisy, what often comes to mind, perhaps due to the time and place of my upbringing in Alabama, is televangelists. These were men who promoted the Gospel on television but frequently targeted particular sins with great fervor. Over the years, how many of them did we see fall from grace, as it was revealed that the very sins they condemned so passionately were the ones they themselves committed in secret—and they were inevitably caught.
@@ -47,4 +48,3 @@ Of course, there are practical matters that require our attention. We must care 
 
 
 So let us cast off the hypocrisy that distracts us with external matters, and instead look within. Let us recognize our own sinfulness, our failures, and our need for conversion. By drawing closer to Jesus Christ, and growing in holiness, we will not only bring ourselves closer to the kingdom of God but will also draw others to it. In the end, the greatest gift we can offer the world is our own sanctity.
-

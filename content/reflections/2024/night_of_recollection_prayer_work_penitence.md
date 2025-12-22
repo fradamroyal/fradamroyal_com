@@ -2,6 +2,7 @@
 title = 'Night of Recollection - Prayer, Work, & Penitence'
 date = 2024-10-07
 draft = false
+summary = "Christian life can’t be stitched together from separate compartments. Given on the feast of Our Lady of the Rosary, this night of recollection explores St. Josemaría’s image of the “wedding garment”: prayer, work, and penitence as threads that must be woven into one seamless interior life. It offers concrete practices—arrow prayers, sanctifying ordinary labor, and hidden mortifications—to repair the places we’ve grown selective or comfortable. The invitation is simple and demanding: let Christ touch every part of the day, until faith becomes integrity."
 +++
 
 **NB:** This reflection was given on the feast of Our Lady of the Rosary
