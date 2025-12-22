@@ -8,6 +8,7 @@
   <div class="post-entry">
     {{ with .Params.summary }}
       <p>{{ . }}</p>
+      <p></p>
       <a href="{{ $.Permalink }}" class="post-read-more">Read More</a>
     {{ else }}
       {{ if .Truncated }}
