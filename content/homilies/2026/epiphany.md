@@ -12,7 +12,7 @@ In the ancient world, religion usually stayed behind its own borders. People wor
 
 But then the magi kneel. Something new breaks into history, and it breaks the old categories with quiet force. The God of Israel does not remain one tribal deity among many. In the child they find, God is not merely visiting one people; he is laying claim to all peoples. In the Incarnation, the Lord makes himself small enough to be held—and large enough to gather the whole human family.
 
-That is what Epiphany proclaims: Christ is not the King of one group or one culture. He is the King of every heart, every home, every language, every nation. The light that leads the magi is already crossing borders, already drawing Gentiles into relationship with the living God.
+That is what Epiphany proclaims: Christ is not the King of one group or one culture. He is the King of every heart, every home, every language and nation. The light that leads the magi is already crossing borders, already drawing Gentiles into relationship with the living God.
 And if that is true—if Jesus claims all people—then his Church cannot be a fortress for the familiar. It must be a table with room. It must be a family, not a faction. This is where Epiphany stops being a beautiful scene and becomes a demanding mission.
 
 The world is skilled at division. It trains us to sort and label: “my side,” “my tribe,” “my kind of people.” It urges us to let politics harden our tone, to let culture become a wall, to let borders become excuses for indifference, to let suspicion feel like wisdom. And if we are not careful, those divisions do not just live out there—they take root in here.
