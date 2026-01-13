@@ -10,7 +10,7 @@
 main() {
 
   GO_VERSION=1.25.3
-  HUGO_VERSION=0.154.3
+  HUGO_VERSION=0.154.5
   NODE_VERSION=24.11.0
 
   export TZ=America/Chicago
