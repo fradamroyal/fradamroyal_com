@@ -11,6 +11,7 @@ But a Christian cannot live only by asking where the line is. When the heart is 
 On the mountain, Jesus offers something wider. He does not simply warn against certain actions. He blesses a certain kind of person. The Beatitudes are not a new set of prohibitions; they are an invitation to the life of heaven taking root in ordinary days. They describe what grace looks like when it is allowed to rearrange a human life from the inside out.
 
 The law given to Israel in the Ten Commandments was a gift, but our fear can twist it into a weight. Christ does not discard it. He fulfills it and gives the Spirit so it becomes life-giving.
+
 Blessedness begins with freedom. When Jesus says, “Blessed are the poor in spirit, for theirs is the kingdom of heaven,” he is describing people who are no longer chained to possessions, comfort, or the need to appear secure. Their hands can open because they do not clutch.
 
 The same freedom shows up in mercy. The merciful are not naïve about evil, and they are not weak. They are liberated from the heavy burden of resentment. They can forgive because they have stopped letting another person’s sin occupy the throne of their own heart.
