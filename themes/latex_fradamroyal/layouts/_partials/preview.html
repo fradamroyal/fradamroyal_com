@@ -1,20 +1,24 @@
 <article class="post-preview">
-  <a href="{{ .Permalink }}">
-      <h2 class="post-title">{{ .Title }}</h2>
-  </a>
-  <div class="postmeta">
-    {{ partial "postmeta.html" . }}
-  </div>
-  <div class="post-entry">
-    {{ with .Params.summary }}
-      <p>{{ . }}</p>
-      <p></p>
-      <a href="{{ $.Permalink }}" class="post-read-more">Read More</a>
-    {{ else }}
-      {{ if .Truncated }}
-        <p>{{ .Summary }}</p>
-        <a href="{{ .Permalink }}" class="post-read-more">Read More</a>
-      {{ end }}
-    {{ end }}
-  </div>
+    <a href="{{ .Permalink }}">
+        <h2 class="post-title">{{ .Title }}</h2>
+    </a>
+    <div class="postmeta">
+        {{ partial "postmeta.html" . }}
+    </div>
+    <div class="post-entry">
+        {{ $page := . }}
+        {{ with $page.Params.summary }}
+            <p>{{ . }}</p>
+            <a href="{{ $page.Permalink }}" class="post-read-more">Read More</a>
+        {{ else }}
+            {{ with $page.Summary }}
+                {{ . }}
+            {{ else }}
+                <p>{{ $page.Plain | truncate 220 }}</p>
+            {{ end }}
+            {{ if $page.Truncated }}
+                <a href="{{ $page.Permalink }}" class="post-read-more">Read More</a>
+            {{ end }}
+        {{ end }}
+    </div>
 </article>
