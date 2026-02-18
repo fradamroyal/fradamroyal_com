@@ -1,5 +1,5 @@
 +++
-title = 'Ash_wednesday'
+title = 'Ash Wednesday'
 date = 2026-02-18
 draft = false
 +++
