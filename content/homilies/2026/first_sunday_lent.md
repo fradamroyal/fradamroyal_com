@@ -1,5 +1,5 @@
 +++
-title = 'First Sunday of Lent'
+title = 'First Sunday in Lent'
 date = 2026-02-22
 draft = false
 +++
