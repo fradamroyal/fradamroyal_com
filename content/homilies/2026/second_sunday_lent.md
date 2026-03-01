@@ -6,7 +6,7 @@ draft = false
 
 Despite biblical precedent, a mountain is an odd place for a revelation. The air is thin, the ground uneven, and the climb tiring. Jesus chooses height and solitude, as if he wants his friends to feel, in their bodies, how much they rely on him. Then the veil lifts. The apostles glimpse a beauty too intense for ordinary eyes, the kind that makes knees buckle and words fail.
 
-And beside him stand Moses and Elijah. They are often described as the law and the prophets, a way of saying that Israel’s whole story points toward Christ. Which is true. Yet the scene also speaks to the human heart. Moses and Elijah look like us.
+And beside him stand Moses and Elijah. They are often described as the law and the prophets, a way of saying that Israel’s whole story points toward Christ. Which is true. Yet the scene also speaks to the human heart. Moses and Elijah look like us.
 
 Moses carried the tablets, but he also carried a past marked by violence and a temper that could scorch the people he loved. He even doubted his ability to speak. Elijah confronted kings, yet he also collapsed under despair, fleeing into the wilderness and begging for life to end. These were not immaculate heroes floating above weakness. They were men with rough edges and heavy shadows. Nonetheless, there they are—alive in God, standing near the radiant Christ.
 
