@@ -7,3 +7,4 @@ package-lock.json
 node_modules
 *.code-workspace
 .op
+.gh-pass.env
