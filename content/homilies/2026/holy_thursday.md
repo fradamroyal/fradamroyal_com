@@ -4,7 +4,7 @@ date = 2026-04-02
 draft = false
 +++
 
-When I was a kid, WWJD was everywhere—bracelets, t-shirts, billboards. “What would Jesus do?” I never cared for it. It was a bad question. Jesus would walk on water, give sight to the blind, and raise the dead. I was not going to do that. A better question, a concrete and real question is “What does Jesus want me to do,” WDJWMTD. That would look silly on a t-shirt. But that is okay. The Lord is not a slogan or an abstract ideal. He is a living person who speaks to us and loves us.
+When I was a kid, WWJD was everywhere—bracelets, t-shirts, billboards. “What would Jesus do?” I never cared for it. It was a bad question. Jesus would walk on water, give sight to the blind, and raise the dead. I was not going to do that. A better question, a concrete and real question is, “What does Jesus want me to do,” WDJWMTD. That would look silly on a t-shirt. But that is okay. The Lord is not a slogan or an abstract ideal. He is a living person who speaks to us and loves us.
 
 That is what Holy Thursday is about. Tonight Jesus does not leave his disciples with a sentiment. He gives them a pattern. He lays aside his outer garment of culture and respectability and takes up the towel of a slave. He kneels down and washes the filthy feet of men who will fail him before the night is over. Then he says, “as I have done for you, you should also do.”
 
