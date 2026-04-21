@@ -1,6 +1,6 @@
 +++
 title = 'Divine Mercy Sunday'
-date = 2026-04-11
+date = 2026-04-12
 draft = false
 +++
 
