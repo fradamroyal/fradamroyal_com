@@ -1,5 +1,5 @@
 baseURL = 'https://fradamroyal.com/'
-languageCode = 'en-us'
+locale = 'en-us'
 title = 'Homilies & Thoughts'
 theme = 'latex_fradamroyal'
 pagination.pagerSize = 3
