@@ -1,0 +1,13 @@
+{{- $ctx := dict
+    "page" .PageInner
+    "src" .Destination
+    "alt" .PlainText
+    "title" .Title
+    "loading" "lazy"
+    "decoding" "async"
+-}}
+{{- if .IsBlock -}}
+    {{- partial "figure.html" (merge $ctx (dict "caption" .Title)) -}}
+{{- else -}}
+    {{- partial "responsive-image.html" $ctx -}}
+{{- end -}}

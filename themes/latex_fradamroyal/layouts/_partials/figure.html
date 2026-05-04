@@ -1,0 +1,16 @@
+{{- $class := .class -}}
+{{- $link := .link -}}
+{{- $caption := .caption -}}
+
+<figure{{ with $class }} class="{{ . }}"{{ end }}>
+    {{- if $link -}}
+    <a href="{{ $link | safeURL }}">
+    {{- end -}}
+    {{- partial "responsive-image.html" . -}}
+    {{- if $link -}}
+    </a>
+    {{- end -}}
+    {{- with $caption -}}
+    <figcaption>{{ . | markdownify }}</figcaption>
+    {{- end -}}
+</figure>

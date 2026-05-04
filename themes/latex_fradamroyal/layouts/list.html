@@ -26,12 +26,12 @@
     <ul class="pager">
       {{ if $pag.HasPrev }}
         <li class="previous">
-          <a href="{{ .Permalink }}page/{{ $pag.Prev.PageNumber }}/">&larr; Newer</a>
+          <a href="{{ $pag.Prev.URL }}">&larr; Newer</a>
         </li>
       {{ end }}
       {{ if $pag.HasNext }}
         <li class="next">
-          <a href="{{ .Permalink }}page/{{ $pag.Next.PageNumber }}/">Older &rarr;</a>
+          <a href="{{ $pag.Next.URL }}">Older &rarr;</a>
         </li>
       {{ end }}
     </ul>

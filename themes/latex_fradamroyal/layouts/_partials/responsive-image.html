@@ -1,0 +1,55 @@
+{{- $page := .page -}}
+{{- $src := .src -}}
+{{- $alt := .alt | default "" -}}
+{{- $title := .title -}}
+{{- $imgClass := .imgClass -}}
+{{- $loading := .loading | default "lazy" -}}
+{{- $decoding := .decoding | default "async" -}}
+{{- $sizes := .sizes | default "(max-width: 1050px) calc(100vw - 2.5rem), 80ch" -}}
+{{- $image := "" -}}
+
+{{- with $page -}}
+    {{- $image = .Resources.GetMatch $src -}}
+{{- end -}}
+{{- if not $image -}}
+    {{- $image = resources.Get $src -}}
+{{- end -}}
+
+{{- if $image -}}
+    {{- $subtype := $image.MediaType.SubType -}}
+    {{- $isVector := or (eq $subtype "svg") (eq $subtype "svg+xml") -}}
+    {{- $isGif := eq $subtype "gif" -}}
+    {{- if or $isVector $isGif -}}
+<img src="{{ $image.RelPermalink }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }}{{ with $imgClass }} class="{{ . }}"{{ end }} loading="{{ $loading }}" decoding="{{ $decoding }}">
+    {{- else -}}
+        {{- $widths := slice 360 540 720 900 1080 1260 1440 -}}
+        {{- $webpResources := slice -}}
+        {{- $jpgResources := slice -}}
+        {{- range $widths -}}
+            {{- if ge $image.Width . -}}
+                {{- $webpResources = $webpResources | append ($image.Resize (printf "%dx webp" .)) -}}
+                {{- $jpgResources = $jpgResources | append ($image.Resize (printf "%dx jpg" .)) -}}
+            {{- end -}}
+        {{- end -}}
+        {{- if eq (len $webpResources) 0 -}}
+            {{- $webpResources = $webpResources | append ($image.Resize (printf "%dx webp" $image.Width)) -}}
+            {{- $jpgResources = $jpgResources | append ($image.Resize (printf "%dx jpg" $image.Width)) -}}
+        {{- end -}}
+        {{- $webpSet := slice -}}
+        {{- range $webpResources -}}
+            {{- $webpSet = $webpSet | append (printf "%s %dw" .RelPermalink .Width) -}}
+        {{- end -}}
+        {{- $jpgSet := slice -}}
+        {{- range $jpgResources -}}
+            {{- $jpgSet = $jpgSet | append (printf "%s %dw" .RelPermalink .Width) -}}
+        {{- end -}}
+        {{- $fallback := index $jpgResources (sub (len $jpgResources) 1) -}}
+<picture>
+    <source type="image/webp" srcset="{{ delimit $webpSet ", " }}" sizes="{{ $sizes }}">
+    <source type="image/jpeg" srcset="{{ delimit $jpgSet ", " }}" sizes="{{ $sizes }}">
+    <img src="{{ $fallback.RelPermalink }}" srcset="{{ delimit $jpgSet ", " }}" sizes="{{ $sizes }}" width="{{ $fallback.Width }}" height="{{ $fallback.Height }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }}{{ with $imgClass }} class="{{ . }}"{{ end }} loading="{{ $loading }}" decoding="{{ $decoding }}">
+</picture>
+    {{- end -}}
+{{- else -}}
+<img src="{{ $src | safeURL }}" alt="{{ $alt }}"{{ with $title }} title="{{ . }}"{{ end }}{{ with $imgClass }} class="{{ . }}"{{ end }} loading="{{ $loading }}" decoding="{{ $decoding }}">
+{{- end -}}

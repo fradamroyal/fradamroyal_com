@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.Language.Locale }}">
+    <head>
     {{- partial "head.html" . -}}
+    </head>
     {{- if site.Params.darkmode -}}
     <body class="latex-dark">
     {{- else if site.Params.lightmode -}}
@@ -12,6 +14,6 @@
         <div id="content">
         {{- block "main" . }}{{- end }}
         </div>
-        {{- partial "footer.html" . -}}
+        {{- partialCached "footer.html" . -}}
     </body>
 </html>
