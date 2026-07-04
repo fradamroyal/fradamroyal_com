@@ -6,7 +6,7 @@ draft = false
 
 A person who tells a lie must carry the weight of both the truth and the lie. First comes the story. Then comes the detail that has to match the story. Then more details. The mind has to work faster than the conversation constructing a more and more elaborate façade. 
 
-Jesus knows that hidden labor. He uses the word "burdened," a verb. We are actively being weighed down and carrying something. He is speaking about the work of carrying the weight that stays with a person after a choice has been made. It is what stays with us after the moment has passed.
+Jesus knows that hidden labor. He uses the word "burdened," a verb. We are actively being weighed down and carrying something. He is speaking about the work of carrying the weight that stays with a person after a choice has been made. It is what stays with us after the moment has passed.
 
 Sin often promises quick relief. It looks like the easier way through an uncomfortable conversation or the way to protect our image. Then the choice is made, and something begins to follow us. Guilt follows. The need to hide follows. A person starts arranging the world so the truth never comes fully into the light.
 
