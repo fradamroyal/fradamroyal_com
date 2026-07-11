@@ -32,4 +32,5 @@
 
 ## Content Contribution Tips
 - Use taxonomy arrays (`categories = []`, `tags = []`, `series = []`) to keep navigation consistent and discoverable.
+- Prefer SBL book abbreviations for Scripture references, including homily `readings` metadata; use the canonical list in `SBL_BIBLE_ABBREVIATIONS.md`.
 - Store supporting media under `static/images/<slug>/` and reference them via relative paths in Markdown to ensure Hugo copies them intact.

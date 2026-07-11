@@ -2,6 +2,22 @@
 title = 'Fourteenth Sunday in Ordinary Time'
 date = 2026-07-05
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Zech 9:9–10'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 145:1–2, 8–9, 10–11, 13–14'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Rom 8:9, 11–13'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Matt 11:25–30'
 +++
 
 A person who tells a lie must carry the weight of both the truth and the lie. First comes the story. Then comes the detail that has to match the story. Then more details. The mind has to work faster than the conversation constructing a more and more elaborate façade. 

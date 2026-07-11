@@ -5,6 +5,9 @@
         {{ partial "postmeta.html" . }}
       </div>
       <br>
+      {{ if eq .Section "homilies" }}
+        {{ partial "homily-readings.html" . }}
+      {{ end }}
       {{ partial "content-with-toc.html" . }}
 
       {{ if .Params.tags }}

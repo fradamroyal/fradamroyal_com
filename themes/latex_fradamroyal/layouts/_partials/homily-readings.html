@@ -1,0 +1,25 @@
+{{- $readings := slice -}}
+{{- with .Params.readings -}}
+    {{- range . -}}
+        {{- $citation := strings.TrimSpace (default "" .citation) -}}
+        {{- if $citation -}}
+            {{- $label := strings.TrimSpace (default "" .label) -}}
+            {{- $readings = $readings | append (dict "label" $label "citation" $citation) -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+
+{{- with $readings }}
+<section class="homily-readings" aria-label="Scripture readings">
+    <ul class="homily-readings-list">
+        {{- range . }}
+        <li>
+            {{- with .label }}
+            <span class="homily-reading-label">{{ . }}:</span>
+            {{- end }}
+            <span class="homily-reading-citation">{{ .citation }}</span>
+        </li>
+        {{- end }}
+    </ul>
+</section>
+{{- end }}
