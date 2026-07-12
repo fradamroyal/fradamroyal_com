@@ -158,7 +158,8 @@
     );
   });
 
-  const MAX_DAYS = CANON_UNITS.length;
+  const CANON_UNIT_COUNT = CANON_UNITS.length;
+  const MAX_DAYS = 366;
 
   const PREFERRED_TRACKS = Object.freeze([
     Object.freeze({
@@ -212,6 +213,7 @@
 
   const VERSE_TRACK_TOTALS = Object.freeze(verseTrackTotals);
   const PREFERRED_MAX_DAYS = Math.min(
+    MAX_DAYS,
     VERSE_TRACK_TOTALS.gospel,
     VERSE_TRACK_TOTALS["new-testament"] - VERSE_TRACK_TOTALS.gospel,
     VERSE_TRACK_TOTALS["old-testament"] - VERSE_TRACK_TOTALS["new-testament"],
@@ -281,8 +283,8 @@
     }
 
     return Array.from({ length: totalDays }, (_, dayIndex) => {
-      const start = Math.floor((dayIndex * MAX_DAYS) / totalDays);
-      const end = Math.floor(((dayIndex + 1) * MAX_DAYS) / totalDays);
+      const start = Math.floor((dayIndex * CANON_UNIT_COUNT) / totalDays);
+      const end = Math.floor(((dayIndex + 1) * CANON_UNIT_COUNT) / totalDays);
       return CANON_UNITS.slice(start, end);
     });
   }
@@ -1010,6 +1012,7 @@
   const api = Object.freeze({
     BOOKS,
     CANON_UNITS,
+    CANON_UNIT_COUNT,
     MAX_DAYS,
     PLAN_ORDERS,
     PLAN_ORDER_LABELS,

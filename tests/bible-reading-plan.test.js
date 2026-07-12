@@ -6,6 +6,7 @@ const assert = require("node:assert/strict");
 const {
   BOOKS,
   CANON_UNITS,
+  CANON_UNIT_COUNT,
   MAX_DAYS,
   PLAN_ORDERS,
   PREFERRED_TRACKS,
@@ -147,11 +148,12 @@ test("the canon has the expected 1,074 OT and 260 NT units", () => {
   const oldTestamentUnits = CANON_UNITS.filter((entry) => entry.testament === "OT");
   const newTestamentUnits = CANON_UNITS.filter((entry) => entry.testament === "NT");
 
-  assert.equal(MAX_DAYS, 1_334);
+  assert.equal(CANON_UNIT_COUNT, 1_334);
   assert.equal(CANON_UNITS.length, 1_334);
   assert.equal(oldTestamentUnits.length, 1_074);
   assert.equal(newTestamentUnits.length, 260);
-  assert.equal(oldTestamentUnits.length + newTestamentUnits.length, MAX_DAYS);
+  assert.equal(oldTestamentUnits.length + newTestamentUnits.length, CANON_UNIT_COUNT);
+  assert.equal(MAX_DAYS, 366);
 });
 
 test("book names, SBL abbreviations, and canonical order are exact", () => {
@@ -192,7 +194,7 @@ test("Esther follows the exact Catholic A-F sequence", () => {
   assert.equal(verseUnits(estherIndex, "F").length, 11);
 });
 
-test("every duration from 1 through 1,334 partitions the whole canon exactly once", () => {
+test("every supported duration from 1 through 366 partitions the whole canon exactly once", () => {
   for (let totalDays = 1; totalDays <= MAX_DAYS; totalDays += 1) {
     const partition = partitionCanon(totalDays);
     let canonIndex = 0;
@@ -216,7 +218,7 @@ test("every duration from 1 through 1,334 partitions the whole canon exactly onc
       });
     });
 
-    assert.equal(canonIndex, MAX_DAYS, `Duration ${totalDays} did not cover every unit.`);
+    assert.equal(canonIndex, CANON_UNIT_COUNT, `Duration ${totalDays} did not cover every unit.`);
     assert.ok(
       largestDay - smallestDay <= 1,
       `Duration ${totalDays} was imbalanced: ${smallestDay}-${largestDay} units per day.`,
@@ -224,19 +226,24 @@ test("every duration from 1 through 1,334 partitions the whole canon exactly onc
   }
 });
 
-test("partition boundaries produce all units on one day or one unit per day", () => {
+test("partition boundaries produce all units on one day or across the 366-day maximum", () => {
   const oneDay = partitionCanon(1);
   assert.equal(oneDay.length, 1);
-  assert.equal(oneDay[0].length, MAX_DAYS);
+  assert.equal(oneDay[0].length, CANON_UNIT_COUNT);
   assert.strictEqual(oneDay[0][0], CANON_UNITS[0]);
   assert.strictEqual(oneDay[0].at(-1), CANON_UNITS.at(-1));
 
   const maximumDays = partitionCanon(MAX_DAYS);
   assert.equal(maximumDays.length, MAX_DAYS);
-  maximumDays.forEach((day, index) => {
-    assert.equal(day.length, 1);
-    assert.strictEqual(day[0], CANON_UNITS[index]);
+  let canonIndex = 0;
+  maximumDays.forEach((day) => {
+    assert.ok(day.length > 0);
+    day.forEach((entry) => {
+      assert.strictEqual(entry, CANON_UNITS[canonIndex]);
+      canonIndex += 1;
+    });
   });
+  assert.equal(canonIndex, CANON_UNIT_COUNT);
 
   for (const invalidDuration of [0, -1, MAX_DAYS + 1, 1.5, "365", null]) {
     assert.throws(() => partitionCanon(invalidDuration), RangeError);
@@ -278,18 +285,18 @@ test("citation formatting keeps Esther additions as separate sense units", () =>
   ]);
 });
 
-test("preferred-order verse totals support a strict 406-day maximum", () => {
+test("both reading orders enforce the shared 366-day maximum", () => {
   assert.deepEqual(VERSE_TRACK_TOTALS, {
     "old-testament": 27_606,
     gospel: 3_768,
     "new-testament": 4_174,
   });
-  assert.equal(PREFERRED_MAX_DAYS, 406);
   assert.equal(
-    PREFERRED_MAX_DAYS,
     VERSE_TRACK_TOTALS["new-testament"] - VERSE_TRACK_TOTALS.gospel,
+    406,
   );
-  assert.ok(PREFERRED_MAX_DAYS >= 365, "The preferred order should support a year-long plan.");
+  assert.equal(MAX_DAYS, 366);
+  assert.equal(PREFERRED_MAX_DAYS, MAX_DAYS);
 
   assert.equal(maxDaysForOrder(PLAN_ORDERS.CANONICAL), MAX_DAYS);
   assert.equal(maxDaysForOrder(PLAN_ORDERS.PREFERRED), PREFERRED_MAX_DAYS);
@@ -548,8 +555,8 @@ test("civil dates handle inclusive endpoints, leap days, and year rollover", () 
 
   assert.equal(addCivilDays("2026-12-31", 1), "2027-01-01");
   assert.equal(addCivilDays("2027-01-01", -1), "2026-12-31");
-  assert.equal(addCivilDays("2024-01-01", MAX_DAYS - 1), "2027-08-26");
-  assert.equal(inclusiveDayCount("2024-01-01", "2027-08-26"), MAX_DAYS);
+  assert.equal(addCivilDays("2024-01-01", MAX_DAYS - 1), "2024-12-31");
+  assert.equal(inclusiveDayCount("2024-01-01", "2024-12-31"), MAX_DAYS);
 });
 
 test("buildPlan preserves the one-day plan endpoints", () => {
@@ -558,7 +565,7 @@ test("buildPlan preserves the one-day plan endpoints", () => {
   assert.equal(plan.length, 1);
   assert.equal(plan[0].day, 1);
   assert.equal(plan[0].date, "2026-07-11");
-  assert.equal(plan[0].units.length, MAX_DAYS);
+  assert.equal(plan[0].units.length, CANON_UNIT_COUNT);
   assert.strictEqual(plan[0].units[0], CANON_UNITS[0]);
   assert.strictEqual(plan[0].units.at(-1), CANON_UNITS.at(-1));
   assert.equal(plan[0].citations[0], "Gen 1–50");
@@ -576,23 +583,27 @@ test("buildPlan preserves the maximum-duration plan endpoints", () => {
       citation: plan[0].citations[0],
       unit: plan[0].units[0].id,
     },
-    { day: 1, date: "2024-01-01", citation: "Gen 1", unit: "0:1" },
+    { day: 1, date: "2024-01-01", citation: "Gen 1–3", unit: "0:1" },
   );
   assert.deepEqual(
     {
       day: plan.at(-1).day,
       date: plan.at(-1).date,
-      citation: plan.at(-1).citations[0],
-      unit: plan.at(-1).units[0].id,
+      citation: plan.at(-1).citations.at(-1),
+      unit: plan.at(-1).units.at(-1).id,
     },
-    { day: MAX_DAYS, date: "2027-08-26", citation: "Rev 22", unit: "72:22" },
+    { day: MAX_DAYS, date: "2024-12-31", citation: "Rev 19–22", unit: "72:22" },
   );
 
+  let canonIndex = 0;
   plan.forEach((entry, index) => {
     assert.equal(entry.day, index + 1);
-    assert.equal(entry.units.length, 1);
-    assert.strictEqual(entry.units[0], CANON_UNITS[index]);
+    entry.units.forEach((unit) => {
+      assert.strictEqual(unit, CANON_UNITS[canonIndex]);
+      canonIndex += 1;
+    });
   });
+  assert.equal(canonIndex, CANON_UNIT_COUNT);
 });
 
 test("buildPlan produces correct representative dates and canonical endpoints", () => {
@@ -603,7 +614,7 @@ test("buildPlan produces correct representative dates and canonical endpoints", 
   assert.equal(plan.at(-1).date, "2027-07-10");
   assert.equal(plan[0].units[0].id, "0:1");
   assert.equal(plan.at(-1).units.at(-1).id, "72:22");
-  assert.equal(plan.flatMap((entry) => entry.units).length, MAX_DAYS);
+  assert.equal(plan.flatMap((entry) => entry.units).length, CANON_UNIT_COUNT);
 
   assert.throws(() => buildPlan("not-a-date", 365), TypeError);
   assert.throws(() => buildPlan("2026-07-11", 0), RangeError);
