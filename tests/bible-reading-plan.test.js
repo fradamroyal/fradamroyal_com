@@ -188,6 +188,8 @@ test("Esther follows the exact Catholic A-F sequence", () => {
   );
   assert.equal(CANON_UNITS[firstEstherIndex - 1].id, "17:16");
   assert.equal(CANON_UNITS[firstEstherIndex + ESTHER_SEQUENCE.length].id, "19:1");
+  assert.equal(verseUnits(estherIndex, "B").length, 7);
+  assert.equal(verseUnits(estherIndex, "F").length, 11);
 });
 
 test("every duration from 1 through 1,334 partitions the whole canon exactly once", () => {
@@ -263,16 +265,16 @@ test("citation formatting keeps Esther additions as separate sense units", () =>
   const estherUnits = CANON_UNITS.filter((entry) => entry.abbr === "Esth");
 
   assert.deepEqual(formatCitations(estherUnits), [
-    "Esth A",
+    "Esth A (11:2–12:6)",
     "Esth 1–3",
-    "Esth B",
+    "Esth B (13:1–7)",
     "Esth 4",
-    "Esth C",
-    "Esth D",
+    "Esth C (13:8–14:19)",
+    "Esth D (15:4–19)",
     "Esth 5–8",
-    "Esth E",
+    "Esth E (16:1–24)",
     "Esth 9–10",
-    "Esth F",
+    "Esth F (10:4–11:1)",
   ]);
 });
 
@@ -461,8 +463,30 @@ test("preferred verse citations use SBL forms for ranges and Esther additions", 
     formatVerseCitations([...verseUnits(22, 22), ...verseUnits(22, 23)]),
     ["Pss 22–23"],
   );
-  assert.deepEqual(formatVerseCitations(verseUnits(18, "A")), ["Esth A"]);
-  assert.deepEqual(formatVerseCitations(verseUnits(18, "C", 5, 8)), ["Esth C:5–8"]);
+  assert.deepEqual(formatVerseCitations(verseUnits(18, "A")), [
+    "Esth A (11:2–12:6)",
+  ]);
+  assert.deepEqual(formatVerseCitations(verseUnits(18, "B")), ["Esth B (13:1–7)"]);
+  assert.deepEqual(formatVerseCitations(verseUnits(18, "C")), [
+    "Esth C (13:8–14:19)",
+  ]);
+  assert.deepEqual(formatVerseCitations(verseUnits(18, "D")), ["Esth D (15:4–19)"]);
+  assert.deepEqual(formatVerseCitations(verseUnits(18, "E")), ["Esth E (16:1–24)"]);
+  assert.deepEqual(formatVerseCitations(verseUnits(18, "F")), [
+    "Esth F (10:4–11:1)",
+  ]);
+  assert.deepEqual(formatVerseCitations(verseUnits(18, "C", 5, 8)), [
+    "Esth C:5–8 (13:12–15)",
+  ]);
+  assert.deepEqual(formatVerseCitations(verseUnits(18, "A", 10, 13)), [
+    "Esth A:10–13 (11:11–12:2)",
+  ]);
+  assert.deepEqual(formatVerseCitations(verseUnits(18, "C", 10, 14)), [
+    "Esth C:10–14 (13:17–14:3)",
+  ]);
+  assert.deepEqual(formatVerseCitations(verseUnits(18, "F", 9, 11)), [
+    "Esth F:9–11 (10:12–11:1)",
+  ]);
 });
 
 test("preferred verse data excludes empty NABRE markers without making chapters look partial", () => {

@@ -31,6 +31,32 @@
     [PLAN_ORDERS.PREFERRED]: "Fr. Adam's preferred reading order",
   });
 
+  // NABRE letters the Greek additions A-F; these spans translate their verse
+  // numbers to the placement used by the Vulgate and many Catholic Bibles.
+  const ESTHER_ADDITION_VULGATE_SPANS = Object.freeze({
+    A: Object.freeze([
+      Object.freeze({ first: 1, last: 11, chapter: 11, offset: 1 }),
+      Object.freeze({ first: 12, last: 17, chapter: 12, offset: -11 }),
+    ]),
+    B: Object.freeze([
+      Object.freeze({ first: 1, last: 7, chapter: 13, offset: 0 }),
+    ]),
+    C: Object.freeze([
+      Object.freeze({ first: 1, last: 11, chapter: 13, offset: 7 }),
+      Object.freeze({ first: 12, last: 30, chapter: 14, offset: -11 }),
+    ]),
+    D: Object.freeze([
+      Object.freeze({ first: 1, last: 16, chapter: 15, offset: 3 }),
+    ]),
+    E: Object.freeze([
+      Object.freeze({ first: 1, last: 24, chapter: 16, offset: 0 }),
+    ]),
+    F: Object.freeze([
+      Object.freeze({ first: 1, last: 10, chapter: 10, offset: 3 }),
+      Object.freeze({ first: 11, last: 11, chapter: 11, offset: -10 }),
+    ]),
+  });
+
   const BOOKS = [
     { name: "Genesis", abbr: "Gen", chapters: 50 },
     { name: "Exodus", abbr: "Exod", chapters: 40 },
@@ -771,6 +797,50 @@
     return `${abbreviation} ${range}`;
   }
 
+  function mapEstherAdditionVerse(label, verse) {
+    const span = ESTHER_ADDITION_VULGATE_SPANS[label]?.find(
+      (candidate) => verse >= candidate.first && verse <= candidate.last,
+    );
+
+    if (!span) {
+      throw new RangeError(`No Vulgate numbering is available for Esth ${label}:${verse}.`);
+    }
+
+    return {
+      chapter: span.chapter,
+      verse: verse + span.offset,
+    };
+  }
+
+  function formatEstherAdditionCitation(book, label, firstVerse, lastVerse) {
+    const spans = ESTHER_ADDITION_VULGATE_SPANS[label];
+    const fullAddition = firstVerse === undefined && lastVerse === undefined;
+    const additionReference = fullAddition
+      ? label
+      : `${label}:${
+          firstVerse === lastVerse ? String(firstVerse) : `${firstVerse}–${lastVerse}`
+        }`;
+
+    if (!spans) {
+      return `${book.abbr} ${additionReference}`;
+    }
+
+    const resolvedFirstVerse = fullAddition ? spans[0].first : firstVerse;
+    const resolvedLastVerse = fullAddition ? spans.at(-1).last : lastVerse;
+    const firstVulgate = mapEstherAdditionVerse(label, resolvedFirstVerse);
+    const lastVulgate = mapEstherAdditionVerse(label, resolvedLastVerse);
+    const vulgateRange =
+      firstVulgate.chapter === lastVulgate.chapter
+        ? `${firstVulgate.chapter}:${
+            firstVulgate.verse === lastVulgate.verse
+              ? firstVulgate.verse
+              : `${firstVulgate.verse}–${lastVulgate.verse}`
+          }`
+        : `${firstVulgate.chapter}:${firstVulgate.verse}–${lastVulgate.chapter}:${lastVulgate.verse}`;
+
+    return `${book.abbr} ${additionReference} (${vulgateRange})`;
+  }
+
   function formatCitations(units) {
     const citations = [];
     let index = 0;
@@ -780,7 +850,7 @@
       const book = BOOKS[first.bookIndex];
 
       if (typeof first.label === "string") {
-        citations.push(`${book.abbr} ${first.label}`);
+        citations.push(formatEstherAdditionCitation(book, first.label));
         index += 1;
         continue;
       }
@@ -865,13 +935,22 @@
       }
 
       if (segment.fullChapter) {
-        citations.push(`${book.abbr} ${segment.label}`);
+        citations.push(formatEstherAdditionCitation(book, segment.label));
       } else {
         const verseRange =
           segment.firstVerse === segment.lastVerse
             ? String(segment.firstVerse)
             : `${segment.firstVerse}–${segment.lastVerse}`;
-        citations.push(`${book.abbr} ${segment.label}:${verseRange}`);
+        citations.push(
+          typeof segment.label === "string"
+            ? formatEstherAdditionCitation(
+                book,
+                segment.label,
+                segment.firstVerse,
+                segment.lastVerse,
+              )
+            : `${book.abbr} ${segment.label}:${verseRange}`,
+        );
       }
       index += 1;
     }

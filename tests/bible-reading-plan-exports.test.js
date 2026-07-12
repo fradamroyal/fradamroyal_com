@@ -71,6 +71,12 @@ function pdfText(bytes) {
   return Buffer.from(bytes).toString("latin1");
 }
 
+function pdfLiteral(value) {
+  return value
+    .replace(/[\u2010-\u2015\u2212]/g, "-")
+    .replace(/([\\()])/g, "\\$1");
+}
+
 test("CSV export escapes punctuation and newlines without changing field values", () => {
   const plan = [
     {
@@ -150,7 +156,7 @@ test("PDF export is structurally complete and includes every scheduled day", () 
   plan.forEach((entry) => {
     assert.ok(pdf.includes(`(Day ${entry.day} - ${entry.date}) Tj`));
     entry.citations.forEach((citation) => {
-      assert.ok(pdf.includes(citation.replace(/[\u2010-\u2015\u2212]/g, "-")));
+      assert.ok(pdf.includes(pdfLiteral(citation)));
     });
   });
 
@@ -158,6 +164,37 @@ test("PDF export is structurally complete and includes every scheduled day", () 
   assert.ok(Number.isInteger(xrefOffset));
   assert.equal(pdf.slice(xrefOffset, xrefOffset + 5), "xref\n");
   assert.match(pdf, /trailer\n<< \/Size \d+ \/Root 1 0 R >>\n/);
+});
+
+test("Esther Vulgate numbering is preserved in every download format", () => {
+  const wholeCanon = buildPlan("2026-07-12", 1);
+  const estherAdditions = wholeCanon[0].citations.filter(
+    (citation) => citation.startsWith("Esth ") && citation.includes("("),
+  );
+  const plan = [
+    {
+      day: 1,
+      date: "2026-07-12",
+      citations: estherAdditions,
+    },
+  ];
+  const csv = serializePlanToCsv(plan);
+  const markdown = serializePlanToMarkdown(plan);
+  const pdf = pdfText(serializePlanToPdf(plan));
+
+  assert.deepEqual(estherAdditions, [
+    "Esth A (11:2–12:6)",
+    "Esth B (13:1–7)",
+    "Esth C (13:8–14:19)",
+    "Esth D (15:4–19)",
+    "Esth E (16:1–24)",
+    "Esth F (10:4–11:1)",
+  ]);
+  estherAdditions.forEach((citation) => {
+    assert.ok(csv.includes(citation));
+    assert.ok(markdown.includes(citation));
+    assert.ok(pdf.includes(pdfLiteral(citation)));
+  });
 });
 
 test("PDF export sanitizes non-ASCII text and escapes PDF string delimiters", () => {

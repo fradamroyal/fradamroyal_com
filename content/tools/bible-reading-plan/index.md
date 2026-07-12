@@ -13,8 +13,9 @@ Testament, Gospel, and New Testament (Acts through Revelation) reading every
 day. Those three tracks each remain in canonical order.
 
 Both plans use SBL book abbreviations and the chapter and verse numbering of the
-New American Bible Revised Edition. Esther’s Greek additions appear as A–F;
-Daniel includes the longer chapter 3 and chapters 13–14.
+New American Bible Revised Edition. Esther’s Greek additions appear as A–F with
+their Vulgate numbering in parentheses; Daniel includes the longer chapter 3
+and chapters 13–14.
 
 Old Testament portions stay at chapter boundaries and are estimated from verse
 counts. No Bible text is provided in the plan. Everything is generated on your
