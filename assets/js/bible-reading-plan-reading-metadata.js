@@ -1,3 +1,4 @@
+// Site-owned reading-length metadata for the Bible reading plan.
 "use strict";
 
 /*

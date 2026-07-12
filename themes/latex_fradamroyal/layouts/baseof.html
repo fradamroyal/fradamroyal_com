@@ -3,13 +3,13 @@
     <head>
     {{- partial "head.html" . -}}
     </head>
+    {{- $themeClass := "latex-dark-auto" -}}
     {{- if site.Params.darkmode -}}
-    <body class="latex-dark{{ if eq .Layout "bible-reading-plan" }} reading-plan-page{{ end }}">
+        {{- $themeClass = "latex-dark" -}}
     {{- else if site.Params.lightmode -}}
-    <body{{ if eq .Layout "bible-reading-plan" }} class="reading-plan-page"{{ end }}>
-    {{- else -}}
-    <body class="latex-dark-auto{{ if eq .Layout "bible-reading-plan" }} reading-plan-page{{ end }}">
+        {{- $themeClass = "" -}}
     {{- end -}}
+    <body class="{{ $themeClass }} {{ block "body-class" . }}{{ end }}">
         {{- partial "header.html" . -}}
         <div id="content">
         {{- block "main" . }}{{- end }}

@@ -1,3 +1,4 @@
+// Site-owned Bible reading plan application.
 (function () {
   "use strict";
 

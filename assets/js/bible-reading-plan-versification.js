@@ -1,3 +1,4 @@
+// Site-owned Catholic versification data for the Bible reading plan.
 "use strict";
 
 /*!

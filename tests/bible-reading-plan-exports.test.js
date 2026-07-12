@@ -7,7 +7,7 @@ const {
   PLAN_ORDERS,
   addCivilDays,
   buildPlan,
-} = require("../themes/latex_fradamroyal/assets/js/bible-reading-plan.js");
+} = require("../assets/js/bible-reading-plan.js");
 const {
   MIME_TYPES,
   serializePlanToCsv,
@@ -15,7 +15,7 @@ const {
   serializePlanToPdf,
   suggestFilename,
   buildPlanExport,
-} = require("../themes/latex_fradamroyal/assets/js/bible-reading-plan-exports.js");
+} = require("../assets/js/bible-reading-plan-exports.js");
 
 function parseCsv(source) {
   const rows = [];

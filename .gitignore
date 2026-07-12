@@ -1,4 +1,5 @@
 .hugo_build.lock
+/assets/jsconfig.json
 public/
 .DS_Store
 .prettierrc

@@ -25,7 +25,7 @@ const {
   formatVerseCitations,
   buildPlan,
   previewPlan,
-} = require("../themes/latex_fradamroyal/assets/js/bible-reading-plan.js");
+} = require("../assets/js/bible-reading-plan.js");
 
 const EXPECTED_BOOKS = [
   ["Genesis", "Gen"],

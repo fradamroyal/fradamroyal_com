@@ -1,3 +1,4 @@
+// Site-owned download serializers for the Bible reading plan.
 (function () {
   "use strict";
 

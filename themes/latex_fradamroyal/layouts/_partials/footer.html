@@ -1,44 +1,19 @@
 <footer>
     <div class="container">
-        <p class="credits copyright"></p>
         <p class="credits theme-by">
-            {{ if .Site.Params.Legal }}
-            <a href="{{ .Site.BaseURL }}legal/">{{ .Site.Params.Legal }}</a>
-            <br />
-            {{ end }} {{ if .Site.Params.PoweredBy }} Powered By
-            <a href="https://gohugo.io">Hugo</a>&nbsp;/&nbsp;Theme&nbsp;<a
-                href="https://github.com/kaisugi/HugoTeX"
-                >HugoTeX</a
-            >
-            <br />
-            {{ end }}
-        </p>
-
-        <p
-            xmlns:cc="http://creativecommons.org/ns#"
-            xmlns:dct="http://purl.org/dc/terms/"
-        >
-            {{ if .Site.Title }}
-            <a
-                property="dct:title"
-                rel="cc:attributionURL"
-                href="{{ .Site.BaseURL }}"
-                >{{ .Site.Title }}</a
-            >
-            {{ end }} &copy; {{ .Site.Lastmod | time.Format "2006" }} by
-            <a
-                rel="cc:attributionURL dct:creator"
-                property="cc:attributionName"
-                href="{{ .Site.BaseURL }}about/"
-                >{{ .Site.Params.Author.name }}</a
-            >
-            is licensed under
-            <a
-                href="https://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1"
-                target="_blank"
-                rel="license noopener noreferrer"
-                >CC BY-SA 4.0</a
-            >
+            {{- with .Site.Params.Legal }}
+            <a href="{{ site.Home.RelPermalink }}legal/">{{ . }}</a><br>
+            {{- end }}
+            {{- if .Site.Params.PoweredBy }}
+            Powered by <a href="https://gohugo.io">Hugo</a>&nbsp;/&nbsp;Theme&nbsp;<a href="https://github.com/kaisugi/HugoTeX">HugoTeX</a><br>
+            {{- end }}
+            {{- with .Site.Title }}
+            <a href="{{ site.Home.RelPermalink }}">{{ . }}</a>
+            {{- end }}
+            &copy; {{ .Site.Lastmod | time.Format "2006" }}
+            {{- with .Site.Params.Author.name }}
+            <a href="{{ site.Home.RelPermalink }}about/">{{ . }}</a>
+            {{- end }}
         </p>
     </div>
 </footer>
