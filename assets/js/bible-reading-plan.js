@@ -29,7 +29,7 @@
 
   const PLAN_ORDER_LABELS = Object.freeze({
     [PLAN_ORDERS.CANONICAL]: "Canonical order",
-    [PLAN_ORDERS.PREFERRED]: "Fr. Adam's preferred reading order",
+    [PLAN_ORDERS.PREFERRED]: "Fr. Adam’s preferred reading order",
   });
 
   // NABRE letters the Greek additions A-F; these spans translate their verse
@@ -1219,8 +1219,8 @@
     resultsHeading.textContent = `Your ${plan.length.toLocaleString()}-day reading plan — ${orderLabel}`;
     resultsSummary.textContent =
       order === PLAN_ORDERS.PREFERRED
-        ? `${formatLongDate(startDate)} through ${formatLongDate(endDate)}. Each day includes Old Testament, Gospel, and New Testament readings. The full 73-book Catholic canon is scheduled once, with estimated reading lengths balanced at chapter or paragraph boundaries.`
-        : `${formatLongDate(startDate)} through ${formatLongDate(endDate)}. The full 73-book Catholic canon is scheduled in order without splitting chapters.`;
+        ? `${formatLongDate(startDate)} through ${formatLongDate(endDate)}. Each day includes Old Testament, Gospel, and New Testament readings. The full 73-book canon is scheduled once, with estimated reading lengths balanced at chapter or paragraph boundaries.`
+        : `${formatLongDate(startDate)} through ${formatLongDate(endDate)}. The full 73-book canon is scheduled in order without splitting chapters.`;
     previewNote.textContent =
       preview.length < plan.length
         ? `Showing the first ${preview.length.toLocaleString()} of ${plan.length.toLocaleString()} days so you can verify the schedule. Download the complete plan above.`

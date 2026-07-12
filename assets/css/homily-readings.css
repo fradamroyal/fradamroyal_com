@@ -1,0 +1,20 @@
+.homily-readings {
+  margin: 1.25rem 0 0.5rem;
+  padding: 0.75rem 0;
+  border-top: var(--border-width-thin) solid var(--table-border-color);
+  border-bottom: var(--border-width-thin) solid var(--table-border-color);
+}
+
+.homily-readings-list {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.homily-readings-list li + li {
+  margin-top: 0.15rem;
+}
+
+.homily-reading-label {
+  font-weight: bold;
+}

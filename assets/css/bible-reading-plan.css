@@ -1,0 +1,313 @@
+.reading-plan [hidden] {
+  display: none !important;
+}
+
+.reading-plan-intro p,
+.reading-plan-form p,
+.reading-plan-results p {
+  text-align: left;
+  text-indent: 0;
+}
+
+.reading-plan-generator {
+  margin-top: 2.5rem;
+}
+
+.reading-plan-generator > h2,
+.reading-plan-results h2 {
+  margin-top: 0;
+}
+
+.reading-plan-form {
+  margin-top: 1rem;
+  padding: 1.25rem;
+  border: var(--border-width-thin) solid var(--table-border-color);
+}
+
+.reading-plan-order {
+  margin: 0 0 1.25rem;
+  padding: 0 0 1.25rem;
+  border: 0;
+  border-bottom: var(--border-width-thin) solid var(--table-border-color);
+}
+
+.reading-plan-order > legend {
+  margin-bottom: 0.55rem;
+  font-weight: bold;
+}
+
+.reading-plan-order-options {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.reading-plan-order-option {
+  display: block;
+  cursor: pointer;
+}
+
+.reading-plan-order-choice {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: bold;
+}
+
+.reading-plan-order-choice input {
+  width: 1.1rem;
+  height: 1.1rem;
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+.reading-plan-order-description {
+  display: block;
+  margin: 0.15rem 0 0 1.55rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.reading-plan-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.reading-plan-field,
+.reading-plan-duration {
+  min-width: 0;
+}
+
+.reading-plan-duration {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.reading-plan-field > label,
+.reading-plan-duration > legend {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-weight: bold;
+}
+
+.reading-plan-field > label span {
+  font-weight: normal;
+}
+
+.reading-plan-field input[type='date'],
+.reading-plan-field input[type='number'] {
+  width: 100%;
+  min-width: 0;
+  min-height: 2.75rem;
+  padding: 0.45rem 0.55rem;
+  color: var(--body-color);
+  background: var(--body-bg-color);
+  border: var(--border-width-thin) solid var(--table-border-color);
+  border-radius: 0;
+}
+
+.reading-plan-mode-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+}
+
+.reading-plan-mode-options label {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  gap: 0.45rem;
+  cursor: pointer;
+}
+
+.reading-plan-mode-options input {
+  width: 1.1rem;
+  height: 1.1rem;
+  margin: 0;
+}
+
+.reading-plan-help {
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.reading-plan-error,
+.reading-plan-notice {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-left: 0.25rem solid var(--link-visited);
+}
+
+.reading-plan-error {
+  color: var(--link-visited);
+  font-weight: bold;
+}
+
+.reading-plan-submit,
+.reading-plan-download-actions button {
+  min-height: 2.75rem;
+  padding: 0.5rem 0.9rem;
+  color: var(--body-bg-color);
+  background: var(--body-color);
+  border: var(--border-width-thin) solid var(--body-color);
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.reading-plan-submit {
+  margin-top: 1.25rem;
+}
+
+.reading-plan input:focus-visible,
+.reading-plan button:focus-visible,
+.reading-plan [tabindex='-1']:focus-visible {
+  outline: 2px solid var(--link-focus-outline);
+  outline-offset: 3px;
+}
+
+.reading-plan-status {
+  min-height: 1.8rem;
+  margin-top: 0.5rem;
+  text-align: left;
+}
+
+.reading-plan-results {
+  margin-top: 2.5rem;
+  border-top: var(--border-width-thick) solid var(--table-border-color);
+  padding-top: 1.5rem;
+}
+
+.reading-plan-results-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: start;
+  justify-content: space-between;
+}
+
+.reading-plan-results-header h2 {
+  margin-bottom: 0;
+}
+
+.reading-plan-summary {
+  margin-top: 0.5rem;
+}
+
+.reading-plan-downloads {
+  margin: 1.25rem 0 0;
+  padding: 1rem;
+  border: var(--border-width-thin) solid var(--table-border-color);
+}
+
+.reading-plan-downloads > legend {
+  padding: 0 0.35rem;
+  font-weight: bold;
+}
+
+.reading-plan-download-help {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.reading-plan-download-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+}
+
+.reading-plan-preview-note {
+  margin-top: 1.5rem;
+  font-style: italic;
+}
+
+.reading-plan-days {
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.reading-plan-day {
+  padding: 0.9rem 0;
+  border-top: var(--border-width-thin) solid var(--table-border-color);
+  break-inside: avoid-page;
+}
+
+.reading-plan-day:last-child {
+  border-bottom: var(--border-width-thin) solid var(--table-border-color);
+}
+
+.reading-plan-day h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.5;
+}
+
+.reading-plan-day time {
+  font-weight: normal;
+}
+
+.reading-plan-readings {
+  margin: 0.25rem 0 0;
+  padding-left: 1.4rem;
+}
+
+.reading-plan-reading-groups {
+  margin: 0.35rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.reading-plan-reading-group + .reading-plan-reading-group {
+  margin-top: 0.45rem;
+}
+
+.reading-plan-reading-label {
+  font-weight: bold;
+}
+
+.reading-plan-reading-group .reading-plan-readings {
+  margin-top: 0.1rem;
+}
+
+@media (max-width: 38rem) {
+  .reading-plan-form {
+    padding: 1rem;
+  }
+
+  .reading-plan-results-header {
+    display: block;
+  }
+}
+
+@media print {
+  body.reading-plan-page {
+    max-width: none;
+    padding: 0;
+    color: black;
+    background: white;
+  }
+
+  body.reading-plan-page .topnav,
+  body.reading-plan-page .reading-plan-intro,
+  body.reading-plan-page .reading-plan-generator,
+  body.reading-plan-page .reading-plan-downloads,
+  body.reading-plan-page .reading-plan-preview-note,
+  body.reading-plan-page footer {
+    display: none !important;
+  }
+
+  .reading-plan-results {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  .reading-plan-day {
+    break-inside: avoid-page;
+  }
+}

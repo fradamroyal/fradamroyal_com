@@ -13,6 +13,7 @@
 ## Coding Style & Naming Conventions
 - Front matter stays in TOML (`+++ ... +++`) with lowercase keys, ISO 8601 dates, and `draft = true` until publication; title case appears only in `title`.
 - Hugo templates and HTML use four-space indentation and explicit whitespace trimming (`{{- … -}}`); CSS and JS within `assets/` use two spaces.
+- Keep `assets/css/site.css` as an import-only manifest; place styles in dedicated CSS files and import them from `site.css`.
 - Place reusable fragments in `themes/latex_fradamroyal/layouts/_partials/` with descriptive names (e.g., `featured-homilies.html`). Keep shortcodes in `themes/latex_fradamroyal/layouts/_shortcodes/`.
 
 ## Template Engine Update
