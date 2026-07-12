@@ -15,6 +15,43 @@
                 </noscript>
 
                 <form id="bible-reading-plan-form" class="reading-plan-form" hidden novalidate>
+                    <fieldset class="reading-plan-order">
+                        <legend>Reading order</legend>
+                        <div class="reading-plan-order-options">
+                            <label class="reading-plan-order-option">
+                                <span class="reading-plan-order-choice">
+                                    <input
+                                        id="reading-plan-order-canonical"
+                                        type="radio"
+                                        name="reading-order"
+                                        value="canonical"
+                                        aria-describedby="reading-plan-order-canonical-description"
+                                        checked
+                                    >
+                                    <span>Canonical order</span>
+                                </span>
+                                <span id="reading-plan-order-canonical-description" class="reading-plan-order-description">
+                                    Read Genesis through Revelation in standard Catholic order.
+                                </span>
+                            </label>
+                            <label class="reading-plan-order-option">
+                                <span class="reading-plan-order-choice">
+                                    <input
+                                        id="reading-plan-order-preferred"
+                                        type="radio"
+                                        name="reading-order"
+                                        value="preferred"
+                                        aria-describedby="reading-plan-order-preferred-description"
+                                    >
+                                    <span>Fr. Adam's preferred reading order</span>
+                                </span>
+                                <span id="reading-plan-order-preferred-description" class="reading-plan-order-description">
+                                    Read from the Old Testament, a Gospel, and Acts through Revelation each day.
+                                </span>
+                            </label>
+                        </div>
+                    </fieldset>
+
                     <div class="reading-plan-form-grid">
                         <div class="reading-plan-field">
                             <label for="reading-plan-start-date">Start date</label>
@@ -46,15 +83,24 @@
                                 max="1334"
                                 step="1"
                                 inputmode="numeric"
+                                aria-describedby="reading-plan-days-help"
                                 required
                             >
-                            <p class="reading-plan-help">Choose from 1 to 1,334 days.</p>
+                            <p id="reading-plan-days-help" class="reading-plan-help">Choose from 1 to 1,334 days.</p>
                         </div>
 
                         <div id="reading-plan-end-panel" class="reading-plan-field" data-duration-panel="end-date" hidden>
                             <label for="reading-plan-end-date">Ending date <span>(inclusive)</span></label>
-                            <input id="reading-plan-end-date" name="end-date" type="date" disabled>
-                            <p class="reading-plan-help">The ending date counts as a reading day.</p>
+                            <input
+                                id="reading-plan-end-date"
+                                name="end-date"
+                                type="date"
+                                aria-describedby="reading-plan-end-help"
+                                disabled
+                            >
+                            <p id="reading-plan-end-help" class="reading-plan-help">
+                                The ending date counts as a reading day. Plans can span up to 1,334 days.
+                            </p>
                         </div>
                     </div>
 

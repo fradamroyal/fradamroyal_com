@@ -73,6 +73,49 @@ footer .theme-by {
   border: var(--border-width-thin) solid var(--table-border-color);
 }
 
+.reading-plan-order {
+  margin: 0 0 1.25rem;
+  padding: 0 0 1.25rem;
+  border: 0;
+  border-bottom: var(--border-width-thin) solid var(--table-border-color);
+}
+
+.reading-plan-order > legend {
+  margin-bottom: 0.55rem;
+  font-weight: bold;
+}
+
+.reading-plan-order-options {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.reading-plan-order-option {
+  display: block;
+  cursor: pointer;
+}
+
+.reading-plan-order-choice {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-weight: bold;
+}
+
+.reading-plan-order-choice input {
+  width: 1.1rem;
+  height: 1.1rem;
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+.reading-plan-order-description {
+  display: block;
+  margin: 0.15rem 0 0 1.55rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
 .reading-plan-form-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
@@ -231,6 +274,24 @@ footer .theme-by {
 .reading-plan-readings {
   margin: 0.25rem 0 0;
   padding-left: 1.4rem;
+}
+
+.reading-plan-reading-groups {
+  margin: 0.35rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.reading-plan-reading-group + .reading-plan-reading-group {
+  margin-top: 0.45rem;
+}
+
+.reading-plan-reading-label {
+  font-weight: bold;
+}
+
+.reading-plan-reading-group .reading-plan-readings {
+  margin-top: 0.1rem;
 }
 
 @media (max-width: 38rem) {

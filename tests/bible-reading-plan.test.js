@@ -7,12 +7,21 @@ const {
   BOOKS,
   CANON_UNITS,
   MAX_DAYS,
+  PLAN_ORDERS,
+  PREFERRED_TRACKS,
+  VERSE_TRACK_TOTALS,
+  PREFERRED_MAX_DAYS,
   parseCivilDate,
   formatCivilDate,
   addCivilDays,
   inclusiveDayCount,
   partitionCanon,
+  getVerseTracks,
+  getSenseTracks,
+  partitionPreferred,
+  maxDaysForOrder,
   formatCitations,
+  formatVerseCitations,
   buildPlan,
 } = require("../themes/latex_fradamroyal/assets/js/bible-reading-plan.js");
 
@@ -100,6 +109,18 @@ function unit(abbreviation, label) {
   );
   assert.ok(result, `Expected to find ${abbreviation} ${label}.`);
   return result;
+}
+
+function verseUnits(bookIndex, label, firstVerse = 1, lastVerse = Number.POSITIVE_INFINITY) {
+  return Object.values(getVerseTracks())
+    .flat()
+    .filter(
+      (candidate) =>
+        candidate.bookIndex === bookIndex &&
+        candidate.label === label &&
+        candidate.verse >= firstVerse &&
+        candidate.verse <= lastVerse,
+    );
 }
 
 test("the Catholic canon has the expected 46-book OT and 27-book NT", () => {
@@ -253,6 +274,217 @@ test("citation formatting keeps Esther additions as separate sense units", () =>
   ]);
 });
 
+test("preferred-order verse totals support a strict 406-day maximum", () => {
+  assert.deepEqual(VERSE_TRACK_TOTALS, {
+    "old-testament": 27_606,
+    gospel: 3_768,
+    "new-testament": 4_174,
+  });
+  assert.equal(PREFERRED_MAX_DAYS, 406);
+  assert.equal(
+    PREFERRED_MAX_DAYS,
+    VERSE_TRACK_TOTALS["new-testament"] - VERSE_TRACK_TOTALS.gospel,
+  );
+  assert.ok(PREFERRED_MAX_DAYS >= 365, "The preferred order should support a year-long plan.");
+
+  assert.equal(maxDaysForOrder(PLAN_ORDERS.CANONICAL), MAX_DAYS);
+  assert.equal(maxDaysForOrder(PLAN_ORDERS.PREFERRED), PREFERRED_MAX_DAYS);
+  assert.throws(() => maxDaysForOrder("unknown"), RangeError);
+
+  for (const invalidDuration of [0, -1, PREFERRED_MAX_DAYS + 1, 1.5, "365", null]) {
+    assert.throws(() => partitionPreferred(invalidDuration), RangeError);
+  }
+  assert.throws(
+    () => buildPlan("2026-07-11", PREFERRED_MAX_DAYS + 1, PLAN_ORDERS.PREFERRED),
+    RangeError,
+  );
+});
+
+test("preferred-order sense tracks have complete reading-length metadata", () => {
+  const sourceTracks = getVerseTracks();
+  const senseTracks = getSenseTracks();
+  const expected = {
+    "old-testament": { atoms: 1_094, totalWords: 690_150 },
+    gospel: { atoms: 1_344, totalWords: 80_080 },
+    "new-testament": { atoms: 1_030, totalWords: 94_650 },
+  };
+
+  assert.deepEqual(Object.keys(senseTracks), PREFERRED_TRACKS.map((track) => track.id));
+
+  PREFERRED_TRACKS.forEach(({ id }) => {
+    const senseTrack = senseTracks[id];
+    assert.strictEqual(senseTrack.units, sourceTracks[id]);
+    assert.equal(senseTrack.boundaries[0], 0);
+    assert.equal(senseTrack.boundaries.at(-1), sourceTracks[id].length);
+    assert.equal(senseTrack.boundaries.length - 1, expected[id].atoms);
+    assert.equal(senseTrack.totalWords, expected[id].totalWords);
+    assert.equal(
+      sourceTracks[id].reduce((sum, unit) => sum + unit.wordCount, 0),
+      senseTrack.totalWords,
+    );
+    assert.ok(
+      sourceTracks[id].every(
+        (unit) => Number.isInteger(unit.wordCount) && unit.wordCount > 0,
+      ),
+      `${id} should have a positive reading-length estimate for every verse.`,
+    );
+    senseTrack.boundaries.slice(0, -1).forEach((boundary) => {
+      assert.equal(
+        sourceTracks[id][boundary].senseUnitStart,
+        true,
+        `${id} boundary ${boundary} should begin a sense unit.`,
+      );
+    });
+  });
+});
+
+test("curated cross-paragraph passages stay within one preferred reading", () => {
+  const tracks = getVerseTracks();
+  const unit = (track, id) => tracks[track].find((entry) => entry.id === id);
+
+  for (let verse = 2; verse <= 17; verse += 1) {
+    assert.equal(unit("gospel", `46:1:${verse}`).senseUnitStart, false);
+  }
+  assert.equal(unit("gospel", "46:1:18").senseUnitStart, true);
+
+  assert.equal(unit("gospel", "49:7:53").senseUnitStart, true);
+  for (const verse of [2, 9, 11]) {
+    assert.equal(unit("gospel", `49:8:${verse}`).senseUnitStart, false);
+  }
+  assert.equal(unit("gospel", "49:8:12").senseUnitStart, true);
+
+  assert.equal(unit("old-testament", "3:25:19").senseUnitStart, false);
+  assert.equal(unit("old-testament", "3:26:1").senseUnitStart, false);
+  assert.equal(unit("old-testament", "3:27:1").senseUnitStart, true);
+});
+
+test("every preferred-order duration covers each track exactly at sense-unit boundaries", () => {
+  const sourceTracks = getVerseTracks();
+  const expectedTrackIds = PREFERRED_TRACKS.map((track) => track.id);
+
+  for (let totalDays = 1; totalDays <= PREFERRED_MAX_DAYS; totalDays += 1) {
+    const partition = partitionPreferred(totalDays);
+    const cursors = Object.fromEntries(expectedTrackIds.map((track) => [track, 0]));
+
+    assert.equal(
+      partition.length,
+      totalDays,
+      `Preferred duration ${totalDays} returned the wrong day count.`,
+    );
+
+    partition.forEach((readings, dayIndex) => {
+      assert.deepEqual(
+        readings.map((reading) => reading.track),
+        expectedTrackIds,
+        `Preferred duration ${totalDays}, day ${dayIndex + 1} returned tracks out of order.`,
+      );
+
+      const estimatedWords = Object.fromEntries(
+        readings.map((reading) => [reading.track, reading.estimatedWords]),
+      );
+      assert.ok(
+        estimatedWords["old-testament"] > estimatedWords["new-testament"] &&
+          estimatedWords["new-testament"] > estimatedWords.gospel,
+        `Preferred duration ${totalDays}, day ${dayIndex + 1} did not have estimated OT > NT > Gospel reading length.`,
+      );
+
+      readings.forEach((reading) => {
+        assert.ok(
+          reading.units.length > 0,
+          `Preferred duration ${totalDays}, day ${dayIndex + 1}, ${reading.track} was empty.`,
+        );
+        assert.equal(
+          reading.units[0].senseUnitStart,
+          true,
+          `Preferred duration ${totalDays}, day ${dayIndex + 1}, ${reading.track} split a sense unit.`,
+        );
+        assert.equal(
+          reading.estimatedWords,
+          reading.units.reduce((sum, unit) => sum + unit.wordCount, 0),
+          `Preferred duration ${totalDays}, day ${dayIndex + 1}, ${reading.track} reported the wrong estimated length.`,
+        );
+
+        reading.units.forEach((unit) => {
+          const cursor = cursors[reading.track];
+          if (unit !== sourceTracks[reading.track][cursor]) {
+            assert.fail(
+              `Preferred duration ${totalDays} changed ${reading.track} identity or order at index ${cursor}.`,
+            );
+          }
+          cursors[reading.track] += 1;
+        });
+      });
+    });
+
+    expectedTrackIds.forEach((track) => {
+      assert.equal(
+        cursors[track],
+        sourceTracks[track].length,
+        `Preferred duration ${totalDays} did not cover all ${track} verses.`,
+      );
+    });
+  }
+});
+
+test("representative preferred plans stay approximately balanced within each track", () => {
+  for (const totalDays of [30, 100, 365, PREFERRED_MAX_DAYS]) {
+    const partition = partitionPreferred(totalDays);
+
+    for (const { id } of PREFERRED_TRACKS) {
+      const estimates = partition.map(
+        (readings) => readings.find((reading) => reading.track === id).estimatedWords,
+      );
+      const mean = estimates.reduce((sum, estimate) => sum + estimate, 0) / totalDays;
+      const rootMeanSquareDeviation = Math.sqrt(
+        estimates.reduce((sum, estimate) => sum + (estimate - mean) ** 2, 0) /
+          totalDays,
+      );
+
+      assert.ok(
+        rootMeanSquareDeviation / mean < 0.25,
+        `${totalDays}-day ${id} readings should remain approximately balanced.`,
+      );
+    }
+  }
+});
+
+test("preferred verse citations use SBL forms for ranges and Esther additions", () => {
+  assert.deepEqual(formatVerseCitations([]), []);
+  assert.deepEqual(formatVerseCitations(verseUnits(0, 1, 2, 4)), ["Gen 1:2–4"]);
+  assert.deepEqual(
+    formatVerseCitations([...verseUnits(0, 1), ...verseUnits(0, 2)]),
+    ["Gen 1–2"],
+  );
+  assert.deepEqual(
+    formatVerseCitations([...verseUnits(22, 22), ...verseUnits(22, 23)]),
+    ["Pss 22–23"],
+  );
+  assert.deepEqual(formatVerseCitations(verseUnits(18, "A")), ["Esth A"]);
+  assert.deepEqual(formatVerseCitations(verseUnits(18, "C", 5, 8)), ["Esth C:5–8"]);
+});
+
+test("preferred verse data excludes empty NABRE markers without making chapters look partial", () => {
+  const tobit6 = verseUnits(16, 6);
+  const wisdom12 = verseUnits(26, 12);
+  const matthew17 = verseUnits(46, 17);
+  const mark9 = verseUnits(47, 9);
+
+  assert.equal(tobit6[0].verse, 2);
+  assert.ok(!tobit6.some((entry) => entry.verse === 1));
+  assert.deepEqual(formatVerseCitations(tobit6), ["Tob 6"]);
+
+  assert.equal(wisdom12[0].verse, 2);
+  assert.ok(!wisdom12.some((entry) => entry.verse === 1));
+  assert.deepEqual(formatVerseCitations(wisdom12), ["Wis 12"]);
+
+  assert.ok(!matthew17.some((entry) => entry.verse === 21));
+  assert.deepEqual(formatVerseCitations(matthew17), ["Matt 17"]);
+  assert.deepEqual(formatVerseCitations(verseUnits(46, 17, 20, 22)), ["Matt 17:20–22"]);
+
+  assert.ok(!mark9.some((entry) => entry.verse === 44 || entry.verse === 46));
+  assert.deepEqual(formatVerseCitations(mark9), ["Mark 9"]);
+});
+
 test("civil-date parsing validates dates and round-trips canonical values", () => {
   for (const value of ["0099-01-02", "2024-02-29", "2026-07-11", "10000-12-31"]) {
     const timestamp = parseCivilDate(value);
@@ -350,4 +582,52 @@ test("buildPlan produces correct representative dates and canonical endpoints", 
   assert.throws(() => buildPlan("not-a-date", 365), TypeError);
   assert.throws(() => buildPlan("2026-07-11", 0), RangeError);
   assert.throws(() => buildPlan("2026-07-11", MAX_DAYS + 1), RangeError);
+});
+
+test("a 365-day preferred plan has three ordered readings and the correct endpoints", () => {
+  const plan = buildPlan("2026-07-11", 365, PLAN_ORDERS.PREFERRED);
+  const firstReadings = Object.fromEntries(
+    plan[0].readings.map((reading) => [reading.track, reading]),
+  );
+  const secondReadings = Object.fromEntries(
+    plan[1].readings.map((reading) => [reading.track, reading]),
+  );
+  const lastReadings = Object.fromEntries(
+    plan.at(-1).readings.map((reading) => [reading.track, reading]),
+  );
+
+  assert.equal(plan.length, 365);
+  assert.deepEqual(
+    { day: plan[0].day, date: plan[0].date, order: plan[0].order },
+    { day: 1, date: "2026-07-11", order: PLAN_ORDERS.PREFERRED },
+  );
+  assert.deepEqual(
+    { day: plan.at(-1).day, date: plan.at(-1).date, order: plan.at(-1).order },
+    { day: 365, date: "2027-07-10", order: PLAN_ORDERS.PREFERRED },
+  );
+  assert.deepEqual(
+    plan[0].readings.map((reading) => reading.track),
+    PREFERRED_TRACKS.map((track) => track.id),
+  );
+
+  assert.equal(firstReadings["old-testament"].units[0].id, "0:1:1");
+  assert.equal(firstReadings.gospel.units[0].id, "46:1:1");
+  assert.equal(firstReadings.gospel.units.at(-1).id, "46:1:17");
+  assert.deepEqual(firstReadings.gospel.citations, ["Matt 1:1–17"]);
+  assert.equal(secondReadings.gospel.units[0].id, "46:1:18");
+  assert.equal(firstReadings["new-testament"].units[0].id, "50:1:1");
+  assert.equal(lastReadings["old-testament"].units.at(-1).id, "45:3:24");
+  assert.equal(lastReadings.gospel.units.at(-1).id, "49:21:25");
+  assert.equal(lastReadings["new-testament"].units.at(-1).id, "72:22:21");
+
+  const expectedVerseTotal = Object.values(VERSE_TRACK_TOTALS).reduce(
+    (sum, count) => sum + count,
+    0,
+  );
+  assert.equal(plan.flatMap((entry) => entry.units).length, expectedVerseTotal);
+  plan.forEach((entry, index) => {
+    assert.equal(entry.day, index + 1);
+    assert.equal(entry.date, addCivilDays("2026-07-11", index));
+    assert.equal(entry.readings.length, 3);
+  });
 });
