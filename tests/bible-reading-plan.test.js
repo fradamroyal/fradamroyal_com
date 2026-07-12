@@ -11,6 +11,7 @@ const {
   PREFERRED_TRACKS,
   VERSE_TRACK_TOTALS,
   PREFERRED_MAX_DAYS,
+  PREVIEW_DAY_COUNT,
   parseCivilDate,
   formatCivilDate,
   addCivilDays,
@@ -23,6 +24,7 @@ const {
   formatCitations,
   formatVerseCitations,
   buildPlan,
+  previewPlan,
 } = require("../themes/latex_fradamroyal/assets/js/bible-reading-plan.js");
 
 const EXPECTED_BOOKS = [
@@ -582,6 +584,18 @@ test("buildPlan produces correct representative dates and canonical endpoints", 
   assert.throws(() => buildPlan("not-a-date", 365), TypeError);
   assert.throws(() => buildPlan("2026-07-11", 0), RangeError);
   assert.throws(() => buildPlan("2026-07-11", MAX_DAYS + 1), RangeError);
+});
+
+test("the verification preview returns only the first five plan days", () => {
+  const plan = buildPlan("2026-07-11", 10);
+  const preview = previewPlan(plan);
+
+  assert.equal(PREVIEW_DAY_COUNT, 5);
+  assert.equal(preview.length, PREVIEW_DAY_COUNT);
+  preview.forEach((entry, index) => assert.strictEqual(entry, plan[index]));
+  assert.equal(previewPlan(plan.slice(0, 3)).length, 3);
+  assert.throws(() => previewPlan(null), TypeError);
+  assert.throws(() => previewPlan(plan, 0), RangeError);
 });
 
 test("a 365-day preferred plan has three ordered readings and the correct endpoints", () => {

@@ -196,7 +196,7 @@ footer .theme-by {
 }
 
 .reading-plan-submit,
-.reading-plan-print {
+.reading-plan-download-actions button {
   min-height: 2.75rem;
   padding: 0.5rem 0.9rem;
   color: var(--body-bg-color);
@@ -245,8 +245,37 @@ footer .theme-by {
   margin-top: 0.5rem;
 }
 
+.reading-plan-downloads {
+  margin: 1.25rem 0 0;
+  padding: 1rem;
+  border: var(--border-width-thin) solid var(--table-border-color);
+}
+
+.reading-plan-downloads > legend {
+  padding: 0 0.35rem;
+  font-weight: bold;
+}
+
+.reading-plan-download-help {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.reading-plan-download-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+}
+
+.reading-plan-preview-note {
+  margin-top: 1.5rem;
+  font-style: italic;
+}
+
 .reading-plan-days {
-  margin: 1.5rem 0 0;
+  margin: 0.75rem 0 0;
   padding: 0;
   list-style: none;
 }
@@ -302,10 +331,6 @@ footer .theme-by {
   .reading-plan-results-header {
     display: block;
   }
-
-  .reading-plan-print {
-    margin-top: 0.75rem;
-  }
 }
 
 @media print {
@@ -319,7 +344,8 @@ footer .theme-by {
   body.reading-plan-page .topnav,
   body.reading-plan-page .reading-plan-intro,
   body.reading-plan-page .reading-plan-generator,
-  body.reading-plan-page .reading-plan-print,
+  body.reading-plan-page .reading-plan-downloads,
+  body.reading-plan-page .reading-plan-preview-note,
   body.reading-plan-page footer {
     display: none !important;
   }

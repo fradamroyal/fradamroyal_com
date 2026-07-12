@@ -115,9 +115,39 @@
             <section id="reading-plan-results" class="reading-plan-results" aria-labelledby="reading-plan-results-heading" hidden>
                 <div class="reading-plan-results-header">
                     <h2 id="reading-plan-results-heading" tabindex="-1"></h2>
-                    <button id="reading-plan-print" class="reading-plan-print" type="button" hidden>Print plan</button>
                 </div>
                 <p id="reading-plan-summary" class="reading-plan-summary"></p>
+
+                <fieldset id="reading-plan-downloads" class="reading-plan-downloads" hidden>
+                    <legend>Download the full plan</legend>
+                    <p id="reading-plan-download-help" class="reading-plan-download-help">
+                        Choose a format. Each file is prepared in your browser; your plan is not sent anywhere.
+                    </p>
+                    <div class="reading-plan-download-actions">
+                        <button
+                            id="reading-plan-download-csv"
+                            type="button"
+                            data-export-format="csv"
+                            aria-describedby="reading-plan-download-help"
+                        >CSV</button>
+                        <button
+                            id="reading-plan-download-markdown"
+                            type="button"
+                            data-export-format="markdown"
+                            aria-describedby="reading-plan-download-help"
+                        >Markdown checklist</button>
+                        <button
+                            id="reading-plan-download-pdf"
+                            type="button"
+                            data-export-format="pdf"
+                            aria-describedby="reading-plan-download-help"
+                        >PDF checklist</button>
+                    </div>
+                </fieldset>
+
+                <p id="reading-plan-preview-note" class="reading-plan-preview-note">
+                    Here are the first few days so you can verify the schedule. The complete plan is ready in the download formats above.
+                </p>
                 <ol id="reading-plan-days" class="reading-plan-days"></ol>
             </section>
         </article>

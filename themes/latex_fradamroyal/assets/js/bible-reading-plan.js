@@ -8,8 +8,10 @@
   const {
     metadataFor: readingMetadataFor,
   } = require("./bible-reading-plan-reading-metadata.js");
+  const { buildPlanExport } = require("./bible-reading-plan-exports.js");
 
   const MILLISECONDS_PER_DAY = 86_400_000;
+  const PREVIEW_DAY_COUNT = 5;
   const OLD_TESTAMENT_BOOK_COUNT = 46;
   const GOSPEL_BOOK_COUNT = 4;
   // OT portions stay at chapter boundaries, so a corpus-density estimate keeps
@@ -915,6 +917,16 @@
     });
   }
 
+  function previewPlan(plan, maximumDays = PREVIEW_DAY_COUNT) {
+    if (!Array.isArray(plan)) {
+      throw new TypeError("A reading plan array is required.");
+    }
+    if (!Number.isInteger(maximumDays) || maximumDays < 1) {
+      throw new RangeError("The preview length must be a positive whole number.");
+    }
+    return plan.slice(0, maximumDays);
+  }
+
   const api = Object.freeze({
     BOOKS,
     CANON_UNITS,
@@ -924,6 +936,7 @@
     PREFERRED_TRACKS,
     VERSE_TRACK_TOTALS,
     PREFERRED_MAX_DAYS,
+    PREVIEW_DAY_COUNT,
     parseCivilDate,
     formatCivilDate,
     addCivilDays,
@@ -936,6 +949,7 @@
     formatCitations,
     formatVerseCitations,
     buildPlan,
+    previewPlan,
   });
 
   if (typeof module !== "undefined" && module.exports) {
@@ -963,10 +977,15 @@
   const results = document.querySelector("#reading-plan-results");
   const resultsHeading = document.querySelector("#reading-plan-results-heading");
   const resultsSummary = document.querySelector("#reading-plan-summary");
+  const downloads = document.querySelector("#reading-plan-downloads");
+  const previewNote = document.querySelector("#reading-plan-preview-note");
   const resultsList = document.querySelector("#reading-plan-days");
-  const printButton = document.querySelector("#reading-plan-print");
+  const downloadButtons = Array.from(
+    results.querySelectorAll("[data-export-format]"),
+  );
   const modeInputs = Array.from(form.querySelectorAll('input[name="duration-mode"]'));
   const orderInputs = Array.from(form.querySelectorAll('input[name="reading-order"]'));
+  let generatedPlan = null;
 
   const longDateFormatter = new Intl.DateTimeFormat(undefined, {
     weekday: "long",
@@ -1015,10 +1034,12 @@
   }
 
   function clearResults() {
+    generatedPlan = null;
     results.hidden = true;
-    printButton.hidden = true;
+    downloads.hidden = true;
     resultsHeading.textContent = "";
     resultsSummary.textContent = "";
+    previewNote.textContent = "";
     resultsList.replaceChildren();
     status.textContent = "";
   }
@@ -1078,8 +1099,9 @@
 
   function renderPlan(plan, startDate, endDate, order) {
     const fragment = document.createDocumentFragment();
+    const preview = previewPlan(plan);
 
-    plan.forEach((entry) => {
+    preview.forEach((entry) => {
       const day = document.createElement("li");
       day.className = "reading-plan-day";
 
@@ -1119,11 +1141,29 @@
       order === PLAN_ORDERS.PREFERRED
         ? `${formatLongDate(startDate)} through ${formatLongDate(endDate)}. Each day includes Old Testament, Gospel, and New Testament readings. The full 73-book Catholic canon is scheduled once, with estimated reading lengths balanced at chapter or paragraph boundaries.`
         : `${formatLongDate(startDate)} through ${formatLongDate(endDate)}. The full 73-book Catholic canon is scheduled in order without splitting chapters.`;
+    previewNote.textContent =
+      preview.length < plan.length
+        ? `Showing the first ${preview.length.toLocaleString()} of ${plan.length.toLocaleString()} days so you can verify the schedule. Download the complete plan above.`
+        : `Showing all ${plan.length.toLocaleString()} days. Download the complete plan above.`;
     resultsList.replaceChildren(fragment);
+    generatedPlan = plan;
     results.hidden = false;
-    printButton.hidden = false;
-    status.textContent = `Generated a ${plan.length.toLocaleString()}-day ${orderLabel} plan.`;
+    downloads.hidden = false;
+    status.textContent = `Generated a ${plan.length.toLocaleString()}-day ${orderLabel} plan. The complete plan is ready to download.`;
     resultsHeading.focus();
+  }
+
+  function downloadExport(exportFile) {
+    const blob = new Blob([exportFile.data], { type: exportFile.mimeType });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = exportFile.filename;
+    link.hidden = true;
+    document.body.append(link);
+    link.click();
+    link.remove();
+    window.setTimeout(() => URL.revokeObjectURL(url), 0);
   }
 
   startInput.value = todayAsCivilDate();
@@ -1152,7 +1192,26 @@
       status.textContent = `${PLAN_ORDER_LABELS[selectedOrder()]} selected. Choose up to ${currentMaxDays().toLocaleString()} days.`;
     }),
   );
-  printButton.addEventListener("click", () => window.print());
+  downloadButtons.forEach((button) =>
+    button.addEventListener("click", () => {
+      if (generatedPlan === null) {
+        return;
+      }
+
+      const format = button.dataset.exportFormat;
+      try {
+        const orderLabel = PLAN_ORDER_LABELS[generatedPlan[0].order];
+        downloadExport(
+          buildPlanExport(generatedPlan, format, {
+            title: `${orderLabel} Bible Reading Plan`,
+          }),
+        );
+        status.textContent = `Prepared the complete ${format === "markdown" ? "Markdown" : format.toUpperCase()} plan for download.`;
+      } catch {
+        status.textContent = "The download could not be prepared. Please generate the plan again.";
+      }
+    }),
+  );
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();

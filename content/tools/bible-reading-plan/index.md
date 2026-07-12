@@ -26,4 +26,7 @@ Gospel and New Testament paragraph boundaries and word-count estimates use
 metadata derived from the public-domain [World English Bible Catholic edition](https://ebible.org/find/show.php?id=eng-web-c).
 Old Testament portions stay at chapter boundaries and are estimated from verse
 counts. No Bible text is copied into the plan. Everything is generated on your
-device and no dates or plan data are sent anywhere.
+device and no dates or plan data are sent anywhere. After generation, the page
+shows the first few days so you can verify the schedule. The complete plan can
+be downloaded as a CSV file, a Markdown checklist, or a simply formatted PDF
+checklist; those files are also created entirely in your browser.
