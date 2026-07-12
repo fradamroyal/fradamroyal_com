@@ -24,7 +24,7 @@ citation = 'Matt 13:1–23'
 
 The Lord’s parable and his stated reason for speaking in parables are mutually illuminating. Which is to say, the parable draws us into the logic of parables and reveals their purpose. A parable is not a mere story or a moral lesson. It is an invitation to step inside a symbolic world and meditate. Every object within the symbolic cosmos is polyvalent and saturated with meaning. Understanding, then, is not reducible to “figuring out the message,” as if one were solving a puzzle. Understanding is discovered through participation in the parable.
 
-We are soil; we are the earth. We are poignantly reminded of this fact on Ash Wednesday each year: “Remember that you are dust and to dust you shall return.” This reminder is meant to root us once again in the reality revealed by God. It returns us to our creation in the Book of Genesis. The first man, Adam, is drawn up from the ground—adamah in Hebrew. It is the breath of God planted within the ground that creates us, that gives us life.
+We are soil; we are the earth. We are poignantly reminded of this fact on Ash Wednesday each year: “Remember that you are dust and to dust you shall return.” This reminder is meant to root us once again in the reality revealed by God. It returns us to our creation in the Book of Genesis. The first man, Adam, is drawn up from the ground—*adamah* in Hebrew. It is the breath of God planted within the ground that creates us, that gives us life.
 
 But we do not live in Eden. We were cast out because of sin and the fertile soil of paradise is gone. Moved by his own steadfast love, God descends to our sorry state. The God who once breathed life into Adam now sows his life-giving word into the wounded soil of the human heart.
 

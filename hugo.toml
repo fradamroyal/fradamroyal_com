@@ -8,7 +8,7 @@ footnoteReturnLinkContents = "^"
 enableRobotsTXT = true
 
 [params]
-  mainSections = ['reflections', 'homilies']
+  mainSections = ['reflections', 'homilies', 'tools']
   [params.author]
     name = "Rev. Adam Royal"
     abstract = """
@@ -27,6 +27,10 @@ enableRobotsTXT = true
     name = 'Reflections'
     pageRef = '/reflections'
     weight = 30
+  [[menus.main]]
+    name = 'Tools'
+    pageRef = '/tools'
+    weight = 40
 
 [taxonomies]
   category = "categories"

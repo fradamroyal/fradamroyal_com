@@ -4,11 +4,11 @@
     {{- partial "head.html" . -}}
     </head>
     {{- if site.Params.darkmode -}}
-    <body class="latex-dark">
+    <body class="latex-dark{{ if eq .Layout "bible-reading-plan" }} reading-plan-page{{ end }}">
     {{- else if site.Params.lightmode -}}
-    <body>
+    <body{{ if eq .Layout "bible-reading-plan" }} class="reading-plan-page"{{ end }}>
     {{- else -}}
-    <body class="latex-dark-auto">
+    <body class="latex-dark-auto{{ if eq .Layout "bible-reading-plan" }} reading-plan-page{{ end }}">
     {{- end -}}
         {{- partial "header.html" . -}}
         <div id="content">

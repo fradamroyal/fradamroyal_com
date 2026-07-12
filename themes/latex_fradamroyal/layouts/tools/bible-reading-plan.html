@@ -1,0 +1,96 @@
+{{ define "main" }}
+    <div class="container" role="main">
+        <article class="article reading-plan">
+            <div class="reading-plan-intro">
+                {{ .Content }}
+            </div>
+
+            <section class="reading-plan-generator" aria-labelledby="reading-plan-generator-heading">
+                <h2 id="reading-plan-generator-heading">Build your plan</h2>
+
+                <noscript>
+                    <p class="reading-plan-notice">
+                        This generator runs entirely in your browser and requires JavaScript to create a plan.
+                    </p>
+                </noscript>
+
+                <form id="bible-reading-plan-form" class="reading-plan-form" hidden novalidate>
+                    <div class="reading-plan-form-grid">
+                        <div class="reading-plan-field">
+                            <label for="reading-plan-start-date">Start date</label>
+                            <input id="reading-plan-start-date" name="start-date" type="date" required>
+                        </div>
+
+                        <fieldset class="reading-plan-duration">
+                            <legend>Set the plan length</legend>
+                            <div class="reading-plan-mode-options">
+                                <label>
+                                    <input type="radio" name="duration-mode" value="days" checked>
+                                    Number of days
+                                </label>
+                                <label>
+                                    <input type="radio" name="duration-mode" value="end-date">
+                                    Ending date
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <div id="reading-plan-days-panel" class="reading-plan-field" data-duration-panel="days">
+                            <label for="reading-plan-total-days">Total number of days</label>
+                            <input
+                                id="reading-plan-total-days"
+                                name="total-days"
+                                type="number"
+                                value="365"
+                                min="1"
+                                max="1334"
+                                step="1"
+                                inputmode="numeric"
+                                required
+                            >
+                            <p class="reading-plan-help">Choose from 1 to 1,334 days.</p>
+                        </div>
+
+                        <div id="reading-plan-end-panel" class="reading-plan-field" data-duration-panel="end-date" hidden>
+                            <label for="reading-plan-end-date">Ending date <span>(inclusive)</span></label>
+                            <input id="reading-plan-end-date" name="end-date" type="date" disabled>
+                            <p class="reading-plan-help">The ending date counts as a reading day.</p>
+                        </div>
+                    </div>
+
+                    <div id="reading-plan-form-error" class="reading-plan-error" role="alert" tabindex="-1" hidden></div>
+
+                    <button type="submit" class="reading-plan-submit">Generate reading plan</button>
+                </form>
+
+                <p id="reading-plan-status" class="reading-plan-status" role="status" aria-live="polite"></p>
+            </section>
+
+            <section id="reading-plan-results" class="reading-plan-results" aria-labelledby="reading-plan-results-heading" hidden>
+                <div class="reading-plan-results-header">
+                    <h2 id="reading-plan-results-heading" tabindex="-1"></h2>
+                    <button id="reading-plan-print" class="reading-plan-print" type="button" hidden>Print plan</button>
+                </div>
+                <p id="reading-plan-summary" class="reading-plan-summary"></p>
+                <ol id="reading-plan-days" class="reading-plan-days"></ol>
+            </section>
+        </article>
+    </div>
+
+    {{- with resources.Get "js/bible-reading-plan.js" -}}
+        {{- $opts := dict
+            "minify" (not hugo.IsDevelopment)
+            "sourceMap" (cond hugo.IsDevelopment "linked" "none")
+            "targetPath" "js/bible-reading-plan.js"
+        -}}
+        {{- with . | js.Build $opts -}}
+            {{- if hugo.IsDevelopment -}}
+    <script src="{{ .RelPermalink }}" defer></script>
+            {{- else -}}
+                {{- with . | fingerprint -}}
+    <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" defer></script>
+                {{- end -}}
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
+{{ end }}
