@@ -52,11 +52,12 @@ Baseline recorded July 12, 2026:
 
 ## Execution queue
 
-### NOW: Deploy and smoke-test the verified Phase 1.2 candidate
+### NOW: Remove low-value crawl surfaces in Phase 1.3
 
-Phase 1.2 is implemented and verified locally. Deploy it and confirm that
-representative recurring-feast, multi-reading, single-reading, and no-match
-homily pages agree with the local production build.
+Phase 1.2 is live and its representative pages match the local production
+build. Remove the empty Posts section and unused taxonomy roots from indexable
+output and the sitemap, with focused generated-output tests that preserve
+canonical section, year-archive, and article URLs.
 
 ## Phase 0 — Correct indexing signals and deploy the intended site
 
@@ -123,9 +124,8 @@ returned HTTP 404.
 **Outcome:** Important content is reachable through clear, useful navigation in
 approximately three clicks rather than dozens of sequential archive pages.
 
-**Status:** Phase 1.1 is implemented, deployed, and verified live. Phase 1.2 is
-implemented and verified locally; deployment is pending. Phase 1.3 and 1.4
-remain queued.
+**Status:** Phase 1.1 and 1.2 are implemented, deployed, and verified live.
+Phase 1.3 and 1.4 remain queued.
 
 ### 1.1 Improve archive navigation
 
@@ -153,7 +153,9 @@ shared citations, and pages without a defensible match render no
 related-content block. Repeated liturgies consequently connect the same feast
 or occasion across years when their readings coincide. Liturgical-season,
 reflection, and tool relationships remain absent until explicit metadata can
-support them accurately.
+support them accurately. The production deployment was smoke-tested against
+the local build on July 13, 2026, including recurring-feast, multi-reading,
+single-reading, and no-match homilies plus the fingerprinted stylesheet.
 
 Where metadata supports accurate relationships, link to:
 
