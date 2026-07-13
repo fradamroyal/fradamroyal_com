@@ -23,13 +23,14 @@
         {{ else }}
           <h1>{{ with $title }}{{.}}{{ else }}<br/>{{ end }}</h1>
           {{ if .IsHome }}
-            <p class="author">{{ with .Site.Params.Author.name }}{{.}}{{ else }}<br/>{{ end }}</p>
+            {{ $authorName := default .Site.Params.Author.name .Site.Params.Author.display_name }}
+            <p class="author">{{ with $authorName }}{{.}}{{ else }}<br/>{{ end }}</p>
 
-            {{ if .Site.Params.Author.abstract }}
+            {{ if .Site.Params.description }}
               <div class="abstract">
                 <h2>Abstract</h2>
                 <p>
-                  {{ .Site.Params.Author.abstract }}
+                  {{ .Site.Params.description }}
                 </p>
               </div>
 	      {{ partial "nav.html" . }}

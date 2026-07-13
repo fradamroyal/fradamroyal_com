@@ -1,0 +1,13 @@
+{{/* One description fallback shared by ordinary metadata and JSON-LD. */}}
+{{- $page := . -}}
+{{- $description := strings.TrimSpace (htmlUnescape (plainify (default "" $page.Params.description))) -}}
+{{- if not $description -}}
+    {{- $description = strings.TrimSpace (htmlUnescape (plainify (default "" $page.Params.summary))) -}}
+{{- end -}}
+{{- if and (not $description) $page.IsPage -}}
+    {{- $description = strings.TrimSpace (htmlUnescape (plainify $page.Summary)) -}}
+{{- end -}}
+{{- if not $description -}}
+    {{- $description = strings.TrimSpace (htmlUnescape (plainify (default "" $page.Site.Params.description))) -}}
+{{- end -}}
+{{- return $description -}}

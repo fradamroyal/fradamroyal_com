@@ -1,0 +1,43 @@
+{{/* Resolve only images explicitly named in ordinary image/images front matter. */}}
+{{- $page := . -}}
+{{- $candidates := slice -}}
+
+{{- with $page.Params.image -}}
+    {{- if reflect.IsSlice . -}}
+        {{- range . -}}
+            {{- $candidates = $candidates | append . -}}
+        {{- end -}}
+    {{- else -}}
+        {{- $candidates = $candidates | append . -}}
+    {{- end -}}
+{{- end -}}
+{{- with $page.Params.images -}}
+    {{- if reflect.IsSlice . -}}
+        {{- range . -}}
+            {{- $candidates = $candidates | append . -}}
+        {{- end -}}
+    {{- else -}}
+        {{- $candidates = $candidates | append . -}}
+    {{- end -}}
+{{- end -}}
+
+{{- $images := slice -}}
+{{- range $candidates -}}
+    {{- $candidate := strings.TrimSpace (printf "%v" .) -}}
+    {{- $url := "" -}}
+    {{- if $candidate -}}
+        {{- if or (strings.HasPrefix $candidate "https://") (strings.HasPrefix $candidate "http://") -}}
+            {{- $url = $candidate -}}
+        {{- else -}}
+            {{- with $page.Resources.GetMatch $candidate -}}
+                {{- $url = .Permalink -}}
+            {{- else -}}
+                {{- $url = urls.AbsURL $candidate -}}
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
+    {{- if and $url (not (in $images $url)) -}}
+        {{- $images = $images | append $url -}}
+    {{- end -}}
+{{- end -}}
+{{- return $images -}}

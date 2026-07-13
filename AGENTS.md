@@ -24,7 +24,7 @@
 ## Testing Guidelines
 - Watch `hugo server` for broken links, missing resources, or template warnings.
 - Run `hugo --templateMetrics --templateMetricsHints` to spot slow-rendering templates.
-- Run `node --test tests/bible-reading-plan.test.js tests/bible-reading-plan-exports.test.js` for the browser-side Bible planner.
+- Run `node --test tests/bible-reading-plan.test.js tests/bible-reading-plan-exports.test.js tests/structured-data.test.js` for the browser-side Bible planner and generated JSON-LD.
 - Validate the generated `public/` (or deploy preview) for layout and typography regressions.
 
 ## Commit & Pull Request Guidelines
@@ -35,4 +35,5 @@
 ## Content Contribution Tips
 - Use taxonomy arrays (`categories = []`, `tags = []`, `series = []`) to keep navigation consistent and discoverable.
 - Prefer SBL book abbreviations for Scripture references, including homily `readings` metadata; use the canonical list in `SBL_BIBLE_ABBREVIATIONS.md`.
+- Do not hand-author JSON-LD in content; use ordinary front matter and maintain its centralized mapping in `layouts/_partials/structured-data.html`.
 - Store supporting media under `static/images/<slug>/` and reference them via relative paths in Markdown to ensure Hugo copies them intact.

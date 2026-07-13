@@ -1,14 +1,5 @@
 {{/* Site-owned rendering for the homily readings front matter. */}}
-{{- $readings := slice -}}
-{{- with .Params.readings -}}
-    {{- range . -}}
-        {{- $citation := strings.TrimSpace (default "" .citation) -}}
-        {{- if $citation -}}
-            {{- $label := strings.TrimSpace (default "" .label) -}}
-            {{- $readings = $readings | append (dict "label" $label "citation" $citation) -}}
-        {{- end -}}
-    {{- end -}}
-{{- end -}}
+{{- $readings := partial "structured-data/readings.html" .Params.readings -}}
 
 {{- with $readings }}
 <section class="homily-readings" aria-label="Scripture readings">

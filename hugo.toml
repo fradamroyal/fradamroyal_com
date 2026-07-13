@@ -6,14 +6,22 @@ pagination.pagerSize = 3
 enableInlineShortcodes = true
 footnoteReturnLinkContents = "^"
 enableRobotsTXT = true
+enableGitInfo = true
+
+[frontmatter]
+  lastmod = ['lastmod', ':git', 'date', 'publishDate']
 
 [params]
+  description = "A collection of homilies and reflections to, hopefully, inspire and guide your faith."
   mainSections = ['reflections', 'homilies']
   [params.author]
-    name = "Rev. Adam Royal"
-    abstract = """
-    A collection of homilies and reflections to, hopefully, inspire and guide your faith.
-    """
+    name = "Adam Royal"
+    display_name = "Rev. Adam Royal"
+    honorific_prefix = "Rev."
+    url = "/about/"
+  [params.license]
+    name = "CC BY-SA 4.0"
+    url = "https://creativecommons.org/licenses/by-sa/4.0/"
 [menus]
   [[menus.main]]
     name = 'Home'

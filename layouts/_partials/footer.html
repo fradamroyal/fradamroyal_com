@@ -1,4 +1,8 @@
 {{/* Site-owned copyright and licensing policy. */}}
+{{- $authorName := default .Site.Params.Author.name .Site.Params.Author.display_name -}}
+{{- $authorURL := default "/about/" .Site.Params.Author.url | absURL -}}
+{{- $licenseName := default "CC BY-SA 4.0" .Site.Params.license.name -}}
+{{- $licenseURL := default "https://creativecommons.org/licenses/by-sa/4.0/" .Site.Params.license.url -}}
 <footer>
     <div class="container">
         <p class="credits copyright"></p>
@@ -30,15 +34,15 @@
             <a
                 rel="cc:attributionURL dct:creator"
                 property="cc:attributionName"
-                href="{{ .Site.BaseURL }}about/"
-                >{{ .Site.Params.Author.name }}</a
+                href="{{ $authorURL }}"
+                >{{ $authorName }}</a
             >
             is licensed under
             <a
-                href="https://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1"
+                href="{{ $licenseURL }}"
                 target="_blank"
                 rel="license noopener noreferrer"
-                >CC BY-SA 4.0</a
+                >{{ $licenseName }}</a
             >
         </p>
     </div>

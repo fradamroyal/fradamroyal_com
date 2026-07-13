@@ -1,0 +1,250 @@
+{{/*
+    Site-owned Schema.org graph. Content authors provide ordinary front matter;
+    this partial is the only place that knows how to turn it into JSON-LD.
+*/}}
+{{- $page := . -}}
+{{- $homeURL := $page.Site.Home.Permalink -}}
+{{- $websiteID := printf "%s#website" $homeURL -}}
+{{- $personID := printf "%s#person" $homeURL -}}
+{{- $pageID := printf "%s#webpage" $page.Permalink -}}
+{{- $articleID := printf "%s#article" $page.Permalink -}}
+{{- $breadcrumbID := printf "%s#breadcrumb" $page.Permalink -}}
+{{- $applicationID := printf "%s#application" $page.Permalink -}}
+{{- $language := default $page.Site.Language.Lang $page.Site.Language.Locale -}}
+{{- $licenseURL := default "https://creativecommons.org/licenses/by-sa/4.0/" $page.Site.Params.license.url -}}
+
+{{- $authorName := "" -}}
+{{- with $page.Site.Params.author.name -}}
+    {{- $authorName = strings.TrimSpace . -}}
+{{- end -}}
+{{- if not $authorName -}}
+    {{- $authorName = $page.Site.Title -}}
+{{- end -}}
+
+{{- $aboutURL := urls.AbsURL (default "/about/" $page.Site.Params.author.url) -}}
+
+{{- $person := dict
+    "@type" "Person"
+    "@id" $personID
+    "name" $authorName
+    "url" $aboutURL
+-}}
+{{- with $page.Site.Params.author.honorific_prefix -}}
+    {{- $honorific := strings.TrimSpace . -}}
+    {{- if $honorific -}}
+        {{- $person = merge $person (dict "honorificPrefix" $honorific) -}}
+    {{- end -}}
+{{- end -}}
+{{- with $page.Site.Params.author.same_as -}}
+    {{- $sameAs := slice -}}
+    {{- if reflect.IsSlice . -}}
+        {{- range . -}}
+            {{- $url := strings.TrimSpace (printf "%v" .) -}}
+            {{- if $url -}}
+                {{- $sameAs = $sameAs | append $url -}}
+            {{- end -}}
+        {{- end -}}
+    {{- else -}}
+        {{- $url := strings.TrimSpace (printf "%v" .) -}}
+        {{- if $url -}}
+            {{- $sameAs = $sameAs | append $url -}}
+        {{- end -}}
+    {{- end -}}
+    {{- with $sameAs -}}
+        {{- $person = merge $person (dict "sameAs" .) -}}
+    {{- end -}}
+{{- end -}}
+
+{{- $website := dict
+    "@type" "WebSite"
+    "@id" $websiteID
+    "url" $homeURL
+    "name" $page.Site.Title
+    "creator" (dict "@id" $personID)
+    "publisher" (dict "@id" $personID)
+    "license" $licenseURL
+    "copyrightHolder" (dict "@id" $personID)
+-}}
+{{- with $language -}}
+    {{- $website = merge $website (dict "inLanguage" .) -}}
+{{- end -}}
+{{- with $page.Site.Params.description -}}
+    {{- $siteDescription := strings.TrimSpace (htmlUnescape (plainify .)) -}}
+    {{- if $siteDescription -}}
+        {{- $website = merge $website (dict "description" $siteDescription) -}}
+    {{- end -}}
+{{- end -}}
+
+{{- $description := partial "structured-data/description.html" $page -}}
+
+{{- $collectionKinds := slice "home" "section" "taxonomy" "term" -}}
+{{- $pageType := "WebPage" -}}
+{{- if in $collectionKinds $page.Kind -}}
+    {{- $pageType = "CollectionPage" -}}
+{{- else if eq (strings.TrimSuffix "/" $page.RelPermalink) "/about" -}}
+    {{- $pageType = "AboutPage" -}}
+{{- end -}}
+
+{{- $articleSections := slice "homilies" "reflections" "posts" -}}
+{{- $isArticle := and (eq $page.Kind "page") (in $articleSections $page.Section) -}}
+{{- $isBiblePlanner := and
+    (eq $page.Kind "page")
+    (eq $page.Section "tools")
+    (eq $page.Layout "bible-reading-plan")
+-}}
+
+{{- $webpage := dict
+    "@type" $pageType
+    "@id" $pageID
+    "url" $page.Permalink
+    "name" $page.Title
+    "isPartOf" (dict "@id" $websiteID)
+-}}
+{{- with $language -}}
+    {{- $webpage = merge $webpage (dict "inLanguage" .) -}}
+{{- end -}}
+{{- with $description -}}
+    {{- $webpage = merge $webpage (dict "description" .) -}}
+{{- end -}}
+{{- if not $page.IsHome -}}
+    {{- $webpage = merge $webpage (dict "breadcrumb" (dict "@id" $breadcrumbID)) -}}
+{{- end -}}
+{{- if $isArticle -}}
+    {{- $webpage = merge $webpage (dict "mainEntity" (dict "@id" $articleID)) -}}
+{{- else if $isBiblePlanner -}}
+    {{- $webpage = merge $webpage (dict "mainEntity" (dict "@id" $applicationID)) -}}
+{{- else if eq $pageType "AboutPage" -}}
+    {{- $webpage = merge $webpage (dict "mainEntity" (dict "@id" $personID)) -}}
+{{- end -}}
+
+{{- $graph := slice $person $website $webpage -}}
+
+{{- if not $page.IsHome -}}
+    {{- $breadcrumbItems := slice -}}
+    {{- range $ancestor := $page.Ancestors.Reverse -}}
+        {{- $breadcrumbItems = $breadcrumbItems | append (dict
+            "@type" "ListItem"
+            "position" (add (len $breadcrumbItems) 1)
+            "name" $ancestor.Title
+            "item" $ancestor.Permalink
+        ) -}}
+    {{- end -}}
+    {{- $breadcrumbItems = $breadcrumbItems | append (dict
+        "@type" "ListItem"
+        "position" (add (len $breadcrumbItems) 1)
+        "name" $page.Title
+        "item" $page.Permalink
+    ) -}}
+    {{- $graph = $graph | append (dict
+        "@type" "BreadcrumbList"
+        "@id" $breadcrumbID
+        "itemListElement" $breadcrumbItems
+    ) -}}
+{{- end -}}
+
+{{- if $isArticle -}}
+    {{- $genreBySection := dict
+        "homilies" "Homily"
+        "reflections" "Reflection"
+        "posts" "Post"
+    -}}
+    {{- $sectionName := title (humanize $page.Section) -}}
+    {{- $article := dict
+        "@type" "BlogPosting"
+        "@id" $articleID
+        "url" $page.Permalink
+        "mainEntityOfPage" (dict "@id" $pageID)
+        "headline" $page.Title
+        "author" (dict "@id" $personID)
+        "publisher" (dict "@id" $personID)
+        "articleSection" $sectionName
+        "genre" (index $genreBySection $page.Section)
+        "license" $licenseURL
+        "copyrightHolder" (dict "@id" $personID)
+    -}}
+    {{- with $language -}}
+        {{- $article = merge $article (dict "inLanguage" .) -}}
+    {{- end -}}
+    {{- with $description -}}
+        {{- $article = merge $article (dict "description" .) -}}
+    {{- end -}}
+    {{- if not $page.PublishDate.IsZero -}}
+        {{- $article = merge $article (dict "datePublished" ($page.PublishDate.Format "2006-01-02T15:04:05Z07:00")) -}}
+    {{- end -}}
+    {{- if not $page.Lastmod.IsZero -}}
+        {{- $article = merge $article (dict "dateModified" ($page.Lastmod.Format "2006-01-02T15:04:05Z07:00")) -}}
+    {{- end -}}
+    {{- if gt $page.WordCount 0 -}}
+        {{- $article = merge $article (dict "wordCount" $page.WordCount) -}}
+    {{- end -}}
+
+    {{- $keywords := slice -}}
+    {{- range $taxonomy := slice "tags" "categories" "series" -}}
+        {{- with index $page.Params $taxonomy -}}
+            {{- if reflect.IsSlice . -}}
+                {{- range . -}}
+                    {{- $keyword := strings.TrimSpace (printf "%v" .) -}}
+                    {{- if and $keyword (not (in $keywords $keyword)) -}}
+                        {{- $keywords = $keywords | append $keyword -}}
+                    {{- end -}}
+                {{- end -}}
+            {{- else -}}
+                {{- $keyword := strings.TrimSpace (printf "%v" .) -}}
+                {{- if and $keyword (not (in $keywords $keyword)) -}}
+                    {{- $keywords = $keywords | append $keyword -}}
+                {{- end -}}
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
+    {{- with $keywords -}}
+        {{- $article = merge $article (dict "keywords" .) -}}
+    {{- end -}}
+
+    {{- $citations := slice -}}
+    {{- range partial "structured-data/readings.html" $page.Params.readings -}}
+        {{- $citation := .citation -}}
+        {{- with .label -}}
+            {{- $citation = printf "%s: %s" . $citation -}}
+        {{- end -}}
+        {{- $citations = $citations | append $citation -}}
+    {{- end -}}
+    {{- with $citations -}}
+        {{- $article = merge $article (dict "citation" .) -}}
+    {{- end -}}
+
+    {{- $images := partial "structured-data/images.html" $page -}}
+    {{- with $images -}}
+        {{- $article = merge $article (dict "image" .) -}}
+    {{- end -}}
+    {{- $graph = $graph | append $article -}}
+{{- end -}}
+
+{{- if $isBiblePlanner -}}
+    {{- $application := dict
+        "@type" "WebApplication"
+        "@id" $applicationID
+        "url" $page.Permalink
+        "name" $page.Title
+        "applicationCategory" "EducationalApplication"
+        "operatingSystem" "Any"
+        "browserRequirements" "Requires JavaScript and a modern web browser"
+        "isAccessibleForFree" true
+        "mainEntityOfPage" (dict "@id" $pageID)
+        "author" (dict "@id" $personID)
+        "creator" (dict "@id" $personID)
+        "license" $licenseURL
+        "copyrightHolder" (dict "@id" $personID)
+        "isPartOf" (dict "@id" $websiteID)
+    -}}
+    {{- with $language -}}
+        {{- $application = merge $application (dict "inLanguage" .) -}}
+    {{- end -}}
+    {{- with $description -}}
+        {{- $application = merge $application (dict "description" .) -}}
+    {{- end -}}
+    {{- $graph = $graph | append $application -}}
+{{- end -}}
+
+{{- $payload := dict "@context" "https://schema.org" "@graph" $graph -}}
+{{/* Jsonify escapes HTML-sensitive characters; safeJS prevents context-aware double encoding. */}}
+<script type="application/ld+json">{{ encoding.Jsonify $payload | safeJS }}</script>

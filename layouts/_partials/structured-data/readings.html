@@ -1,0 +1,12 @@
+{{/* Normalize readings once for both visible homily metadata and JSON-LD. */}}
+{{- $readings := slice -}}
+{{- with . -}}
+    {{- range . -}}
+        {{- $citation := strings.TrimSpace (default "" .citation) -}}
+        {{- if $citation -}}
+            {{- $label := strings.TrimSpace (default "" .label) -}}
+            {{- $readings = $readings | append (dict "label" $label "citation" $citation) -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+{{- return $readings -}}
