@@ -17,28 +17,30 @@
       {{ if not .IsHome }}
         {{ partial "nav.html" . }}
       {{ end }}
-      {{ partial "breadcrumbs.html" . }}
-      <div class="{{ .Type }}-heading">
-        {{ if eq .Type "list" }}
-          <h1>{{ if .Data.Singular }}#{{ end }}{{ .Title }}</h1>
-        {{ else }}
-          <h1>{{ with $title }}{{.}}{{ else }}<br/>{{ end }}</h1>
-          {{ if .IsHome }}
-            {{ $authorName := default .Site.Params.Author.name .Site.Params.Author.display_name }}
-            <p class="author">{{ with $authorName }}{{.}}{{ else }}<br/>{{ end }}</p>
+      {{ if ne .Kind "404" }}
+        {{ partial "breadcrumbs.html" . }}
+        <div class="{{ .Type }}-heading">
+          {{ if eq .Type "list" }}
+            <h1>{{ if .Data.Singular }}#{{ end }}{{ .Title }}</h1>
+          {{ else }}
+            <h1>{{ with $title }}{{.}}{{ else }}<br/>{{ end }}</h1>
+            {{ if .IsHome }}
+              {{ $authorName := default .Site.Params.Author.name .Site.Params.Author.display_name }}
+              <p class="author">{{ with $authorName }}{{.}}{{ else }}<br/>{{ end }}</p>
 
-            {{ if .Site.Params.description }}
-              <div class="abstract">
-                <h2>Abstract</h2>
-                <p>
-                  {{ .Site.Params.description }}
-                </p>
-              </div>
-	      {{ partial "nav.html" . }}
+              {{ if .Site.Params.description }}
+                <div class="abstract">
+                  <h2>Abstract</h2>
+                  <p>
+                    {{ .Site.Params.description }}
+                  </p>
+                </div>
+                {{ partial "nav.html" . }}
+              {{ end }}
             {{ end }}
           {{ end }}
-        {{ end }}
-      </div>
+        </div>
+      {{ end }}
     </div>
   </div>
 </header>

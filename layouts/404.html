@@ -1,15 +1,16 @@
+{{- define "body-class" -}}not-found-page{{- end -}}
 {{- define "main" -}}
 <div class="container">
-    <section class="not-found" aria-labelledby="not-found-recovery-title">
+    <section class="not-found" aria-labelledby="not-found-title">
         <p class="not-found__code" aria-hidden="true">404</p>
-        <h2 id="not-found-recovery-title">Let&rsquo;s get you back to something useful.</h2>
-        <p>
-            The address may have changed, or the page may no longer be available.
-            Try one of these places instead.
+        <h1 id="not-found-title">Page not found</h1>
+        <p class="not-found__message">
+            The page you&rsquo;re looking for may have moved or no longer exists.
         </p>
-        <nav class="not-found__navigation" aria-label="Helpful destinations">
+        <p class="not-found__home"><a href="{{ site.Home.RelPermalink }}">Return home</a></p>
+        <nav class="not-found__navigation" aria-label="Other places to visit">
+            <span>Or browse:</span>
             <ul>
-                <li><a href="{{ site.Home.RelPermalink }}">Home</a></li>
                 {{- range $section := slice "homilies" "reflections" "tools" }}
                     {{- with site.GetPage (printf "/%s" $section) }}
                 <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>

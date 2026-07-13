@@ -475,13 +475,21 @@ test("custom 404 page provides useful recovery paths without entering the sitema
     /(?:not found|could not find|cannot find|does not exist|missing|unavailable|no longer be available)/i,
     `Expected ${relativePath} to explain that the requested page is unavailable.`,
   );
+  const pageHeadings = [...html.matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1>/gi)];
+  assert.equal(pageHeadings.length, 1, `Expected one page heading in ${relativePath}.`);
+  assert.equal(textContent(pageHeadings[0][1]), "Page not found");
+  assert.equal(
+    elementsWithClass(html, "nav", "breadcrumbs").length,
+    0,
+    `Expected ${relativePath} not to repeat a breadcrumb above its recovery content.`,
+  );
 
   const recoveryLinks = anchors(recoveryRegion.innerHTML).map((anchor) => ({
     name: anchor.name,
     url: new URL(anchor.href, pageURL).href,
   }));
   [
-    ["Home", "index.html"],
+    ["Return home", "index.html"],
     ["Homilies", "homilies/index.html"],
     ["Reflections", "reflections/index.html"],
     ["Tools", "tools/index.html"],
