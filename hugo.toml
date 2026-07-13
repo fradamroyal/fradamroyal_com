@@ -20,6 +20,7 @@ enableGitInfo = true
     display_name = "Rev. Adam Royal"
     honorific_prefix = "Rev."
     url = "/about/"
+    same_as = ['https://etcatholic.org/2016/07/father-adam-royal-is-the-diocese-of-knoxvilles-51st-ordained-priest/']
   [params.seo]
     site_name = "Fr. Adam Royal"
   [params.license]

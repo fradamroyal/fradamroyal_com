@@ -259,6 +259,10 @@ test("the home page identifies the author, website, and collection", () => {
   const collection = nodeByType(document, "CollectionPage");
   assert.equal(person.name, "Adam Royal");
   assert.equal(person.honorificPrefix, "Rev.");
+  assert.equal(person.url, "https://fradamroyal.com/about/");
+  assert.deepEqual(person.sameAs, [
+    "https://etcatholic.org/2016/07/father-adam-royal-is-the-diocese-of-knoxvilles-51st-ordained-priest/",
+  ]);
   assert.equal(website.name, "Homilies & Thoughts");
   assert.equal(
     website.description,

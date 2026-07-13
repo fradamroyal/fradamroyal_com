@@ -1,0 +1,7 @@
+{{/* Visible authorship for article singles, derived from centralized site metadata. */}}
+{{- $author := .Site.Params.author -}}
+{{- $authorName := strings.TrimSpace (default $author.name $author.display_name) -}}
+{{- with $authorName }}
+<br>
+<span class="article-byline">By <a href="{{ urls.AbsURL (default "/about/" $author.url) }}" rel="author">{{ . }}</a></span>
+{{- end }}

@@ -52,13 +52,13 @@ Baseline recorded July 12, 2026:
 
 ## Execution queue
 
-### NOW: Strengthen visible authorship in Phase 2.3
+### NOW: Improve share and search presentation in Phase 2.4
 
-Phases 1.3, 1.4, 2.1, and the first-priority Phase 2.2 description convention
-are implemented and verified locally. Deployment and live smoke-testing for
-them remain pending and were intentionally skipped in this pass. Continue with
-an accurate, user-supplied About expansion and a visible linked author byline
-whose wording agrees with structured data.
+Phases 1.3, 1.4, 2.1, the first-priority Phase 2.2 description convention, and
+Phase 2.3 are implemented and verified locally. Deployment and live
+smoke-testing for them remain pending and were intentionally skipped. Continue
+with explicit favicon discovery and centralized Open Graph and Twitter Card
+metadata, using genuine page images only where they already exist.
 
 ## Phase 0 — Correct indexing signals and deploy the intended site
 
@@ -213,8 +213,9 @@ an unknown URL returns the custom body with HTTP 404.
 **Outcome:** Search results clearly identify the site, distinguish recurring
 homilies, and give readers trustworthy author and page context.
 
-**Status:** Phase 2.1 and the first-priority Phase 2.2 description convention
-are implemented and verified locally; deployment is pending. Phase 2.3 is next.
+**Status:** Phase 2.1, the first-priority Phase 2.2 description convention, and
+Phase 2.3 are implemented and verified locally; deployment is pending. Phase
+2.4 is next.
 
 ### 2.1 Establish title conventions
 
@@ -263,6 +264,18 @@ right priorities.
 
 ### 2.3 Strengthen visible authorship
 
+Implemented with an expanded About page grounded in the author's existing
+first-person account and verified official sources from the Diocese of
+Knoxville, its newspaper, Saint Meinrad, and St. Alphonsus. The biography now
+covers his conversion, education, formation, ordination, prior assignments,
+current pastorate, and deanery role alongside the site's pastoral purpose.
+Every homily and reflection displays a centrally configured `By Rev. Adam
+Royal` link to About, and generated-output tests verify that the visible name
+and URL agree with the article's structured `Person` author. The diocesan
+newspaper's person-specific ordination profile is the sole verified `sameAs`
+identity URL; the parish's person page remains unused because its inherited URL
+slug names a previous pastor.
+
 - Expand About using accurate, user-supplied facts:
   - Biography and priestly or ministry role.
   - Relevant formation and experience.
@@ -288,10 +301,10 @@ right priorities.
 
 - [x] Home and every main section have distinct titles and descriptions.
 - [x] Recurring homilies have distinguishable document titles.
-- [ ] About provides real author and editorial context.
-- [ ] Articles contain a visible linked byline.
+- [x] About provides real author and editorial context.
+- [x] Articles contain a visible linked byline.
 - [ ] Favicon and social-preview metadata render correctly.
-- [ ] Structured data is valid and matches visible content.
+- [x] Structured data is valid and matches visible content.
 
 ## Phase 3 — Build durable editorial metadata and content hubs
 

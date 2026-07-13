@@ -204,7 +204,7 @@ test("priority pages expose distinct descriptions aligned with structured data",
     ],
     [
       "about/index.html",
-      "Read a brief introduction to this collection of homilies and reflections, shared in the hope of inspiring and guiding your faith.",
+      "Learn about Fr. Adam Royal, pastor of St. Alphonsus in Crossville, including his conversion, education, priestly ministry, and approach to homilies, reflections, and Scripture tools.",
     ],
     [
       "homilies/index.html",

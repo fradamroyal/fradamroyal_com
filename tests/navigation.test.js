@@ -180,6 +180,17 @@ function nodeByType(document, type, relativePath) {
   return result;
 }
 
+function nodeForReference(document, reference, relativePath) {
+  assert.deepEqual(
+    Object.keys(reference),
+    ["@id"],
+    `Expected an @id-only reference in ${relativePath}.`,
+  );
+  const result = document["@graph"].find((node) => node["@id"] === reference["@id"]);
+  assert.ok(result, `Expected ${reference["@id"]} to resolve within ${relativePath}.`);
+  return result;
+}
+
 function scriptureCitations(citations = []) {
   const values = Array.isArray(citations) ? citations : [citations];
   const parsed = values.flatMap((value) => {
@@ -592,6 +603,63 @@ test("visible breadcrumbs match BreadcrumbList structured data", () => {
       visibleItems,
       structuredItems,
       `Expected visible and structured breadcrumbs to agree in ${relativePath}.`,
+    );
+  });
+});
+
+test("homily and reflection bylines agree with structured article authors", () => {
+  [
+    "homilies/2026/fifteenth_sunday_ordinary_time/index.html",
+    "reflections/2026/catholic_response_fear/index.html",
+  ].forEach((relativePath) => {
+    const html = page(relativePath);
+    const byline = elementWithClass(html, "span", "article-byline", relativePath);
+    assertVisible(byline, `span.article-byline in ${relativePath}`);
+    assert.equal(textContent(byline.html), "By Rev. Adam Royal");
+
+    const bylineLinks = anchors(byline.innerHTML);
+    assert.equal(
+      bylineLinks.length,
+      1,
+      `Expected exactly one author link in the byline for ${relativePath}.`,
+    );
+    const authorLink = bylineLinks[0];
+    assert.ok(
+      (authorLink.attributes.get("rel") || "").split(/\s+/).includes("author"),
+      `Expected the byline link in ${relativePath} to have rel=author.`,
+    );
+
+    const document = structuredData(html, relativePath);
+    const article = nodeByType(document, "BlogPosting", relativePath);
+    const person = nodeForReference(document, article.author, relativePath);
+    const personTypes = Array.isArray(person["@type"])
+      ? person["@type"]
+      : [person["@type"]];
+    assert.ok(
+      personTypes.includes("Person"),
+      `Expected the article author in ${relativePath} to reference a Person.`,
+    );
+
+    const structuredAuthorName = [person.honorificPrefix, person.name]
+      .filter(Boolean)
+      .join(" ");
+    assert.equal(authorLink.name, structuredAuthorName);
+    assert.equal(textContent(byline.html), `By ${structuredAuthorName}`);
+    assert.equal(
+      new URL(authorLink.href, generatedURL(relativePath)).href,
+      person.url,
+      `Expected the visible and structured author URLs to agree in ${relativePath}.`,
+    );
+  });
+});
+
+test("article bylines appear only on homily and reflection singles", () => {
+  pages.forEach((html, relativePath) => {
+    const expectedCount = articlePathParts(relativePath) ? 1 : 0;
+    assert.equal(
+      elementsWithClass(html, "span", "article-byline").length,
+      expectedCount,
+      `Expected ${expectedCount} article byline${expectedCount === 1 ? "" : "s"} in ${relativePath}.`,
     );
   });
 });
