@@ -1,7 +1,7 @@
 {{/* Site-owned tool layout; the theme supplies only the shared page shell. */}}
 {{ define "body-class" }}reading-plan-page{{ end }}
 {{ define "main" }}
-    <div class="container" role="main">
+    <div class="container">
         <article class="article reading-plan">
             <div class="reading-plan-intro">
                 {{ .Content }}
@@ -130,18 +130,21 @@
                             id="reading-plan-download-csv"
                             type="button"
                             data-export-format="csv"
+                            aria-label="Download the full plan as CSV"
                             aria-describedby="reading-plan-download-help"
                         >CSV</button>
                         <button
                             id="reading-plan-download-markdown"
                             type="button"
                             data-export-format="markdown"
+                            aria-label="Download the full plan as a Markdown checklist"
                             aria-describedby="reading-plan-download-help"
                         >Markdown checklist</button>
                         <button
                             id="reading-plan-download-pdf"
                             type="button"
                             data-export-format="pdf"
+                            aria-label="Download the full plan as a PDF checklist"
                             aria-describedby="reading-plan-download-help"
                         >PDF checklist</button>
                     </div>
@@ -150,7 +153,7 @@
                 <p id="reading-plan-preview-note" class="reading-plan-preview-note">
                     Here are the first few days so you can verify the schedule. The complete plan is ready in the download formats above.
                 </p>
-                <ol id="reading-plan-days" class="reading-plan-days"></ol>
+                <ol id="reading-plan-days" class="reading-plan-days" role="list"></ol>
             </section>
         </article>
     </div>

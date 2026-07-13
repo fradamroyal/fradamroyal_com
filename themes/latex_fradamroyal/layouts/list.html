@@ -1,5 +1,5 @@
 {{ define "main" }}
-<div class="container" role="main">
+<div class="container">
     <div class="posts-list">
       {{ $allPages := slice }}
       {{ if .IsHome }}
@@ -21,20 +21,22 @@
       {{ range $pag.Pages }}
         {{ partial "preview.html" . }}
       {{ end }}
-      </div>
+    </div>
     {{ if or ($pag.HasPrev) ($pag.HasNext) }}
-    <ul class="pager">
-      {{ if $pag.HasPrev }}
-        <li class="previous">
-          <a href="{{ $pag.Prev.URL }}">&larr; Newer</a>
-        </li>
-      {{ end }}
-      {{ if $pag.HasNext }}
-        <li class="next">
-          <a href="{{ $pag.Next.URL }}">Older &rarr;</a>
-        </li>
-      {{ end }}
-    </ul>
+    <nav aria-label="Pagination">
+      <ul class="pager">
+        {{ if $pag.HasPrev }}
+          <li class="previous">
+            <a href="{{ $pag.Prev.URL }}">&larr; Newer</a>
+          </li>
+        {{ end }}
+        {{ if $pag.HasNext }}
+          <li class="next">
+            <a href="{{ $pag.Next.URL }}">Older &rarr;</a>
+          </li>
+        {{ end }}
+      </ul>
+    </nav>
   {{ end }}
 </div>
 {{ end }}

@@ -1,9 +1,10 @@
 {{ if and (gt .WordCount 400) (.Param "toc") }}
-    {{- $header := (findRE "<h2.*?>(?:.|\n)*?</h2>" .Content) -}}
-    {{- $firstH := index $header 0 -}}
+    {{- $headers := findRE "<h2.*?>(?:.|\n)*?</h2>" .Content -}}
+    {{- $toc := replace .TableOfContents `<nav id="TableOfContents">` `<nav id="TableOfContents" aria-label="Table of contents">` -}}
 
-    {{- if ne $firstH nil -}}
-        {{- $newH := printf `%s%s` .TableOfContents $firstH -}}
+    {{- if gt (len $headers) 0 -}}
+        {{- $firstH := index $headers 0 -}}
+        {{- $newH := printf `%s%s` $toc $firstH -}}
         {{- replace .Content $firstH $newH | safeHTML -}}
     {{- else -}}
         {{- .Content -}}

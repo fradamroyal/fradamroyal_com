@@ -1,4 +1,6 @@
-{{ $id := md5 .Inner }}
+{{- $number := add .Ordinal 1 -}}
+{{- $id := printf "sidenote-%s-%d" (md5 .Page.RelPermalink) .Ordinal -}}
+{{- $contentID := printf "%s-content" $id -}}
+<input type="checkbox" id="{{ $id }}" class="sidenote-toggle" aria-label="Show sidenote {{ $number }}" aria-controls="{{ $contentID }}" />
 <label for="{{ $id }}" class="sidenote-toggle sidenote-number"></label>
-<input type="checkbox" id="{{ $id }}" class="sidenote-toggle" />
-<span class="sidenote">{{ .Inner | markdownify }}</span>
+<span id="{{ $contentID }}" class="sidenote">{{ .Inner | markdownify }}</span>

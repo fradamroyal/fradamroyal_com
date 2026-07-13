@@ -980,6 +980,27 @@
     return plan.slice(0, maximumDays);
   }
 
+  function addDescriptionReference(input, descriptionId) {
+    const descriptionIds = (input.getAttribute("aria-describedby") || "")
+      .split(/\s+/)
+      .filter(Boolean);
+    if (!descriptionIds.includes(descriptionId)) {
+      descriptionIds.push(descriptionId);
+    }
+    input.setAttribute("aria-describedby", descriptionIds.join(" "));
+  }
+
+  function removeDescriptionReference(input, descriptionId) {
+    const descriptionIds = (input.getAttribute("aria-describedby") || "")
+      .split(/\s+/)
+      .filter((id) => id && id !== descriptionId);
+    if (descriptionIds.length > 0) {
+      input.setAttribute("aria-describedby", descriptionIds.join(" "));
+    } else {
+      input.removeAttribute("aria-describedby");
+    }
+  }
+
   const api = Object.freeze({
     BOOKS,
     CANON_UNITS,
@@ -1002,6 +1023,8 @@
     formatVerseCitations,
     buildPlan,
     previewPlan,
+    addDescriptionReference,
+    removeDescriptionReference,
   });
 
   if (typeof module !== "undefined" && module.exports) {
@@ -1069,13 +1092,17 @@
   function clearValidation() {
     errorBox.hidden = true;
     errorBox.textContent = "";
-    [startInput, endInput, daysInput].forEach((input) => input.removeAttribute("aria-invalid"));
+    [startInput, endInput, daysInput].forEach((input) => {
+      input.removeAttribute("aria-invalid");
+      removeDescriptionReference(input, errorBox.id);
+    });
   }
 
   function showValidationError(message, input) {
     errorBox.textContent = message;
     errorBox.hidden = false;
     input.setAttribute("aria-invalid", "true");
+    addDescriptionReference(input, errorBox.id);
     input.focus();
   }
 
@@ -1152,6 +1179,7 @@
       if (order === PLAN_ORDERS.PREFERRED) {
         const groups = document.createElement("ul");
         groups.className = "reading-plan-reading-groups";
+        groups.setAttribute("role", "list");
 
         entry.readings.forEach((reading) => {
           const group = document.createElement("li");

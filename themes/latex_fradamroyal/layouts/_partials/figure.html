@@ -1,10 +1,19 @@
 {{- $class := .class -}}
 {{- $link := .link -}}
 {{- $caption := .caption -}}
+{{- $alt := .alt | default "" -}}
+{{- $linkLabel := "" -}}
+{{- if and $link (not $alt) -}}
+    {{- with ($caption | default .title) -}}
+        {{- $linkLabel = printf "View image: %s" (. | markdownify | plainify) -}}
+    {{- else -}}
+        {{- errorf "linked figure %q requires alt text, a caption, or a title" .src -}}
+    {{- end -}}
+{{- end -}}
 
 <figure{{ with $class }} class="{{ . }}"{{ end }}>
     {{- if $link -}}
-    <a href="{{ $link | safeURL }}">
+    <a href="{{ $link | safeURL }}"{{ with $linkLabel }} aria-label="{{ . }}"{{ end }}>
     {{- end -}}
     {{- partial "responsive-image.html" . -}}
     {{- if $link -}}

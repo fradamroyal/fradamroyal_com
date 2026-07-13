@@ -24,6 +24,8 @@ const {
   formatVerseCitations,
   buildPlan,
   previewPlan,
+  addDescriptionReference,
+  removeDescriptionReference,
 } = require("../assets/js/bible-reading-plan.js");
 
 const EXPECTED_BOOKS = [
@@ -123,6 +125,45 @@ function verseUnits(bookIndex, label, firstVerse = 1, lastVerse = Number.POSITIV
         candidate.verse <= lastVerse,
     );
 }
+
+function attributeStore(initialAttributes = {}) {
+  const attributes = new Map(Object.entries(initialAttributes));
+  return {
+    getAttribute(name) {
+      return attributes.get(name) ?? null;
+    },
+    setAttribute(name, value) {
+      attributes.set(name, String(value));
+    },
+    removeAttribute(name) {
+      attributes.delete(name);
+    },
+  };
+}
+
+test("validation errors preserve field help descriptions and remove only the error reference", () => {
+  const input = attributeStore({ "aria-describedby": "reading-plan-days-help" });
+
+  addDescriptionReference(input, "reading-plan-form-error");
+  addDescriptionReference(input, "reading-plan-form-error");
+  assert.equal(
+    input.getAttribute("aria-describedby"),
+    "reading-plan-days-help reading-plan-form-error",
+  );
+
+  removeDescriptionReference(input, "reading-plan-form-error");
+  assert.equal(input.getAttribute("aria-describedby"), "reading-plan-days-help");
+});
+
+test("validation errors add and remove a description for fields without help text", () => {
+  const input = attributeStore();
+
+  addDescriptionReference(input, "reading-plan-form-error");
+  assert.equal(input.getAttribute("aria-describedby"), "reading-plan-form-error");
+
+  removeDescriptionReference(input, "reading-plan-form-error");
+  assert.equal(input.getAttribute("aria-describedby"), null);
+});
 
 test("the Catholic canon has the expected 46-book OT and 27-book NT", () => {
   assert.equal(BOOKS.length, 73);

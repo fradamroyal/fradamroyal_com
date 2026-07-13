@@ -1,5 +1,5 @@
 {{ define "main" }}
-  <div class="container" role="main">
+  <div class="container">
     <article class="article indent-pars blog-post">
       <div class="postmeta">
         {{ partial "postmeta.html" . }}
@@ -9,11 +9,11 @@
       {{ partial "content-with-toc.html" . }}
 
       {{ if .Params.tags }}
-        <div class="blog-tags">
+        <nav class="blog-tags" aria-label="Tags">
           {{ range .Params.tags }}
           <a href="{{ (urlize (printf "tags/%s/" .)) | absLangURL }}">{{ . }}</a>&nbsp;
           {{ end }}
-        </div>
+        </nav>
       {{ end }}
     </article>
   </div>

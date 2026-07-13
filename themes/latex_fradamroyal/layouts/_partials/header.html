@@ -15,7 +15,7 @@
   <div class="intro-header">
     <div class="container">
       {{ if not .IsHome }}
-        {{ partialCached "nav.html" . }}
+        {{ partial "nav.html" . }}
       {{ end }}
       <div class="{{ .Type }}-heading">
         {{ if eq .Type "list" }}
@@ -27,12 +27,12 @@
 
             {{ if .Site.Params.Author.abstract }}
               <div class="abstract">
-                <h5>Abstract</h5>
+                <h2>Abstract</h2>
                 <p>
                   {{ .Site.Params.Author.abstract }}
                 </p>
               </div>
-	      {{ partialCached "nav.html" . }}
+	      {{ partial "nav.html" . }}
             {{ end }}
           {{ end }}
         {{ end }}

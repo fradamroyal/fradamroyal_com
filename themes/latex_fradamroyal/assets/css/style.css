@@ -451,14 +451,14 @@ h1:first-child {
     word-spacing: 1rem;
 }
 /* Nested ordered list for ToC */
-nav ol {
+#TableOfContents ol {
   counter-reset: item;
   padding-left: 2rem;
 }
-nav li {
+#TableOfContents li {
   display: block;
 }
-nav li:before {
+#TableOfContents li:before {
   content: counters(item, '.') ' ';
   counter-increment: item;
   padding-right: 0.85rem;
@@ -607,13 +607,30 @@ input.sidenote-toggle {
 }
 
 @media (max-width: 1050px) {
+  input.sidenote-toggle {
+    display: inline;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+  }
+  input.sidenote-toggle:focus-visible + label.sidenote-toggle {
+    outline: 2px solid currentColor;
+    outline-offset: 0.2rem;
+  }
   label.sidenote-toggle:not(.sidenote-number) {
     display: inline;
   }
   .sidenote {
     display: none;
   }
-  .sidenote-toggle:checked + .sidenote {
+  input.sidenote-toggle:checked ~ .sidenote {
     display: block;
     margin: 0.5rem 1.25rem 1rem 0.5rem;
     float: left;
