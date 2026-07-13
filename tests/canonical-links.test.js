@@ -70,6 +70,18 @@ function canonicalLinks(html) {
     );
 }
 
+function documentTitle(html) {
+  const titles = [...html.matchAll(/<title\b[^>]*>([\s\S]*?)<\/title>/gi)];
+  assert.equal(titles.length, 1, "Expected exactly one document title.");
+  return titles[0][1].trim();
+}
+
+function visibleHeading(html) {
+  const headings = [...html.matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1>/gi)];
+  assert.equal(headings.length, 1, "Expected exactly one visible H1.");
+  return headings[0][1].replace(/<[^>]+>/g, "").trim();
+}
+
 function structuredData(html) {
   const match = html.match(
     /<script\b[^>]*\btype\s*=\s*(?:"application\/ld\+json"|'application\/ld\+json'|application\/ld\+json)[^>]*>([\s\S]*?)<\/script>/i,
@@ -133,6 +145,91 @@ test("the generated 404 page is noindex and has no canonical URL", () => {
     0,
     `Expected ${ERROR_PAGE_PATH} not to expose a canonical URL.`,
   );
+});
+
+test("home and the main sections expose distinct, descriptive document titles", () => {
+  const expectations = new Map([
+    [
+      "index.html",
+      {
+        title: "Catholic Homilies and Reflections | Fr. Adam Royal",
+        heading: "Homilies & Thoughts",
+      },
+    ],
+    [
+      "homilies/index.html",
+      { title: "Catholic Homilies | Fr. Adam Royal", heading: "Homilies" },
+    ],
+    [
+      "reflections/index.html",
+      { title: "Catholic Reflections | Fr. Adam Royal", heading: "Reflections" },
+    ],
+    [
+      "tools/index.html",
+      { title: "Catholic Scripture Tools | Fr. Adam Royal", heading: "Tools" },
+    ],
+  ]);
+
+  expectations.forEach((expected, relativePath) => {
+    const html = page(relativePath);
+    assert.equal(documentTitle(html), expected.title);
+    assert.equal(visibleHeading(html), expected.heading);
+  });
+});
+
+test("recurring articles use year-specific titles without changing their visible H1s", () => {
+  const expectedTitles = new Map([
+    ["homilies/2025/pentecost/index.html", "Pentecost Homily (2025) | Fr. Adam Royal"],
+    ["homilies/2026/pentecost/index.html", "Pentecost Homily (2026) | Fr. Adam Royal"],
+    [
+      "reflections/2024/advent_by_candlelight/index.html",
+      "Advent by Candlelight (2024) | Fr. Adam Royal",
+    ],
+    [
+      "reflections/2025/advent_by_candlelight/index.html",
+      "Advent by Candlelight (2025) | Fr. Adam Royal",
+    ],
+  ]);
+
+  expectedTitles.forEach((expectedTitle, relativePath) => {
+    const html = page(relativePath);
+    assert.equal(documentTitle(html), expectedTitle);
+    assert.equal(
+      visibleHeading(html),
+      expectedTitle.startsWith("Pentecost") ? "Pentecost" : "Advent by Candlelight",
+    );
+  });
+});
+
+test("paginator depths identify their page number in the document title", () => {
+  assert.equal(
+    documentTitle(page("page/2/index.html")),
+    "Catholic Homilies and Reflections, Page 2 | Fr. Adam Royal",
+  );
+  assert.equal(
+    documentTitle(page("homilies/page/2/index.html")),
+    "Catholic Homilies, Page 2 | Fr. Adam Royal",
+  );
+});
+
+test("every generated indexable page has a unique document title", () => {
+  const titlePaths = new Map();
+
+  pages.forEach((html, relativePath) => {
+    if (relativePath === ERROR_PAGE_PATH) {
+      return;
+    }
+    const title = documentTitle(html);
+    assert.match(title, / \| Fr\. Adam Royal$/, `Expected a branded title in ${relativePath}.`);
+    const paths = titlePaths.get(title) || [];
+    paths.push(relativePath);
+    titlePaths.set(title, paths);
+  });
+
+  const duplicates = [...titlePaths]
+    .filter(([, relativePaths]) => relativePaths.length > 1)
+    .map(([title, relativePaths]) => `${title}: ${relativePaths.join(", ")}`);
+  assert.deepEqual(duplicates, [], `Expected unique indexable titles.\n${duplicates.join("\n")}`);
 });
 
 test("every generated non-error HTML page is indexable with one clean self-canonical URL", () => {

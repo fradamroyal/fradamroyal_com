@@ -1,9 +1,5 @@
 <meta charset="utf-8" />
-{{ if .Title }}
-  <title>{{ .Title }} - {{ .Site.Title }}</title>
-{{ else }}
-  <title>{{ .Site.Title }}</title>
-{{ end }}
+<title>{{ partial "seo-title.html" . }}</title>
 {{- $description := partial "structured-data/description.html" . -}}
 {{- with $description }}
   <meta name="description" content="{{ . }}" />

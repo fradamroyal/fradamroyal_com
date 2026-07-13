@@ -20,6 +20,8 @@ enableGitInfo = true
     display_name = "Rev. Adam Royal"
     honorific_prefix = "Rev."
     url = "/about/"
+  [params.seo]
+    site_name = "Fr. Adam Royal"
   [params.license]
     name = "CC BY-SA 4.0"
     url = "https://creativecommons.org/licenses/by-sa/4.0/"

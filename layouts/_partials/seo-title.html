@@ -1,0 +1,33 @@
+{{/*
+    Resolve the full document title without changing the page's visible title.
+    Front matter `seo_title` values are unbranded; the site name is appended here.
+*/}}
+{{- $page := . -}}
+{{- $siteName := strings.TrimSpace (htmlUnescape (plainify (default $page.Site.Title $page.Site.Params.seo.site_name))) -}}
+{{- $pageTitle := strings.TrimSpace (htmlUnescape (plainify (default "" $page.Params.seo_title))) -}}
+
+{{- if not $pageTitle -}}
+    {{- $pageTitle = strings.TrimSpace (htmlUnescape (plainify (default "" $page.Title))) -}}
+    {{- if and $page.IsPage (eq $page.Section "homilies") -}}
+        {{- $pageTitle = printf "%s Homily" $pageTitle -}}
+        {{- if not $page.Date.IsZero -}}
+            {{- $pageTitle = printf "%s (%d)" $pageTitle $page.Date.Year -}}
+        {{- end -}}
+    {{- else if and $page.IsPage (eq $page.Section "reflections") (not $page.Date.IsZero) -}}
+        {{- $pageTitle = printf "%s (%d)" $pageTitle $page.Date.Year -}}
+    {{- end -}}
+{{- end -}}
+
+{{- with $page.Store.Get "listPaginator" -}}
+    {{- if gt .PageNumber 1 -}}
+        {{- $pageTitle = printf "%s, Page %d" $pageTitle .PageNumber -}}
+    {{- end -}}
+{{- end -}}
+
+{{- $documentTitle := $siteName -}}
+{{- if and $pageTitle $siteName -}}
+    {{- $documentTitle = printf "%s | %s" $pageTitle $siteName -}}
+{{- else if $pageTitle -}}
+    {{- $documentTitle = $pageTitle -}}
+{{- end -}}
+{{- return $documentTitle -}}

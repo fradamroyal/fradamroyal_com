@@ -52,12 +52,12 @@ Baseline recorded July 12, 2026:
 
 ## Execution queue
 
-### NOW: Establish title conventions in Phase 2.1
+### NOW: Establish description conventions in Phase 2.2
 
-Phases 1.3 and 1.4 are implemented and verified locally. Deployment and live
-smoke-testing for them remain pending. Continue with a centralized `seo_title`
-convention that gives Home and the main sections distinct document titles and
-can distinguish recurring homilies without changing their visible H1s or URLs.
+Phases 1.3, 1.4, and 2.1 are implemented and verified locally. Deployment and
+live smoke-testing for them remain pending. Continue with unique descriptions
+for Home, About, Homilies, Reflections, Tools, and the Bible Reading Plan while
+preserving the existing fallback for older content.
 
 ## Phase 0 — Correct indexing signals and deploy the intended site
 
@@ -212,7 +212,17 @@ an unknown URL returns the custom body with HTTP 404.
 **Outcome:** Search results clearly identify the site, distinguish recurring
 homilies, and give readers trustworthy author and page context.
 
+**Status:** Phase 2.1 is implemented and verified locally; deployment is
+pending. Phase 2.2 is next.
+
 ### 2.1 Establish title conventions
+
+Implemented with a centralized document-title resolver and an optional,
+unbranded `seo_title` front matter override. Home and the main sections now use
+descriptive titles with a consistent author suffix, homily and reflection
+singles receive accurate year context, and paginator depths identify their page
+number. Visible H1s, URLs, navigation labels, RSS titles, and structured-data
+headlines continue to use the ordinary `title` field.
 
 - Replace the homepage document title with a descriptive title such as
   `Catholic Homilies and Reflections | Fr. Adam Royal`.
@@ -265,7 +275,7 @@ Example:
 ### Phase 2 gate
 
 - [ ] Home and every main section have distinct titles and descriptions.
-- [ ] Recurring homilies have distinguishable document titles.
+- [x] Recurring homilies have distinguishable document titles.
 - [ ] About provides real author and editorial context.
 - [ ] Articles contain a visible linked byline.
 - [ ] Favicon and social-preview metadata render correctly.

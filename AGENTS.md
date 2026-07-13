@@ -35,6 +35,7 @@
 
 ## Content Contribution Tips
 - Use taxonomy arrays (`categories = []`, `tags = []`, `series = []`) to keep navigation consistent and discoverable.
+- Use `seo_title` only when a document title should differ from the visible `title`; provide the unbranded page-specific text and let the centralized resolver append the site name.
 - Prefer SBL book abbreviations for Scripture references, including homily `readings` metadata; use the canonical list in `SBL_BIBLE_ABBREVIATIONS.md`.
 - Do not hand-author JSON-LD in content; use ordinary front matter and maintain its centralized mapping in `layouts/_partials/structured-data.html`.
 - Store supporting media under `static/images/<slug>/` and reference them via relative paths in Markdown to ensure Hugo copies them intact.
