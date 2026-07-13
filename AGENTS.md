@@ -24,7 +24,8 @@
 ## Testing Guidelines
 - Watch `hugo server` for broken links, missing resources, or template warnings.
 - Run `hugo --templateMetrics --templateMetricsHints` to spot slow-rendering templates.
-- Validate the generated `public/` (or deploy preview) for layout and typography regressions; no automated tests yet.
+- Run `node --test tests/bible-reading-plan.test.js tests/bible-reading-plan-exports.test.js` for the browser-side Bible planner.
+- Validate the generated `public/` (or deploy preview) for layout and typography regressions.
 
 ## Commit & Pull Request Guidelines
 - Follow the repository’s existing imperative, sentence-case commits (`Add Advent reflection`, `Update footer links`) and keep changes scoped.
