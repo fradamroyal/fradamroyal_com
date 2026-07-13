@@ -2,6 +2,22 @@
 title = 'Epiphany'
 date = 2026-01-04
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Isa 60:1–6'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 72:1–2, 7–8, 10–11, 12–13'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Eph 3:2–3a, 5–6'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Matt 2:1–12'
 +++
 
 If you grew up in a world where faith was stitched into your bloodline—your clan, your language, your land—this story would sound almost unbelievable.

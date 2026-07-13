@@ -2,6 +2,18 @@
 title = 'Monday of the Second Week of Lent'
 date = 2025-03-17
 draft = false
+
+[[readings]]
+label = "First Reading"
+citation = "Dan 9:4b–10"
+
+[[readings]]
+label = "Responsorial Psalm"
+citation = "Ps 79:8, 9, 11, 13"
+
+[[readings]]
+label = "Gospel"
+citation = "Luke 6:36–38"
 +++
 
 ## Self-Reflection

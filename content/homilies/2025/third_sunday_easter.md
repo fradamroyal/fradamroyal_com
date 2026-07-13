@@ -2,6 +2,22 @@
 title = 'Third Sunday of Easter'
 date = 2025-05-04
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Acts 5:27–32, 40b–41'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 30:2, 4, 5–6, 11–12, 13'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Rev 5:11–14'
+
+[[readings]]
+label = 'Gospel'
+citation = 'John 21:1–19'
 +++
 
 There is a saying we have all heard countless times: "God never gives us more than we can handle." While it might sound comforting, it is simply not true. Life’s experiences teach us otherwise. Think of the parent who loses a child, the person diagnosed with a terminal illness, or someone facing the shock of unemployment. In these moments, the burdens are undeniably overwhelming, stretching human strength far beyond its limits.

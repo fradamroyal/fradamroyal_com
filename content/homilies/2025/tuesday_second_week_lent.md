@@ -2,6 +2,18 @@
 title = 'Tuesday of the Second Week of Lent'
 date = 2025-03-18
 draft = false
+
+[[readings]]
+label = "First Reading"
+citation = "Isa 1:10, 16–20"
+
+[[readings]]
+label = "Responsorial Psalm"
+citation = "Ps 50:8–9, 16bc–17, 21, 23"
+
+[[readings]]
+label = "Gospel"
+citation = "Matt 23:1–12"
 +++
 
 The Lord reminds us that we are not to take on exalted titles like “rabbi.” However, in our modern society, titles no longer carry the same weight they did in Jesus’ time. There are few positions left that command such honor universally, so we do not struggle with this issue in the same way. What remains unchanged, however, is the human tendency to place heavy burdens on others while excusing ourselves. This is the deeper concern Jesus addresses, and it is just as relevant today as it was then.

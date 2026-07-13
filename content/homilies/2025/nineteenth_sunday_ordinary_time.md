@@ -2,6 +2,22 @@
 title = 'Nineteenth Sunday in Ordinary Time'
 date = 2025-08-10
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Wis 18:6–9'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 33:1, 12, 18–19, 20–22'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Heb 11:1–2, 8–19'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Luke 12:32–48'
 +++
 
 Three images tumble across this passage like waves—master, servant, thief. They do not line up neatly, and that is the point. Jesus is pressing on our imaginations until we feel the jolt of a world where he returns unexpectedly, overturns the order of things, and sets a table for the weary. Into that swirl of pictures he speaks one anchoring word: “Do not be afraid any longer, little flock, for your Father is pleased to give you the kingdom.”

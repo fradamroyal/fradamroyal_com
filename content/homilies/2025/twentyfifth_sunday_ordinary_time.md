@@ -2,6 +2,22 @@
 title = 'Twenty-fifth Sunday in Ordinary Time'
 date = 2025-09-21
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Amos 8:4–7'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 113:1–2, 4–6, 7–8'
+
+[[readings]]
+label = 'Second Reading'
+citation = '1 Tim 2:1–8'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Luke 16:1–13'
 +++
 
 Imagine being told the audit is coming and you have already blown through the budget and squandered the resources. Your stomach drops. You start thinking, not about excuses, but about how to repair what has been damaged. That is the hard reckoning that forces the manager in the parable to act—and it names us. We have all wasted what the Lord placed in our hands: hours scrolled away, skills left idle, chances to love postponed for “later.” Yet the turning point is not in shame. It is in action.

@@ -2,6 +2,22 @@
 title = 'The Baptism of the Lord'
 date = 2026-01-11
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Isa 42:1–4, 6–7'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 29:1–2, 3–4, 3, 9–10'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Acts 10:34–38'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Matt 3:13–17'
 +++
 
 At the edge of the Jordan, there is a line of ordinary people stepping down into the water—tired, hopeful, carrying secrets, searching for a new beginning. John stands there, calling hearts to turn back to God. Then Jesus arrives. Not as a spectator. Not as a judge. He walks into the same river, into the same current, into the same place where sinners are admitting they need mercy.

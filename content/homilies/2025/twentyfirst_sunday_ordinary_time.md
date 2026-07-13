@@ -2,6 +2,22 @@
 title = 'Twenty-first Sunday in Ordinary Time'
 date = 2025-08-24
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Isa 66:18–21'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 117:1, 2'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Heb 12:5–7, 11–13'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Luke 13:22–30'
 +++
 
 The question sounds religious enough: How many will be saved? Yet it is a poor guide for a disciple. Whether the number is many or few, nothing essential changes—love does not shrink or expand because of a statistic. Counting souls does not convert a single heart. It distracts us from the work right in front of us.

@@ -2,6 +2,22 @@
 title = 'Fourth Sunday in Ordinary Time'
 date = 2026-02-01
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Zeph 2:3; 3:12–13'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 146:6–7, 8–9, 9–10'
+
+[[readings]]
+label = 'Second Reading'
+citation = '1 Cor 1:26–31'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Matt 5:1–12a'
 +++
 
 Most of us learned the faith with a checklist in hand. Do not lie. Do not steal. Do not harm. Those commandments matter. They guard human dignity and teach what love refuses to do.

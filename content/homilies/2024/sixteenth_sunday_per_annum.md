@@ -2,6 +2,22 @@
 title = 'Sixteenth Sunday Per Annum'
 date = 2024-07-21
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Jer 23:1–6'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 23:1–3, 3–4, 5, 6'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Eph 2:13–18'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Mark 6:30–34'
 +++
 
 Nearly 2,600 years ago, Jeremiah spoke to a people burdened by violence and loss, people exiled from their beloved Jerusalem. In their deepest despair, God promised a future of harmony and right relationship with him and each other.

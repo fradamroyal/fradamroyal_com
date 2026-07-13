@@ -2,6 +2,22 @@
 title = 'Thirty-first Sunday Per Annum'
 date = 2024-11-03
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Deut 6:2–6'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 18:2–3, 3–4, 47, 51'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Heb 7:23–28'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Mark 12:28b–34'
 +++
 
 This passage of Scripture is truly beautiful in its simplicity and depth. The only law is to love. In this, we see that we are made for love. We are created to be loved by God, and through experiencing his love, we learn how to extend that love to every person we encounter. This vision is, at its heart, a description of the Church—God’s community of love. Yet, with all this talk of love, we must confront an essential question: what is love?

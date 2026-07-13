@@ -2,6 +2,22 @@
 title = 'Seventeenth Sunday in Ordinary Time'
 date = 2025-07-27
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Gen 18:20–32'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 138:1–2, 2–3, 6–7, 7–8'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Col 2:12–14'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Luke 11:1–13'
 +++
 
 On a clear morning, Abraham stood upon a hillside, his eyes straining through tears toward the place he loved. Smoke rose in tragic columns, a stark reminder of devastation—of loss. Abraham, who once saved Sodom with sword and valor, could now only watch in sorrow as flames consumed it.

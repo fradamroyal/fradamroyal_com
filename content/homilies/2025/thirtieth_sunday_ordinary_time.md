@@ -2,6 +2,22 @@
 title = 'Thirtieth Sunday in Ordinary Time'
 date = 2025-10-26
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Sir 35:12–14, 16–18'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 34:2–3, 17–18, 19, 23'
+
+[[readings]]
+label = 'Second Reading'
+citation = '2 Tim 4:6–8, 16–18'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Luke 18:9–14'
 +++
 
 There is a certain comedy to the Pharisee’s prayer. He speaks as if heaven should applaud his résumé, as if the problem with the world is everyone else. We know that swagger. We have seen it, maybe even felt it tug at us. Yet Jesus does not waste time telling us simply not to be that person; he turns our gaze to the other figure in the doorway—the man who cannot raise his eyes.

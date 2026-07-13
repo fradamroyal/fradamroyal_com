@@ -2,6 +2,22 @@
 title = 'Solemnity of the Most Holy Body & Blood of Christ (Corpus Christi)'
 date = 2025-06-22
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Gen 14:18–20'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 110:1, 2, 3, 4'
+
+[[readings]]
+label = 'Second Reading'
+citation = '1 Cor 11:23–26'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Luke 9:11b–17'
 +++
 
 Growing up, my family had a few cows. I will always remember one of them; her name was Annabelle. She was a pretty cow. Annabelle had beautiful red fur, two tiny nubs for horns, and was very sweet. She loved the taste of freshly mowed grass. Every time we mowed, I would pick up piles of grass and offer them to her. She ate it right out of my hands. She would even let me rub her head and pet her. Eventually, Annabelle had two calves, a boy and a girl. I named them Mickey and Minnie. Even though they were a bit skittish, I slowly got to where I could feed and pet them as well. Then, one day, Mickey was taken away. A few days later Mickey returned, wrapped in butcher paper and ready for grilling. I stopped naming the cows that day.

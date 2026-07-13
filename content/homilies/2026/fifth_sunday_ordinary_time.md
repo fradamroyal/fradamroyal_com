@@ -2,6 +2,22 @@
 title = 'Fifth Sunday in Ordinary Time'
 date = 2026-02-08
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Isa 58:7–10'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 112:4–5, 6–7, 8–9'
+
+[[readings]]
+label = 'Second Reading'
+citation = '1 Cor 2:1–5'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Matt 5:13–16'
 +++
 
 **N.B.** This weekend was the annual Bishop's Appeal.

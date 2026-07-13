@@ -2,6 +2,22 @@
 title = 'Eighteenth Sunday in Ordinary Time'
 date = 2025-08-03
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Eccl 1:2; 2:21–23'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 90:3–4, 5–6, 12–13, 14, 17'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Col 3:1–5, 9–11'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Luke 12:13–21'
 +++
 
 It is striking how often isolation masquerades as independence. We live in a culture saturated by messages urging us to secure our futures—to plan diligently, save meticulously, and safeguard our comforts. These are not evil aspirations, but when detached from gratitude and divorced from relationship, they become a perilous illusion.

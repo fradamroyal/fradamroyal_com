@@ -2,6 +2,22 @@
 title = 'Ascension of the Lord'
 date = 2025-06-01
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Acts 1:1–11'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 47:2–3, 6–7, 8–9'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Eph 1:17–23'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Luke 24:46–53'
 +++
 
 “Why are you standing there looking at the sky?” With these words, the angels confronted the disciples in their moment of uncertainty and hesitation. It was a question that pierced their confusion and moved them from paralysis toward purpose. Jesus had departed, leaving them behind, and their gaze was locked heavenward, lost in wonder and in apprehension. They had depended upon Jesus—his presence, his wisdom, his reassuring voice. Now they stood frozen, caught in the unknown.

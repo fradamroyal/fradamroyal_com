@@ -2,6 +2,22 @@
 title = 'Twenty-eighth Sunday in Ordinary Time'
 date = 2025-10-12
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = '2 Kgs 5:14–17'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 98:1, 2–3, 3–4'
+
+[[readings]]
+label = 'Second Reading'
+citation = '2 Tim 2:8–13'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Luke 17:11–19'
 +++
 
 Mercy always costs somebody something. Sometimes it costs time. Sometimes pride. Sometimes the ache of being taken for granted. The ten lepers cry out, and the plea is familiar to our lips at the start of every mass, in a slightly different translation: Lord, have mercy. Their illness has pushed them to the edges—forced to live apart, forced to warn others away. They are not simply unwell; they are unwelcome.

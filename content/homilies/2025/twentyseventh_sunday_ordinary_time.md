@@ -2,6 +2,22 @@
 title = 'Twenty-seventh Sunday in Ordinary Time'
 date = 2025-10-05
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Hab 1:2–3; 2:2–4'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 95:1–2, 6–7, 8–9'
+
+[[readings]]
+label = 'Second Reading'
+citation = '2 Tim 1:6–8, 13–14'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Luke 17:5–10'
 +++
 
 The request from the apostles is disarmingly simple: “Increase our faith.” Yet the response they receive is startling—vivid images and a story with a demanding master. At first hearing, the tone feels harsh. That is on purpose. Jesus leans on exaggeration to uncover an essential truth: the Christian life is not a part-time hobby. It is non-stop. It is all-consuming. It touches everything we do because it is about everything being made new in Christ.

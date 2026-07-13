@@ -2,6 +2,18 @@
 title = 'Monday of the Third Week of Lent'
 date = 2025-03-24
 draft = false
+
+[[readings]]
+label = "First Reading"
+citation = "2 Kgs 5:1–15ab"
+
+[[readings]]
+label = "Responsorial Psalm"
+citation = "Pss 42:2, 3; 43:3, 4"
+
+[[readings]]
+label = "Gospel"
+citation = "Luke 4:24–30"
 +++
 
 When we hear this familiar Gospel story—especially the words, "no prophet is accepted in his own native place"—we often think of the old saying: familiarity breeds contempt. And certainly, that is part of what's happening here. The people who have known Jesus since childhood cannot believe he is someone extraordinary. But there is something deeper at play.

@@ -2,6 +2,22 @@
 title = 'Twenty-seventh Sunday Per Annum'
 date = 2024-10-06
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Gen 2:18–24'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 128:1–2, 3, 4–5, 6'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Heb 2:9–11'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Mark 10:2–16'
 +++
 
 A friend of mine once preached on this Gospel. As he read the words of Jesus, “Let the little children come to me,” a little girl suddenly leapt up from her pew and stood beside him at the ambo. Unsure of what to do, he gently patted her on the head and said, “Thank you, you can go back to your parents now,” and off she went. It was a sweet and touching moment—until we realize that this little girl may have been the only one in the church that day who truly embodied the heart of a Christian.

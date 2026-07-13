@@ -2,6 +2,22 @@
 title = 'Nativity of the Lord, Mass During the Day'
 date = 2025-12-25T09:00:00
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Isa 52:7–10'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 98:1, 2–3, 3–4, 5–6'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Heb 1:1–6'
+
+[[readings]]
+label = 'Gospel'
+citation = 'John 1:1–18'
 +++
 
 Most of us will spend Christmas afternoon doing something wonderfully unglamorous: rinsing dishes, finding the missing piece to a toy, checking on an older relative, driving home in the dark. It can feel almost jarring to hear the Church speak, on a day like this, about eternity, glory, and the mystery of God.

@@ -2,6 +2,22 @@
 title = 'Twenty-second Sunday in Ordinary Time'
 date = 2025-08-31
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Sir 3:17–18, 20, 28–29'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 68:4–5, 6–7, 10–11'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Heb 12:18–19, 22–24a'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Luke 14:1, 7–14'
 +++
 
 Jesus can feel like the guest who spoils a party—the one who stands in the doorway, notices every flaw, and starts rearranging the seating chart. Many Pharisees saw him that way: not fun, not flattering. But look closer. He is not ruining the celebration; he is teaching us how to finally enjoy it.

@@ -2,6 +2,22 @@
 title = 'Sixth Sunday of Easter'
 date = 2026-05-10
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Acts 8:5–8, 14–17'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 66:1–3, 4–5, 6–7, 16, 20'
+
+[[readings]]
+label = 'Second Reading'
+citation = '1 Pet 3:15–18'
+
+[[readings]]
+label = 'Gospel'
+citation = 'John 14:15–21'
 +++
 
 Absence can reveal the truth. While someone stands near us, the meaning of that life often remains scattered through ordinary days. We remember a gesture without grasping the love behind it. We hear a sentence and only later feel its full weight. After departure, the pieces begin to gather. Death, and even the approach of death, can become a revealing light.

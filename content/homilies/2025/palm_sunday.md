@@ -2,6 +2,26 @@
 title = 'Palm Sunday'
 date = 2025-04-13
 draft = false
+
+[[readings]]
+label = 'Gospel at the Procession'
+citation = 'Luke 19:28–40'
+
+[[readings]]
+label = 'First Reading'
+citation = 'Isa 50:4–7'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 22:8–9, 17–18, 19–20, 23–24'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Phil 2:6–11'
+
+[[readings]]
+label = 'Passion'
+citation = 'Luke 22:14–23:56'
 +++
 
 Jesus rides into Jerusalem today not as a conquering king but as the one who willingly goes to the cross. Every step, every gesture of his procession speaks clearly of one thing: the limitless depth of God’s love for us. Yet how often do we doubt this love, feeling isolated by pain, misunderstood by others, or burdened by hidden wounds?

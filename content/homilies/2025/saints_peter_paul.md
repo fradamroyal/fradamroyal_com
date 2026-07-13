@@ -2,6 +2,22 @@
 title = 'Saints Peter and Paul, Apostles'
 date = 2025-06-29
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Acts 12:1–11'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 34:2–3, 4–5, 6–7, 8–9'
+
+[[readings]]
+label = 'Second Reading'
+citation = '2 Tim 4:6–8, 17–18'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Matt 16:13–19'
 +++
 
 In Caesarea Philippi, Christ posed a piercing question to his closest friends, a question that challenges each generation anew: "But who do you say that I am?" Peter's bold reply, "You are the Christ, the Son of the living God," captures not merely a statement of belief, but a decisive moment of revelation, a recognition not shaped by human convenience but illuminated by divine grace.

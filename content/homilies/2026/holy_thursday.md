@@ -2,6 +2,22 @@
 title = 'Holy Thursday'
 date = 2026-04-02
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Exod 12:1–8, 11–14'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 116:12–13, 15–16bc, 17–18'
+
+[[readings]]
+label = 'Second Reading'
+citation = '1 Cor 11:23–26'
+
+[[readings]]
+label = 'Gospel'
+citation = 'John 13:1–15'
 +++
 
 When I was a kid, WWJD was everywhere—bracelets, t-shirts, billboards. “What would Jesus do?” I never cared for it. It was a bad question. Jesus would walk on water, give sight to the blind, and raise the dead. I was not going to do that. A better question, a concrete and real question is, “What does Jesus want me to do,” WDJWMTD. That would look silly on a t-shirt. But that is okay. The Lord is not a slogan or an abstract ideal. He is a living person who speaks to us and loves us.

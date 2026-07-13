@@ -2,6 +2,22 @@
 title = 'Pentecost Vigil'
 date = 2025-06-07
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Gen 11:1–9'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 104:1–2, 24, 35, 27–28, 29, 30'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Rom 8:22–27'
+
+[[readings]]
+label = 'Gospel'
+citation = 'John 7:37–39'
 +++
 
 As summer approaches, we know the familiar feeling of when the sun’s heat presses heavily upon us. On those scorching days, nothing refreshes us more deeply and immediately than cool water. Imagine that feeling—the relief, the refreshment, the renewed vitality from just a simple drink. Jesus invites us today with this very image: “Let anyone who thirsts come to me and drink.”

@@ -2,6 +2,22 @@
 title = 'Twenty-fifth Sunday Per Annum'
 date = 2024-09-22
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Wis 2:12, 17–20'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 54:3–4, 5, 6, 8'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Jas 3:16–4:3'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Mark 9:30–37'
 +++
 
 The Apostles are often, embarrassingly, all too human. I remember attending a retreat for high school seniors several years ago. The retreat was meant to be a time for spiritual growth—a chance for students to grow closer to Christ and form stronger bonds with one another. There were spiritual talks, time for prayer, and moments of quiet reflection. But there was also paintball. And to no one’s surprise, that was the most exciting part for the students. Before the game, all they could talk about was how great they would be and how their strategies were unbeatable. Afterward, they spent hours boasting about their victories. The boys in my cabin stayed up until 3:00 a.m. arguing over who shot whom and, naturally, who was the greatest.

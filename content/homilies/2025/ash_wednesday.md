@@ -2,6 +2,22 @@
 title = 'Ash Wednesday'
 date = 2025-03-05T14:39:49-05:00
 draft = false
+
+[[readings]]
+label = "First Reading"
+citation = "Joel 2:12–18"
+
+[[readings]]
+label = "Responsorial Psalm"
+citation = "Ps 51:3–4, 5–6ab, 12–13, 14, 17"
+
+[[readings]]
+label = "Second Reading"
+citation = "2 Cor 5:20–6:2"
+
+[[readings]]
+label = "Gospel"
+citation = "Matt 6:1–6, 16–18"
 +++
 
 Jesus speaks often about fasting, almsgiving, and works of penance. This might surprise us. We live in a culture that has long shifted its focus. While fasting and charity still exist, they are often treated as secondary, even optional. This makes it difficult to understand what Jesus is saying. That is why we must rediscover the meaning of penance, and there is no better time for this than Lent.

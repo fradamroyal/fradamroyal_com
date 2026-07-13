@@ -2,6 +2,26 @@
 title = 'Palm Sunday'
 date = 2026-03-29
 draft = false
+
+[[readings]]
+label = 'Procession Gospel'
+citation = 'Matt 21:1–11'
+
+[[readings]]
+label = 'First Reading'
+citation = 'Isa 50:4–7'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 22:8–9, 17–18, 19–20, 23–24'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Phil 2:6–11'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Matt 26:14–27:66'
 +++
 
 The road into Jerusalem begins with cheers and ends at Golgotha with mockery, blood, and a dying man. The crowd can welcome a king while they still imagine victory in familiar terms. They can cry, “Hosanna to the Son of David,” while picturing strength and the swift defeat of enemies. But when this king refuses the path of spectacle and force, many hearts turn. The same city that rejoices at his arrival will soon look upon him beaten, condemned, and hanging on a tree, and many will decide that he has failed. They notice his suffering. But they do not recognize his throne.

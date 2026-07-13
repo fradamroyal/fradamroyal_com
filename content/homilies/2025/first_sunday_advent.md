@@ -2,6 +2,22 @@
 title = 'First Sunday of Advent'
 date = 2025-11-30
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Isa 2:1–5'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 122:1–2, 3–4, 4–5, 6–7, 8–9'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Rom 13:11–14'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Matt 24:37–44'
 +++
 
 Advent arrives like an alarm clock in the dark. The world keeps moving at its usual pace—work and meals, holidays and travel, screens glowing late into the night—yet the Lord gently shakes our shoulder and gives a single, urgent command: “Therefore, stay awake!”

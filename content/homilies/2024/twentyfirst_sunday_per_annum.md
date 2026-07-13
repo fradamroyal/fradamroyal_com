@@ -2,6 +2,22 @@
 title = 'Twenty-first Sunday Per Annum'
 date = 2024-08-25
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Josh 24:1–2a, 15–17, 18b'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 34:2–3, 16–17, 18–19, 20–21'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Eph 5:21–32'
+
+[[readings]]
+label = 'Gospel'
+citation = 'John 6:60–69'
 +++
 
 This gospel is a sorrowful reflection on humanity's response to Jesus' offer of himself. While his Eucharistic speech may seem like just one teaching that is being rejected, it is actually a culmination of all his teachings, a summary of the entirety of his message. When many of his disciples walk away, they are not merely rejecting this single idea, but rather abandoning everything Jesus has taught them.

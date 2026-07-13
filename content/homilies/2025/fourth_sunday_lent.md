@@ -2,6 +2,38 @@
 title = 'Fourth Sunday of Lent'
 date = 2025-03-30
 draft = false
+
+[[readings]]
+label = "Year C First Reading"
+citation = "Josh 5:9a, 10–12"
+
+[[readings]]
+label = "Year C Responsorial Psalm"
+citation = "Ps 34:2–3, 4–5, 6–7"
+
+[[readings]]
+label = "Year C Second Reading"
+citation = "2 Cor 5:17–21"
+
+[[readings]]
+label = "Year C Gospel"
+citation = "Luke 15:1–3, 11–32"
+
+[[readings]]
+label = "Second Scrutiny First Reading"
+citation = "1 Sam 16:1b, 6–7, 10–13a"
+
+[[readings]]
+label = "Second Scrutiny Responsorial Psalm"
+citation = "Ps 23:1–3a, 3b–4, 5, 6"
+
+[[readings]]
+label = "Second Scrutiny Second Reading"
+citation = "Eph 5:8–14"
+
+[[readings]]
+label = "Second Scrutiny Gospel"
+citation = "John 9:1–41"
 +++
 
 **NB:** This Sunday we had the second scrutiny. The [homily for the mass with the scrutiny](#the-second-scrutiny) can be found below. The homily for the Year C reading used at the other masses follows immediately:

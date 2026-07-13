@@ -2,6 +2,22 @@
 title = 'Sixteenth Sunday in Ordinary Time'
 date = 2025-07-20
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Gen 18:1–10a'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 15:2–3, 3–4, 5'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Col 1:24–28'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Luke 10:38–42'
 +++
 
 Why fuss over dishes and tidiness when the Son of God is seated in your living room? At first glance, today’s Gospel story seems to nudge us towards such simplicity. But pause and listen closely—this is not merely about choosing Jesus over chores. It is about recognizing eternity amidst the fleeting, stability amidst decay.

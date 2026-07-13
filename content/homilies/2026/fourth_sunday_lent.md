@@ -2,6 +2,22 @@
 title = 'Fourth Sunday in Lent'
 date = 2026-03-15
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = '1 Sam 16:1b, 6–7, 10–13a'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 23:1–3a, 3b–4, 5, 6'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Eph 5:8–14'
+
+[[readings]]
+label = 'Gospel'
+citation = 'John 9:1–41'
 +++
 
 A difficult thing happens, and the human heart begins its familiar work. It starts searching for a cause, a guilty party. Someone must have done something. Someone must deserve this. That instinct appears almost immediately in the Gospel. The disciples see a man blind from birth, and before they see a neighbor, they see a problem to be explained. Before they see suffering, they begin assigning fault.

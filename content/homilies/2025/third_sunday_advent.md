@@ -2,6 +2,22 @@
 title = 'Third Sunday of Advent'
 date = 2025-12-14
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Isa 35:1–6a, 10'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 146:6–7, 8–9, 9–10'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Jas 5:7–10'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Matt 11:2–11'
 +++
 
 Most of us spend our lives building walls. Not stone walls, usually. Although we certainly know fences, locks, and passwords. We build personal walls. We retreat into routine and hide inside busyness; we reassure ourselves, “I’ve got it handled.” That is how life stays manageable, predictable, and even pleasant. And if we’re not careful, God is treated the same way—tidy and familiar, safely kept at arm’s length.

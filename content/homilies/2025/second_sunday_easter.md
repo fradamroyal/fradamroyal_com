@@ -2,6 +2,22 @@
 title = 'Second Sunday of Easter - Divine Mercy Sunday'
 date = 2025-04-27
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Acts 5:12–16'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 118:2–4, 13–15, 22–24'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Rev 1:9–11a, 12–13, 17–19'
+
+[[readings]]
+label = 'Gospel'
+citation = 'John 20:19–31'
 +++
 
 I had a different homily prepared originally, but I spent almost five hours hearing confessions at various places across the diocese yesterday. In the midst of that, I found myself thinking about all of you—thinking about what these past three weeks have been like—and something struck me during that time.

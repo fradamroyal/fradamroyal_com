@@ -2,6 +2,22 @@
 title = 'Pentecost - Vigil Mass'
 date = 2026-05-23
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Gen 11:1–9'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 104:1–2, 24, 35, 27–28, 29, 30'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Rom 8:22–27'
+
+[[readings]]
+label = 'Gospel'
+citation = 'John 7:37–39'
 +++
 
 “Manifesting” has become one of the favored words of our age, wrapped in glossy promises of a better life. The idea is simple enough: concentrate desire until the universe somehow bends toward it. It treats longing almost like a tool. Aim it hard enough, and it may deliver what the heart has chosen.

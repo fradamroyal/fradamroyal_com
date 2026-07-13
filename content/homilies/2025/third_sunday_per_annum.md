@@ -2,6 +2,22 @@
 title = 'Third Sunday Per Annum'
 date = 2025-01-26
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Neh 8:2–4a, 5–6, 8–10'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 19:8, 9, 10, 15'
+
+[[readings]]
+label = 'Second Reading'
+citation = '1 Cor 12:12–30'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Luke 1:1–4; 4:14–21'
 +++
 
 Freedom is a word that resonates deeply within the human heart. From an early age, we long to break free from the things that bind us, whether they be rules we do not understand, limitations placed upon us, or burdens we carry. Yet, true freedom is often misunderstood. It is not simply the ability to do whatever we please; rather, it is the ability to become who we were created to be.

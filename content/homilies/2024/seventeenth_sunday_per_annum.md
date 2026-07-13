@@ -2,6 +2,22 @@
 title = 'Seventeenth Sunday Per Annum'
 date = 2024-07-28
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = '2 Kgs 4:42–44'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 145:10–11, 15–16, 17–18'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Eph 4:1–6'
+
+[[readings]]
+label = 'Gospel'
+citation = 'John 6:1–15'
 +++
 
 The feeding of the 5,000 is one of the most memorable and cherised storys about Jesus. This story isn't just a demonstration of Christ's power but a profound reflection of how we perceive miracles and God's active presence in our world.

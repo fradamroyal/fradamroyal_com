@@ -2,6 +2,22 @@
 title = 'Nativity of the Lord, Mass During the Night'
 date = 2025-12-25T00:00:01
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Isa 9:1–6'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 96:1–2, 2–3, 11–12, 13'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Titus 2:11–14'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Luke 2:1–14'
 +++
 
 Tonight the story begins with paperwork: a ruler’s signature, a decree, an empire’s gears turning. Caesar Augustus wants the world enrolled. Not because he is curious, but because names on a register become taxes, and taxes become leverage. Rome calls this order. Rome calls this peace. Rome even calls it, in its own way, salvation.

@@ -2,6 +2,22 @@
 title = 'All Saints'
 date = 2024-11-01
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Rev 7:2–4, 9–14'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 24:1bc–2, 3–4ab, 5–6'
+
+[[readings]]
+label = 'Second Reading'
+citation = '1 John 3:1–3'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Matt 5:1–12a'
 +++
 
 A people who knew true suffering gathered on the mountain that day when Jesus gave his sermon. The Jews had been persecuted for centuries. They had faced exile from their homeland, and in Jerusalem, Babylonians had slain men, women, and children in the streets, taking the survivors to a foreign land. Even when they finally returned, peace eluded them. New rulers came and went; kings and high priests were appointed and overthrown. At times, near-lawlessness reigned. Even in better times, there was a deep dissatisfaction with the way the world seemed to be spiraling—a tension and fear, much like our own times, of impending violence or war. This fear brought turmoil: economic strife, spiritual unease, social unrest, and discord within families.

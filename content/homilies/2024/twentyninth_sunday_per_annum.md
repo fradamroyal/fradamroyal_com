@@ -2,6 +2,22 @@
 title = 'Twenty-ninth Sunday Per Annum'
 date = 2024-10-20
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Isa 53:10–11'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 33:4–5, 18–19, 20, 22'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Heb 4:14–16'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Mark 10:35–45'
 +++
 
 Often, we are afraid to be Christians, to take the words of Jesus literally and follow him. His demands are not small—he demands everything. We are called to love our enemies, take up our cross, and become the servant of all. This can be a daunting and even frightening task. Following Jesus authentically means letting go of not only our possessions but, perhaps more challengingly, our egos. We fear that living as Christ teaches might leave us vulnerable. We worry that others will take advantage of our mercy and compassion, that we will be misunderstood or even abandoned by those closest to us. And yes, we know that we will suffer.

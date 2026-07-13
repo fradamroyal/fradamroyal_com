@@ -2,6 +2,22 @@
 title = 'Fifthteenth Sunday in Ordinary Time'
 date = 2025-07-13
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Deut 30:10–14'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 69:14, 17, 30–31, 33–34, 36, 37'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Col 1:15–20'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Luke 10:25–37'
 +++
 
 Consider the ditches we find ourselves in, those hidden places where the soul feels battered and weary. Everyone, at some point, knows intimately what it means to lie wounded, stripped bare by circumstances we never imagined. It might be a betrayal by someone we cherished deeply, a rejection that stings in silence, or simply the unbearable weight of daily expectations. Indeed, we often find that the deepest cuts come from the sharp tongues or cold indifference of those nearest to us, those who know precisely where our vulnerabilities lie. Pride, envy, greed—these are the thieves that rob us of peace, leaving us isolated and desperate in our own private ditches.

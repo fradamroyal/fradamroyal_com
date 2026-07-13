@@ -2,6 +2,74 @@
 title = 'Holy Saturday - Easter Vigil'
 date = 2025-04-19
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Gen 1:1–2:2'
+
+[[readings]]
+label = 'First Responsorial Psalm'
+citation = 'Ps 104:1–2, 5–6, 10, 12, 13–14, 24, 35'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Gen 22:1–18'
+
+[[readings]]
+label = 'Second Responsorial Psalm'
+citation = 'Ps 16:5, 8, 9–10, 11'
+
+[[readings]]
+label = 'Third Reading'
+citation = 'Exod 14:15–15:1'
+
+[[readings]]
+label = 'Third Responsorial Canticle'
+citation = 'Exod 15:1–2, 3–4, 5–6, 17–18'
+
+[[readings]]
+label = 'Fourth Reading'
+citation = 'Isa 54:5–14'
+
+[[readings]]
+label = 'Fourth Responsorial Psalm'
+citation = 'Ps 30:2, 4, 5–6, 11–12, 13'
+
+[[readings]]
+label = 'Fifth Reading'
+citation = 'Isa 55:1–11'
+
+[[readings]]
+label = 'Fifth Responsorial Canticle'
+citation = 'Isa 12:2–3, 4, 5–6'
+
+[[readings]]
+label = 'Sixth Reading'
+citation = 'Bar 3:9–15, 32–4:4'
+
+[[readings]]
+label = 'Sixth Responsorial Psalm'
+citation = 'Ps 19:8, 9, 10, 11'
+
+[[readings]]
+label = 'Seventh Reading'
+citation = 'Ezek 36:16–17a, 18–28'
+
+[[readings]]
+label = 'Seventh Responsorial Psalm'
+citation = 'Pss 42:3, 5; 43:3, 4'
+
+[[readings]]
+label = 'Epistle'
+citation = 'Rom 6:3–11'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 118:1–2, 16–17, 22–23'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Luke 24:1–12'
 +++
 
 My dear catechumens, candidates, and beloved friends, this night is unlike any other. Tonight is the heart of our faith, where everything we have known and hoped for comes together: "Why do you seek the living one among the dead? He is not here, but he has been raised."

@@ -2,6 +2,22 @@
 title = 'All Souls (The Commemoration of All the Faithful Departed)'
 date = 2025-11-02
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Wis 3:1–9'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 23:1–3a, 3b–4, 5, 6'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Rom 5:5–11'
+
+[[readings]]
+label = 'Gospel'
+citation = 'John 6:37–40'
 +++
 
 A single desire pulses beneath every distraction, every ambition, every fear: to be loved and to love in return. God did not fashion us because he lacked company; the Trinity is eternal communion. He wanted creatures who could share the joy he is. We were made for love—real, infinite, unexhausted.

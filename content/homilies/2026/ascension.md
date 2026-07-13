@@ -2,6 +2,22 @@
 title = 'The Ascension of the Lord'
 date = 2026-05-17
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Acts 1:1–11'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 47:2–3, 6–7, 8–9'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Eph 1:17–23'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Matt 28:16–20'
 +++
 
 St. Matthew lets the number stand in the open. The disciples climb the mountain in Galilee, and there are only eleven of them. Eleven. A wounded number.

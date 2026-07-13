@@ -2,6 +2,22 @@
 title = 'Second Sunday of Lent'
 date = 2025-03-16
 draft = false
+
+[[readings]]
+label = "First Reading"
+citation = "Gen 15:5–12, 17–18"
+
+[[readings]]
+label = "Responsorial Psalm"
+citation = "Ps 27:1, 7–8, 8–9, 13–14"
+
+[[readings]]
+label = "Second Reading"
+citation = "Phil 3:17–4:1"
+
+[[readings]]
+label = "Gospel"
+citation = "Luke 9:28b–36"
 +++
 
 We find ourselves on a mountaintop, standing in the presence of something extraordinary. In that moment, the veil between heaven and earth is pulled back just enough for us to see the world as God intended—a world radiant with divine light, untouched by sin and sorrow.

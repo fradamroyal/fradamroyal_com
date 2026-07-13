@@ -2,6 +2,22 @@
 title = 'Twenty-third Sunday Per Annum'
 date = 2024-09-08
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Isa 35:4–7a'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 146:6–7, 8–9, 9–10'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Jas 2:1–5'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Mark 7:31–37'
 +++
 
 In this story of physical healing, we are directed to a much deeper reality—the sacramentality of the world. Sacramentality means that the physical world is a window into God’s presence and action. In the sacraments of the Church, we see this clearly: water becomes the means of new life in baptism; bread and wine become the Body and Blood of Christ in the Eucharist. But sacramentality goes beyond the sacraments themselves—it is woven into the fabric of the world. In the gospel, the man’s ears are opened, and his tongue is freed. Jesus uses the physical—his hands, his spittle, his voice—to bring healing. This is not incidental. God works through the created world to bring about salvation.

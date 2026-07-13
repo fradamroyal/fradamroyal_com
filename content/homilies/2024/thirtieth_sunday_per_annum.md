@@ -2,6 +2,22 @@
 title = 'Thirtieth Sunday Per Annum'
 date = 2024-10-27
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Jer 31:7–9'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 126:1–2, 2–3, 4–5, 6'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Heb 5:1–6'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Mark 10:46–52'
 +++
 
 Parish Stewardship Weekend calls us to reflect on what it means to give—not just with our hands or our wallets, but with our hearts. We see authentic, Christian generosity in the story of Bartimaeus, a blind man sitting by the roadside, crying out to Jesus as he passes by. Though people around Bartimaeus try to silence him, Jesus hears his voice, calls him forward, and restores his sight. What unfolds in this encounter offers us a beautiful image of God’s love.

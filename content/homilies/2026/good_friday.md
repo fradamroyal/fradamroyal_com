@@ -2,6 +2,22 @@
 title = 'Good Friday'
 date = 2026-04-03
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Isa 52:13–53:12'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 31:2, 6, 12–13, 15–16, 17, 25'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Heb 4:14–16; 5:7–9'
+
+[[readings]]
+label = 'Gospel'
+citation = 'John 18:1–19:42'
 +++
 
 Evil usually does not look obviously evil. It does not wear a sign and announce itself as such. It usually arrives in compromised hearts and the quiet surrender of courage. Good Friday forces us to confront that.

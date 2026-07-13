@@ -2,6 +2,22 @@
 title = 'The Solemnity of the Most Holy Body and Blood of Christ'
 date = 2026-06-07
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Deut 8:2–3, 14b–16a'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 147:12–13, 14–15, 19–20'
+
+[[readings]]
+label = 'Second Reading'
+citation = '1 Cor 10:16–17'
+
+[[readings]]
+label = 'Gospel'
+citation = 'John 6:51–58'
 +++
 
 A grain of wheat looks almost weightless in the hand. It is small enough to be overlooked and dismissed. Yet inside that small thing, God has hidden a path from from human hunger to eternal life.

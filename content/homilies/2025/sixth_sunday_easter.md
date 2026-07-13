@@ -2,6 +2,22 @@
 title = 'Sixth Sunday of Easter'
 date = 2025-05-25
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Acts 15:1–2, 22–29'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 67:2–3, 5, 6, 8'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Rev 21:10–14, 22–23'
+
+[[readings]]
+label = 'Gospel'
+citation = 'John 14:23–29'
 +++
 
 When Jesus speaks of peace, he promises something very different from what we usually imagine. He declares, "Peace I leave with you; my peace I give to you. Not as the world gives do I give it to you." Christ offers us a peace unlike any other—distinct from worldly promises and entirely free of conditions or threats.

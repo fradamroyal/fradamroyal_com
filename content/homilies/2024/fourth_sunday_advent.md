@@ -2,6 +2,22 @@
 title = 'Fourth Sunday of Advent'
 date = 2024-12-22
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Mic 5:1–4a'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 80:2–3, 15–16, 18–19'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Heb 10:5–10'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Luke 1:39–45'
 +++
 
 “Blessed are you who believed that what was spoken to you by the Lord would be fulfilled.” These words from Elizabeth to Mary in today’s Gospel shine as a beacon of hope and faith. They remind us that trust in God’s promises is the foundation of true blessing, even when the path seems uncertain or fraught with difficulty.

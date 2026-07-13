@@ -2,6 +2,22 @@
 title = 'Fifthteenth Sunday Per Annum'
 date = 2024-07-14
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Amos 7:12–15'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 85:9–10, 11–12, 13–14'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Eph 1:3–14'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Mark 6:7–13'
 +++
 
 “Wherever you enter a house, stay there until you leave.” Jesus was quite strict when he sent his disciples out two by two. They weren’t allowed to take money, food, or extra clothing and they had to wander around all of Israel. If we had been in one of the cities of the time and seen the disciples, it would not have been a pretty sight. They would have been dirty, smelly, and hungry beggars. They would have been shouting at us “Repent! For the Kingdom of God is at hand.” I think many of us would have dismissed them without a moments consideration. Surely God can equip his messengers better than this.

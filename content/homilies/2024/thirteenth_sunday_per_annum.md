@@ -2,6 +2,22 @@
 title = 'Thirteenth Sunday Per Annum'
 date = 2024-06-30
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Wis 1:13–15; 2:23–24'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 30:2, 4, 5–6, 11, 12, 13'
+
+[[readings]]
+label = 'Second Reading'
+citation = '2 Cor 8:7, 9, 13–15'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Mark 5:21–43'
 +++
 
 I watched a show one time about people who are incredibly cheap. They weren’t poor. That is, a lack of money did not drive their desire to live frugally. They just loved being cheap. They experienced a strange thrill in finding bargains or getting new stuff without spending cash. Most of the people on the show and their thrifty habits I found amusing: cutting open toothpaste tubes to reach that little bit you can never squeeze out, taking a roll of two-ply toilet tissue and multiplying it into two rolls of single-ply, and other similar things. But one habit was almost too much to watch. This particular couple enjoyed crafting dinner from road kill. They would drive along back roads, pick up any dead animal they found, and then take it home and cook it.

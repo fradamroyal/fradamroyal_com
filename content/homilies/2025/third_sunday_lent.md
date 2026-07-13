@@ -2,6 +2,22 @@
 title = 'Third Sunday of Lent'
 date = 2025-03-23
 draft = false
+
+[[readings]]
+label = "First Reading"
+citation = "Exod 3:1–8a, 13–15"
+
+[[readings]]
+label = "Responsorial Psalm"
+citation = "Ps 103:1–2, 3–4, 6–7, 8, 11"
+
+[[readings]]
+label = "Second Reading"
+citation = "1 Cor 10:1–6, 10–12"
+
+[[readings]]
+label = "Gospel"
+citation = "Luke 13:1–9"
 +++
 
 Whenever tragedy strikes, our first impulse is to search for meaning. We want explanations: Why did this happen? Who is to blame? We instinctively wonder if suffering is punishment for wrongdoing. Yet, Jesus sharply challenges this notion, asking, “Do you think that because these Galileans suffered in this way they were greater sinners than all other Galileans?” His response is clear: tragedy is not a measure of guilt.

@@ -2,6 +2,22 @@
 title = 'First Sunday in Lent'
 date = 2026-02-22
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Gen 2:7–9; 3:1–7'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 51:3–4, 5–6, 12–13, 17'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Rom 5:12–19'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Matt 4:1–11'
 +++
 
 Anyone who has tried to choose a restaurant with friends knows the tension it can create. Options multiply, nobody wants to impose, and minutes vanish. So much energy for a decision forgotten before the bill is paid.

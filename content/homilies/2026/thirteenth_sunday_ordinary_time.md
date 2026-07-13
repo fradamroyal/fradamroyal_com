@@ -2,6 +2,22 @@
 title = 'Thirteenth Sunday in Ordinary Time'
 date = 2026-06-28
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = '2 Kgs 4:8–11, 14–16a'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 89:2–3, 16–17, 18–19'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Rom 6:3–4, 8–11'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Matt 10:37–42'
 +++
 
 The first reading places us in the home of a woman in Shunem who recognizes Elisha as a holy man of God. She urges him to dine with her, and then, seeing his frequent travels, she and her husband prepare and furnish a small room for him on the roof. In this simple but deliberate act, she makes space in her home for the servant of God, and in doing so, she makes room for God himself.

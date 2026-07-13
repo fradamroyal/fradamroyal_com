@@ -2,6 +2,22 @@
 title = 'Called by Name Weekend'
 date = 2026-01-17
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Isa 49:3, 5–6'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 40:2, 4, 7–8, 8–9, 10'
+
+[[readings]]
+label = 'Second Reading'
+citation = '1 Cor 1:1–3'
+
+[[readings]]
+label = 'Gospel'
+citation = 'John 1:29–34'
 +++
 
 At the request of the bishop, I want to share with you the story of how the Lord led me to this altar—not because my story is the pattern for everyone, but because it is one example of how patiently God can pursue a heart.

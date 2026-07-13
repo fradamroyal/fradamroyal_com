@@ -2,6 +2,38 @@
 title = 'Fifth Sunday of Lent'
 date = 2025-04-06
 draft = false
+
+[[readings]]
+label = 'Year C First Reading'
+citation = 'Isa 43:16–21'
+
+[[readings]]
+label = 'Year C Responsorial Psalm'
+citation = 'Ps 126:1–2, 2–3, 4–5, 6'
+
+[[readings]]
+label = 'Year C Second Reading'
+citation = 'Phil 3:8–14'
+
+[[readings]]
+label = 'Year C Gospel'
+citation = 'John 8:1–11'
+
+[[readings]]
+label = 'Third Scrutiny First Reading'
+citation = 'Ezek 37:12–14'
+
+[[readings]]
+label = 'Third Scrutiny Responsorial Psalm'
+citation = 'Ps 130:1–2, 3–4, 5–6, 7–8'
+
+[[readings]]
+label = 'Third Scrutiny Second Reading'
+citation = 'Rom 8:8–11'
+
+[[readings]]
+label = 'Third Scrutiny Gospel'
+citation = 'John 11:1–45'
 +++
 
 **NB:** This Sunday we had the third scrutiny. The [homily for the mass with the scrutiny](#the-third-scrutiny) can be found below. The homily for the Year C reading used at the other masses follows immediately:

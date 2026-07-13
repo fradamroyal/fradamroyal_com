@@ -2,6 +2,22 @@
 title = 'Fourteenth Sunday in Ordinary Time'
 date = 2025-07-06
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Isa 66:10–14c'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 66:1–3, 4–5, 6–7, 16, 20'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Gal 6:14–18'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Luke 10:1–12, 17–20'
 +++
 
 “Peace to this household.” With these simple yet powerful words, Jesus teaches us precisely how we are to approach others. Notice that the first step of evangelization, the first moment of witnessing to Christ, is not a catechism quiz or a doctrinal declaration; it is an offer of peace, an opening of the heart. Peace prepares us for genuine communion. It allows us to sit down together at one table, to share a meal, and, in doing so, to encounter Christ himself.

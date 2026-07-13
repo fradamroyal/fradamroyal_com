@@ -2,6 +2,22 @@
 title = 'Exaltation of the Holy Cross'
 date = 2025-09-14
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Num 21:4b–9'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 78:1bc–2, 34–35, 36–37, 38'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Phil 2:6–11'
+
+[[readings]]
+label = 'Gospel'
+citation = 'John 3:13–17'
 +++
 
 Every medicine cabinet hides a story. Bottles with child‑proof caps, labels we can’t quite pronounce, doses we would rather skip. Bitter cures seldom feel like kindness in the moment. Yet the physician who truly loves us prescribes what heals, not what flatters the tongue.

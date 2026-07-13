@@ -2,6 +2,22 @@
 title = 'Presentation of the Lord'
 date = 2025-02-02
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Mal 3:1–4'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 24:7, 8, 9, 10'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Heb 2:14–18'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Luke 2:22–40'
 +++
 
 **N.B. This weekend was the annual Bishop's Appeal for Ministries. This homily is focused around the appeal.**

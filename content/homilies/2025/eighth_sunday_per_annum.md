@@ -2,6 +2,22 @@
 title = 'Eighth Sunday Per Annum'
 date = 2025-03-02
 draft = false
+
+[[readings]]
+label = "First Reading"
+citation = "Sir 27:4–7"
+
+[[readings]]
+label = "Responsorial Psalm"
+citation = "Ps 92:2–3, 13–14, 15–16"
+
+[[readings]]
+label = "Second Reading"
+citation = "1 Cor 15:54–58"
+
+[[readings]]
+label = "Gospel"
+citation = "Luke 6:39–45"
 +++
 
 There is something deeply unsettling about realizing we do not see as clearly as we think. Jesus’ words confront us with this reality. We assume that we understand the world, that we can judge right from wrong, that we can identify the faults in others with accuracy. And yet, Jesus tells us otherwise. He warns that sin is not just a private matter between us and God—it distorts everything, especially our vision.

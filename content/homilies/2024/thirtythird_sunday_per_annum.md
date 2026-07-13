@@ -2,6 +2,22 @@
 title = 'Thirty-third Sunday Per Annum'
 date = 2024-11-17
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Dan 12:1–3'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 16:5, 8, 9–10, 11'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Heb 10:11–14, 18'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Mark 13:24–32'
 +++
 
 “Learn a lesson from the fig tree. When its branch becomes tender and sprouts leaves, you know that summer is near.” {{< sidenote >}} Mark 13:28 {{< /sidenote >}} As human beings, we are naturally curious about the future, and we often seek signs in this world to guide us. We analyze political trends to predict elections. If you’ve ever followed an election closely, you’ll know how, at times, the winner is announced before a single vote is officially counted in a state. The signs are so clear that the counting becomes a mere formality. Similarly, we study financial markets to increase our wealth or determine the best time to make major purchases, like buying a home. In our daily lives, we read subtle cues to gauge moods and decide when it’s best to speak to someone. We are constantly seeking to predict and control our future, striving to ensure everything goes well for us.

@@ -2,6 +2,22 @@
 title = 'Transfiguration of the Lord'
 date = 2025-08-06
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Dan 7:9–10, 13–14'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 97:1–2, 5–6, 9'
+
+[[readings]]
+label = 'Second Reading'
+citation = '2 Pet 1:16–19'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Luke 9:28b–36'
 +++
 
 The Fathers of the Church see in the Transfiguration a prefiguring of the Resurrection. That is, when Jesus radiates light and his clothes become dazzling, what we behold in that moment is the world recreated after the Resurrection—a world God is going to give us in the life of heaven. And that is important, because what he is doing for three of his disciples—Peter, James, and John—is strengthening them. Knowing the journey to Jerusalem is beginning and that all these terrible events are about to unfold, he gives them a glimpse of glory to give them hope, the strength to keep going—even in the face of what is to come—so they might make it to the Resurrection.

@@ -2,6 +2,22 @@
 title = 'Easter Sunday'
 date = 2026-04-05
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Acts 10:34a, 37–43'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 118:1–2, 16–17, 22–23'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Col 3:1–4'
+
+[[readings]]
+label = 'Gospel'
+citation = 'John 20:1–9'
 +++
 
 There is a way fear tightens a person. The hand closes. The shoulders draw in. We guard and hold back. That is how much of the world has learned to live. If this life is all there is, then everything must be seized now. If death is the final horizon, then of course people grasp and claw and wound one another trying to secure a little safety, a little control before the darkness comes.

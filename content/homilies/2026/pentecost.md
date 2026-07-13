@@ -2,6 +2,22 @@
 title = 'Pentecost'
 date = 2026-05-24
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Acts 2:1–11'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 104:1, 24, 29–30, 31, 34'
+
+[[readings]]
+label = 'Second Reading'
+citation = '1 Cor 12:3b–7, 12–13'
+
+[[readings]]
+label = 'Gospel'
+citation = 'John 20:19–23'
 +++
 
 A locked door seems like wisdom when fear has taken hold. The disciples know danger. The crucifixion is still fresh in their minds. Every noise outside could mean discovery. So they stay behind the door, and for a little while the room feels safe. But the longer they remain there, the more that safety will consume and claim them.

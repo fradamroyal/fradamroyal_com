@@ -2,6 +2,22 @@
 title = 'Twentieth Sunday in Ordinary Time'
 date = 2025-08-17
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Jer 38:4–6, 8–10'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 40:2, 3, 4, 18'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Heb 12:1–4'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Luke 12:49–53'
 +++
 
 Ancient Israel wanted soothing voices. If a message promised comfort, they would pay to hear it. Prophets became a profession, and when a profession depends on pleasing customers, the truth gets trimmed to fit the market. Many in that guild learned to say only what people wished to hear. Yet, in the midst of all that noise, a few refused to sell the word. Their sermons were not crowd-pleasers. They spoke of judgment and course correction. And when the kings needed an honest messenger, they searched for the one no one wanted to hire—the one whose words stung.

@@ -2,6 +2,22 @@
 title = 'Fifth Sunday in Lent'
 date = 2026-03-22
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Ezek 37:12–14'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 130:1–2, 3–4, 5–6, 7–8'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Rom 8:8–11'
+
+[[readings]]
+label = 'Gospel'
+citation = 'John 11:1–45'
 +++
 
 There is something almost painful in this scene. Jesus is told that his friend is gravely ill. He loves this family. He has power to heal. And still he waits. To Martha and Mary, that delay must have felt like silence. To anyone watching from the outside, it can even look heartless. But the delay belongs to the love.

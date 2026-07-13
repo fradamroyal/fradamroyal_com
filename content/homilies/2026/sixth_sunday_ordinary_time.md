@@ -2,6 +2,22 @@
 title = 'Sixth Sunday in Ordinary Time'
 date = 2026-02-15
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Sir 15:15–20'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 119:1–2, 4–5, 17–18, 33–34'
+
+[[readings]]
+label = 'Second Reading'
+citation = '1 Cor 2:6–10'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Matt 5:17–37'
 +++
 
 Most evenings are not dramatic. They are ordinary: the same rooms, the same chores, the same tiredness, and the small frictions that appear when two lives share one home. Many of the Lord’s hard teachings can be attempted at a distance—one generous act, one patient response, and then we slip away to quieter company. Marriage is different. It places love in the same room, day after day, and trains the heart in the quiet courage of staying.

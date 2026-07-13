@@ -2,6 +2,22 @@
 title = 'Third Sunday in Lent'
 date = 2026-03-08
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Exod 17:3–7'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 95:1–2, 6–7, 8–9'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Rom 5:1–2, 5–8'
+
+[[readings]]
+label = 'Gospel'
+citation = 'John 4:5–42'
 +++
 
 Noon is a harsh hour. The sun is straight overhead. Shadows shrink. Nothing is softened. At Jacob’s well, a woman comes carrying her water jar and, without knowing it, carrying something heavier: a life she has learned to explain and excuse. Her history is no secret in that town. And Jesus' knowledge of her is not a surprise. What surprises is the change in her: in the presence of Jesus, she begins to see herself clearly.

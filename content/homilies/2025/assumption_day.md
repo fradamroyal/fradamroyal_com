@@ -2,6 +2,22 @@
 title = 'Assumption of the Blessed Virgin Mary - Day'
 date = 2025-08-15
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Rev 11:19a; 12:1–6a, 10ab'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 45:10, 11, 12, 16'
+
+[[readings]]
+label = 'Second Reading'
+citation = '1 Cor 15:20–27'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Luke 1:39–56'
 +++
 
 God is not a hoarder of glory. He is lavish. Open-handed. He delights to share what is his—life, joy, even victory over death. The Assumption of Mary is the radiant sign of that generosity. When the Father brings Mary, body and soul, into heavenly life, he is not making an exception to keep us small; he is unveiling what he wants for all who cling to his Son.

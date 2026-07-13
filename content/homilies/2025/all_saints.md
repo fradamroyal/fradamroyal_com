@@ -2,6 +2,22 @@
 title = 'All Saints'
 date = 2025-11-01
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Rev 7:2–4, 9–14'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 24:1bc–2, 3–4ab, 5–6'
+
+[[readings]]
+label = 'Second Reading'
+citation = '1 John 3:1–3'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Matt 5:1–12a'
 +++
 
 Sometimes we can become too focused on sin. That might sound surprising, because it seems like the world around us is not focused on sin at all—and there’s truth in that. Yet even within the Church, we can fall into the opposite error: we can make sin and morality the entire focus of our faith, reducing Christianity to a system of rules.

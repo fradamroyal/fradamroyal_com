@@ -2,6 +2,18 @@
 title = 'St. Joseph the Worker'
 date = 2026-05-01
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Gen 1:26b–2:3'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 90:2, 3–4, 12–13, 14, 16'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Matt 13:54–58'
 +++
 
 I think we all recognize that the incarnation—God becoming man—is God’s free choice. He decides to do that. Nothing compelled him or coerced him. But I do not think we always appreciate some of the consequences of that choice. Not only does he freely choose to become man; he also chooses of whom he becomes man.

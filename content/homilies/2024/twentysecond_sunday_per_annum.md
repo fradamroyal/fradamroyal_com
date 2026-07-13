@@ -2,6 +2,22 @@
 title = 'Twenty-second Sunday Per Annum'
 date = 2024-09-01
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Deut 4:1–2, 6–8'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 15:2–3, 3–4, 4–5'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Jas 1:17–18, 21b–22, 27'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Mark 7:1–8, 14–15, 21–23'
 +++
 
 I love the book of Deuteronomy. It is such a personal and hope filled work. Deuteronomy presents itself as a letter from Moses to his people. They have already escaped from Egypt and their forty years of journeying in the desert have come to an end. The Hebrew people now stand just outside the land of Canaan, their homeland, their promised land. As they stand upon the mountains and look upon their home, there is joy but there is also a twinge of sadness. Moses is dying. He will not make it home. His final act is to write a letter to his people that he has journeyed with for a lifetime.

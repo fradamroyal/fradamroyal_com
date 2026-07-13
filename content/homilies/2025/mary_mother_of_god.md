@@ -2,6 +2,22 @@
 title = 'Mary, Mother of God'
 date = 2025-01-01
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Num 6:22–27'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 67:2–3, 5, 6, 8'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Gal 4:4–7'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Luke 2:16–21'
 +++
 
 The Blessed Virgin Mary is the supreme model for the Church and for every believer. Yet, it is unfortunate that we so often misunderstand and mischaracterize her. For far too long, Mary has been seen as merely demure and maidenly, a passive vessel who carried God rather than an active participant in the drama of salvation.

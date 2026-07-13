@@ -2,6 +2,22 @@
 title = 'Holy Thursday'
 date = 2025-04-17
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Exod 12:1–8, 11–14'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 116:12–13, 15–16bc, 17–18'
+
+[[readings]]
+label = 'Second Reading'
+citation = '1 Cor 11:23–26'
+
+[[readings]]
+label = 'Gospel'
+citation = 'John 13:1–15'
 +++
 
 Tonight we witness something unexpected: the Lord, the master, the teacher, kneeling at the feet of his disciples. Amidst the echoes of Passover preparations, amidst talk of betrayal and sacrifice, one action pierces through: Jesus washing feet. It might seem odd that on Holy Thursday, the night we celebrate the instituion of the Eucharist, we are given a Gospel that does not explicitly show the Eucharist at all. Instead, we encounter humility in its purest form.

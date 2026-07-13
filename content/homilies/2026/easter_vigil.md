@@ -2,6 +2,74 @@
 title = 'Easter Vigil'
 date = 2026-04-04
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Gen 1:1–2:2'
+
+[[readings]]
+label = 'Psalm after First Reading'
+citation = 'Ps 104:1–2, 5–6, 10, 12, 13–14, 24, 35'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Gen 22:1–18'
+
+[[readings]]
+label = 'Psalm after Second Reading'
+citation = 'Ps 16:5, 8, 9–10, 11'
+
+[[readings]]
+label = 'Third Reading'
+citation = 'Exod 14:15–15:1'
+
+[[readings]]
+label = 'Psalm after Third Reading'
+citation = 'Exod 15:1–2, 3–4, 5–6, 17–18'
+
+[[readings]]
+label = 'Fourth Reading'
+citation = 'Isa 54:5–14'
+
+[[readings]]
+label = 'Psalm after Fourth Reading'
+citation = 'Ps 30:2, 4, 5–6, 11–12, 13'
+
+[[readings]]
+label = 'Fifth Reading'
+citation = 'Isa 55:1–11'
+
+[[readings]]
+label = 'Psalm after Fifth Reading'
+citation = 'Isa 12:2–3, 4, 5–6'
+
+[[readings]]
+label = 'Sixth Reading'
+citation = 'Bar 3:9–15, 32–4:4'
+
+[[readings]]
+label = 'Psalm after Sixth Reading'
+citation = 'Ps 19:8, 9, 10, 11'
+
+[[readings]]
+label = 'Seventh Reading'
+citation = 'Ezek 36:16–17a, 18–28'
+
+[[readings]]
+label = 'Psalm after Seventh Reading'
+citation = 'Pss 42:3, 5; 43:3, 4'
+
+[[readings]]
+label = 'Epistle'
+citation = 'Rom 6:3–11'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 118:1–2, 16–17, 22–23'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Matt 28:1–10'
 +++
 
 The Church has lingered long tonight beside the works of God. We have listened as the great story unfolded: the beauty of the first creation, the wound of our fall, the ache of exile, the call of Abraham, the deliverance through the sea, the voice of the prophets, the promises spoken again and again to a people who could not remain faithful for long. The pattern was painfully familiar. God gave. Man squandered. God called. Man wandered. God rescued. Man returned to dust and disobedience. And then, in the fullness of time, God sent his Son.

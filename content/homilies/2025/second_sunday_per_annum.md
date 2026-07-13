@@ -2,6 +2,22 @@
 title = 'Second Sunday Per Annum'
 date = 2025-01-19
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Isa 62:1–5'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 96:1–2, 2–3, 7–8, 9–10'
+
+[[readings]]
+label = 'Second Reading'
+citation = '1 Cor 12:4–11'
+
+[[readings]]
+label = 'Gospel'
+citation = 'John 2:1–11'
 +++
 
 Prayer is essential for every Christian. It is the lifeline that connects us to God, the way we invite him into the deepest parts of our lives. When we are in need—spiritually, emotionally, or physically—prayer is where God meets us with his grace. It is in prayer that he transforms us. Because of this, we must be people of prayer.

@@ -2,6 +2,22 @@
 title = 'Fifth Sunday of Easter'
 date = 2025-05-18
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Acts 14:21–27'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 145:8–9, 10–11, 12–13'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Rev 21:1–5a'
+
+[[readings]]
+label = 'Gospel'
+citation = 'John 13:31–33a, 34–35'
 +++
 
 The early Christians stood out—not because of unique clothing or special customs, nor because they spoke their own language or lived separately from others—but because they behaved differently. They were ordinary people indistinguishable from their neighbors in all outward appearances, yet they were known unmistakably by one profound truth: the way they loved.

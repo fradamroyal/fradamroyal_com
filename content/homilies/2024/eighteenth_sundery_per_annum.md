@@ -2,6 +2,22 @@
 title = 'Eighteenth Sunday Per Annum'
 date = 2024-08-04
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Exod 16:2–4, 12–15'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 78:3–4, 23–24, 25, 54'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Eph 4:17, 20–24'
+
+[[readings]]
+label = 'Gospel'
+citation = 'John 6:24–35'
 +++
 
 It is easy to talk about doctrine, the set of things that we are required to believe as Catholics. Today marks one of those days when it is even easier. Today begins what is called the bread of life discourse. Over the next few Sundays, Jesus will elucidate how he embodies the true bread of life, illustrating how Old Testament accounts of miraculous feedings foreshadowed his own presence. He will emphasize that partaking in his body and blood is essential for attaining eternal life within us. So we can see how easy it would be to write off the next few Sundays as moments just to talk doctrine: the real presence, transubstantiation, and all of those things. But that wouldn’t be helpful. We all know what the Church teaches. Many of us have heard it time and again our entire lives. So, let’s not talk about that today.

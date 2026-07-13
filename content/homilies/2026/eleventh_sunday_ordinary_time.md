@@ -2,6 +2,22 @@
 title = 'Eleventh Sunday in Ordinary Time'
 date = 2026-06-14
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Exod 19:2–6a'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 100:1–2, 3, 5'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Rom 5:6–11'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Matt 9:36–10:8'
 +++
 
 "Without cost you have received." The words of the Lord seem so clear. The Gospel is free. Salvation is free. Yet we have slowly allowed ourselves to believe something else. The world and its ideas have taken root in many hearts. Many people have come to think that we somehow purchase the faith.

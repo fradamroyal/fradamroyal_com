@@ -2,6 +2,22 @@
 title = 'Holy Family'
 date = 2024-12-29
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Sir 3:2–6, 12–14'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 128:1–2, 3, 4–5'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Col 3:12–21'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Luke 2:41–52'
 +++
 
 How often have you misplaced something important—your car keys, your phone, or even your wallet? When something essential is lost, panic sets in. We overturn couch cushions, retrace steps, and search with increasing desperation. And then, sometimes, we find the item in the most obvious place—right in front of us or even in our hand. In that moment, relief floods in, but we might also laugh at ourselves for missing what was there all along.

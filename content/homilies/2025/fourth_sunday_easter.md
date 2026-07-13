@@ -2,6 +2,22 @@
 title = 'Fourth Sunday of Easter'
 date = 2025-05-11
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Acts 13:14, 43–52'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 100:1–2, 3, 5'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Rev 7:9, 14b–17'
+
+[[readings]]
+label = 'Gospel'
+citation = 'John 10:27–30'
 +++
 
 When we have doubts about someone’s integrity, we often say, "Actions speak louder than words." And indeed, genuine love, trustworthiness, and compassion become real to us not through promises or claims, but through what someone actually does.

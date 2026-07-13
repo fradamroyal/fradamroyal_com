@@ -2,6 +2,22 @@
 title = 'Good Friday'
 date = 2025-04-18
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Isa 52:13–53:12'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 31:2, 6, 12–13, 15–16, 17, 25'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Heb 4:14–16; 5:7–9'
+
+[[readings]]
+label = 'Passion'
+citation = 'John 18:1–19:42'
 +++
 
 Pilate's question, "What is truth?" echoes through the centuries because it captures the core of our human struggle. Pilate stands in front of Jesus, a man whose innocence he openly acknowledges, and yet he remains trapped in the familiar patterns of human history—a history of power abused, justice twisted, and truth silenced. His question is not flippant or dismissive. Rather, Pilate voices the deep uncertainty within each of us when faced with a world that appears unchanging in its cycles of selfishness, pride, and violence.

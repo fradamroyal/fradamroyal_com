@@ -2,6 +2,22 @@
 title = 'Easter Sunday'
 date = 2025-04-20
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Acts 10:34a, 37–43'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 118:1–2, 16–17, 22–23'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Col 3:1–4'
+
+[[readings]]
+label = 'Gospel'
+citation = 'John 20:1–9'
 +++
 
 When Mary Magdalene first encountered the empty tomb, her heart was filled not with joy but confusion and fear. Her cry was felt deeply in the hearts of Peter and the other disciple: "They have taken the Lord from the tomb, and we don’t know where they put him." This emptiness, this initial shock, confronts us too. We, like Mary and the apostles, live in a world overshadowed by the reality of death, faced daily with uncertainty and the haunting question: Is it all vanity?

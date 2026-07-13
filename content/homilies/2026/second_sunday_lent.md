@@ -2,6 +2,22 @@
 title = 'Second Sunday in Lent'
 date = 2026-03-01
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Gen 12:1–4a'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 33:4–5, 18–19, 20, 22'
+
+[[readings]]
+label = 'Second Reading'
+citation = '2 Tim 1:8b–10'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Matt 17:1–9'
 +++
 
 Despite biblical precedent, a mountain is an odd place for a revelation. The air is thin, the ground uneven, and the climb tiring. Jesus chooses height and solitude, as if he wants his friends to feel, in their bodies, how much they rely on him. Then the veil lifts. The apostles glimpse a beauty too intense for ordinary eyes, the kind that makes knees buckle and words fail.

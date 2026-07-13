@@ -2,6 +2,22 @@
 title = 'Fourth Sunday of Easter'
 date = 2026-04-26
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Acts 2:14a, 36–41'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 23:1–3a, 3b–4, 5, 6'
+
+[[readings]]
+label = 'Second Reading'
+citation = '1 Pet 2:20b–25'
+
+[[readings]]
+label = 'Gospel'
+citation = 'John 10:1–10'
 +++
 
 There is a kind of noise that does not merely fill a room. It takes possession of it. Leave a television running long enough, keep the phone close enough, let the commentary pour in day after day, and the soul begins to change. The noise takes root. What was once a stranger begins to sound familiar, it begins to sound like the truth.

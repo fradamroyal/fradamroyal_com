@@ -2,6 +2,22 @@
 title = 'Twenty-fourth Sunday Per Annum'
 date = 2024-09-15
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Isa 50:5–9a'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 116:1–2, 3–4, 5–6, 8–9'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Jas 2:14–18'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Mark 8:27–35'
 +++
 
 It is interesting to look at advertisements for charities, especially those that feed or provide medical treatment to the poor. When it comes to international charities, they often feature many pictures of those in need. These charities may even offer symbolic adoptions, where you receive photos and biographical details about a specific person. However, with local charities, this is rarely the case. Local organizations tend to avoid using photos of individuals altogether, relying instead on facts and figures. There is a simple reason for this: when we give money to distant causes in places we will likely never visit, we crave a personal connection. We want to see the faces of those we help because it makes us feel good—and it feels safe. But when it comes to giving locally, we often do not want to see the faces of those in need, because there is a chance we might run into them. We shy away from confronting suffering in our own community, fearing that if we truly grasp the depth of the need, we will be forced to share in their pain. As long as the poor remain a faceless mass, hidden behind statistics and dollar signs, we can carry on with our lives undisturbed.

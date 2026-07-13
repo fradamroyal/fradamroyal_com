@@ -2,6 +2,22 @@
 title = 'Pentecost'
 date = 2025-06-08
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Acts 2:1–11'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 104:1, 24, 29–30, 31, 34'
+
+[[readings]]
+label = 'Second Reading'
+citation = '1 Cor 12:3b–7, 12–13'
+
+[[readings]]
+label = 'Gospel'
+citation = 'John 20:19–23'
 +++
 
 The Roman Empire loved to boast about its dominance. Emperors carved the names of conquered peoples and lands onto stone monuments, proudly proclaiming their control over the known world. Their message was clear: defiance was futile, resistance impossible. Yet, today we hear a different proclamation, one that echoes not from monuments of stone, but from hearts ablaze with divine fire.

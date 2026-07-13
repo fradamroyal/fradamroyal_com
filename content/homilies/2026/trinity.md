@@ -2,6 +2,22 @@
 title = 'The Solemnity of the Most Holy Trinity'
 date = 2026-05-31
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Exod 34:4b–6, 8–9'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Dan 3:52, 53, 54, 55, 56'
+
+[[readings]]
+label = 'Second Reading'
+citation = '2 Cor 13:11–13'
+
+[[readings]]
+label = 'Gospel'
+citation = 'John 3:16–18'
 +++
 
 To forget a face is to lose more than a memory. The face mediates relationship. It puts flesh on the spirit. To forget a face is to lose a relationship. It is to lose love.

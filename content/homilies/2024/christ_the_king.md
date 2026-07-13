@@ -2,6 +2,22 @@
 title = 'Christ the King'
 date = 2024-11-24
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Dan 7:13–14'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 93:1, 1–2, 5'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Rev 1:5–8'
+
+[[readings]]
+label = 'Gospel'
+citation = 'John 18:33b–37'
 +++
 
 “Are you a king?” Pilate’s question is a good one. How could anyone look at Jesus and believe he was a king? There he stood before Pilate, bound in chains. He had no armies, no throne, and not even any followers left. He looked nothing like the kings of this world. Yet, Jesus was a king. He is a king—a king like no other.

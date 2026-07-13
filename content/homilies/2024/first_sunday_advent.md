@@ -2,6 +2,22 @@
 title = 'First Sunday of Advent'
 date = 2024-12-01
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Jer 33:14–16'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 25:4–5, 8–9, 10, 14'
+
+[[readings]]
+label = 'Second Reading'
+citation = '1 Thess 3:12–4:2'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Luke 21:25–28, 34–36'
 +++
 
 On this First Sunday of Advent, we hear Jesus’ apocalyptic words in the gospel: descriptions of cosmic signs, nations in dismay, and people overcome with fear. At first glance, these words might tempt us to despair, as they mirror the anxieties we often feel when we look at our world today. Natural disasters, political unrest, and personal struggles can leave us feeling as if everything is unraveling. But Jesus does not speak to sow fear; he speaks to give us hope.

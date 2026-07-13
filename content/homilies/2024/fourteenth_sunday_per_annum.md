@@ -2,6 +2,22 @@
 title = 'Fourteenth Sunday Per Annum'
 date = 2024-07-07
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Ezek 2:2–5'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 123:1–2, 2, 3–4'
+
+[[readings]]
+label = 'Second Reading'
+citation = '2 Cor 12:7–10'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Mark 6:1–6'
 +++
 
 “A prophet is not without honor except in his native place and among his own kin and in his own house.” These words of Jesus are probably proverbial. That is, they belong to the simple folk wisdom that is passed around the culture and handed on through the ages, something like, “The early bird gets the worm.” The simplicity and commonness of these words belie a hidden depth. Jesus’ words cut to the heart and should cause to rethink our lives and especially our interactions with one another.

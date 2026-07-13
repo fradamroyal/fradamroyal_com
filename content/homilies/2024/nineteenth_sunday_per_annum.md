@@ -2,6 +2,22 @@
 title = 'Nineteenth Sunday Per Annum'
 date = 2024-08-11
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = '1 Kgs 19:4–8'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 34:2–3, 4–5, 6–7, 8–9'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Eph 4:30–5:2'
+
+[[readings]]
+label = 'Gospel'
+citation = 'John 6:41–51'
 +++
 
 The Eucharist is life. That is what Jesus means when he says, “I am the living bread that comes down from heaven and gives life to the world.” The bread he gives us, his flesh, is life. It is not a metaphor. It is not a mere symbol. It really is life, the life of heaven, and Jesus freely gives it to us. He shares with us an eternal and perfect reality simply because he loves us. He does not give us the gift of his flesh and his life because we deserve it. He does not give it to us because we are amazing and inspiring examples for the world. He gives it to us despite our many sins and failures. He gives us life to prove that he loves us. And the one and only thing he asks in return, is that we do the same, that we take the gift of life that we have received, and we give it to others.

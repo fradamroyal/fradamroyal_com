@@ -2,6 +2,22 @@
 title = 'Second Sunday of Advent'
 date = 2025-12-07
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Isa 11:1–10'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 72:1–2, 7–8, 12–13, 17'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Rom 15:4–9'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Matt 3:1–12'
 +++
 
 Many of us might admit that this Jubilee Year of Hope has passed quietly by. It is on the Church’s calendar, but not always on our minds. Yet the very idea of a Jubilee is to interrupt ordinary time, to shake loose the dust that settles over our faith, and to let God do something new within us.

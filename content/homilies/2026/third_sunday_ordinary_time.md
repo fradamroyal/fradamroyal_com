@@ -2,6 +2,22 @@
 title = 'Third Sunday in Ordinary Time'
 date = 2026-01-25
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Isa 8:23–9:3'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 27:1, 4, 13–14'
+
+[[readings]]
+label = 'Second Reading'
+citation = '1 Cor 1:10–13, 17'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Matt 4:12–23'
 +++
 
 News travels fast when a prophet is taken away. John had been preaching in the rough country across the Jordan, telling the truth plainly to the man who held power. Herod Antipas tried to solve a moral problem by putting the messenger in chains. The arrest was meant to end the noise; instead it became the spark that set everything in motion.

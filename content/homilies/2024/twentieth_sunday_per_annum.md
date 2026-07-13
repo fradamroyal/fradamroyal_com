@@ -2,6 +2,22 @@
 title = 'Twentieth Sunday Per Annum'
 date = 2024-08-18
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Prov 9:1–6'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 34:2–3, 4–5, 6–7'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Eph 5:15–20'
+
+[[readings]]
+label = 'Gospel'
+citation = 'John 6:51–58'
 +++
 
 I think one of the reasons people struggle with the idea of the Eucharist today is its simplicity. The mass has certainly undergone significant changes over the millennia. At times, it has been more elaborate and had many elements added; at other times, it has been more direct and austere. But at its heart has always been a very simple rite: sharing a meal with God himself—a basic meal that appears to be bread and wine. In our culture, and even at the time of Jesus himself, this ritual has a baffling simplicity. We want to see more because we live in a culture of spectacle.

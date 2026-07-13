@@ -2,6 +2,22 @@
 title = 'Third Sunday of Easter'
 date = 2026-04-19
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Acts 2:14, 22–33'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 16:1–2, 5, 7–8, 9–10, 11'
+
+[[readings]]
+label = 'Second Reading'
+citation = '1 Pet 1:17–21'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Luke 24:13–35'
 +++
 
 Several years ago, when I bought a car, I did everything carefully. I researched the options, compared features, went on test drives, talked to other owners, and slowly narrowed it down until I found exactly what I wanted. Then I bought it, drove it home, and before long I had the same thought everyone eventually has: it was good, but something was missing. There was some feature I wished it had, some improvement I could already imagine.

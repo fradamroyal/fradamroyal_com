@@ -2,6 +2,22 @@
 title = 'Solemnity of the Most Holy Trinity'
 date = 2025-06-15
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Prov 8:22–31'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 8:4–5, 6–7, 8–9'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Rom 5:1–5'
+
+[[readings]]
+label = 'Gospel'
+citation = 'John 16:12–15'
 +++
 
 At the very heart of reality, beyond the boundaries of space and time, relationship reigns supreme. Before the stars first ignited, before human voices reverberated through history, relationship already existed, eternal and unbounded. “He will take from what is mine and declare it to you,” Jesus assures us, unveiling a divine intimacy that stretches from the Father through the Son to the Holy Spirit and into our lives.

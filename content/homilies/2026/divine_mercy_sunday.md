@@ -2,6 +2,22 @@
 title = 'Divine Mercy Sunday'
 date = 2026-04-12
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Acts 2:42–47'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 118:2–4, 13–15, 22–24'
+
+[[readings]]
+label = 'Second Reading'
+citation = '1 Pet 1:3–9'
+
+[[readings]]
+label = 'Gospel'
+citation = 'John 20:19–31'
 +++
 
 A room can be crowded and still feel empty. The disciples are together, but the room feels hollow. The doors are locked and the news of the resurrection has not yet settled their hearts. They are afraid, but something deeper is wrong. They have stepped back from the very work for which the Lord chose them, and so they have stepped away from themselves.

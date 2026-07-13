@@ -2,6 +2,22 @@
 title = 'Twenty-third Sunday in Ordinary Time'
 date = 2025-09-07
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Wis 9:13–18b'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 90:3–4, 5–6, 12–13, 14, 17'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Phlm 9–10, 12–17'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Luke 14:25–33'
 +++
 
 You know the hush that falls when a sunset sets the sky on fire. For a breath, everything stops and you simply receive. Then the colors dim, and the shoreline returns to ordinary. Beauty lets us glimpse God, and then it slips from our grasp. The moment was real, but it was never meant to be owned.

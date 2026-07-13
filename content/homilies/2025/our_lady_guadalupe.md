@@ -2,6 +2,18 @@
 title = 'Feast of Our Lady of Guadalupe'
 date = 2025-12-12
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Zech 2:14–17'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Jdt 13:18bcde, 19'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Luke 1:26–38'
 +++
 
 Before sunrise on a December morning, an ordinary man walked the road toward mass on the hill of Tepeyac. He was not a governor, not a soldier, not a spokesman for a cause. Juan Diego was simply faithful—poor, overlooked, living in a world torn open by conquest, suspicion, and fear.

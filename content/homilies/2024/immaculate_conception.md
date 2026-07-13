@@ -2,6 +2,22 @@
 title = 'Immaculate Conception'
 date = 2024-12-09
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Gen 3:9–15, 20'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 98:1, 2–3ab, 3cd–4'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Eph 1:3–6, 11–12'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Luke 1:26–38'
 +++
 
 Today, we celebrate God’s infinite mercy. While we often think of this feast as a celebration of Mary, at its heart, it is a celebration of God’s boundless love and generosity toward humanity. The Immaculate Conception refers to the singular grace bestowed upon Mary: her being conceived without the stain of Original Sin. From the very first moment of her existence, Mary was free from the guilt and darkness that affect each of us.

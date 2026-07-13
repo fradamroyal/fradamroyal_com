@@ -2,6 +2,22 @@
 title = 'Twenty-sixth Sunday Per Annum'
 date = 2024-09-29
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Num 11:25–29'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 19:8, 10, 12–13, 14'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Jas 5:1–6'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Mark 9:38–43, 45, 47–48'
 +++
 
 It is hard to picture this Gospel scene. The world has changed dramatically over the last 2,000 years. We do not often witness exorcisms today, and we certainly do not see them happening on the streets. In Jesus’ time, however, exorcisms were not sensationalized by the media or turned into the plots of low-brow movies. They were a regular part of life. Demons were believed to be the cause of bad luck, illness, and psychological disturbance. As a result, exorcists were common, even performing their rituals in public. Walking through the streets of the ancient world, you might see people visiting a local exorcist, having prayers said over them. Some of these exorcists were frauds, taking advantage of the people’s ignorance and stealing their money. Others were sincere believers who sought to bring God’s grace and healing to a world in need.

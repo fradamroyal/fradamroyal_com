@@ -2,6 +2,22 @@
 title = 'Twenty-sixth Sunday in Ordinary Time'
 date = 2025-09-28
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Amos 6:1a, 4–7'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 146:7, 8–9, 9–10'
+
+[[readings]]
+label = 'Second Reading'
+citation = '1 Tim 6:11–16'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Luke 16:19–31'
 +++
 
 This parable sketches two worlds divided by a gate: a banquet inside, a wounded neighbor outside. Step by step, a life is constructed around that gate—habits, choices, comforts, and blind spots harden into architecture. When death comes, the architecture holds. As Abraham says, “a great chasm is established.” The tragedy is not only punishment; it is permanence. A man who would not cross toward communion discovers he can no longer cross at all.

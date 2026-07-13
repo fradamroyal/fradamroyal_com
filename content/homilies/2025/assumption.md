@@ -2,6 +2,22 @@
 title = 'Assumption of the Blessed Virgin Mary - Vigil'
 date = 2025-08-14
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = '1 Chr 15:3–4, 15–16; 16:1–2'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 132:6–7, 9–10, 13–14'
+
+[[readings]]
+label = 'Second Reading'
+citation = '1 Cor 15:54b–57'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Luke 11:27–28'
 +++
 
 God is not a collector of glory. He is a giver. From creation’s first breath to the empty tomb, he pours himself out, offering his very life to be shared, not guarded. The Assumption of Mary is a bright window into that generosity. It is heaven’s way of showing what happens when a human heart welcomes God without reserve: he does not merely forgive; he exalts. He does not only mend; he makes new.
@@ -15,4 +31,3 @@ So the question is not only whether we honor Mary, but whether we trust the Give
 This hope is nourished here. At this altar the generous God places his life in our hands. The same Lord who raised Mary is the one who feeds us with his Body and Blood, planting the pledge of future glory in the very ordinary soil of our days. From that holy food we learn heaven’s pattern: receive, give thanks, break open for others, be given.
 
 Let Mary’s Assumption reorient the days ahead. Speak your fiat in small ways: to the neighbor who needs time, to the family member who needs mercy, to the parish ministry that needs help. Let the word you hear shape your calendar and your habits. The God who did great things for Mary desires to complete his work in you. Walk the path she walked—listening, obeying, giving yourself—and the One who is endlessly generous will lift you, too, into the fullness for which you were made.
-

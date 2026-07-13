@@ -2,6 +2,22 @@
 title = 'Second Sunday of Advent'
 date = 2024-12-08
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Bar 5:1–9'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 126:1–2, 2–3, 4–5, 6'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Phil 1:4–6, 8–11'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Luke 3:1–6'
 +++
 
 “Prepare the way of the Lord, make straight his paths,” is not a call to control or coercion but an invitation to transformation. We are called to prepare our hearts and lives for the Lord’s coming, not by forcing his ways on others but by imitating his love and mercy.

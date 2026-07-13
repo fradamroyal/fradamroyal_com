@@ -2,6 +2,22 @@
 title = 'Baptism of the Lord'
 date = 2025-01-12
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Isa 42:1–4, 6–7'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 29:1–2, 3–4, 3, 9–10'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Acts 10:34–38'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Luke 3:15–16, 21–22'
 +++
 
 Baptism can seem odd at first glance. We dress a baby in a white gown, pour water on their head, and take pictures while a community looks on. It is a strange ritual in a world where water flows freely from faucets, and bathing is a daily routine. For many of us, water is mundane, unremarkable. But in the ancient world, water was precious—an essential yet unpredictable gift of life. It was carried laboriously, rationed carefully, and only occasionally used for bathing. For people of that time, being immersed in water, especially as an act of worship, symbolized something extraordinary: God’s abundant love poured out in excess.

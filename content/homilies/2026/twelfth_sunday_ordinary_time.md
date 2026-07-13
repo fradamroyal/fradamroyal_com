@@ -2,6 +2,22 @@
 title = 'Twelfth Sunday in Ordinary Time'
 date = 2026-06-21
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Jer 20:10–13'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 69:8–10, 14, 17, 33–35'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Rom 5:12–15'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Matt 10:26–33'
 +++
 
 The Lord’s words first sound like a message of comfort to the disciples: “Nothing is concealed that will not be revealed, nor secret that will not be known.” The Twelve needed that reassurance. Jesus had sent them out to preach the Good News, but their mission had not been easy. They encountered rejection. People spoke against them, mocked them, and even accused them of being in league with evil spirits. In the face of those attacks, Jesus tells them not to be afraid. The truth will not remain hidden forever. The lies spoken against them will be exposed, and God’s justice will prevail.

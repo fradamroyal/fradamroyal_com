@@ -2,6 +2,22 @@
 title = 'Epiphany'
 date = 2025-01-05
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Isa 60:1–6'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 72:1–2, 7–8, 10–11, 12–13'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Eph 3:2–3a, 5–6'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Matt 2:1–12'
 +++
 
 The story of the Epiphany is almost ironic. A great king, Herod, with the full backing of the Roman Empire, is terrified of a child—a newborn baby born in humble circumstances to a young girl and her understandably skeptical husband. Yet, this reaction fits the ancient world. Kings often had to fear even the young. They never knew when someone might rally the people and overthrow them, especially among the Jews, who were actively awaiting a messiah. To protect their power, rulers would resort to ruthless measures, even murder. So, while Herod’s fear may seem absurd, it is what we might expect from that culture and time.

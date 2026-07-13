@@ -2,6 +2,18 @@
 title = 'Thursday of the Second Week of Lent'
 date = 2025-03-20
 draft = false
+
+[[readings]]
+label = "First Reading"
+citation = "Jer 17:5–10"
+
+[[readings]]
+label = "Responsorial Psalm"
+citation = "Ps 1:1–2, 3, 4, 6"
+
+[[readings]]
+label = "Gospel"
+citation = "Luke 16:19–31"
 +++
 
 I have always found the structure of this parable striking. At first glance, the details seem to emphasize the contrast between wealth and poverty and our obligation to care for the poor. Perhaps they even hint at the reality of hell. Yet, by the time we reach the conclusion, it becomes clear that the true focus is on listening to the word of God. That is the heart of the parable: the call to hear and respond to God's word, for it is in listening that true transformation occurs.

@@ -2,6 +2,22 @@
 title = 'Feast of the Holy Family of Jesus, Mary and Joseph'
 date = 2025-12-28
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Sir 3:2–6, 12–14'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 128:1–2, 3, 4–5'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Col 3:12–21'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Matt 2:13–15, 19–23'
 +++
 
 A house can be holy and still be hurried. Picture Joseph waking in the dark, heart pounding, listening to a message that feels like both mercy and emergency. There is no time for long conversations, no time to tidy loose ends. A child is lifted, a mother gathers what she can, and a family slips into the night—because God has chosen to save the Savior by sending him away.

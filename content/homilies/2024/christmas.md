@@ -2,6 +2,22 @@
 title = 'Christmas'
 date = 2024-12-25
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Isa 52:7–10'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 98:1, 2–3, 3–4, 5–6'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Heb 1:1–6'
+
+[[readings]]
+label = 'Gospel'
+citation = 'John 1:1–18'
 +++
 
 On this sacred day, as we celebrate the birth of our Savior, we must reflect deeply on the mystery of the Incarnation. I think we often misunderstand what it truly means. We might view it as a purely supernatural and miraculous event—God coming down to earth to show us the path to heaven, a call to leave the world behind and fix our eyes solely on eternity. While there is truth in that, it is not the whole truth. In fact, this understanding can distort the profound message of Christmas. The Incarnation is not simply about our journey to heaven; it is about heaven coming to us and transforming the here and now.

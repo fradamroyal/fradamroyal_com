@@ -2,6 +2,22 @@
 title = 'Fourth Sunday of Advent'
 date = 2025-12-21
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Isa 7:10–14'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 24:1–2, 3–4, 5–6'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Rom 1:1–7'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Matt 1:18–24'
 +++
 
 Joseph falls asleep with a decision already made. He has weighed the options, tried to keep his conscience clean, tried to do the least damage. He is a righteous man, and that righteousness does not make the situation simple. It makes it heavier.

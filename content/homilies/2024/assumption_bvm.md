@@ -2,6 +2,22 @@
 title = 'Assumption of the Blessed Virgin Mary'
 date = 2024-08-15
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Rev 11:19a; 12:1–6a, 10ab'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 45:10, 11, 12, 16'
+
+[[readings]]
+label = 'Second Reading'
+citation = '1 Cor 15:20–27'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Luke 1:39–56'
 +++
 
 The Assumption of the Blessed Virgin Mary, body and soul, into heaven is a profound mystery. However, this feast is not just about honoring Our Lady; it is about contemplating the boundless generosity of God. God's generosity is a characteristic that often escapes us. We tend to think of God as all-powerful, which he is, but we sometimes forget that his power is exercised in perfect humility and generosity. God does not hoard his glory or keep his love and joy to himself. Instead, he gives everything he has to anyone willing to accept it.

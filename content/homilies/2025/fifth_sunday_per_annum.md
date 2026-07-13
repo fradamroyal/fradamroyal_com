@@ -2,6 +2,22 @@
 title = 'Fifth Sunday Per Annum'
 date = 2025-02-09
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Isa 6:1–2a, 3–8'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 138:1–2, 2–3, 4–5, 7–8'
+
+[[readings]]
+label = 'Second Reading'
+citation = '1 Cor 15:1–11'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Luke 5:1–11'
 +++
 
 There is a reason why fishermen do not cast their nets from the shore. The shallow waters are comfortable, familiar, and safe, but they do not hold the abundance they seek. The deeper waters, though unpredictable and at times treacherous, are where the true catch is found. When Jesus tells Simon Peter to put out into the deep, he is not only speaking about fishing. He is calling Peter—and us—to a new way of life, one that requires courage, trust, and a willingness to go beyond what is comfortable.

@@ -2,6 +2,18 @@
 title = 'Thursday of the Eighteenth Week in Ordinary Time'
 date = 2025-08-07
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Num 20:1–13'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 95:1–2, 6–7, 8–9'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Matt 16:13–23'
 +++
 
 When we reflect on this particular Gospel scene, we tend to focus on Peter’s confession of faith and the Lord’s response to it. But I think there is something interesting at the very beginning—when the Lord asks his disciples, “Who do people say that I am?” What is the word on the street?

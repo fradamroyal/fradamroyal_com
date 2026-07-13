@@ -2,6 +2,22 @@
 title = 'Dedication of the Lateran Basilica'
 date = 2025-11-09
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Ezek 47:1–2, 8–9, 12'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 46:2–3, 5–6, 8–9'
+
+[[readings]]
+label = 'Second Reading'
+citation = '1 Cor 3:9c–11, 16–17'
+
+[[readings]]
+label = 'Gospel'
+citation = 'John 2:13–22'
 +++
 
 A cathedral on Rome’s Lateran Hill—St. John Lateran, the cathedral of the Bishop of Rome—bears the name “Mother and Head of all churches in Rome and in the world.” Today the Church celebrates the dedication of that cathedral. Strange, perhaps, to keep a feast for a building. Yet the Church asks us to do so because what we dedicate in stone reveals what God desires to do in us. Walls and doors cannot contain God. He fills heaven and earth. Still, he gives us a place set apart so our scattered hearts can be gathered, our senses focused, our lives reoriented toward him.

@@ -2,6 +2,22 @@
 title = 'Twelth Sunday Per Annum'
 date = 2024-06-23
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Job 38:1, 8–11'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 107:23–24, 25–26, 28–29, 30–31'
+
+[[readings]]
+label = 'Second Reading'
+citation = '2 Cor 5:14–17'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Mark 4:35–41'
 +++
 
 “Let us cross to the other side.” These words from Jesus to his disciples mark the beginning of an important journey, not just across the Sea of Galilee, but into deeper faith and trust in him. They remind us that Jesus often calls us to new and unknown places in our lives. He calls us to step out of our comfort zones and trust him, even when we face challenges and fears.

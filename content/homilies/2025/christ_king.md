@@ -2,6 +2,22 @@
 title = 'Solemnity of Our Lord Jesus Christ, King of the Universe (Christ the King)'
 date = 2025-11-23
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = '2 Sam 5:1–3'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 122:1–2, 3–4, 4–5'
+
+[[readings]]
+label = 'Second Reading'
+citation = 'Col 1:12–20'
+
+[[readings]]
+label = 'Gospel'
+citation = 'Luke 23:35–43'
 +++
 
 The throne of our King does not look like a throne. It is a cross planted outside the city, with a crude sign nailed above his head and a handful of people watching while the crowd mocks and walks away. The rulers scoff, the soldiers make jokes, even a dying criminal joins in. It looks like weakness and failure.

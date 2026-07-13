@@ -2,6 +2,22 @@
 title = 'Fifth Sunday of Easter'
 date = 2026-05-03
 draft = false
+
+[[readings]]
+label = 'First Reading'
+citation = 'Acts 6:1–7'
+
+[[readings]]
+label = 'Responsorial Psalm'
+citation = 'Ps 33:1–2, 4–5, 18–19'
+
+[[readings]]
+label = 'Second Reading'
+citation = '1 Pet 2:4–9'
+
+[[readings]]
+label = 'Gospel'
+citation = 'John 14:1–12'
 +++
 
 The upper room has the stillness that comes before grief. Jesus has spoken of departure, and the disciples feel the ground shift beneath them. Their daily life has taken shape around his presence. Now the one whose nearness has steadied them speaks as though he will soon be hidden from sight.
