@@ -1,5 +1,6 @@
 +++
 title = 'Bible Reading Plan'
+description = 'Create a dated plan for reading all 73 books of the Bible in canonical order or Fr. Adam’s preferred reading order, with CSV, Markdown, and PDF downloads.'
 date = 2026-07-11T00:00:00-05:00
 draft = false
 layout = 'bible-reading-plan'

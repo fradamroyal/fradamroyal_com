@@ -52,12 +52,13 @@ Baseline recorded July 12, 2026:
 
 ## Execution queue
 
-### NOW: Establish description conventions in Phase 2.2
+### NOW: Strengthen visible authorship in Phase 2.3
 
-Phases 1.3, 1.4, and 2.1 are implemented and verified locally. Deployment and
-live smoke-testing for them remain pending. Continue with unique descriptions
-for Home, About, Homilies, Reflections, Tools, and the Bible Reading Plan while
-preserving the existing fallback for older content.
+Phases 1.3, 1.4, 2.1, and the first-priority Phase 2.2 description convention
+are implemented and verified locally. Deployment and live smoke-testing for
+them remain pending and were intentionally skipped in this pass. Continue with
+an accurate, user-supplied About expansion and a visible linked author byline
+whose wording agrees with structured data.
 
 ## Phase 0 — Correct indexing signals and deploy the intended site
 
@@ -212,8 +213,8 @@ an unknown URL returns the custom body with HTTP 404.
 **Outcome:** Search results clearly identify the site, distinguish recurring
 homilies, and give readers trustworthy author and page context.
 
-**Status:** Phase 2.1 is implemented and verified locally; deployment is
-pending. Phase 2.2 is next.
+**Status:** Phase 2.1 and the first-priority Phase 2.2 description convention
+are implemented and verified locally; deployment is pending. Phase 2.3 is next.
 
 ### 2.1 Establish title conventions
 
@@ -238,6 +239,17 @@ Example:
 - Document title: `Pentecost Homily: [Central Theme] (2026) | Fr. Adam Royal`
 
 ### 2.2 Establish description conventions
+
+Implemented first for Home, About, Homilies, Reflections, Tools, and the Bible
+Reading Plan with distinct, human-written search descriptions grounded in each
+page's visible purpose. The shared resolver keeps head metadata and page-level
+structured data aligned while preserving the existing `description` to
+`summary` to generated-summary to site-description fallback for older content.
+The Bible planner retains separate card and RSS summary copy. Project
+archetypes now mark descriptions as required before publication; mechanical
+enforcement remains part of Phase 3.4 content linting. Article backfill remains
+measurement-led rather than speculative until impression data identifies the
+right priorities.
 
 - Add unique descriptions first to Home, About, Homilies, Reflections, Tools,
   and the Bible Reading Plan.
@@ -274,7 +286,7 @@ Example:
 
 ### Phase 2 gate
 
-- [ ] Home and every main section have distinct titles and descriptions.
+- [x] Home and every main section have distinct titles and descriptions.
 - [x] Recurring homilies have distinguishable document titles.
 - [ ] About provides real author and editorial context.
 - [ ] Articles contain a visible linked byline.

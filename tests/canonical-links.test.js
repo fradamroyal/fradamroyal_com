@@ -70,6 +70,16 @@ function canonicalLinks(html) {
     );
 }
 
+function metaDescription(html) {
+  const descriptions = [...html.matchAll(/<meta\b[^>]*>/gi)]
+    .map((match) => attributes(match[0]))
+    .filter((meta) => (meta.get("name") || "").toLowerCase() === "description");
+  assert.equal(descriptions.length, 1, "Expected exactly one meta description.");
+  const content = descriptions[0].get("content") || "";
+  assert.notEqual(content.trim(), "", "Expected a nonblank meta description.");
+  return content;
+}
+
 function documentTitle(html) {
   const titles = [...html.matchAll(/<title\b[^>]*>([\s\S]*?)<\/title>/gi)];
   assert.equal(titles.length, 1, "Expected exactly one document title.");
@@ -88,6 +98,15 @@ function structuredData(html) {
   );
   assert.ok(match, "Expected one JSON-LD script.");
   return JSON.parse(match[1]);
+}
+
+function structuredWebPage(html) {
+  const document = structuredData(html);
+  const webPage = document["@graph"].find(
+    (node) => typeof node["@id"] === "string" && node["@id"].endsWith("#webpage"),
+  );
+  assert.ok(webPage, "Expected a page-level JSON-LD node.");
+  return webPage;
 }
 
 function generatedURL(relativePath) {
@@ -174,6 +193,118 @@ test("home and the main sections expose distinct, descriptive document titles", 
     const html = page(relativePath);
     assert.equal(documentTitle(html), expected.title);
     assert.equal(visibleHeading(html), expected.heading);
+  });
+});
+
+test("priority pages expose distinct descriptions aligned with structured data", () => {
+  const expectations = new Map([
+    [
+      "index.html",
+      "Browse recent Catholic homilies and reflections from Rev. Adam Royal, collected to inspire and guide your faith.",
+    ],
+    [
+      "about/index.html",
+      "Read a brief introduction to this collection of homilies and reflections, shared in the hope of inspiring and guiding your faith.",
+    ],
+    [
+      "homilies/index.html",
+      "Browse Catholic homilies by Rev. Adam Royal, with recent entries and archives organized by year.",
+    ],
+    [
+      "reflections/index.html",
+      "Explore Catholic reflections by Rev. Adam Royal on Scripture and the life of faith, with recent writing and archives organized by year.",
+    ],
+    [
+      "tools/index.html",
+      "Explore practical tools for Scripture, study, and ministry, including a dated plan for reading the entire Bible.",
+    ],
+    [
+      "tools/bible-reading-plan/index.html",
+      "Create a dated plan for reading all 73 books of the Bible in canonical order or Fr. Adam’s preferred reading order, with CSV, Markdown, and PDF downloads.",
+    ],
+  ]);
+
+  const descriptions = new Set();
+  expectations.forEach((expectedDescription, relativePath) => {
+    const html = page(relativePath);
+    const description = metaDescription(html);
+    assert.equal(description, expectedDescription);
+    assert.equal(structuredWebPage(html).description, expectedDescription);
+    descriptions.add(description);
+  });
+
+  assert.equal(descriptions.size, expectations.size);
+
+  const plannerDocument = structuredData(page("tools/bible-reading-plan/index.html"));
+  const application = plannerDocument["@graph"].find(
+    (node) => node["@type"] === "WebApplication",
+  );
+  assert.ok(application, "Expected the Bible planner to expose a WebApplication.");
+  assert.equal(application.description, expectations.get("tools/bible-reading-plan/index.html"));
+});
+
+test("older content keeps summary- and body-derived description fallbacks", () => {
+  const siteFallback =
+    "A collection of homilies and reflections to, hopefully, inspire and guide your faith.";
+  const expectations = new Map([
+    [
+      "reflections/2025/advent_by_candlelight/index.html",
+      "By candlelight, these four Advent reflections trace a path from wakefulness to repentance, from fragile faith to renewed trust. Beginning with Jesus’ warning to stay awake, they move through John’s call to bear fruit, Christ’s assurance that grace is truly at work, and the quiet courage of Joseph. Together they invite us to let God enter ordinary life, weakness, and uncertainty, so the light of Emmanuel can be born anew.",
+    ],
+    [
+      "homilies/2026/fifteenth_sunday_ordinary_time/index.html",
+      "The Lord’s parable and his stated reason for speaking in parables are mutually illuminating. Which is to say, the parable draws us into the logic of parables and reveals their purpose. A parable is not a mere story or a moral lesson. It is an invitation to step inside a symbolic world and meditate. Every object within the symbolic cosmos is polyvalent and saturated with meaning. Understanding, then, is not reducible to “figuring out the message,” as if one were solving a puzzle. Understanding is discovered through participation in the parable.",
+    ],
+  ]);
+
+  expectations.forEach((expectedDescription, relativePath) => {
+    const html = page(relativePath);
+    const description = metaDescription(html);
+    assert.equal(description, expectedDescription);
+    assert.notEqual(description, siteFallback);
+    assert.equal(structuredWebPage(html).description, description);
+
+    const article = structuredData(html)["@graph"].find(
+      (node) => node["@type"] === "BlogPosting",
+    );
+    assert.ok(article, `Expected ${relativePath} to expose a BlogPosting.`);
+    assert.equal(article.description, description);
+  });
+});
+
+test("the Bible planner keeps its card summary separate from its search description", () => {
+  const summary =
+    "Create a dated plan for reading the entire Bible in canonical order or Fr. Adam’s preferred reading order.";
+  const description = metaDescription(page("tools/bible-reading-plan/index.html"));
+
+  assert.notEqual(description, summary);
+  assert.ok(
+    page("tools/index.html").includes(
+      `<p class=tool-card__description>${summary}</p>`,
+    ),
+    "Expected the Tools card to keep using the planner summary.",
+  );
+
+  const toolsRSS = readFileSync(join(BUILD_ROOT, "tools", "index.xml"), "utf8");
+  const plannerItem = toolsRSS.match(
+    /<item>[^]*?<link>https:\/\/fradamroyal\.com\/tools\/bible-reading-plan\/<\/link>[^]*?<\/item>/,
+  );
+  assert.ok(plannerItem, "Expected the Tools RSS feed to contain the Bible planner item.");
+  assert.ok(
+    plannerItem[0].includes(`<description>${summary}</description>`),
+    "Expected the Tools RSS item to keep using the planner summary.",
+  );
+  assert.equal(plannerItem[0].includes(`<description>${description}</description>`), false);
+});
+
+test("project archetypes prompt authors for a search description", () => {
+  ["archetypes/default.md", "archetypes/homilies.md"].forEach((relativePath) => {
+    const source = readFileSync(join(REPOSITORY_ROOT, relativePath), "utf8");
+    assert.match(
+      source,
+      /^description = '' # Required before publication; use summary separately for card copy\.$/m,
+      `Expected ${relativePath} to include the required description prompt.`,
+    );
   });
 });
 

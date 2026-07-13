@@ -261,8 +261,12 @@ test("the home page identifies the author, website, and collection", () => {
   assert.equal(person.honorificPrefix, "Rev.");
   assert.equal(website.name, "Homilies & Thoughts");
   assert.equal(
-    collection.description,
+    website.description,
     "A collection of homilies and reflections to, hopefully, inspire and guide your faith.",
+  );
+  assert.equal(
+    collection.description,
+    "Browse recent Catholic homilies and reflections from Rev. Adam Royal, collected to inspire and guide your faith.",
   );
   assertReferenceType(document, collection, "isPartOf", "WebSite");
 });
