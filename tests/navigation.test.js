@@ -18,7 +18,7 @@ const BUILD_ROOT = join(TEMPORARY_ROOT, "public");
 const BASE_URL = "https://fradamroyal.com/";
 const REQUIRED_YEAR_ARCHIVES = new Map([
   ["homilies", ["2024", "2025", "2026"]],
-  ["reflections", ["2024", "2025"]],
+  ["reflections", ["2024", "2025", "2026"]],
 ]);
 
 let allFiles;

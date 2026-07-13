@@ -130,8 +130,8 @@ pending. Phase 1.2 through 1.4 remain queued.
 
 Implemented with a 12-item main archive page, compact unpaginated year indexes,
 cross-year adjacent-article links, and visible breadcrumbs synchronized with
-structured data. The 2026 Reflections year page is intentionally deferred while
-it would contain only one article.
+structured data. Current-year archives are present even when they contain only
+one article, keeping year navigation consistent as those archives grow.
 
 - Increase the archive page size from three to roughly 10–15 after checking the
   resulting page length on mobile.
