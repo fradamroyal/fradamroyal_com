@@ -4,6 +4,9 @@ date = 2026-07-11T00:00:00-05:00
 draft = false
 layout = 'bible-reading-plan'
 summary = 'Create a dated plan for reading the entire Bible in canonical order or Fr. Adam’s preferred reading order.'
+weight = 10
+tool_category = 'Scripture'
+card_mark = 'Gen → Rev'
 +++
 
 Create a schedule for reading all 73 books of the Bible. Choose an ending date or a total number of reading days, then select one of two reading orders.

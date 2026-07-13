@@ -1,0 +1,34 @@
+{{- $page := .page -}}
+{{- $number := .number -}}
+{{- $titleID := printf "tool-card-title-%d" $number -}}
+{{- $category := $page.Params.tool_category | default "Utility" -}}
+{{- $cardMark := $page.Params.card_mark | default "Instrumentum" -}}
+{{- $summary := $page.Params.summary | default ($page.Summary | plainify) -}}
+{{- if not $summary -}}
+    {{- $summary = $page.Plain | truncate 220 -}}
+{{- end -}}
+<article class="tool-card" role="listitem" aria-labelledby="{{ $titleID }}">
+    <a class="tool-card__link" href="{{ $page.RelPermalink }}" aria-labelledby="{{ $titleID }}">
+        <div class="tool-card__media">
+            {{- with $page.Params.card_image -}}
+                {{- partial "responsive-image.html" (dict
+                    "page" $page
+                    "src" .
+                    "alt" ($page.Params.card_image_alt | default "")
+                    "imgClass" "tool-card__image"
+                    "sizes" "(max-width: 38rem) calc(100vw - 2.5rem), 32rem"
+                ) -}}
+            {{- else -}}
+            <div class="tool-card__mark" aria-hidden="true">{{ $cardMark }}</div>
+            {{- end -}}
+        </div>
+        <div class="tool-card__body">
+            <p class="tool-card__meta">Tool {{ $number }} <span aria-hidden="true">&middot;</span> {{ $category }}</p>
+            <h2 class="tool-card__title" id="{{ $titleID }}">{{ $page.Title }}</h2>
+            {{- with $summary -}}
+            <p class="tool-card__description">{{ . }}</p>
+            {{- end -}}
+            <span class="tool-card__action">Open tool <span aria-hidden="true">&rarr;</span></span>
+        </div>
+    </a>
+</article>

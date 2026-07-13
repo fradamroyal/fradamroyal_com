@@ -1,0 +1,17 @@
+{{- define "main" -}}
+<main class="container tools-catalogue">
+    {{- with .Content -}}
+    <div class="tools-catalogue__introduction">
+        {{- . -}}
+    </div>
+    {{- end -}}
+    {{- $tools := .RegularPagesRecursive.ByWeight -}}
+    {{- with $tools -}}
+    <div class="tool-gallery" role="list">
+        {{- range $index, $tool := . -}}
+            {{- partial "tool-card.html" (dict "page" $tool "number" (add $index 1)) -}}
+        {{- end -}}
+    </div>
+    {{- end -}}
+</main>
+{{- end -}}
