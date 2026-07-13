@@ -11,7 +11,7 @@ card_mark = 'Gen → Rev'
 
 Create a schedule for reading all 73 books of the Bible. Choose an ending date or a total number of reading days, then select one of two reading orders.
 
-The canonical-order plan reads from Genesis through Revelation and distributes them as evenly as possible. Fr. Adam's preferred reading order includes an Old
+The canonical order plan reads from Genesis through Revelation and distributes them as evenly as possible. Fr. Adam's preferred reading order includes an Old
 Testament, Gospel, and New Testament (Acts through Revelation) reading every
 day. Those three tracks each remain in canonical order.
 
