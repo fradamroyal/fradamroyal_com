@@ -52,12 +52,12 @@ Baseline recorded July 12, 2026:
 
 ## Execution queue
 
-### NOW: Remove low-value crawl surfaces in Phase 1.3
+### NOW: Deploy and smoke-test the verified Phase 1.3 candidate
 
-Phase 1.2 is live and its representative pages match the local production
-build. Remove the empty Posts section and unused taxonomy roots from indexable
-output and the sitemap, with focused generated-output tests that preserve
-canonical section, year-archive, and article URLs.
+Phase 1.3 is implemented and verified locally. Deploy it and confirm that the
+retired Posts and taxonomy HTML and feed URLs return HTTP 404, remain absent
+from the sitemap, and leave representative canonical section, year-archive,
+article, and tool URLs unchanged.
 
 ## Phase 0 — Correct indexing signals and deploy the intended site
 
@@ -124,8 +124,9 @@ returned HTTP 404.
 **Outcome:** Important content is reachable through clear, useful navigation in
 approximately three clicks rather than dozens of sequential archive pages.
 
-**Status:** Phase 1.1 and 1.2 are implemented, deployed, and verified live.
-Phase 1.3 and 1.4 remain queued.
+**Status:** Phase 1.1 and 1.2 are implemented, deployed, and verified live. Phase
+1.3 is implemented and verified locally; deployment is pending. Phase 1.4
+remains queued.
 
 ### 1.1 Improve archive navigation
 
@@ -168,6 +169,15 @@ Do not add arbitrary automated links merely to increase link counts.
 
 ### 1.3 Remove low-value crawl surfaces
 
+Implemented by removing the placeholder Posts source and disabling Hugo's
+taxonomy and term output kinds. Generated-output coverage verifies that their
+HTML, feed, and paginator files are absent; that they do not appear in the
+sitemap; and that Home, About, canonical sections, Tools, every year archive,
+and every article remain indexable and listed. Aggregate homepage and section
+`lastmod` changes remain deferred because the current Git-backed dates cannot
+reliably distinguish archive-visible child changes from metadata-only or
+template changes.
+
 - Remove or suppress the empty Posts section from indexable output and sitemap.
 - Disable empty tag, category, and series outputs until a controlled taxonomy is
   actually used.
@@ -187,7 +197,7 @@ Do not add arbitrary automated links merely to increase link counts.
 - [x] Year archives work without thin or duplicate output.
 - [x] Singles have previous/next navigation and visible breadcrumbs.
 - [x] Related-content links are evidence-based and explain their relationship.
-- [ ] Empty Posts and taxonomy roots are absent from the sitemap.
+- [x] Empty Posts and taxonomy roots are absent from the sitemap.
 - [ ] The custom 404 is useful and still returns status 404.
 - [x] Generated internal-link validation reports no broken links.
 
@@ -289,7 +299,7 @@ Avoid uncontrolled tag growth and one-item taxonomy pages.
 ### 3.3 Improve priority content presentation
 
 - Add useful section introductions to Homilies and Reflections.
-- Replace placeholder text in the root and unused Posts source files.
+- Replace placeholder text in the root source file.
 - Convert body-level Markdown H1s to H2/H3 so pages have one primary H1.
 - Add descriptive H2s to long articles where they improve reading and
   navigation.

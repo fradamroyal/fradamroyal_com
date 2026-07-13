@@ -6,6 +6,7 @@ pagination.pagerSize = 12
 enableInlineShortcodes = true
 footnoteReturnLinkContents = "^"
 enableRobotsTXT = true
+disableKinds = ['taxonomy', 'term']
 enableGitInfo = true
 
 [frontmatter]

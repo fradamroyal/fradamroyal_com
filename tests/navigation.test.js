@@ -16,6 +16,7 @@ const REPOSITORY_ROOT = resolve(__dirname, "..");
 const TEMPORARY_ROOT = mkdtempSync(join(tmpdir(), "fradamroyal-navigation-"));
 const BUILD_ROOT = join(TEMPORARY_ROOT, "public");
 const BASE_URL = "https://fradamroyal.com/";
+const LOW_VALUE_COLLECTION_ROOTS = ["categories", "posts", "series", "tags"];
 const REQUIRED_YEAR_ARCHIVES = new Map([
   ["homilies", ["2024", "2025", "2026"]],
   ["reflections", ["2024", "2025", "2026"]],
@@ -27,6 +28,7 @@ let pages;
 let pagesByURL;
 let articles;
 let hugoConfig;
+let sitemapURLs;
 
 function outputFiles(directory) {
   return readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
@@ -374,6 +376,10 @@ test.before(() => {
   pagesByURL = new Map(
     [...pages].map(([relativePath, html]) => [generatedURL(relativePath), html]),
   );
+  const sitemap = readFileSync(join(BUILD_ROOT, "sitemap.xml"), "utf8");
+  sitemapURLs = new Set(
+    [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => decodeHTML(match[1])),
+  );
   articles = [...pages]
     .filter(([relativePath]) => articlePathParts(relativePath))
     .map(([relativePath, html]) => {
@@ -405,6 +411,48 @@ test("production pagination shows twelve articles per full archive page", () => 
   ["index.html", "homilies/index.html"].forEach((relativePath) => {
     const previews = elementsWithClass(page(relativePath), "article", "post-preview");
     assert.equal(previews.length, 12, `Expected a full 12-item archive page in ${relativePath}.`);
+  });
+});
+
+test("low-value crawl surfaces are absent while canonical content remains indexed", () => {
+  LOW_VALUE_COLLECTION_ROOTS.forEach((root) => {
+    assert.equal(
+      [...allFiles].some((relativePath) => relativePath.startsWith(`${root}/`)),
+      false,
+      `Expected Hugo not to generate the unused ${root} collection.`,
+    );
+    assert.equal(
+      sitemapURLs.has(new URL(`/${root}/`, BASE_URL).href),
+      false,
+      `Expected the sitemap not to expose /${root}/.`,
+    );
+  });
+
+  const retainedPaths = new Set([
+    "index.html",
+    "about/index.html",
+    "homilies/index.html",
+    "reflections/index.html",
+    "tools/index.html",
+    "tools/bible-reading-plan/index.html",
+    ...[...REQUIRED_YEAR_ARCHIVES].flatMap(([section, years]) =>
+      years.map((year) => `${section}/${year}/index.html`),
+    ),
+    ...articles.map((article) => article.relativePath),
+  ]);
+
+  retainedPaths.forEach((relativePath) => {
+    assert.ok(pages.has(relativePath), `Expected Hugo to retain ${relativePath}.`);
+    assert.ok(
+      sitemapURLs.has(generatedURL(relativePath)),
+      `Expected the sitemap to retain ${generatedURL(relativePath)}.`,
+    );
+  });
+
+  sitemapURLs.forEach((url) => {
+    const html = pagesByURL.get(url);
+    assert.ok(html, `Expected sitemap URL ${url} to resolve to canonical output.`);
+    assert.ok(isIndexable(html), `Expected sitemap URL ${url} to remain indexable.`);
   });
 });
 
