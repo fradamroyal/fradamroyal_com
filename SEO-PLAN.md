@@ -52,11 +52,12 @@ Baseline recorded July 12, 2026:
 
 ## Execution queue
 
-### NOW: Deploy and smoke-test the verified Phase 1.1 candidate
+### NOW: Implement restrained Phase 1.2 related-content paths
 
-Phase 0 is live and its representative responses match the local production
-build. Phase 1.1 is implemented and verified locally; deploy it and confirm the
-archive, year-navigation, breadcrumb, and adjacent-article surfaces live.
+Phase 1.1 is live and its representative responses match the local production
+build. Use the completed homily readings backfill to add only accurate,
+reader-useful relationships, with focused generated-output tests and no
+arbitrary links added merely to increase link counts.
 
 ## Phase 0 — Correct indexing signals and deploy the intended site
 
@@ -123,15 +124,18 @@ returned HTTP 404.
 **Outcome:** Important content is reachable through clear, useful navigation in
 approximately three clicks rather than dozens of sequential archive pages.
 
-**Status:** Phase 1.1 is implemented and verified locally; deployment is
-pending. Phase 1.2 through 1.4 remain queued.
+**Status:** Phase 1.1 is implemented, deployed, and verified live. Phase 1.2
+through 1.4 remain queued.
 
 ### 1.1 Improve archive navigation
 
 Implemented with a 12-item main archive page, compact unpaginated year indexes,
 cross-year adjacent-article links, and visible breadcrumbs synchronized with
 structured data. Current-year archives are present even when they contain only
-one article, keeping year navigation consistent as those archives grow.
+one article, keeping year navigation consistent as those archives grow. The
+production deployment was smoke-tested against the local build on July 12,
+2026, including ordinary cached URLs, retired paginator 404s, and the
+fingerprinted stylesheet.
 
 - Increase the archive page size from three to roughly 10–15 after checking the
   resulting page length on mobile.
@@ -246,6 +250,9 @@ support useful discovery by feast, season, year, and Scripture without creating
 thin pages.
 
 ### 3.1 Backfill Scripture metadata
+
+Completed for the existing corpus: all 130 homilies have nonblank
+`[[readings]]` metadata using the repository's SBL citation convention.
 
 - Backfill verified `[[readings]]` metadata newest-first.
 - Prioritize pages with Search Console impressions, clicks, or recurring feast
