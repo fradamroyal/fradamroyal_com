@@ -11,7 +11,9 @@
 {{- end }}
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="icon" href="{{ "favicon.ico" | relURL }}" />
+{{- /* Keep this token aligned with the first 12 characters of favicon.ico's SHA-256 digest. */ -}}
+{{- $faviconVersion := "e86d3dc3d468" -}}
+<link rel="icon" type="image/x-icon" sizes="16x16 32x32 48x48 64x64 128x128 256x256" href="{{ printf "%s?v=%s" ("favicon.ico" | relURL) $faviconVersion }}" />
 {{- if eq .Kind "404" }}
 <meta name="robots" content="noindex" />
 {{- else }}

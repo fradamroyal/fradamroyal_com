@@ -3,6 +3,7 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
 const { spawnSync } = require("node:child_process");
+const { createHash } = require("node:crypto");
 const {
   mkdtempSync,
   readFileSync,
@@ -241,21 +242,47 @@ test("the generated 404 page is noindex and has no canonical URL", () => {
 });
 
 test("every generated page explicitly links the published favicon", () => {
-  const favicon = statSync(join(BUILD_ROOT, "favicon.ico"));
+  const faviconPath = join(BUILD_ROOT, "favicon.ico");
+  const favicon = statSync(faviconPath);
   assert.ok(favicon.isFile(), "Expected Hugo to publish favicon.ico as a file.");
   assert.ok(favicon.size > 0, "Expected the published favicon to be nonempty.");
+  const faviconVersion = createHash("sha256")
+    .update(readFileSync(faviconPath))
+    .digest("hex")
+    .slice(0, 12);
 
   pages.forEach((html, relativePath) => {
     const links = iconLinks(html);
     assert.equal(links.length, 1, `Expected one favicon link in ${relativePath}.`);
+    assert.equal(
+      links[0].get("type"),
+      "image/x-icon",
+      `Expected ${relativePath} to identify the favicon's media type.`,
+    );
+    assert.equal(
+      links[0].get("sizes"),
+      "16x16 32x32 48x48 64x64 128x128 256x256",
+      `Expected ${relativePath} to advertise every embedded favicon size.`,
+    );
     const pageURL =
       relativePath === ERROR_PAGE_PATH
         ? new URL("/404.html", BASE_URL).href
         : generatedURL(relativePath);
+    const faviconURL = new URL(links[0].get("href"), pageURL);
     assert.equal(
-      new URL(links[0].get("href"), pageURL).href,
-      new URL("/favicon.ico", BASE_URL).href,
+      faviconURL.pathname,
+      "/favicon.ico",
       `Expected ${relativePath} to discover the root favicon.`,
+    );
+    assert.equal(
+      faviconURL.searchParams.get("v"),
+      faviconVersion,
+      `Expected ${relativePath} to cache-bust the favicon with its content digest.`,
+    );
+    assert.equal(
+      [...faviconURL.searchParams].length,
+      1,
+      `Expected ${relativePath} to expose only the favicon version query.`,
     );
   });
 });
