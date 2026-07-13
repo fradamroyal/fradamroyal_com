@@ -52,18 +52,19 @@ Baseline recorded July 12, 2026:
 
 ## Execution queue
 
-### NOW: Merge and deploy the verified Phase 0 candidate
+### NOW: Deploy and smoke-test the verified Phase 1.1 candidate
 
-Phase 0.1 through 0.3 are complete locally. Merge the verified candidate into
-`main`, deploy it, and complete the Phase 0.4 live smoke test.
+Phase 0 is live and its representative responses match the local production
+build. Phase 1.1 is implemented and verified locally; deploy it and confirm the
+archive, year-navigation, breadcrumb, and adjacent-article surfaces live.
 
 ## Phase 0 — Correct indexing signals and deploy the intended site
 
 **Outcome:** Search engines and readers receive the intended current site with
 valid, consistent canonical signals.
 
-**Status:** Phase 0.1 through 0.3 are implemented and verified locally; Phase
-0.4 remains pending merge and deployment.
+**Status:** Phase 0.1 through 0.4 are implemented, deployed, and verified. Google
+URL Inspection remains a post-deployment measurement task.
 
 ### 0.1 Fix canonical elements
 
@@ -91,6 +92,11 @@ Test at least:
 
 ### 0.4 Deploy and smoke-test
 
+Completed after deployment: the homepage, newest homily, deep pagination,
+Tools pages, robots file, and sitemap matched the local production output
+byte-for-byte. Their status codes and metadata were correct, and a missing URL
+returned HTTP 404.
+
 - Publish the intended `main` branch after Phase 0.1–0.3 pass.
 - Verify live responses for:
   - Homepage.
@@ -109,7 +115,7 @@ Test at least:
 - [x] Every indexable pagination page self-canonicalizes.
 - [x] Canonical regression tests pass.
 - [x] Production build and existing tests pass.
-- [ ] Local and deployed representative pages match.
+- [x] Local and deployed representative pages match.
 - [ ] Google URL Inspection selects the intended canonical on sampled URLs.
 
 ## Phase 1 — Repair information architecture and crawl paths
@@ -117,7 +123,15 @@ Test at least:
 **Outcome:** Important content is reachable through clear, useful navigation in
 approximately three clicks rather than dozens of sequential archive pages.
 
+**Status:** Phase 1.1 is implemented and verified locally; deployment is
+pending. Phase 1.2 through 1.4 remain queued.
+
 ### 1.1 Improve archive navigation
+
+Implemented with a 12-item main archive page, compact unpaginated year indexes,
+cross-year adjacent-article links, and visible breadcrumbs synchronized with
+structured data. The 2026 Reflections year page is intentionally deferred while
+it would contain only one article.
 
 - Increase the archive page size from three to roughly 10–15 after checking the
   resulting page length on mobile.
@@ -154,12 +168,12 @@ Do not add arbitrary automated links merely to increase link counts.
 
 ### Phase 1 gate
 
-- [ ] Important articles have a useful route of approximately three clicks.
-- [ ] Year archives work without thin or duplicate output.
-- [ ] Singles have previous/next navigation and visible breadcrumbs.
+- [x] Important articles have a useful route of approximately three clicks.
+- [x] Year archives work without thin or duplicate output.
+- [x] Singles have previous/next navigation and visible breadcrumbs.
 - [ ] Empty Posts and taxonomy roots are absent from the sitemap.
 - [ ] The custom 404 is useful and still returns status 404.
-- [ ] Generated internal-link validation reports no broken links.
+- [x] Generated internal-link validation reports no broken links.
 
 ## Phase 2 — Improve search-result identity and transparent authorship
 
@@ -349,7 +363,7 @@ Run the repository's required checks after relevant implementation slices:
 ```sh
 hugo --gc --minify --destination /tmp/fradamroyal-seo-build
 hugo --templateMetrics --templateMetricsHints --destination /tmp/fradamroyal-seo-metrics
-node --test tests/bible-reading-plan.test.js tests/bible-reading-plan-exports.test.js tests/structured-data.test.js tests/canonical-links.test.js
+node --test tests/bible-reading-plan.test.js tests/bible-reading-plan-exports.test.js tests/structured-data.test.js tests/canonical-links.test.js tests/navigation.test.js
 git diff --check
 ```
 

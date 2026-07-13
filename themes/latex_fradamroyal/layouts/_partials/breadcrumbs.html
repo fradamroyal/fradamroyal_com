@@ -1,0 +1,20 @@
+{{- $paginator := .Store.Get "listPaginator" -}}
+{{- $isPaginatedHome := false -}}
+{{- if and .IsHome $paginator -}}
+    {{- $isPaginatedHome = gt $paginator.PageNumber 1 -}}
+{{- end -}}
+{{- if or (not .IsHome) $isPaginatedHome -}}
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+    <ol>
+        {{- if $isPaginatedHome }}
+        <li><a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Home.Title }}</a></li>
+        <li><span aria-current="page">Page {{ $paginator.PageNumber }}</span></li>
+        {{- else }}
+        {{- range .Ancestors.Reverse }}
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+        {{- end }}
+        <li><span aria-current="page">{{ .Title }}</span></li>
+        {{- end }}
+    </ol>
+</nav>
+{{- end -}}

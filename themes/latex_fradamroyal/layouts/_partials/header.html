@@ -17,6 +17,7 @@
       {{ if not .IsHome }}
         {{ partial "nav.html" . }}
       {{ end }}
+      {{ partial "breadcrumbs.html" . }}
       <div class="{{ .Type }}-heading">
         {{ if eq .Type "list" }}
           <h1>{{ if .Data.Singular }}#{{ end }}{{ .Title }}</h1>

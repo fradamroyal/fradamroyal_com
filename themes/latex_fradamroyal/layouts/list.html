@@ -6,13 +6,46 @@
             {{- $allPages = $allPages | append $sectionPages -}}
         {{- end -}}
     {{- else -}}
-        {{- $allPages = .Pages -}}
+        {{- $allPages = .RegularPagesRecursive -}}
     {{- end -}}
-    {{- .Store.Set "listPaginator" (.Paginate $allPages.ByDate.Reverse) -}}
+    {{- if not .Params.year -}}
+        {{- .Store.Set "listPaginator" (.Paginate $allPages.ByDate.Reverse) -}}
+    {{- end -}}
 {{ end }}
 
 {{ define "main" }}
 <div class="container">
+    {{- if .Params.year }}
+    {{- with .Content }}
+    <div class="archive-introduction">
+      {{ . }}
+    </div>
+    {{- end }}
+    {{- end }}
+
+    {{- if and .IsSection (in (slice "homilies" "reflections") .Section) (not .Params.year) }}
+    {{- with .Sections.ByParam "year" | collections.Reverse }}
+    <nav class="year-archives" aria-labelledby="year-archives-heading">
+      <h2 id="year-archives-heading">Browse by year</h2>
+      <ul>
+        {{- range . }}
+        <li><a href="{{ .RelPermalink }}">{{ default .Title .Params.year }}</a></li>
+        {{- end }}
+      </ul>
+    </nav>
+    {{- end }}
+    {{- end }}
+
+    {{- if .Params.year }}
+    <ol class="archive-list">
+      {{- range .RegularPagesRecursive.ByDate.Reverse }}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format "Jan 2, 2006" }}</time>
+      </li>
+      {{- end }}
+    </ol>
+    {{- else }}
     <div class="posts-list">
       {{ $pag := .Store.Get "listPaginator" }}
       {{ range $pag.Pages }}
@@ -35,5 +68,6 @@
       </ul>
     </nav>
   {{ end }}
+  {{- end }}
 </div>
 {{ end }}

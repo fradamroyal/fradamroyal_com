@@ -13,6 +13,11 @@
 {{- $applicationID := printf "%s#application" $pageURL -}}
 {{- $language := default $page.Site.Language.Lang $page.Site.Language.Locale -}}
 {{- $licenseURL := default "https://creativecommons.org/licenses/by-sa/4.0/" $page.Site.Params.license.url -}}
+{{- $paginator := $page.Store.Get "listPaginator" -}}
+{{- $isPaginatedHome := false -}}
+{{- if and $page.IsHome $paginator -}}
+    {{- $isPaginatedHome = gt $paginator.PageNumber 1 -}}
+{{- end -}}
 
 {{- $authorName := "" -}}
 {{- with $page.Site.Params.author.name -}}
@@ -115,7 +120,7 @@
 {{- with $description -}}
     {{- $webpage = merge $webpage (dict "description" .) -}}
 {{- end -}}
-{{- if not $page.IsHome -}}
+{{- if or (not $page.IsHome) $isPaginatedHome -}}
     {{- $webpage = merge $webpage (dict "breadcrumb" (dict "@id" $breadcrumbID)) -}}
 {{- end -}}
 {{- if $isArticle -}}
@@ -128,20 +133,33 @@
 
 {{- $graph := slice $person $website $webpage -}}
 
-{{- if not $page.IsHome -}}
+{{- if or (not $page.IsHome) $isPaginatedHome -}}
     {{- $breadcrumbItems := slice -}}
-    {{- range $ancestor := $page.Ancestors.Reverse -}}
+    {{- if $isPaginatedHome -}}
         {{- $breadcrumbItems = $breadcrumbItems | append (dict
             "@type" "ListItem"
             "position" (add (len $breadcrumbItems) 1)
-            "name" $ancestor.Title
-            "item" $ancestor.Permalink
+            "name" $page.Site.Home.Title
+            "item" $page.Site.Home.Permalink
         ) -}}
+    {{- else -}}
+        {{- range $ancestor := $page.Ancestors.Reverse -}}
+            {{- $breadcrumbItems = $breadcrumbItems | append (dict
+                "@type" "ListItem"
+                "position" (add (len $breadcrumbItems) 1)
+                "name" $ancestor.Title
+                "item" $ancestor.Permalink
+            ) -}}
+        {{- end -}}
+    {{- end -}}
+    {{- $breadcrumbName := $page.Title -}}
+    {{- if $isPaginatedHome -}}
+        {{- $breadcrumbName = printf "Page %d" $paginator.PageNumber -}}
     {{- end -}}
     {{- $breadcrumbItems = $breadcrumbItems | append (dict
         "@type" "ListItem"
         "position" (add (len $breadcrumbItems) 1)
-        "name" $page.Title
+        "name" $breadcrumbName
         "item" $pageURL
     ) -}}
     {{- $graph = $graph | append (dict

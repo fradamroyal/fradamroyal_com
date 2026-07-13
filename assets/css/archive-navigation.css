@@ -1,0 +1,80 @@
+.breadcrumbs {
+  margin: 1rem 0;
+}
+
+.breadcrumbs ol,
+.year-archives ul,
+.article-navigation ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.breadcrumbs li:not(:last-child)::after {
+  margin-left: 0.75rem;
+  content: "/";
+}
+
+.archive-introduction,
+.year-archives,
+.archive-list {
+  margin: 1.5rem 0;
+}
+
+.year-archives h2 {
+  margin-bottom: 0.5rem;
+}
+
+.year-archives ul {
+  gap: 0.5rem 1.25rem;
+}
+
+.archive-list {
+  padding-left: 1.5rem;
+}
+
+.archive-list li {
+  margin: 0.5rem 0;
+}
+
+.archive-list time {
+  display: block;
+  font-size: 0.9rem;
+}
+
+.article-navigation {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: var(--border-width-thin) solid currentColor;
+}
+
+.article-navigation ul {
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.article-navigation li {
+  flex: 1 1 18rem;
+}
+
+.article-navigation li > span {
+  display: block;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.article-navigation .older {
+  text-align: right;
+}
+
+@media (min-width: 36rem) {
+  .archive-list li {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1rem;
+    align-items: baseline;
+  }
+}

@@ -1,0 +1,24 @@
+{{- if and (eq .Kind "page") (in (slice "homilies" "reflections") .Section) -}}
+    {{- $articles := where .Site.RegularPages "Section" .Section -}}
+    {{- $articles = $articles.ByDate.Reverse -}}
+    {{- $newer := $articles.Next . -}}
+    {{- $older := $articles.Prev . -}}
+    {{- if or $newer $older }}
+<nav class="article-navigation" aria-label="More {{ humanize .Section }}">
+    <ul>
+        {{- with $newer }}
+        <li class="newer">
+            <span>Newer</span>
+            <a href="{{ .RelPermalink }}">&larr; {{ .Title }}</a>
+        </li>
+        {{- end }}
+        {{- with $older }}
+        <li class="older">
+            <span>Older</span>
+            <a href="{{ .RelPermalink }}">{{ .Title }} &rarr;</a>
+        </li>
+        {{- end }}
+    </ul>
+</nav>
+    {{- end }}
+{{- end -}}
