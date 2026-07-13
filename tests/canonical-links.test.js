@@ -5,6 +5,7 @@ const assert = require("node:assert/strict");
 const { spawnSync } = require("node:child_process");
 const { createHash } = require("node:crypto");
 const {
+  existsSync,
   mkdtempSync,
   readFileSync,
   readdirSync,
@@ -13,14 +14,19 @@ const {
 } = require("node:fs");
 const { tmpdir } = require("node:os");
 const { join, relative, resolve, sep } = require("node:path");
+const {
+  LEGACY_HOMILY_MIGRATIONS,
+} = require("./fixtures/legacy-homily-migrations.js");
 
 const REPOSITORY_ROOT = resolve(__dirname, "..");
 const TEMPORARY_ROOT = mkdtempSync(join(tmpdir(), "fradamroyal-canonical-links-"));
 const BUILD_ROOT = join(TEMPORARY_ROOT, "public");
 const BASE_URL = "https://fradamroyal.com/";
 const ERROR_PAGE_PATH = "404.html";
+const REDIRECTS_PATH = "_redirects";
 
 let pages;
+let redirects;
 
 function htmlFiles(directory) {
   return readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
@@ -187,6 +193,24 @@ function generatedURL(relativePath) {
   return new URL(`/${relativePath.slice(0, -"index.html".length)}`, BASE_URL).href;
 }
 
+function parseRedirects(source) {
+  const rules = new Map();
+
+  source
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter((line) => line && !line.startsWith("#"))
+    .forEach((line) => {
+      const fields = line.split(/\s+/);
+      assert.equal(fields.length, 3, `Expected a source, destination, and status in ${line}.`);
+      const [sourcePath, destinationPath, status] = fields;
+      assert.equal(rules.has(sourcePath), false, `Duplicate redirect source ${sourcePath}.`);
+      rules.set(sourcePath, { destinationPath, status: Number.parseInt(status, 10) });
+    });
+
+  return rules;
+}
+
 function page(relativePath) {
   const result = pages.get(relativePath);
   assert.ok(result, `Expected Hugo to generate ${relativePath}.`);
@@ -217,6 +241,7 @@ test.before(() => {
       return isRedirectPage(html) ? [] : [[relativePath, html]];
     }),
   );
+  redirects = parseRedirects(readFileSync(join(BUILD_ROOT, REDIRECTS_PATH), "utf8"));
 });
 
 test.after(() => {
@@ -450,6 +475,68 @@ test("recurring articles use year-specific titles without changing their visible
       visibleHeading(html),
       expectedTitle.startsWith("Pentecost") ? "Pentecost" : "Advent by Candlelight",
     );
+  });
+});
+
+test("renamed legacy homilies use new canonicals and permanent one-to-one redirects", () => {
+  assert.equal(LEGACY_HOMILY_MIGRATIONS.length, 25);
+  assert.equal(redirects.size, 50);
+  assert.doesNotMatch(
+    page("index.html"),
+    /<link\b[^>]*\btype=["']text\/redirects["'][^>]*>/i,
+    "Expected the Cloudflare control file not to be advertised as alternate content.",
+  );
+
+  LEGACY_HOMILY_MIGRATIONS.forEach(({ year, oldSlug, newSlug, title }) => {
+    const relativePath = `homilies/${year}/${newSlug}/index.html`;
+    const oldRelativePath = `homilies/${year}/${oldSlug}/index.html`;
+    const oldPath = `/homilies/${year}/${oldSlug}`;
+    const oldDirectoryPath = `${oldPath}/`;
+    const newPath = `/homilies/${year}/${newSlug}/`;
+    const html = page(relativePath);
+    const canonical = canonicalLinks(html);
+    const article = structuredData(html)["@graph"].find((node) =>
+      nodeTypes(node).includes("BlogPosting"),
+    );
+    const webPage = structuredWebPage(html);
+
+    assert.equal(visibleHeading(html), title);
+    assert.equal(
+      documentTitle(html),
+      `${title} Homily (${year}) | Fr. Adam Royal`,
+    );
+    assert.ok(article, `Expected BlogPosting data in ${relativePath}.`);
+    assert.equal(article.headline, title);
+    assert.equal(webPage.name, title);
+    assert.equal(canonical.length, 1, `Expected one canonical URL in ${relativePath}.`);
+    assert.equal(canonical[0].get("href"), generatedURL(relativePath));
+    assert.equal(
+      html.includes(new URL(`${oldPath}/`, BASE_URL).href),
+      false,
+      `Expected ${relativePath} not to expose its retired URL.`,
+    );
+    assert.equal(
+      pages.has(oldRelativePath),
+      false,
+      `Expected ${oldRelativePath} not to remain a canonical page.`,
+    );
+    assert.equal(
+      existsSync(join(BUILD_ROOT, oldRelativePath)),
+      false,
+      `Expected server redirects to replace a generated alias page at ${oldRelativePath}.`,
+    );
+    assert.deepEqual(
+      redirects.get(oldPath),
+      { destinationPath: newPath, status: 301 },
+      `Expected a permanent one-to-one redirect from ${oldPath}.`,
+    );
+    assert.deepEqual(
+      redirects.get(oldDirectoryPath),
+      { destinationPath: newPath, status: 301 },
+      `Expected a permanent one-to-one redirect from ${oldDirectoryPath}.`,
+    );
+    assert.equal(redirects.has(newPath), false);
+    assert.equal(redirects.has(newPath.replace(/\/$/, "")), false);
   });
 });
 

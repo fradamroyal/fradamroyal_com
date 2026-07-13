@@ -1,7 +1,8 @@
 +++
-title = 'Fifth Sunday Per Annum'
+title = 'Fifth Sunday in Ordinary Time'
 date = 2025-02-09
 draft = false
+aliases = ['/homilies/2025/fifth_sunday_per_annum/']
 liturgical_season = 'ordinary-time'
 liturgical_occasion = 'fifth-sunday-in-ordinary-time'
 

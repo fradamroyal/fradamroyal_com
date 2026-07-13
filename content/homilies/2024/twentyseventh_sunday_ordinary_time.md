@@ -1,7 +1,8 @@
 +++
-title = 'Twenty-seventh Sunday Per Annum'
+title = 'Twenty-seventh Sunday in Ordinary Time'
 date = 2024-10-06
 draft = false
+aliases = ['/homilies/2024/twentyseventh_sunday_per_annum/']
 liturgical_season = 'ordinary-time'
 liturgical_occasion = 'twenty-seventh-sunday-in-ordinary-time'
 

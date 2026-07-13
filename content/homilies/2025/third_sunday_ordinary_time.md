@@ -1,7 +1,8 @@
 +++
-title = 'Third Sunday Per Annum'
+title = 'Third Sunday in Ordinary Time'
 date = 2025-01-26
 draft = false
+aliases = ['/homilies/2025/third_sunday_per_annum/']
 liturgical_season = 'ordinary-time'
 liturgical_occasion = 'third-sunday-in-ordinary-time'
 

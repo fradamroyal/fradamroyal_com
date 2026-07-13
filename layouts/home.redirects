@@ -1,0 +1,14 @@
+{{- if site.IsDefault -}}
+    {{- range hugo.Sites -}}
+        {{- range $page := .Pages -}}
+            {{- range .Aliases -}}
+                {{- if findRE `\s` . -}}
+                    {{- errorf "One of the front matter aliases in %q contains whitespace" $page.String -}}
+                {{- end -}}
+                {{- $alias := strings.TrimSuffix "/" . -}}
+                {{- printf "%s %s 301\n" $alias $page.RelPermalink -}}
+                {{- printf "%s/ %s 301\n" $alias $page.RelPermalink -}}
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}

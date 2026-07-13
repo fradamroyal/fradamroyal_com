@@ -1,7 +1,8 @@
 +++
-title = 'Eighth Sunday Per Annum'
+title = 'Eighth Sunday in Ordinary Time'
 date = 2025-03-02
 draft = false
+aliases = ['/homilies/2025/eighth_sunday_per_annum/']
 liturgical_season = 'ordinary-time'
 liturgical_occasion = 'eighth-sunday-in-ordinary-time'
 

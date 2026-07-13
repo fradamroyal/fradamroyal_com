@@ -16,6 +16,9 @@ const {
 } = require("node:fs");
 const { tmpdir } = require("node:os");
 const { extname, join, relative, resolve } = require("node:path");
+const {
+  LEGACY_HOMILY_MIGRATIONS,
+} = require("./fixtures/legacy-homily-migrations.js");
 
 const REPOSITORY_ROOT = resolve(__dirname, "..");
 const MODEL_PATH = join(REPOSITORY_ROOT, "data", "content_model.json");
@@ -48,19 +51,19 @@ const EXPECTED_SEASON_COUNTS = {
 };
 const NORMALIZATION_CASES = [
   {
-    source: "content/homilies/2024/twelth_sunday_per_annum.md",
+    source: "content/homilies/2024/twelfth_sunday_ordinary_time.md",
     date: "2024-06-23",
     season: "ordinary-time",
     occasion: "twelfth-sunday-in-ordinary-time",
   },
   {
-    source: "content/homilies/2024/fifthteenth_sunday_per_annum.md",
+    source: "content/homilies/2024/fifteenth_sunday_ordinary_time.md",
     date: "2024-07-14",
     season: "ordinary-time",
     occasion: "fifteenth-sunday-in-ordinary-time",
   },
   {
-    source: "content/homilies/2024/eighteenth_sundery_per_annum.md",
+    source: "content/homilies/2024/eighteenth_sunday_ordinary_time.md",
     date: "2024-08-04",
     season: "ordinary-time",
     occasion: "eighteenth-sunday-in-ordinary-time",
@@ -253,6 +256,16 @@ function quotedStringAssignment(source, field, path) {
   const matches = [...source.matchAll(pattern)];
   assert.equal(matches.length, 1, `Expected one ${field} assignment in ${path}.`);
   return matches[0][2];
+}
+
+function singleStringArrayAssignment(source, field, path) {
+  const pattern = new RegExp(
+    `^${field}\\s*=\\s*\\[\\s*(['"])(.*?)\\1\\s*\\]\\s*$`,
+    "gm",
+  );
+  const matches = [...source.matchAll(pattern)];
+  assert.equal(matches.length, 1, `Expected one ${field} assignment in ${path}.`);
+  return [matches[0][2]];
 }
 
 function stringAssignment(source, field, path) {
@@ -475,6 +488,64 @@ test("source-verified edge cases normalize to the intended liturgy", () => {
     assert.equal(stringAssignment(metadata, "liturgical_season", source), season);
     assert.equal(stringAssignment(metadata, "liturgical_occasion", source), occasion);
   });
+});
+
+test("legacy Ordinary Time sources use canonical filenames and one-to-one aliases", () => {
+  assert.equal(LEGACY_HOMILY_MIGRATIONS.length, 25);
+  const expectedSources = new Set();
+  const expectedAliases = new Set();
+
+  LEGACY_HOMILY_MIGRATIONS.forEach(
+    ({ year, oldSlug, newSlug, title: expectedTitle }) => {
+      const oldSource = `content/homilies/${year}/${oldSlug}.md`;
+      const source = `content/homilies/${year}/${newSlug}.md`;
+      const alias = `/homilies/${year}/${oldSlug}/`;
+      const sourcePath = join(REPOSITORY_ROOT, source);
+
+      assert.equal(
+        existsSync(join(REPOSITORY_ROOT, oldSource)),
+        false,
+        `Expected the legacy source path ${oldSource} to be retired.`,
+      );
+      assert.equal(
+        existsSync(sourcePath),
+        true,
+        `Expected the canonical source path ${source} to exist.`,
+      );
+
+      const metadata = frontMatter(readFileSync(sourcePath, "utf8"), source);
+      const season = stringAssignment(metadata, "liturgical_season", source);
+      const occasion = stringAssignment(metadata, "liturgical_occasion", source);
+      const title = stringAssignment(metadata, "title", source);
+      const registeredOccasion = model.liturgical_occasions[occasion];
+
+      assert.equal(season, "ordinary-time", `Expected Ordinary Time metadata in ${source}.`);
+      assert.ok(registeredOccasion, `Expected ${occasion} to be a registered occasion.`);
+      assert.equal(title, expectedTitle, `Expected the corrected title in ${source}.`);
+      assert.equal(
+        title,
+        registeredOccasion.label,
+        `Expected the display title in ${source} to match its registered occasion label.`,
+      );
+      assert.deepEqual(
+        singleStringArrayAssignment(metadata, "aliases", source),
+        [alias],
+        `Expected ${source} to redirect only its former URL.`,
+      );
+      expectedSources.add(source);
+      expectedAliases.add(alias);
+    },
+  );
+
+  assert.equal(expectedSources.size, 25);
+  assert.equal(expectedAliases.size, 25);
+  const aliasedSources = homilySourcePaths()
+    .map((path) => relative(REPOSITORY_ROOT, path))
+    .filter((source) => {
+      const contents = readFileSync(join(REPOSITORY_ROOT, source), "utf8");
+      return /^aliases\s*=/m.test(frontMatter(contents, source));
+    });
+  assert.deepEqual(new Set(aliasedSources), expectedSources);
 });
 
 test("corpus metadata is byte-neutral across the complete generated site", () => {

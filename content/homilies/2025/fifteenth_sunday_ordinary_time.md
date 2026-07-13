@@ -1,7 +1,8 @@
 +++
-title = 'Fifthteenth Sunday in Ordinary Time'
+title = 'Fifteenth Sunday in Ordinary Time'
 date = 2025-07-13
 draft = false
+aliases = ['/homilies/2025/fifthteenth_sunday_ordinary_time/']
 liturgical_season = 'ordinary-time'
 liturgical_occasion = 'fifteenth-sunday-in-ordinary-time'
 

@@ -1,7 +1,8 @@
 +++
-title = 'Eighteenth Sunday Per Annum'
+title = 'Eighteenth Sunday in Ordinary Time'
 date = 2024-08-04
 draft = false
+aliases = ['/homilies/2024/eighteenth_sundery_per_annum/']
 liturgical_season = 'ordinary-time'
 liturgical_occasion = 'eighteenth-sunday-in-ordinary-time'
 

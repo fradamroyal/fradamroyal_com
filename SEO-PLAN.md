@@ -52,19 +52,19 @@ Baseline recorded July 12, 2026:
 
 ## Execution queue
 
-### NOW: Correct high-confidence legacy homily display titles
+### NOW: Add useful home and section introductions
 
 Phases 1.3, 1.4, 2.1, the first-priority Phase 2.2 description convention,
-Phase 2.3, and Phase 2.4 are implemented and verified locally. Deployment, live
-smoke-testing, and live metadata validation for them remain pending and were
-intentionally skipped. The Phase 3.1 Scripture backfill and Phase 3.2
-controlled-metadata backfill are complete for all 130 published homilies
-without generating hubs. Continue with the bounded Phase 3.3 title-cleanup
-slice: correct high-confidence visible spelling errors such as `Twelth` and
-`Fifthteenth`, and standardize older `Per Annum` display wording to `in
-Ordinary Time` where appropriate. Preserve every source filename and
-established URL, then verify document titles, navigation labels, related links,
-canonicals, feeds, and the generated URL inventory.
+Phase 2.3, Phase 2.4, and the first bounded Phase 3.3 title-and-URL cleanup slice
+are implemented and verified locally. Deployment, live smoke-testing, and live
+metadata validation remain pending and were intentionally skipped. The Phase
+3.1 Scripture backfill and Phase 3.2 controlled-metadata backfill are complete
+for all 130 published homilies without generating hubs. Continue with the next
+bounded Phase 3.3 slice: replace the placeholder root-page text with a concise,
+accurate site introduction and add useful visible introductions to Homilies and
+Reflections. Render each introduction once before its primary archive content,
+keep article summaries and feeds unchanged, and add generated-output coverage
+for the copy and page structure.
 
 ## Phase 0 — Correct indexing signals and deploy the intended site
 
@@ -331,7 +331,9 @@ thin pages.
 
 **Status:** Phases 3.1 and 3.2 are complete for the existing homily corpus. All
 130 published homilies now have verified Scripture and controlled liturgical
-metadata. Hub implementation and Phases 3.3–3.4 remain pending.
+metadata. The legacy title and canonical-slug slice of Phase 3.3 is complete;
+hub implementation, the remaining Phase 3.3 presentation work, and Phase 3.4
+remain pending.
 
 ### 3.1 Backfill Scripture metadata
 
@@ -393,6 +395,18 @@ Meeting a floor does not require a hub when an existing year archive or
 exact-Scripture related-content path already serves the reader better.
 
 ### 3.3 Improve priority content presentation
+
+The first bounded presentation slice is implemented. Twenty-four legacy
+`Per Annum` titles now use `in Ordinary Time`, and the visible `Twelth` and
+`Fifthteenth` spelling errors are corrected. At the author's direction, all 25
+affected source filenames and canonical URLs now use matching corrected slugs.
+Each former URL remains a one-to-one Hugo alias, and Hugo generates a root
+Cloudflare `_redirects` manifest with direct HTTP 301 rules for both request
+forms of each former path to its new canonical. Generated-output coverage
+protects the corrected H1s, document titles, structured headlines, archive and
+navigation labels, related links, feed items, sitemap entries, canonicals, and
+redirect rules. Deployment and live redirect verification remain intentionally
+deferred.
 
 - Add useful section introductions to Homilies and Reflections.
 - Replace placeholder text in the root source file.

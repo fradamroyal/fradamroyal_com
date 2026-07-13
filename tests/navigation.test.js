@@ -11,6 +11,9 @@ const {
 } = require("node:fs");
 const { tmpdir } = require("node:os");
 const { join, relative, resolve, sep } = require("node:path");
+const {
+  LEGACY_HOMILY_MIGRATIONS,
+} = require("./fixtures/legacy-homily-migrations.js");
 
 const REPOSITORY_ROOT = resolve(__dirname, "..");
 const TEMPORARY_ROOT = mkdtempSync(join(tmpdir(), "fradamroyal-navigation-"));
@@ -691,6 +694,17 @@ test("article navigation links the chronological neighbors within each section",
         const parts = articlePathParts(targetPath);
         assert.ok(parts, `Expected ${target.href} from ${article.relativePath} to be an article.`);
         assert.equal(parts[1], section, `Expected ${target.href} to stay within ${section}.`);
+        const targetArticle = articles.find(
+          (candidate) => candidate.url === generatedURL(targetPath),
+        );
+        assert.ok(targetArticle, `Expected ${target.href} to resolve to a known article.`);
+        assert.equal(
+          anchor.name
+            .replace(/^(?:←|&larr;)\s*/, "")
+            .replace(/\s*(?:→|&rarr;)$/, ""),
+          targetArticle.title,
+          `Expected article-navigation text to use the current title for ${target.href}.`,
+        );
         if (parts[2] !== article.year) {
           crossYearLinks += 1;
         }
@@ -709,6 +723,73 @@ test("article navigation links the chronological neighbors within each section",
   }
 
   assert.ok(crossYearLinks > 0, "Expected at least one adjacent-article link to cross a year boundary.");
+});
+
+test("renamed Ordinary Time canonicals replace retired URLs in discovery surfaces", () => {
+  assert.equal(LEGACY_HOMILY_MIGRATIONS.length, 25);
+  assert.match(
+    readFileSync(DEPLOYMENT_CONFIG_PATH, "utf8"),
+    /^\s*directory\s*=\s*["']\.\/public["']\s*$/m,
+    "Expected Cloudflare Workers to consume Hugo's generated public directory.",
+  );
+  const migratedByURL = new Map();
+  const retiredURLs = new Set();
+
+  LEGACY_HOMILY_MIGRATIONS.forEach(({ year, oldSlug, newSlug, title }) => {
+    const oldURL = new URL(`/homilies/${year}/${oldSlug}/`, BASE_URL).href;
+    const newURL = new URL(`/homilies/${year}/${newSlug}/`, BASE_URL).href;
+    const article = articles.find((candidate) => candidate.url === newURL);
+
+    assert.ok(article, `Expected the canonical article ${newURL}.`);
+    assert.equal(article.title, title);
+    assert.equal(sitemapURLs.has(oldURL), false, `Expected the sitemap to retire ${oldURL}.`);
+    assert.equal(sitemapURLs.has(newURL), true, `Expected the sitemap to include ${newURL}.`);
+    migratedByURL.set(newURL, article);
+    retiredURLs.add(oldURL);
+  });
+
+  assert.equal(migratedByURL.size, 25);
+  assert.equal(retiredURLs.size, 25);
+  const sightings = new Map([...migratedByURL.keys()].map((url) => [url, 0]));
+
+  [...allFiles]
+    .filter((relativePath) => relativePath.endsWith("index.xml"))
+    .forEach((relativePath) => {
+      const feed = readFileSync(join(BUILD_ROOT, relativePath), "utf8");
+      [...feed.matchAll(/<item>([\s\S]*?)<\/item>/gi)].forEach((match) => {
+        const title = match[1].match(/<title>([\s\S]*?)<\/title>/i);
+        const link = match[1].match(/<link>([\s\S]*?)<\/link>/i);
+        assert.ok(title, `Expected every item in ${relativePath} to have a title.`);
+        assert.ok(link, `Expected every item in ${relativePath} to have a link.`);
+        const itemURL = decodeHTML(link[1].trim());
+        assert.equal(
+          retiredURLs.has(itemURL),
+          false,
+          `Expected ${relativePath} not to expose retired feed URL ${itemURL}.`,
+        );
+        const article = migratedByURL.get(itemURL);
+        if (!article) {
+          return;
+        }
+        const guid = match[1].match(/<guid\b[^>]*>([\s\S]*?)<\/guid>/i);
+        assert.ok(guid, `Expected ${itemURL} in ${relativePath} to have a guid.`);
+        assert.equal(
+          decodeHTML(title[1].trim()),
+          article.title,
+          `Expected ${relativePath} to preserve ${itemURL} with its corrected title.`,
+        );
+        assert.equal(
+          decodeHTML(guid[1].trim()),
+          itemURL,
+          `Expected ${relativePath} to use the canonical URL as the guid for ${itemURL}.`,
+        );
+        sightings.set(itemURL, sightings.get(itemURL) + 1);
+      });
+    });
+
+  sightings.forEach((count, url) => {
+    assert.ok(count > 0, `Expected at least one feed to retain ${url}.`);
+  });
 });
 
 test("related homilies use only exact shared non-responsorial Scripture citations", () => {

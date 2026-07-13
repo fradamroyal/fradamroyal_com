@@ -1,7 +1,8 @@
 +++
-title = 'Second Sunday Per Annum'
+title = 'Second Sunday in Ordinary Time'
 date = 2025-01-19
 draft = false
+aliases = ['/homilies/2025/second_sunday_per_annum/']
 liturgical_season = 'ordinary-time'
 liturgical_occasion = 'second-sunday-in-ordinary-time'
 

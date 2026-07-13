@@ -8,9 +8,25 @@ footnoteReturnLinkContents = "^"
 enableRobotsTXT = true
 disableKinds = ['taxonomy', 'term']
 enableGitInfo = true
+disableAliases = true
 
 [frontmatter]
   lastmod = ['lastmod', ':git', 'date', 'publishDate']
+
+[mediaTypes]
+  [mediaTypes.'text/redirects']
+    delimiter = ''
+
+[outputFormats]
+  [outputFormats.redirects]
+    baseName = '_redirects'
+    isPlainText = true
+    mediaType = 'text/redirects'
+    notAlternative = true
+    root = true
+
+[outputs]
+  home = ['html', 'rss', 'redirects']
 
 [params]
   description = "A collection of homilies and reflections to, hopefully, inspire and guide your faith."
