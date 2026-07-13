@@ -26,13 +26,23 @@
     {{- $candidate := strings.TrimSpace (printf "%v" .) -}}
     {{- $url := "" -}}
     {{- if $candidate -}}
-        {{- if or (strings.HasPrefix $candidate "https://") (strings.HasPrefix $candidate "http://") -}}
+        {{- if strings.HasPrefix $candidate "https://" -}}
             {{- $url = $candidate -}}
+        {{- else if strings.HasPrefix $candidate "http://" -}}
+            {{- warnf "Ignoring insecure image %q on %s; use an HTTPS URL" $candidate $page.Path -}}
         {{- else -}}
             {{- with $page.Resources.GetMatch $candidate -}}
                 {{- $url = .Permalink -}}
             {{- else -}}
-                {{- $url = urls.AbsURL $candidate -}}
+                {{- if strings.HasPrefix $candidate "/" -}}
+                    {{- $url = urls.AbsURL $candidate -}}
+                {{- else -}}
+                    {{- with resources.Get $candidate -}}
+                        {{- $url = .Permalink -}}
+                    {{- else -}}
+                        {{- warnf "Ignoring unresolved image %q on %s; use a page resource, global asset, root-relative static path, or absolute URL" $candidate $page.Path -}}
+                    {{- end -}}
+                {{- end -}}
             {{- end -}}
         {{- end -}}
     {{- end -}}

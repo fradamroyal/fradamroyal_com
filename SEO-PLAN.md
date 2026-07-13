@@ -52,13 +52,14 @@ Baseline recorded July 12, 2026:
 
 ## Execution queue
 
-### NOW: Improve share and search presentation in Phase 2.4
+### NOW: Define the controlled content model in Phase 3.2
 
-Phases 1.3, 1.4, 2.1, the first-priority Phase 2.2 description convention, and
-Phase 2.3 are implemented and verified locally. Deployment and live
-smoke-testing for them remain pending and were intentionally skipped. Continue
-with explicit favicon discovery and centralized Open Graph and Twitter Card
-metadata, using genuine page images only where they already exist.
+Phases 1.3, 1.4, 2.1, the first-priority Phase 2.2 description convention,
+Phase 2.3, and Phase 2.4 are implemented and verified locally. Deployment, live
+smoke-testing, and live metadata validation for them remain pending and were
+intentionally skipped. The Phase 3.1 Scripture backfill is also complete.
+Continue by defining only the Phase 3.2 metadata fields that support genuine
+reader tasks before creating any new content hubs.
 
 ## Phase 0 — Correct indexing signals and deploy the intended site
 
@@ -213,9 +214,9 @@ an unknown URL returns the custom body with HTTP 404.
 **Outcome:** Search results clearly identify the site, distinguish recurring
 homilies, and give readers trustworthy author and page context.
 
-**Status:** Phase 2.1, the first-priority Phase 2.2 description convention, and
-Phase 2.3 are implemented and verified locally; deployment is pending. Phase
-2.4 is next.
+**Status:** Phase 2.1, the first-priority Phase 2.2 description convention,
+Phase 2.3, and Phase 2.4 are implemented and verified locally; deployment and
+live validation are pending.
 
 ### 2.1 Establish title conventions
 
@@ -289,6 +290,17 @@ slug names a previous pastor.
 
 ### 2.4 Improve share and search presentation
 
+Implemented with explicit favicon discovery and site-owned Open Graph and
+Twitter Card metadata that reuses the centralized document title, description,
+canonical URL, and image resolvers. Homily and reflection singles identify as
+articles while other indexable pages identify as websites; paginator metadata
+retains its page-specific title and canonical URL. `Two Resurrections` names
+its two genuine page images explicitly, with the traditional painting first as
+the preferred preview. No stock, favicon, or inferred body-image fallback is
+used, and the noindex 404 emits no social metadata. Generated-output tests
+verify these invariants across every indexable page. Deployment checks and live
+validator runs remain pending and were intentionally skipped.
+
 - Declare the existing favicon explicitly in the document head.
 - Add Open Graph and Twitter Card metadata using the centralized title,
   description, canonical, and image resolvers.
@@ -303,7 +315,7 @@ slug names a previous pastor.
 - [x] Recurring homilies have distinguishable document titles.
 - [x] About provides real author and editorial context.
 - [x] Articles contain a visible linked byline.
-- [ ] Favicon and social-preview metadata render correctly.
+- [x] Favicon and social-preview metadata render correctly.
 - [x] Structured data is valid and matches visible content.
 
 ## Phase 3 — Build durable editorial metadata and content hubs
@@ -311,6 +323,10 @@ slug names a previous pastor.
 **Outcome:** New and important content carries enough accurate metadata to
 support useful discovery by feast, season, year, and Scripture without creating
 thin pages.
+
+**Status:** Phase 3.1 is complete for the existing homily corpus. Phase 3.2 is
+next; no content hubs should be generated before the controlled fields and
+minimum useful-content thresholds are defined.
 
 ### 3.1 Backfill Scripture metadata
 

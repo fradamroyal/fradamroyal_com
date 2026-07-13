@@ -309,6 +309,16 @@ test("a reflection page uses reflection-specific article metadata", () => {
   assertReferenceType(document, webPage, "mainEntity", "BlogPosting");
 });
 
+test("an image-bearing reflection exposes its explicitly named page resources", () => {
+  const document = page("reflections/2025/two_paintings/index.html");
+  const article = nodeByType(document, "BlogPosting");
+
+  assert.deepEqual(article.image, [
+    "https://fradamroyal.com/reflections/2025/two_paintings/painting_1.jpeg",
+    "https://fradamroyal.com/reflections/2025/two_paintings/painting_2.png",
+  ]);
+});
+
 test("a section archive is represented as a collection page", () => {
   const document = page("homilies/index.html");
   const collection = nodeByType(document, "CollectionPage");

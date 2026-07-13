@@ -8,6 +8,7 @@ const {
   readFileSync,
   readdirSync,
   rmSync,
+  statSync,
 } = require("node:fs");
 const { tmpdir } = require("node:os");
 const { join, relative, resolve, sep } = require("node:path");
@@ -45,6 +46,74 @@ function attributes(element) {
   }
 
   return result;
+}
+
+function decodeHTML(value) {
+  const namedEntities = new Map([
+    ["amp", "&"],
+    ["apos", "'"],
+    ["gt", ">"],
+    ["lt", "<"],
+    ["nbsp", " "],
+    ["quot", '"'],
+  ]);
+
+  return value.replace(/&(?:#(\d+)|#x([\da-f]+)|([a-z]+));/gi, (entity, decimal, hex, name) => {
+    if (decimal) {
+      return String.fromCodePoint(Number.parseInt(decimal, 10));
+    }
+    if (hex) {
+      return String.fromCodePoint(Number.parseInt(hex, 16));
+    }
+    return namedEntities.get(name.toLowerCase()) ?? entity;
+  });
+}
+
+function metaValues(html, attributeName, attributeValue) {
+  const expectedValue = attributeValue.toLowerCase();
+  return [...html.matchAll(/<meta\b[^>]*>/gi)]
+    .map((match) => attributes(match[0]))
+    .filter(
+      (meta) => (meta.get(attributeName) || "").toLowerCase() === expectedValue,
+    )
+    .map((meta) => decodeHTML(meta.get("content") || ""));
+}
+
+function singleMetaValue(html, attributeName, attributeValue, relativePath) {
+  const values = metaValues(html, attributeName, attributeValue);
+  assert.equal(
+    values.length,
+    1,
+    `Expected exactly one ${attributeValue} value in ${relativePath}.`,
+  );
+  assert.notEqual(values[0].trim(), "", `Expected ${attributeValue} to be nonblank.`);
+  return values[0];
+}
+
+function iconLinks(html) {
+  return [...html.matchAll(/<link\b[^>]*>/gi)]
+    .map((match) => attributes(match[0]))
+    .filter((link) =>
+      (link.get("rel") || "")
+        .toLowerCase()
+        .split(/\s+/)
+        .includes("icon"),
+    );
+}
+
+function socialMetadata(html) {
+  return [...html.matchAll(/<meta\b[^>]*>/gi)]
+    .map((match) => attributes(match[0]))
+    .filter((meta) =>
+      [meta.get("property"), meta.get("name")].some((value) => {
+        const normalized = (value || "").toLowerCase();
+        return normalized.startsWith("og:") || normalized.startsWith("twitter:");
+      }),
+    );
+}
+
+function nodeTypes(node) {
+  return Array.isArray(node["@type"]) ? node["@type"] : [node["@type"]];
 }
 
 function robotsDirectives(html) {
@@ -164,6 +233,31 @@ test("the generated 404 page is noindex and has no canonical URL", () => {
     0,
     `Expected ${ERROR_PAGE_PATH} not to expose a canonical URL.`,
   );
+  assert.equal(
+    socialMetadata(html).length,
+    0,
+    `Expected ${ERROR_PAGE_PATH} not to expose social-preview metadata.`,
+  );
+});
+
+test("every generated page explicitly links the published favicon", () => {
+  const favicon = statSync(join(BUILD_ROOT, "favicon.ico"));
+  assert.ok(favicon.isFile(), "Expected Hugo to publish favicon.ico as a file.");
+  assert.ok(favicon.size > 0, "Expected the published favicon to be nonempty.");
+
+  pages.forEach((html, relativePath) => {
+    const links = iconLinks(html);
+    assert.equal(links.length, 1, `Expected one favicon link in ${relativePath}.`);
+    const pageURL =
+      relativePath === ERROR_PAGE_PATH
+        ? new URL("/404.html", BASE_URL).href
+        : generatedURL(relativePath);
+    assert.equal(
+      new URL(links[0].get("href"), pageURL).href,
+      new URL("/favicon.ico", BASE_URL).href,
+      `Expected ${relativePath} to discover the root favicon.`,
+    );
+  });
 });
 
 test("home and the main sections expose distinct, descriptive document titles", () => {
@@ -341,6 +435,93 @@ test("paginator depths identify their page number in the document title", () => 
     documentTitle(page("homilies/page/2/index.html")),
     "Catholic Homilies, Page 2 | Fr. Adam Royal",
   );
+});
+
+test("social metadata reuses each page's resolved title, description, and canonical URL", () => {
+  pages.forEach((html, relativePath) => {
+    if (relativePath === ERROR_PAGE_PATH) {
+      return;
+    }
+
+    const canonical = canonicalLinks(html);
+    assert.equal(canonical.length, 1, `Expected one canonical link in ${relativePath}.`);
+    const title = decodeHTML(documentTitle(html));
+    const description = decodeHTML(metaDescription(html));
+    const document = structuredData(html);
+    const isArticle = document["@graph"].some((node) =>
+      nodeTypes(node).includes("BlogPosting"),
+    );
+
+    assert.equal(singleMetaValue(html, "property", "og:title", relativePath), title);
+    assert.equal(
+      singleMetaValue(html, "property", "og:description", relativePath),
+      description,
+    );
+    assert.equal(
+      singleMetaValue(html, "property", "og:url", relativePath),
+      canonical[0].get("href"),
+    );
+    assert.equal(
+      singleMetaValue(html, "property", "og:type", relativePath),
+      isArticle ? "article" : "website",
+    );
+    assert.equal(
+      singleMetaValue(html, "property", "og:site_name", relativePath),
+      "Homilies & Thoughts",
+    );
+    assert.equal(singleMetaValue(html, "name", "twitter:card", relativePath), "summary");
+    assert.equal(singleMetaValue(html, "name", "twitter:title", relativePath), title);
+    assert.equal(
+      singleMetaValue(html, "name", "twitter:description", relativePath),
+      description,
+    );
+  });
+});
+
+test("social titles preserve literal punctuation without double escaping", () => {
+  const relativePath =
+    "reflections/2024/night_of_recollection_prayer_work_penitence/index.html";
+  const html = page(relativePath);
+  const expectedTitle =
+    "Night of Recollection - Prayer, Work, & Penitence (2024) | Fr. Adam Royal";
+
+  assert.equal(decodeHTML(documentTitle(html)), expectedTitle);
+  assert.equal(singleMetaValue(html, "property", "og:title", relativePath), expectedTitle);
+  assert.equal(singleMetaValue(html, "name", "twitter:title", relativePath), expectedTitle);
+  assert.equal(html.includes("&amp;amp;"), false);
+});
+
+test("only explicitly illustrated content exposes social-preview images", () => {
+  const illustratedPath = "reflections/2025/two_paintings/index.html";
+  const illustratedHTML = page(illustratedPath);
+  const expectedImages = [
+    "https://fradamroyal.com/reflections/2025/two_paintings/painting_1.jpeg",
+    "https://fradamroyal.com/reflections/2025/two_paintings/painting_2.png",
+  ];
+  assert.deepEqual(metaValues(illustratedHTML, "property", "og:image"), expectedImages);
+  assert.deepEqual(metaValues(illustratedHTML, "name", "twitter:image"), [expectedImages[0]]);
+
+  const illustratedArticle = structuredData(illustratedHTML)["@graph"].find((node) =>
+    nodeTypes(node).includes("BlogPosting"),
+  );
+  assert.ok(illustratedArticle, `Expected a BlogPosting in ${illustratedPath}.`);
+  assert.deepEqual(illustratedArticle.image, expectedImages);
+
+  pages.forEach((html, relativePath) => {
+    if (relativePath === ERROR_PAGE_PATH || relativePath === illustratedPath) {
+      return;
+    }
+    assert.deepEqual(
+      metaValues(html, "property", "og:image"),
+      [],
+      `Expected no Open Graph image fallback in ${relativePath}.`,
+    );
+    assert.deepEqual(
+      metaValues(html, "name", "twitter:image"),
+      [],
+      `Expected no Twitter image fallback in ${relativePath}.`,
+    );
+  });
 });
 
 test("every generated indexable page has a unique document title", () => {

@@ -1,5 +1,6 @@
 <meta charset="utf-8" />
-<title>{{ partial "seo-title.html" . }}</title>
+{{- $documentTitle := partial "seo-title.html" . -}}
+<title>{{ $documentTitle }}</title>
 {{- $description := partial "structured-data/description.html" . -}}
 {{- with $description }}
   <meta name="description" content="{{ . }}" />
@@ -10,11 +11,19 @@
 {{- end }}
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="{{ "favicon.ico" | relURL }}" />
 {{- if eq .Kind "404" }}
 <meta name="robots" content="noindex" />
 {{- else }}
 {{- $canonicalURL := partial "canonical-url.html" . -}}
 <link rel="canonical" href="{{ $canonicalURL }}" />
+{{ partial "social-metadata.html" (dict
+    "page" .
+    "title" $documentTitle
+    "description" $description
+    "canonicalURL" $canonicalURL
+    "images" (partial "structured-data/images.html" .)
+) }}
 {{ range .AlternativeOutputFormats -}}
     {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
 {{ end -}}

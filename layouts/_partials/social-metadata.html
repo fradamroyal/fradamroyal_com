@@ -1,0 +1,18 @@
+{{/* Keep social metadata aligned with the site's canonical SEO resolvers. */}}
+{{- $page := .page -}}
+{{- $images := .images -}}
+{{- $isArticle := and $page.IsPage (in (slice "homilies" "reflections") $page.Section) -}}
+<meta property="og:title" content="{{ .title }}" />
+<meta property="og:type" content="{{ cond $isArticle "article" "website" }}" />
+<meta property="og:url" content="{{ .canonicalURL }}" />
+<meta property="og:description" content="{{ .description }}" />
+<meta property="og:site_name" content="{{ $page.Site.Title }}" />
+{{- range $images }}
+<meta property="og:image" content="{{ . }}" />
+{{- end }}
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="{{ .title }}" />
+<meta name="twitter:description" content="{{ .description }}" />
+{{- with $images }}
+<meta name="twitter:image" content="{{ index . 0 }}" />
+{{- end }}
