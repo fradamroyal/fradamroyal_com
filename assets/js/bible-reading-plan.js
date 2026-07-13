@@ -19,7 +19,6 @@
   // their weights comparable with the NT word-count metadata without shipping text.
   const OLD_TESTAMENT_WORDS_PER_VERSE = 25;
   const PREFERRED_PARTITION_BEAM_WIDTH = 100;
-  const PREFERRED_PARTITION_FALLBACK_BEAM_WIDTH = 400;
   const PREFERRED_PARTITION_CANDIDATE_RADIUS = 4;
 
   const PLAN_ORDERS = Object.freeze({
@@ -192,33 +191,6 @@
     );
   }
 
-  const verseTrackTotals = {
-    "old-testament": 0,
-    gospel: 0,
-    "new-testament": 0,
-  };
-
-  BOOKS.forEach((book, bookIndex) => {
-    if (!VERSE_COUNTS[bookIndex] || VERSE_COUNTS[bookIndex].length !== BOOK_LABELS[bookIndex].length) {
-      throw new Error(`Verse-count data does not match ${book.name}.`);
-    }
-
-    const total = VERSE_COUNTS[bookIndex].reduce(
-      (sum, maximum, chapterIndex) =>
-        sum + maximum - omittedVersesFor(bookIndex, BOOK_LABELS[bookIndex][chapterIndex]).length,
-      0,
-    );
-    verseTrackTotals[trackForBookIndex(bookIndex).id] += total;
-  });
-
-  const VERSE_TRACK_TOTALS = Object.freeze(verseTrackTotals);
-  const PREFERRED_MAX_DAYS = Math.min(
-    MAX_DAYS,
-    VERSE_TRACK_TOTALS.gospel,
-    VERSE_TRACK_TOTALS["new-testament"] - VERSE_TRACK_TOTALS.gospel,
-    VERSE_TRACK_TOTALS["old-testament"] - VERSE_TRACK_TOTALS["new-testament"],
-  );
-
   let verseTracksCache = null;
   let senseTracksCache = null;
 
@@ -297,6 +269,13 @@
     const tracks = Object.fromEntries(PREFERRED_TRACKS.map((track) => [track.id, []]));
 
     BOOKS.forEach((book, bookIndex) => {
+      if (
+        !VERSE_COUNTS[bookIndex] ||
+        VERSE_COUNTS[bookIndex].length !== BOOK_LABELS[bookIndex].length
+      ) {
+        throw new Error(`Verse-count data does not match ${book.name}.`);
+      }
+
       const track = trackForBookIndex(bookIndex);
 
       BOOK_LABELS[bookIndex].forEach((label, chapterIndex) => {
@@ -726,20 +705,15 @@
     if (
       !Number.isInteger(totalDays) ||
       totalDays < 1 ||
-      totalDays > PREFERRED_MAX_DAYS
+      totalDays > MAX_DAYS
     ) {
       throw new RangeError(
-        `The preferred-order plan must contain between 1 and ${PREFERRED_MAX_DAYS} days.`,
+        `The preferred-order plan must contain between 1 and ${MAX_DAYS} days.`,
       );
     }
 
     const tracks = getVerseTracks();
-    const pairedPartition =
-      pairedGospelAndNewTestamentPartition(totalDays) ||
-      pairedGospelAndNewTestamentPartition(
-        totalDays,
-        PREFERRED_PARTITION_FALLBACK_BEAM_WIDTH,
-      );
+    const pairedPartition = pairedGospelAndNewTestamentPartition(totalDays);
     if (!pairedPartition) {
       throw new RangeError(
         `No sense-unit reading plan is available for ${totalDays} days.`,
@@ -783,13 +757,10 @@
   }
 
   function maxDaysForOrder(order) {
-    if (order === PLAN_ORDERS.CANONICAL) {
-      return MAX_DAYS;
+    if (order !== PLAN_ORDERS.CANONICAL && order !== PLAN_ORDERS.PREFERRED) {
+      throw new RangeError(`Unknown reading order: ${String(order)}.`);
     }
-    if (order === PLAN_ORDERS.PREFERRED) {
-      return PREFERRED_MAX_DAYS;
-    }
-    throw new RangeError(`Unknown reading order: ${String(order)}.`);
+    return MAX_DAYS;
   }
 
   function formatNumericRange(book, units) {
@@ -1017,8 +988,6 @@
     PLAN_ORDERS,
     PLAN_ORDER_LABELS,
     PREFERRED_TRACKS,
-    VERSE_TRACK_TOTALS,
-    PREFERRED_MAX_DAYS,
     PREVIEW_DAY_COUNT,
     parseCivilDate,
     formatCivilDate,
@@ -1051,8 +1020,6 @@
   const startInput = document.querySelector("#reading-plan-start-date");
   const endInput = document.querySelector("#reading-plan-end-date");
   const daysInput = document.querySelector("#reading-plan-total-days");
-  const daysHelp = document.querySelector("#reading-plan-days-help");
-  const endHelp = document.querySelector("#reading-plan-end-help");
   const endPanel = document.querySelector("#reading-plan-end-panel");
   const daysPanel = document.querySelector("#reading-plan-days-panel");
   const errorBox = document.querySelector("#reading-plan-form-error");
@@ -1099,10 +1066,6 @@
     return orderInputs.find((input) => input.checked)?.value || PLAN_ORDERS.CANONICAL;
   }
 
-  function currentMaxDays() {
-    return maxDaysForOrder(selectedOrder());
-  }
-
   function clearValidation() {
     errorBox.hidden = true;
     errorBox.textContent = "";
@@ -1127,15 +1090,6 @@
     status.textContent = "";
   }
 
-  function updateOrderLimits(preserveValues = false) {
-    const maximumDays = currentMaxDays();
-    const formattedMaximum = maximumDays.toLocaleString();
-    daysInput.max = String(maximumDays);
-    daysHelp.textContent = `Choose from 1 to ${formattedMaximum} days for this reading order.`;
-    endHelp.textContent = `The ending date counts as a reading day. Plans can span up to ${formattedMaximum} days for this reading order.`;
-    updateEndDateBounds(!preserveValues);
-  }
-
   function updateEndDateBounds(resetInvalidValue = true) {
     if (parseCivilDate(startInput.value) === null) {
       endInput.removeAttribute("min");
@@ -1143,8 +1097,7 @@
       return;
     }
 
-    const maximumDays = currentMaxDays();
-    const maximumEndDate = addCivilDays(startInput.value, maximumDays - 1);
+    const maximumEndDate = addCivilDays(startInput.value, MAX_DAYS - 1);
     endInput.min = startInput.value;
     endInput.max = maximumEndDate;
 
@@ -1154,7 +1107,7 @@
         endInput.value < endInput.min ||
         endInput.value > endInput.max)
     ) {
-      endInput.value = addCivilDays(startInput.value, Math.min(364, maximumDays - 1));
+      endInput.value = addCivilDays(startInput.value, 364);
     }
   }
 
@@ -1250,7 +1203,7 @@
   }
 
   startInput.value = todayAsCivilDate();
-  updateOrderLimits();
+  updateEndDateBounds();
   synchronizeMode();
   form.hidden = false;
 
@@ -1271,8 +1224,7 @@
     input.addEventListener("change", () => {
       clearValidation();
       clearResults();
-      updateOrderLimits(true);
-      status.textContent = `${PLAN_ORDER_LABELS[selectedOrder()]} selected. Choose up to ${currentMaxDays().toLocaleString()} days.`;
+      status.textContent = `${PLAN_ORDER_LABELS[selectedOrder()]} selected. Choose up to ${MAX_DAYS.toLocaleString()} days.`;
     }),
   );
   downloadButtons.forEach((button) =>

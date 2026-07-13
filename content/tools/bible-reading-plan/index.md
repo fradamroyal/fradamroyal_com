@@ -17,8 +17,7 @@ New American Bible Revised Edition. Esther’s Greek additions appear as A–F w
 their Vulgate numbering in parentheses; Daniel includes the longer chapter 3
 and chapters 13–14.
 
-Old Testament portions stay at chapter boundaries and are estimated from verse
-counts. No Bible text is provided in the plan. Everything is generated on your
+No Bible text is provided in the plan. Everything is generated on your
 device and no dates or plan data are sent anywhere. After generation, the page
 shows the first few days so you can verify the schedule. The complete plan can
 be downloaded as a CSV file, a Markdown checklist, or a PDF checklist; those files are also created entirely in your browser.

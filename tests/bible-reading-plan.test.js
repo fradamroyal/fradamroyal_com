@@ -10,8 +10,6 @@ const {
   MAX_DAYS,
   PLAN_ORDERS,
   PREFERRED_TRACKS,
-  VERSE_TRACK_TOTALS,
-  PREFERRED_MAX_DAYS,
   PREVIEW_DAY_COUNT,
   parseCivilDate,
   formatCivilDate,
@@ -286,27 +284,17 @@ test("citation formatting keeps Esther additions as separate sense units", () =>
 });
 
 test("both reading orders enforce the shared 366-day maximum", () => {
-  assert.deepEqual(VERSE_TRACK_TOTALS, {
-    "old-testament": 27_606,
-    gospel: 3_768,
-    "new-testament": 4_174,
-  });
-  assert.equal(
-    VERSE_TRACK_TOTALS["new-testament"] - VERSE_TRACK_TOTALS.gospel,
-    406,
-  );
   assert.equal(MAX_DAYS, 366);
-  assert.equal(PREFERRED_MAX_DAYS, MAX_DAYS);
 
   assert.equal(maxDaysForOrder(PLAN_ORDERS.CANONICAL), MAX_DAYS);
-  assert.equal(maxDaysForOrder(PLAN_ORDERS.PREFERRED), PREFERRED_MAX_DAYS);
+  assert.equal(maxDaysForOrder(PLAN_ORDERS.PREFERRED), MAX_DAYS);
   assert.throws(() => maxDaysForOrder("unknown"), RangeError);
 
-  for (const invalidDuration of [0, -1, PREFERRED_MAX_DAYS + 1, 1.5, "365", null]) {
+  for (const invalidDuration of [0, -1, MAX_DAYS + 1, 1.5, "365", null]) {
     assert.throws(() => partitionPreferred(invalidDuration), RangeError);
   }
   assert.throws(
-    () => buildPlan("2026-07-11", PREFERRED_MAX_DAYS + 1, PLAN_ORDERS.PREFERRED),
+    () => buildPlan("2026-07-11", MAX_DAYS + 1, PLAN_ORDERS.PREFERRED),
     RangeError,
   );
 });
@@ -315,9 +303,9 @@ test("preferred-order sense tracks have complete reading-length metadata", () =>
   const sourceTracks = getVerseTracks();
   const senseTracks = getSenseTracks();
   const expected = {
-    "old-testament": { atoms: 1_094, totalWords: 690_150 },
-    gospel: { atoms: 1_344, totalWords: 80_080 },
-    "new-testament": { atoms: 1_030, totalWords: 94_650 },
+    "old-testament": { verses: 27_606, atoms: 1_094, totalWords: 690_150 },
+    gospel: { verses: 3_768, atoms: 1_344, totalWords: 80_080 },
+    "new-testament": { verses: 4_174, atoms: 1_030, totalWords: 94_650 },
   };
 
   assert.deepEqual(Object.keys(senseTracks), PREFERRED_TRACKS.map((track) => track.id));
@@ -325,6 +313,7 @@ test("preferred-order sense tracks have complete reading-length metadata", () =>
   PREFERRED_TRACKS.forEach(({ id }) => {
     const senseTrack = senseTracks[id];
     assert.strictEqual(senseTrack.units, sourceTracks[id]);
+    assert.equal(sourceTracks[id].length, expected[id].verses);
     assert.equal(senseTrack.boundaries[0], 0);
     assert.equal(senseTrack.boundaries.at(-1), sourceTracks[id].length);
     assert.equal(senseTrack.boundaries.length - 1, expected[id].atoms);
@@ -373,7 +362,7 @@ test("every preferred-order duration covers each track exactly at sense-unit bou
   const sourceTracks = getVerseTracks();
   const expectedTrackIds = PREFERRED_TRACKS.map((track) => track.id);
 
-  for (let totalDays = 1; totalDays <= PREFERRED_MAX_DAYS; totalDays += 1) {
+  for (let totalDays = 1; totalDays <= MAX_DAYS; totalDays += 1) {
     const partition = partitionPreferred(totalDays);
     const cursors = Object.fromEntries(expectedTrackIds.map((track) => [track, 0]));
 
@@ -438,7 +427,7 @@ test("every preferred-order duration covers each track exactly at sense-unit bou
 });
 
 test("representative preferred plans stay approximately balanced within each track", () => {
-  for (const totalDays of [30, 100, 365, PREFERRED_MAX_DAYS]) {
+  for (const totalDays of [30, 100, 365, MAX_DAYS]) {
     const partition = partitionPreferred(totalDays);
 
     for (const { id } of PREFERRED_TRACKS) {
@@ -669,8 +658,8 @@ test("a 365-day preferred plan has three ordered readings and the correct endpoi
   assert.equal(lastReadings.gospel.units.at(-1).id, "49:21:25");
   assert.equal(lastReadings["new-testament"].units.at(-1).id, "72:22:21");
 
-  const expectedVerseTotal = Object.values(VERSE_TRACK_TOTALS).reduce(
-    (sum, count) => sum + count,
+  const expectedVerseTotal = Object.values(getVerseTracks()).reduce(
+    (sum, units) => sum + units.length,
     0,
   );
   assert.equal(plan.flatMap((entry) => entry.units).length, expectedVerseTotal);
