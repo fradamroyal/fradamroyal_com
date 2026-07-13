@@ -9,14 +9,6 @@
       {{ partial "homily-readings.html" . }}
       {{ partial "content-with-toc.html" . }}
 
-      {{ if .Params.tags }}
-        <nav class="blog-tags" aria-label="Tags">
-          {{ range .Params.tags }}
-          <a href="{{ (urlize (printf "tags/%s/" .)) | absLangURL }}">{{ . }}</a>&nbsp;
-          {{ end }}
-        </nav>
-      {{ end }}
-
       {{ partial "related-homilies.html" . }}
       {{ partial "article-navigation.html" . }}
     </article>

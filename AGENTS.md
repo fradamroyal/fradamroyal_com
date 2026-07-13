@@ -26,6 +26,7 @@
 - Run `hugo --templateMetrics --templateMetricsHints` to spot slow-rendering templates.
 - Run `node --test tests/bible-reading-plan.test.js tests/bible-reading-plan-exports.test.js tests/structured-data.test.js tests/canonical-links.test.js` for the browser-side Bible planner and generated metadata.
 - Run `node --test tests/navigation.test.js` for year archives, breadcrumbs, adjacent-article navigation, crawl depth, and generated internal links.
+- Run `node --test tests/content-model.test.js` for the controlled liturgical metadata contract and archetype prompts.
 - Validate the generated `public/` (or deploy preview) for layout and typography regressions.
 
 ## Commit & Pull Request Guidelines
@@ -34,7 +35,7 @@
 - Pull requests should summarize intent, note affected sections, and attach before/after screenshots for visual tweaks; link related issues when available.
 
 ## Content Contribution Tips
-- Use taxonomy arrays (`categories = []`, `tags = []`, `series = []`) to keep navigation consistent and discoverable.
+- Follow `CONTENT-MODEL.md` for `liturgical_season` and `liturgical_occasion`; keep generic `categories`, `tags`, and `series` unused while taxonomy output is disabled.
 - Use `seo_title` only when a document title should differ from the visible `title`; provide the unbranded page-specific text and let the centralized resolver append the site name.
 - Give every new page a concise, accurate `description` for search results; use `summary` separately when list or card copy should differ.
 - Prefer SBL book abbreviations for Scripture references, including homily `readings` metadata; use the canonical list in `SBL_BIBLE_ABBREVIATIONS.md`.

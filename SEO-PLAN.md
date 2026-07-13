@@ -52,14 +52,17 @@ Baseline recorded July 12, 2026:
 
 ## Execution queue
 
-### NOW: Define the controlled content model in Phase 3.2
+### NOW: Pilot the controlled Phase 3.2 metadata on recurring homilies
 
 Phases 1.3, 1.4, 2.1, the first-priority Phase 2.2 description convention,
 Phase 2.3, and Phase 2.4 are implemented and verified locally. Deployment, live
 smoke-testing, and live metadata validation for them remain pending and were
-intentionally skipped. The Phase 3.1 Scripture backfill is also complete.
-Continue by defining only the Phase 3.2 metadata fields that support genuine
-reader tasks before creating any new content hubs.
+intentionally skipped. The Phase 3.1 Scripture backfill is complete, and the
+Phase 3.2 model contract is now defined without generating hubs. Continue with
+a source-verified pilot on the Fourteenth and Fifteenth Sundays in Ordinary
+Time across 2024–2026, the only recurring occasion families that currently meet
+the three-year breadth gate. Add only the controlled season and occasion fields
+and verify that generated presentation remains unchanged.
 
 ## Phase 0 — Correct indexing signals and deploy the intended site
 
@@ -324,9 +327,9 @@ validator runs remain pending and were intentionally skipped.
 support useful discovery by feast, season, year, and Scripture without creating
 thin pages.
 
-**Status:** Phase 3.1 is complete for the existing homily corpus. Phase 3.2 is
-next; no content hubs should be generated before the controlled fields and
-minimum useful-content thresholds are defined.
+**Status:** Phase 3.1 is complete for the existing homily corpus. The Phase 3.2
+model contract, archetype prompts, and hub thresholds are defined; a small
+metadata pilot, broader backfill, and any hub implementation remain pending.
 
 ### 3.1 Backfill Scripture metadata
 
@@ -342,16 +345,32 @@ Completed for the existing corpus: all 130 homilies have nonblank
 
 ### 3.2 Introduce a controlled content model
 
-Consider only fields that support a real reader task:
+The model-definition slice is implemented in `CONTENT-MODEL.md` and the
+machine-readable `data/content_model.json`. New homily and reflection
+scaffolds expose the two authored fields, and focused tests protect the
+contract. No existing article has been bulk-backfilled and no hub is generated.
 
-- Liturgical year or cycle.
-- Liturgical season.
-- Feast or occasion.
-- Scripture books or passages.
-- A small number of durable theological or pastoral themes.
+Authored fields are deliberately limited to:
 
-Create a hub only when it has sufficient content and a useful introduction.
-Avoid uncontrolled tag growth and one-item taxonomy pages.
+- `liturgical_season`: required for new homilies and optional for reflections,
+  using six controlled season identifiers.
+- `liturgical_occasion`: required for new homilies and optional for reflections,
+  using a centrally registered canonical identifier rather than title text.
+
+Calendar year remains derived from `date`; Scripture books and passages remain
+derived from non-responsorial `[[readings]]` citations. A scalar lectionary
+cycle is excluded because Sunday, weekday, fixed-proper, and multi-reading-set
+pages cannot share one unambiguous value. Themes remain deferred until a small
+editorial vocabulary and reader-demand evidence exist. Generic categories,
+tags, and series remain unused with taxonomy output disabled.
+
+A hub is never automatic and always requires a unique editorial title,
+description, useful introduction, section navigation, and generated-output
+coverage. Eligibility floors are six articles across two years for a season,
+three across three years for an occasion, twelve across three years for a
+Scripture book, and four across three years for an exact Scripture passage.
+Meeting a floor does not require a hub when an existing year archive or
+exact-Scripture related-content path already serves the reader better.
 
 ### 3.3 Improve priority content presentation
 
@@ -449,6 +468,7 @@ Run the repository's required checks after relevant implementation slices:
 ```sh
 hugo --gc --minify --destination /tmp/fradamroyal-seo-build
 hugo --templateMetrics --templateMetricsHints --destination /tmp/fradamroyal-seo-metrics
+node --test tests/content-model.test.js
 node --test tests/bible-reading-plan.test.js tests/bible-reading-plan-exports.test.js tests/structured-data.test.js tests/canonical-links.test.js tests/navigation.test.js
 git diff --check
 ```

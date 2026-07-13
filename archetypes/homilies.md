@@ -4,6 +4,10 @@ description = '' # Required before publication; use summary separately for card 
 date = {{ .Date }}
 draft = true
 
+# Required before publication. Use only registered values from CONTENT-MODEL.md.
+liturgical_season = ''
+liturgical_occasion = ''
+
 # Add, remove, or repeat reading entries as the liturgy requires.
 # Entries without a citation are not displayed.
 [[readings]]

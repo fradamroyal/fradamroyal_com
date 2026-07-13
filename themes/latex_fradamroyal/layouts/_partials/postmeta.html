@@ -2,10 +2,4 @@
   {{- $pubdate := .PublishDate.Format ( .Site.Params.dateformat | default "Jan 2, 2006") }}
   <i class="fa fa-calendar-alt" aria-hidden="true"></i>
   <time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ $pubdate }}</time>
-  {{ if .Params.categories }}
-    <br><i class="fa fa-folder-open" aria-hidden="true"></i>
-    {{ range .Params.categories }}
-      <a href="{{ $.Site.BaseURL }}/categories/{{ . | urlize }}/">{{ . }}</a>&nbsp;
-    {{ end }}
-  {{ end }}
 </span>

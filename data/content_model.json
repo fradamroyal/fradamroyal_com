@@ -1,0 +1,92 @@
+{
+  "version": 1,
+  "fields": {
+    "liturgical_season": {
+      "type": "string",
+      "required_for": [
+        "homilies"
+      ],
+      "optional_for": [
+        "reflections"
+      ],
+      "registry": "liturgical_seasons"
+    },
+    "liturgical_occasion": {
+      "type": "string",
+      "required_for": [
+        "homilies"
+      ],
+      "optional_for": [
+        "reflections"
+      ],
+      "registry": "liturgical_occasions"
+    }
+  },
+  "liturgical_seasons": {
+    "advent": {
+      "label": "Advent"
+    },
+    "christmas": {
+      "label": "Christmas"
+    },
+    "lent": {
+      "label": "Lent"
+    },
+    "paschal-triduum": {
+      "label": "Sacred Paschal Triduum"
+    },
+    "easter": {
+      "label": "Easter"
+    },
+    "ordinary-time": {
+      "label": "Ordinary Time"
+    }
+  },
+  "liturgical_occasions": {
+    "fourteenth-sunday-in-ordinary-time": {
+      "label": "Fourteenth Sunday in Ordinary Time"
+    },
+    "fifteenth-sunday-in-ordinary-time": {
+      "label": "Fifteenth Sunday in Ordinary Time"
+    }
+  },
+  "derived_values": {
+    "calendar_year": {
+      "source": "date"
+    },
+    "scripture_passages": {
+      "source": "readings[].citation"
+    },
+    "scripture_books": {
+      "source": "readings[].citation"
+    }
+  },
+  "hub_policy": {
+    "common": {
+      "requires_manual_enablement": true,
+      "requires_unique_title": true,
+      "requires_description": true,
+      "requires_introduction": true,
+      "requires_section_navigation": true,
+      "automatic_generation": false
+    },
+    "liturgical_season": {
+      "minimum_published_articles": 6,
+      "minimum_distinct_years": 2
+    },
+    "liturgical_occasion": {
+      "minimum_published_articles": 3,
+      "minimum_distinct_years": 3
+    },
+    "scripture_book": {
+      "minimum_published_articles": 12,
+      "minimum_distinct_years": 3,
+      "source": "non-responsorial readings[].citation"
+    },
+    "scripture_passage": {
+      "minimum_published_articles": 4,
+      "minimum_distinct_years": 3,
+      "source": "exact normalized non-responsorial readings[].citation"
+    }
+  }
+}
