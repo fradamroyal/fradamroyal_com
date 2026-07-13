@@ -1,0 +1,5 @@
+{{- $url := .Permalink -}}
+{{- with .Store.Get "listPaginator" -}}
+    {{- $url = .URL | absLangURL -}}
+{{- end -}}
+{{- return $url -}}

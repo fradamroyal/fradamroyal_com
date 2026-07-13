@@ -24,7 +24,7 @@
 ## Testing Guidelines
 - Watch `hugo server` for broken links, missing resources, or template warnings.
 - Run `hugo --templateMetrics --templateMetricsHints` to spot slow-rendering templates.
-- Run `node --test tests/bible-reading-plan.test.js tests/bible-reading-plan-exports.test.js tests/structured-data.test.js` for the browser-side Bible planner and generated JSON-LD.
+- Run `node --test tests/bible-reading-plan.test.js tests/bible-reading-plan-exports.test.js tests/structured-data.test.js tests/canonical-links.test.js` for the browser-side Bible planner and generated metadata.
 - Validate the generated `public/` (or deploy preview) for layout and typography regressions.
 
 ## Commit & Pull Request Guidelines

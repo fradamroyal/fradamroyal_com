@@ -4,12 +4,13 @@
 */}}
 {{- $page := . -}}
 {{- $homeURL := $page.Site.Home.Permalink -}}
+{{- $pageURL := partial "canonical-url.html" $page -}}
 {{- $websiteID := printf "%s#website" $homeURL -}}
 {{- $personID := printf "%s#person" $homeURL -}}
-{{- $pageID := printf "%s#webpage" $page.Permalink -}}
-{{- $articleID := printf "%s#article" $page.Permalink -}}
-{{- $breadcrumbID := printf "%s#breadcrumb" $page.Permalink -}}
-{{- $applicationID := printf "%s#application" $page.Permalink -}}
+{{- $pageID := printf "%s#webpage" $pageURL -}}
+{{- $articleID := printf "%s#article" $pageURL -}}
+{{- $breadcrumbID := printf "%s#breadcrumb" $pageURL -}}
+{{- $applicationID := printf "%s#application" $pageURL -}}
 {{- $language := default $page.Site.Language.Lang $page.Site.Language.Locale -}}
 {{- $licenseURL := default "https://creativecommons.org/licenses/by-sa/4.0/" $page.Site.Params.license.url -}}
 
@@ -104,7 +105,7 @@
 {{- $webpage := dict
     "@type" $pageType
     "@id" $pageID
-    "url" $page.Permalink
+    "url" $pageURL
     "name" $page.Title
     "isPartOf" (dict "@id" $websiteID)
 -}}
@@ -141,7 +142,7 @@
         "@type" "ListItem"
         "position" (add (len $breadcrumbItems) 1)
         "name" $page.Title
-        "item" $page.Permalink
+        "item" $pageURL
     ) -}}
     {{- $graph = $graph | append (dict
         "@type" "BreadcrumbList"
@@ -155,7 +156,7 @@
     {{- $article := dict
         "@type" "BlogPosting"
         "@id" $articleID
-        "url" $page.Permalink
+        "url" $pageURL
         "mainEntityOfPage" (dict "@id" $pageID)
         "headline" $page.Title
         "author" (dict "@id" $personID)
@@ -230,7 +231,7 @@
     {{- $application := dict
         "@type" "WebApplication"
         "@id" $applicationID
-        "url" $page.Permalink
+        "url" $pageURL
         "name" $page.Title
         "applicationCategory" "EducationalApplication"
         "operatingSystem" "Any"

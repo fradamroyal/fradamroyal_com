@@ -1,23 +1,20 @@
+{{ define "prepare-head" }}
+    {{- $allPages := slice -}}
+    {{- if .IsHome -}}
+        {{- range .Site.MainSections -}}
+            {{- $sectionPages := where $.Site.RegularPages "Section" . -}}
+            {{- $allPages = $allPages | append $sectionPages -}}
+        {{- end -}}
+    {{- else -}}
+        {{- $allPages = .Pages -}}
+    {{- end -}}
+    {{- .Store.Set "listPaginator" (.Paginate $allPages.ByDate.Reverse) -}}
+{{ end }}
+
 {{ define "main" }}
 <div class="container">
     <div class="posts-list">
-      {{ $allPages := slice }}
-      {{ if .IsHome }}
-        {{/* Grab pages from mainSections param */}}
-        {{ $mainSections := .Site.MainSections }}
-          {{/* Loop through each section provided in mainSections */}}
-        {{ range $mainSections }}
-          {{/* Get the pages for each section */}}
-          {{ $sectionPages := (where $.Site.RegularPages "Section" .) }}
-          {{/* Append the pages from this section to the allPages slice */}}
-          {{ $allPages = $allPages | append $sectionPages }}
-        {{ end }}
-      {{ else }}
-        {{ $allPages = .Pages }}
-      {{ end }}
-
-      {{ $pag := .Paginate $allPages.ByDate.Reverse }}
-
+      {{ $pag := .Store.Get "listPaginator" }}
       {{ range $pag.Pages }}
         {{ partial "preview.html" . }}
       {{ end }}

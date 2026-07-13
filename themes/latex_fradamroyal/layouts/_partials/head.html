@@ -14,9 +14,8 @@
 {{- end }}
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-{{ with .OutputFormats.Canonical -}}
-    {{ printf `<link rel="%s" type="%s" href="%s" />` .Rel .MediaType.Type .Permalink | safeHTML }}
-{{ end -}}
+{{- $canonicalURL := partial "canonical-url.html" . -}}
+<link rel="canonical" href="{{ $canonicalURL }}" />
 {{ range .AlternativeOutputFormats -}}
     {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
 {{ end -}}
