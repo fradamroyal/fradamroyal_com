@@ -8,7 +8,7 @@ footnoteReturnLinkContents = "^"
 enableRobotsTXT = true
 
 [params]
-  mainSections = ['reflections', 'homilies', 'tools']
+  mainSections = ['reflections', 'homilies']
   [params.author]
     name = "Rev. Adam Royal"
     abstract = """
