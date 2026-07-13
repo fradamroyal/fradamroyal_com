@@ -3,13 +3,9 @@ title = 'Fifteenth Sunday in Ordinary Time'
 date = 2026-07-12
 draft = false
 
-# Required before publication. Use only registered values from CONTENT-MODEL.md.
 liturgical_season = 'ordinary-time'
 liturgical_occasion = 'fifteenth-sunday-in-ordinary-time'
 
-
-# Add, remove, or repeat reading entries as the liturgy requires.
-# Entries without a citation are not displayed.
 [[readings]]
 label = 'First Reading'
 citation = 'Isa 55:10–11'

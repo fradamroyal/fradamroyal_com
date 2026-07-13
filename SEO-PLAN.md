@@ -52,17 +52,18 @@ Baseline recorded July 12, 2026:
 
 ## Execution queue
 
-### NOW: Pilot the controlled Phase 3.2 metadata on recurring homilies
+### NOW: Backfill the remaining 2026 Ordinary Time homily metadata
 
 Phases 1.3, 1.4, 2.1, the first-priority Phase 2.2 description convention,
 Phase 2.3, and Phase 2.4 are implemented and verified locally. Deployment, live
 smoke-testing, and live metadata validation for them remain pending and were
 intentionally skipped. The Phase 3.1 Scripture backfill is complete, and the
-Phase 3.2 model contract is now defined without generating hubs. Continue with
-a source-verified pilot on the Fourteenth and Fifteenth Sundays in Ordinary
-Time across 2024–2026, the only recurring occasion families that currently meet
-the three-year breadth gate. Add only the controlled season and occasion fields
-and verify that generated presentation remains unchanged.
+Phase 3.2 model contract and six-page pilot are complete without generating
+hubs. Continue with the seven remaining 2026 Ordinary Time homilies: the Third,
+Fourth, Fifth, Sixth, Eleventh, Twelfth, and Thirteenth Sundays. Verify each
+date and occasion against an authoritative liturgical source, register only
+the exact controlled occasion identifiers needed, preserve established titles
+and URLs, and prove that the metadata remains presentation-neutral.
 
 ## Phase 0 — Correct indexing signals and deploy the intended site
 
@@ -328,8 +329,9 @@ support useful discovery by feast, season, year, and Scripture without creating
 thin pages.
 
 **Status:** Phase 3.1 is complete for the existing homily corpus. The Phase 3.2
-model contract, archetype prompts, and hub thresholds are defined; a small
-metadata pilot, broader backfill, and any hub implementation remain pending.
+model contract, archetype prompts, hub thresholds, and six-page recurring-
+occasion pilot are complete; broader backfill and any hub implementation remain
+pending.
 
 ### 3.1 Backfill Scripture metadata
 
@@ -348,7 +350,17 @@ Completed for the existing corpus: all 130 homilies have nonblank
 The model-definition slice is implemented in `CONTENT-MODEL.md` and the
 machine-readable `data/content_model.json`. New homily and reflection
 scaffolds expose the two authored fields, and focused tests protect the
-contract. No existing article has been bulk-backfilled and no hub is generated.
+contract. The Fourteenth and Fifteenth Sundays in Ordinary Time across
+2024–2026 now form a source-verified six-page pilot. Each page carries only the
+controlled `ordinary-time` season and its exact occasion identifier; legacy
+display-title spelling and `Per Annum` wording remain deliberately deferred to
+Phase 3.3 so the pilot does not change established presentation or URLs.
+
+Focused generated-output tests verify the exact dates and identifiers, complete
+registry coverage, and three distinct years for each occasion. They also prove
+that all 235 generated files are byte-identical with the pilot metadata removed
+and that no raw metadata, feed content, or automatic hub URL is introduced. No
+hub is generated.
 
 Authored fields are deliberately limited to:
 
