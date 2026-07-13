@@ -2,6 +2,8 @@
 title = 'Second Sunday of Advent'
 date = 2025-12-07
 draft = false
+liturgical_season = 'advent'
+liturgical_occasion = 'second-sunday-of-advent'
 
 [[readings]]
 label = 'First Reading'

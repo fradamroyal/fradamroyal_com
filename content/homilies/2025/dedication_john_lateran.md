@@ -2,6 +2,8 @@
 title = 'Dedication of the Lateran Basilica'
 date = 2025-11-09
 draft = false
+liturgical_season = 'ordinary-time'
+liturgical_occasion = 'dedication-of-the-lateran-basilica'
 
 [[readings]]
 label = 'First Reading'

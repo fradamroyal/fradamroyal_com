@@ -2,6 +2,8 @@
 title = 'Solemnity of the Most Holy Body & Blood of Christ (Corpus Christi)'
 date = 2025-06-22
 draft = false
+liturgical_season = 'ordinary-time'
+liturgical_occasion = 'corpus-christi'
 
 [[readings]]
 label = 'First Reading'

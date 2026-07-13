@@ -2,6 +2,8 @@
 title = 'Sixteenth Sunday Per Annum'
 date = 2024-07-21
 draft = false
+liturgical_season = 'ordinary-time'
+liturgical_occasion = 'sixteenth-sunday-in-ordinary-time'
 
 [[readings]]
 label = 'First Reading'

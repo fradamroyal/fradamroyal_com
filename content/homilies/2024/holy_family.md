@@ -2,6 +2,8 @@
 title = 'Holy Family'
 date = 2024-12-29
 draft = false
+liturgical_season = 'christmas'
+liturgical_occasion = 'holy-family'
 
 [[readings]]
 label = 'First Reading'

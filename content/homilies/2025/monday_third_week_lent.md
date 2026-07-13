@@ -2,6 +2,8 @@
 title = 'Monday of the Third Week of Lent'
 date = 2025-03-24
 draft = false
+liturgical_season = 'lent'
+liturgical_occasion = 'monday-of-the-third-week-of-lent'
 
 [[readings]]
 label = "First Reading"

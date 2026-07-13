@@ -2,6 +2,8 @@
 title = 'Epiphany'
 date = 2026-01-04
 draft = false
+liturgical_season = 'christmas'
+liturgical_occasion = 'epiphany-of-the-lord'
 
 [[readings]]
 label = 'First Reading'

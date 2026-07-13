@@ -2,6 +2,8 @@
 title = 'Transfiguration of the Lord'
 date = 2025-08-06
 draft = false
+liturgical_season = 'ordinary-time'
+liturgical_occasion = 'transfiguration-of-the-lord'
 
 [[readings]]
 label = 'First Reading'

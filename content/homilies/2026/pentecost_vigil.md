@@ -2,6 +2,8 @@
 title = 'Pentecost - Vigil Mass'
 date = 2026-05-23
 draft = false
+liturgical_season = 'easter'
+liturgical_occasion = 'pentecost'
 
 [[readings]]
 label = 'First Reading'

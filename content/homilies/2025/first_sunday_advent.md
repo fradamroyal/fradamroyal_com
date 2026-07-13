@@ -2,6 +2,8 @@
 title = 'First Sunday of Advent'
 date = 2025-11-30
 draft = false
+liturgical_season = 'advent'
+liturgical_occasion = 'first-sunday-of-advent'
 
 [[readings]]
 label = 'First Reading'

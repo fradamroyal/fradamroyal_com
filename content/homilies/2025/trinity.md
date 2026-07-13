@@ -2,6 +2,8 @@
 title = 'Solemnity of the Most Holy Trinity'
 date = 2025-06-15
 draft = false
+liturgical_season = 'ordinary-time'
+liturgical_occasion = 'most-holy-trinity'
 
 [[readings]]
 label = 'First Reading'

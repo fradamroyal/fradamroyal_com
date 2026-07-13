@@ -2,6 +2,8 @@
 title = 'Fourth Sunday of Easter'
 date = 2025-05-11
 draft = false
+liturgical_season = 'easter'
+liturgical_occasion = 'fourth-sunday-of-easter'
 
 [[readings]]
 label = 'First Reading'

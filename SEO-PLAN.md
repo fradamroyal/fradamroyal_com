@@ -52,18 +52,19 @@ Baseline recorded July 12, 2026:
 
 ## Execution queue
 
-### NOW: Backfill the remaining 2026 Ordinary Time homily metadata
+### NOW: Correct high-confidence legacy homily display titles
 
 Phases 1.3, 1.4, 2.1, the first-priority Phase 2.2 description convention,
 Phase 2.3, and Phase 2.4 are implemented and verified locally. Deployment, live
 smoke-testing, and live metadata validation for them remain pending and were
-intentionally skipped. The Phase 3.1 Scripture backfill is complete, and the
-Phase 3.2 model contract and six-page pilot are complete without generating
-hubs. Continue with the seven remaining 2026 Ordinary Time homilies: the Third,
-Fourth, Fifth, Sixth, Eleventh, Twelfth, and Thirteenth Sundays. Verify each
-date and occasion against an authoritative liturgical source, register only
-the exact controlled occasion identifiers needed, preserve established titles
-and URLs, and prove that the metadata remains presentation-neutral.
+intentionally skipped. The Phase 3.1 Scripture backfill and Phase 3.2
+controlled-metadata backfill are complete for all 130 published homilies
+without generating hubs. Continue with the bounded Phase 3.3 title-cleanup
+slice: correct high-confidence visible spelling errors such as `Twelth` and
+`Fifthteenth`, and standardize older `Per Annum` display wording to `in
+Ordinary Time` where appropriate. Preserve every source filename and
+established URL, then verify document titles, navigation labels, related links,
+canonicals, feeds, and the generated URL inventory.
 
 ## Phase 0 — Correct indexing signals and deploy the intended site
 
@@ -328,10 +329,9 @@ validator runs remain pending and were intentionally skipped.
 support useful discovery by feast, season, year, and Scripture without creating
 thin pages.
 
-**Status:** Phase 3.1 is complete for the existing homily corpus. The Phase 3.2
-model contract, archetype prompts, hub thresholds, and six-page recurring-
-occasion pilot are complete; broader backfill and any hub implementation remain
-pending.
+**Status:** Phases 3.1 and 3.2 are complete for the existing homily corpus. All
+130 published homilies now have verified Scripture and controlled liturgical
+metadata. Hub implementation and Phases 3.3–3.4 remain pending.
 
 ### 3.1 Backfill Scripture metadata
 
@@ -347,20 +347,28 @@ Completed for the existing corpus: all 130 homilies have nonblank
 
 ### 3.2 Introduce a controlled content model
 
-The model-definition slice is implemented in `CONTENT-MODEL.md` and the
+The model definition is implemented in `CONTENT-MODEL.md` and the
 machine-readable `data/content_model.json`. New homily and reflection
-scaffolds expose the two authored fields, and focused tests protect the
-contract. The Fourteenth and Fifteenth Sundays in Ordinary Time across
-2024–2026 now form a source-verified six-page pilot. Each page carries only the
-controlled `ordinary-time` season and its exact occasion identifier; legacy
-display-title spelling and `Per Annum` wording remain deliberately deferred to
-Phase 3.3 so the pilot does not change established presentation or URLs.
+scaffolds expose the two authored fields, and corpus-wide tests protect the
+contract. All 130 published homilies now carry one of the six controlled
+seasons and one of 74 canonical occasion identifiers. The completed inventory
+contains nine Advent, eleven Christmas, seventeen Lent, six Paschal Triduum,
+nineteen Easter, and sixty-eight Ordinary Time homilies.
 
-Focused generated-output tests verify the exact dates and identifiers, complete
-registry coverage, and three distinct years for each occasion. They also prove
-that all 235 generated files are byte-identical with the pilot metadata removed
-and that no raw metadata, feed content, or automatic hub URL is introduced. No
-hub is generated.
+The backfill was reviewed from each page's date, title, and all 549 structured
+reading records against the official USCCB 2024–2026 liturgical calendars and
+daily-reading pages. Tests preserve the judgment-heavy normalizations,
+including vigil and day forms, the Easter Vigil, transferred celebrations,
+Sunday-displacing feasts, Saint Joseph the Worker during Easter, and the
+pastorally titled `Called by Name Weekend`. Legacy display-title spelling and
+`Per Annum` wording remain deliberately deferred to Phase 3.3 so this change
+does not alter established presentation or URLs.
+
+Focused generated-output tests require complete registry coverage with no
+unused occasion values and compare the complete rendered site against the same
+corpus with both authored fields removed. They prove that the metadata is
+byte-neutral and that no raw metadata, feed content, or automatic hub URL is
+introduced. No hub is generated.
 
 Authored fields are deliberately limited to:
 
@@ -413,12 +421,12 @@ Add automated checks or warnings for:
 
 ### Phase 3 gate
 
-- [ ] New content follows the metadata convention automatically.
+- [x] New content follows the metadata convention automatically.
 - [ ] Priority and recent homilies have verified readings and descriptions.
 - [ ] Every generated hub serves a clear reader purpose and has sufficient
       content.
 - [ ] Heading, link, image, and Scripture lint checks pass.
-- [ ] No metadata leaks into summaries or RSS against repository policy.
+- [x] No metadata leaks into summaries or RSS against repository policy.
 
 ## Phase 4 — Measure, learn, and maintain
 

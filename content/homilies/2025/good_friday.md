@@ -2,6 +2,8 @@
 title = 'Good Friday'
 date = 2025-04-18
 draft = false
+liturgical_season = 'paschal-triduum'
+liturgical_occasion = 'good-friday'
 
 [[readings]]
 label = 'First Reading'

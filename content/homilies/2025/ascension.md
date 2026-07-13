@@ -2,6 +2,8 @@
 title = 'Ascension of the Lord'
 date = 2025-06-01
 draft = false
+liturgical_season = 'easter'
+liturgical_occasion = 'ascension-of-the-lord'
 
 [[readings]]
 label = 'First Reading'

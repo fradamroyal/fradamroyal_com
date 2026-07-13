@@ -2,6 +2,8 @@
 title = 'Mary, Mother of God'
 date = 2025-01-01
 draft = false
+liturgical_season = 'christmas'
+liturgical_occasion = 'mary-mother-of-god'
 
 [[readings]]
 label = 'First Reading'

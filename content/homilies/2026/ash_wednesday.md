@@ -2,6 +2,8 @@
 title = 'Ash Wednesday'
 date = 2026-02-18
 draft = false
+liturgical_season = 'lent'
+liturgical_occasion = 'ash-wednesday'
 
 [[readings]]
 label = 'First Reading'

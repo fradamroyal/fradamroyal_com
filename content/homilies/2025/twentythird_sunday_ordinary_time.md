@@ -2,6 +2,8 @@
 title = 'Twenty-third Sunday in Ordinary Time'
 date = 2025-09-07
 draft = false
+liturgical_season = 'ordinary-time'
+liturgical_occasion = 'twenty-third-sunday-in-ordinary-time'
 
 [[readings]]
 label = 'First Reading'

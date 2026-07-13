@@ -2,6 +2,8 @@
 title = 'Palm Sunday'
 date = 2025-04-13
 draft = false
+liturgical_season = 'lent'
+liturgical_occasion = 'palm-sunday-of-the-passion-of-the-lord'
 
 [[readings]]
 label = 'Gospel at the Procession'

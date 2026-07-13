@@ -2,6 +2,8 @@
 title = 'Holy Saturday - Easter Vigil'
 date = 2025-04-19
 draft = false
+liturgical_season = 'paschal-triduum'
+liturgical_occasion = 'easter-vigil'
 
 [[readings]]
 label = 'First Reading'

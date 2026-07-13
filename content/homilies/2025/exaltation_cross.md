@@ -2,6 +2,8 @@
 title = 'Exaltation of the Holy Cross'
 date = 2025-09-14
 draft = false
+liturgical_season = 'ordinary-time'
+liturgical_occasion = 'exaltation-of-the-holy-cross'
 
 [[readings]]
 label = 'First Reading'

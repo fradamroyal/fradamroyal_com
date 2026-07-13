@@ -2,6 +2,8 @@
 title = 'All Souls (The Commemoration of All the Faithful Departed)'
 date = 2025-11-02
 draft = false
+liturgical_season = 'ordinary-time'
+liturgical_occasion = 'commemoration-of-all-the-faithful-departed'
 
 [[readings]]
 label = 'First Reading'

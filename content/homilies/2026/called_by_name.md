@@ -2,6 +2,8 @@
 title = 'Called by Name Weekend'
 date = 2026-01-17
 draft = false
+liturgical_season = 'ordinary-time'
+liturgical_occasion = 'second-sunday-in-ordinary-time'
 
 [[readings]]
 label = 'First Reading'

@@ -2,6 +2,8 @@
 title = 'Third Sunday of Easter'
 date = 2026-04-19
 draft = false
+liturgical_season = 'easter'
+liturgical_occasion = 'third-sunday-of-easter'
 
 [[readings]]
 label = 'First Reading'

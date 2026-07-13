@@ -2,6 +2,8 @@
 title = 'Third Sunday Per Annum'
 date = 2025-01-26
 draft = false
+liturgical_season = 'ordinary-time'
+liturgical_occasion = 'third-sunday-in-ordinary-time'
 
 [[readings]]
 label = 'First Reading'

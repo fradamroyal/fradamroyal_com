@@ -2,6 +2,8 @@
 title = 'Fifth Sunday Per Annum'
 date = 2025-02-09
 draft = false
+liturgical_season = 'ordinary-time'
+liturgical_occasion = 'fifth-sunday-in-ordinary-time'
 
 [[readings]]
 label = 'First Reading'

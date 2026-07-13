@@ -2,6 +2,8 @@
 title = 'Feast of the Holy Family of Jesus, Mary and Joseph'
 date = 2025-12-28
 draft = false
+liturgical_season = 'christmas'
+liturgical_occasion = 'holy-family'
 
 [[readings]]
 label = 'First Reading'

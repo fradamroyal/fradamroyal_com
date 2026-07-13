@@ -2,6 +2,8 @@
 title = 'Saints Peter and Paul, Apostles'
 date = 2025-06-29
 draft = false
+liturgical_season = 'ordinary-time'
+liturgical_occasion = 'saints-peter-and-paul'
 
 [[readings]]
 label = 'First Reading'

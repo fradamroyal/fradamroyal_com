@@ -2,6 +2,8 @@
 title = 'Fourth Sunday of Advent'
 date = 2024-12-22
 draft = false
+liturgical_season = 'advent'
+liturgical_occasion = 'fourth-sunday-of-advent'
 
 [[readings]]
 label = 'First Reading'

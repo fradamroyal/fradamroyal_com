@@ -2,6 +2,8 @@
 title = 'First Sunday in Lent'
 date = 2026-02-22
 draft = false
+liturgical_season = 'lent'
+liturgical_occasion = 'first-sunday-of-lent'
 
 [[readings]]
 label = 'First Reading'

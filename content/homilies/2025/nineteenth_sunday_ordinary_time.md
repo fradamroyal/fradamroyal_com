@@ -2,6 +2,8 @@
 title = 'Nineteenth Sunday in Ordinary Time'
 date = 2025-08-10
 draft = false
+liturgical_season = 'ordinary-time'
+liturgical_occasion = 'nineteenth-sunday-in-ordinary-time'
 
 [[readings]]
 label = 'First Reading'

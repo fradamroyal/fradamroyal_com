@@ -2,6 +2,8 @@
 title = 'Thursday of the Eighteenth Week in Ordinary Time'
 date = 2025-08-07
 draft = false
+liturgical_season = 'ordinary-time'
+liturgical_occasion = 'thursday-of-the-eighteenth-week-in-ordinary-time'
 
 [[readings]]
 label = 'First Reading'

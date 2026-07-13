@@ -2,6 +2,8 @@
 title = 'Fourth Sunday of Lent'
 date = 2025-03-30
 draft = false
+liturgical_season = 'lent'
+liturgical_occasion = 'fourth-sunday-of-lent'
 
 [[readings]]
 label = "Year C First Reading"

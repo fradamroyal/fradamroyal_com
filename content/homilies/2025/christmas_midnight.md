@@ -2,6 +2,8 @@
 title = 'Nativity of the Lord, Mass During the Night'
 date = 2025-12-25T00:00:01
 draft = false
+liturgical_season = 'christmas'
+liturgical_occasion = 'nativity-of-the-lord'
 
 [[readings]]
 label = 'First Reading'

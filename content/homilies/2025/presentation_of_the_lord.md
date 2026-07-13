@@ -2,6 +2,8 @@
 title = 'Presentation of the Lord'
 date = 2025-02-02
 draft = false
+liturgical_season = 'ordinary-time'
+liturgical_occasion = 'presentation-of-the-lord'
 
 [[readings]]
 label = 'First Reading'

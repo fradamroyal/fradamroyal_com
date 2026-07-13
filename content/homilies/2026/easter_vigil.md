@@ -2,6 +2,8 @@
 title = 'Easter Vigil'
 date = 2026-04-04
 draft = false
+liturgical_season = 'paschal-triduum'
+liturgical_occasion = 'easter-vigil'
 
 [[readings]]
 label = 'First Reading'

@@ -2,6 +2,8 @@
 title = 'Twelfth Sunday in Ordinary Time'
 date = 2026-06-21
 draft = false
+liturgical_season = 'ordinary-time'
+liturgical_occasion = 'twelfth-sunday-in-ordinary-time'
 
 [[readings]]
 label = 'First Reading'

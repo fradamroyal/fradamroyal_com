@@ -2,6 +2,8 @@
 title = 'Immaculate Conception'
 date = 2024-12-09
 draft = false
+liturgical_season = 'advent'
+liturgical_occasion = 'immaculate-conception-of-the-blessed-virgin-mary'
 
 [[readings]]
 label = 'First Reading'

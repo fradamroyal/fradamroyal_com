@@ -2,6 +2,8 @@
 title = 'Christ the King'
 date = 2024-11-24
 draft = false
+liturgical_season = 'ordinary-time'
+liturgical_occasion = 'christ-the-king'
 
 [[readings]]
 label = 'First Reading'

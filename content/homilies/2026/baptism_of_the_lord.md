@@ -2,6 +2,8 @@
 title = 'The Baptism of the Lord'
 date = 2026-01-11
 draft = false
+liturgical_season = 'christmas'
+liturgical_occasion = 'baptism-of-the-lord'
 
 [[readings]]
 label = 'First Reading'

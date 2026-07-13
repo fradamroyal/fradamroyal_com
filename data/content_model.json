@@ -43,11 +43,227 @@
     }
   },
   "liturgical_occasions": {
-    "fourteenth-sunday-in-ordinary-time": {
-      "label": "Fourteenth Sunday in Ordinary Time"
+    "all-saints": {
+      "label": "All Saints"
+    },
+    "ascension-of-the-lord": {
+      "label": "Ascension of the Lord"
+    },
+    "ash-wednesday": {
+      "label": "Ash Wednesday"
+    },
+    "assumption-of-the-blessed-virgin-mary": {
+      "label": "Assumption of the Blessed Virgin Mary"
+    },
+    "baptism-of-the-lord": {
+      "label": "Baptism of the Lord"
+    },
+    "christ-the-king": {
+      "label": "Our Lord Jesus Christ, King of the Universe"
+    },
+    "commemoration-of-all-the-faithful-departed": {
+      "label": "Commemoration of All the Faithful Departed"
+    },
+    "corpus-christi": {
+      "label": "Most Holy Body and Blood of Christ"
+    },
+    "dedication-of-the-lateran-basilica": {
+      "label": "Dedication of the Lateran Basilica"
+    },
+    "easter-sunday": {
+      "label": "Easter Sunday of the Resurrection of the Lord"
+    },
+    "easter-vigil": {
+      "label": "Easter Vigil"
+    },
+    "eighteenth-sunday-in-ordinary-time": {
+      "label": "Eighteenth Sunday in Ordinary Time"
+    },
+    "eighth-sunday-in-ordinary-time": {
+      "label": "Eighth Sunday in Ordinary Time"
+    },
+    "eleventh-sunday-in-ordinary-time": {
+      "label": "Eleventh Sunday in Ordinary Time"
+    },
+    "epiphany-of-the-lord": {
+      "label": "Epiphany of the Lord"
+    },
+    "exaltation-of-the-holy-cross": {
+      "label": "Exaltation of the Holy Cross"
     },
     "fifteenth-sunday-in-ordinary-time": {
       "label": "Fifteenth Sunday in Ordinary Time"
+    },
+    "fifth-sunday-in-ordinary-time": {
+      "label": "Fifth Sunday in Ordinary Time"
+    },
+    "fifth-sunday-of-easter": {
+      "label": "Fifth Sunday of Easter"
+    },
+    "fifth-sunday-of-lent": {
+      "label": "Fifth Sunday of Lent"
+    },
+    "first-sunday-of-advent": {
+      "label": "First Sunday of Advent"
+    },
+    "first-sunday-of-lent": {
+      "label": "First Sunday of Lent"
+    },
+    "fourteenth-sunday-in-ordinary-time": {
+      "label": "Fourteenth Sunday in Ordinary Time"
+    },
+    "fourth-sunday-in-ordinary-time": {
+      "label": "Fourth Sunday in Ordinary Time"
+    },
+    "fourth-sunday-of-advent": {
+      "label": "Fourth Sunday of Advent"
+    },
+    "fourth-sunday-of-easter": {
+      "label": "Fourth Sunday of Easter"
+    },
+    "fourth-sunday-of-lent": {
+      "label": "Fourth Sunday of Lent"
+    },
+    "good-friday": {
+      "label": "Good Friday of the Lord's Passion"
+    },
+    "holy-family": {
+      "label": "Holy Family of Jesus, Mary and Joseph"
+    },
+    "holy-thursday": {
+      "label": "Holy Thursday of the Lord's Supper"
+    },
+    "immaculate-conception-of-the-blessed-virgin-mary": {
+      "label": "Immaculate Conception of the Blessed Virgin Mary"
+    },
+    "mary-mother-of-god": {
+      "label": "Mary, the Holy Mother of God"
+    },
+    "monday-of-the-second-week-of-lent": {
+      "label": "Monday of the Second Week of Lent"
+    },
+    "monday-of-the-third-week-of-lent": {
+      "label": "Monday of the Third Week of Lent"
+    },
+    "most-holy-trinity": {
+      "label": "Most Holy Trinity"
+    },
+    "nativity-of-the-lord": {
+      "label": "Nativity of the Lord"
+    },
+    "nineteenth-sunday-in-ordinary-time": {
+      "label": "Nineteenth Sunday in Ordinary Time"
+    },
+    "our-lady-of-guadalupe": {
+      "label": "Our Lady of Guadalupe"
+    },
+    "palm-sunday-of-the-passion-of-the-lord": {
+      "label": "Palm Sunday of the Passion of the Lord"
+    },
+    "pentecost": {
+      "label": "Pentecost Sunday"
+    },
+    "presentation-of-the-lord": {
+      "label": "Presentation of the Lord"
+    },
+    "saint-joseph-the-worker": {
+      "label": "Saint Joseph the Worker"
+    },
+    "saints-peter-and-paul": {
+      "label": "Saints Peter and Paul, Apostles"
+    },
+    "second-sunday-in-ordinary-time": {
+      "label": "Second Sunday in Ordinary Time"
+    },
+    "second-sunday-of-advent": {
+      "label": "Second Sunday of Advent"
+    },
+    "second-sunday-of-easter": {
+      "label": "Second Sunday of Easter"
+    },
+    "second-sunday-of-lent": {
+      "label": "Second Sunday of Lent"
+    },
+    "seventeenth-sunday-in-ordinary-time": {
+      "label": "Seventeenth Sunday in Ordinary Time"
+    },
+    "sixteenth-sunday-in-ordinary-time": {
+      "label": "Sixteenth Sunday in Ordinary Time"
+    },
+    "sixth-sunday-in-ordinary-time": {
+      "label": "Sixth Sunday in Ordinary Time"
+    },
+    "sixth-sunday-of-easter": {
+      "label": "Sixth Sunday of Easter"
+    },
+    "third-sunday-in-ordinary-time": {
+      "label": "Third Sunday in Ordinary Time"
+    },
+    "third-sunday-of-advent": {
+      "label": "Third Sunday of Advent"
+    },
+    "third-sunday-of-easter": {
+      "label": "Third Sunday of Easter"
+    },
+    "third-sunday-of-lent": {
+      "label": "Third Sunday of Lent"
+    },
+    "thirteenth-sunday-in-ordinary-time": {
+      "label": "Thirteenth Sunday in Ordinary Time"
+    },
+    "thirtieth-sunday-in-ordinary-time": {
+      "label": "Thirtieth Sunday in Ordinary Time"
+    },
+    "thirty-first-sunday-in-ordinary-time": {
+      "label": "Thirty-first Sunday in Ordinary Time"
+    },
+    "thirty-third-sunday-in-ordinary-time": {
+      "label": "Thirty-third Sunday in Ordinary Time"
+    },
+    "thursday-of-the-eighteenth-week-in-ordinary-time": {
+      "label": "Thursday of the Eighteenth Week in Ordinary Time"
+    },
+    "thursday-of-the-second-week-of-lent": {
+      "label": "Thursday of the Second Week of Lent"
+    },
+    "transfiguration-of-the-lord": {
+      "label": "Transfiguration of the Lord"
+    },
+    "tuesday-of-the-second-week-of-lent": {
+      "label": "Tuesday of the Second Week of Lent"
+    },
+    "twelfth-sunday-in-ordinary-time": {
+      "label": "Twelfth Sunday in Ordinary Time"
+    },
+    "twentieth-sunday-in-ordinary-time": {
+      "label": "Twentieth Sunday in Ordinary Time"
+    },
+    "twenty-eighth-sunday-in-ordinary-time": {
+      "label": "Twenty-eighth Sunday in Ordinary Time"
+    },
+    "twenty-fifth-sunday-in-ordinary-time": {
+      "label": "Twenty-fifth Sunday in Ordinary Time"
+    },
+    "twenty-first-sunday-in-ordinary-time": {
+      "label": "Twenty-first Sunday in Ordinary Time"
+    },
+    "twenty-fourth-sunday-in-ordinary-time": {
+      "label": "Twenty-fourth Sunday in Ordinary Time"
+    },
+    "twenty-ninth-sunday-in-ordinary-time": {
+      "label": "Twenty-ninth Sunday in Ordinary Time"
+    },
+    "twenty-second-sunday-in-ordinary-time": {
+      "label": "Twenty-second Sunday in Ordinary Time"
+    },
+    "twenty-seventh-sunday-in-ordinary-time": {
+      "label": "Twenty-seventh Sunday in Ordinary Time"
+    },
+    "twenty-sixth-sunday-in-ordinary-time": {
+      "label": "Twenty-sixth Sunday in Ordinary Time"
+    },
+    "twenty-third-sunday-in-ordinary-time": {
+      "label": "Twenty-third Sunday in Ordinary Time"
     }
   },
   "derived_values": {

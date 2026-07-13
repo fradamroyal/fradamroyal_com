@@ -2,6 +2,8 @@
 title = 'Holy Thursday'
 date = 2025-04-17
 draft = false
+liturgical_season = 'paschal-triduum'
+liturgical_occasion = 'holy-thursday'
 
 [[readings]]
 label = 'First Reading'

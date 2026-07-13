@@ -2,6 +2,8 @@
 title = 'All Saints'
 date = 2025-11-01
 draft = false
+liturgical_season = 'ordinary-time'
+liturgical_occasion = 'all-saints'
 
 [[readings]]
 label = 'First Reading'

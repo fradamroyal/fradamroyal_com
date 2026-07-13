@@ -2,6 +2,8 @@
 title = 'Twenty-second Sunday Per Annum'
 date = 2024-09-01
 draft = false
+liturgical_season = 'ordinary-time'
+liturgical_occasion = 'twenty-second-sunday-in-ordinary-time'
 
 [[readings]]
 label = 'First Reading'

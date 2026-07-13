@@ -2,6 +2,8 @@
 title = 'Pentecost'
 date = 2026-05-24
 draft = false
+liturgical_season = 'easter'
+liturgical_occasion = 'pentecost'
 
 [[readings]]
 label = 'First Reading'

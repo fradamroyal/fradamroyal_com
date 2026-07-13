@@ -2,6 +2,8 @@
 title = 'Feast of Our Lady of Guadalupe'
 date = 2025-12-12
 draft = false
+liturgical_season = 'advent'
+liturgical_occasion = 'our-lady-of-guadalupe'
 
 [[readings]]
 label = 'First Reading'

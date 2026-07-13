@@ -2,6 +2,8 @@
 title = 'St. Joseph the Worker'
 date = 2026-05-01
 draft = false
+liturgical_season = 'easter'
+liturgical_occasion = 'saint-joseph-the-worker'
 
 [[readings]]
 label = 'First Reading'

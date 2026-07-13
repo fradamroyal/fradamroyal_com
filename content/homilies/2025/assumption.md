@@ -2,6 +2,8 @@
 title = 'Assumption of the Blessed Virgin Mary - Vigil'
 date = 2025-08-14
 draft = false
+liturgical_season = 'ordinary-time'
+liturgical_occasion = 'assumption-of-the-blessed-virgin-mary'
 
 [[readings]]
 label = 'First Reading'

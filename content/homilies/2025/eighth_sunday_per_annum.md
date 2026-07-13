@@ -2,6 +2,8 @@
 title = 'Eighth Sunday Per Annum'
 date = 2025-03-02
 draft = false
+liturgical_season = 'ordinary-time'
+liturgical_occasion = 'eighth-sunday-in-ordinary-time'
 
 [[readings]]
 label = "First Reading"

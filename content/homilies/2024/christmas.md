@@ -2,6 +2,8 @@
 title = 'Christmas'
 date = 2024-12-25
 draft = false
+liturgical_season = 'christmas'
+liturgical_occasion = 'nativity-of-the-lord'
 
 [[readings]]
 label = 'First Reading'

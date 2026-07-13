@@ -10,7 +10,7 @@ to that registry does not create a page or make the value indexable.
 | Field | Homilies | Reflections | Use |
 | --- | --- | --- | --- |
 | `liturgical_season` | Required before publication | Optional | The primary liturgical context of the piece: `advent`, `christmas`, `lent`, `paschal-triduum`, `easter`, or `ordinary-time`. Do not infer it from the publication date when a reflection anticipates or looks back on a season. |
-| `liturgical_occasion` | Required before publication | Optional | The registered recurring Sunday, solemnity, feast, or observance that the piece addresses. Use one canonical lowercase kebab-case identifier, not a title or a free-form tag. |
+| `liturgical_occasion` | Required before publication | Optional | The registered liturgical day that the piece addresses: a Sunday, weekday, solemnity, feast, memorial, or other observance. Use one canonical lowercase kebab-case identifier, not a title or a free-form tag. |
 
 The homily and reflection archetypes expose these fields. Blank values are
 useful prompts while a page is a draft; remove unused optional fields before
@@ -23,10 +23,18 @@ variations similarly. Vigil, night, and day Mass forms normally use the parent
 occasion while retaining the precise form in `title` and `[[readings]]`;
 keep the Easter Vigil distinct as `easter-vigil`.
 
+Use the underlying liturgy when a visible title emphasizes a pastoral program
+or local theme. Classify fixed celebrations in the season in which their dated
+liturgy occurs; the season field records liturgical context, not rank. Confirm
+ambiguous cases from the date and `[[readings]]` rather than title wording
+alone.
+
 Add a new occasion only when a page needs it and no registered value expresses
 the same liturgy. Keep identifiers stable and add an accurate human label to
-the registry. The registry begins with the two recurring occasions that already
-meet the corpus breadth gate; the metadata pilot will expand it deliberately.
+the registry. The current published corpus uses 74 occasions across 130
+homilies; every addition must remain deliberate and backed by a real content
+record, including a draft in progress. Registry membership never generates a
+hub automatically.
 
 ## Values derived from existing sources
 
@@ -61,4 +69,5 @@ These are eligibility floors, not a command to publish. An editor must still
 confirm that the collection serves a reader need not already met better by a
 year archive or the exact-Scripture related-homily links. Keep Hugo taxonomy and
 term output disabled; hub layouts, navigation, and sitemap entries belong to a
-later implementation slice after a verified metadata pilot.
+later implementation slice after a demonstrated reader need and explicit
+editorial selection.
