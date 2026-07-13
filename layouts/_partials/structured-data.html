@@ -77,16 +77,24 @@
 
 {{- $description := partial "structured-data/description.html" $page -}}
 
+{{- $genreBySection := dict
+    "homilies" "Homily"
+    "reflections" "Reflection"
+    "posts" "Post"
+-}}
+{{- $isAboutPage := eq
+    (strings.TrimSuffix "/" $page.Permalink)
+    (strings.TrimSuffix "/" $aboutURL)
+-}}
 {{- $collectionKinds := slice "home" "section" "taxonomy" "term" -}}
 {{- $pageType := "WebPage" -}}
 {{- if in $collectionKinds $page.Kind -}}
     {{- $pageType = "CollectionPage" -}}
-{{- else if eq (strings.TrimSuffix "/" $page.RelPermalink) "/about" -}}
+{{- else if $isAboutPage -}}
     {{- $pageType = "AboutPage" -}}
 {{- end -}}
 
-{{- $articleSections := slice "homilies" "reflections" "posts" -}}
-{{- $isArticle := and (eq $page.Kind "page") (in $articleSections $page.Section) -}}
+{{- $isArticle := and (eq $page.Kind "page") (isset $genreBySection $page.Section) -}}
 {{- $isBiblePlanner := and
     (eq $page.Kind "page")
     (eq $page.Section "tools")
@@ -113,7 +121,7 @@
     {{- $webpage = merge $webpage (dict "mainEntity" (dict "@id" $articleID)) -}}
 {{- else if $isBiblePlanner -}}
     {{- $webpage = merge $webpage (dict "mainEntity" (dict "@id" $applicationID)) -}}
-{{- else if eq $pageType "AboutPage" -}}
+{{- else if $isAboutPage -}}
     {{- $webpage = merge $webpage (dict "mainEntity" (dict "@id" $personID)) -}}
 {{- end -}}
 
@@ -143,11 +151,6 @@
 {{- end -}}
 
 {{- if $isArticle -}}
-    {{- $genreBySection := dict
-        "homilies" "Homily"
-        "reflections" "Reflection"
-        "posts" "Post"
-    -}}
     {{- $sectionName := title (humanize $page.Section) -}}
     {{- $article := dict
         "@type" "BlogPosting"
@@ -172,7 +175,11 @@
         {{- $article = merge $article (dict "datePublished" ($page.PublishDate.Format "2006-01-02T15:04:05Z07:00")) -}}
     {{- end -}}
     {{- if not $page.Lastmod.IsZero -}}
-        {{- $article = merge $article (dict "dateModified" ($page.Lastmod.Format "2006-01-02T15:04:05Z07:00")) -}}
+        {{- $modifiedDate := $page.Lastmod -}}
+        {{- if and (not $page.PublishDate.IsZero) ($modifiedDate.Before $page.PublishDate) -}}
+            {{- $modifiedDate = $page.PublishDate -}}
+        {{- end -}}
+        {{- $article = merge $article (dict "dateModified" ($modifiedDate.Format "2006-01-02T15:04:05Z07:00")) -}}
     {{- end -}}
     {{- if gt $page.WordCount 0 -}}
         {{- $article = merge $article (dict "wordCount" $page.WordCount) -}}

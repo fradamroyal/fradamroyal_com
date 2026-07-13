@@ -223,6 +223,15 @@ test("every generated HTML page has one valid, self-contained JSON-LD graph", ()
       );
     });
 
+    document["@graph"].forEach((node) => {
+      if (node.datePublished && node.dateModified) {
+        assert.ok(
+          Date.parse(node.dateModified) >= Date.parse(node.datePublished),
+          `Expected dateModified not to precede datePublished in ${relativePath}.`,
+        );
+      }
+    });
+
     assertHttpsValues(document, relativePath);
     assertNoEmptyValues(document, relativePath);
   });
