@@ -16,6 +16,7 @@ const REPOSITORY_ROOT = resolve(__dirname, "..");
 const TEMPORARY_ROOT = mkdtempSync(join(tmpdir(), "fradamroyal-canonical-links-"));
 const BUILD_ROOT = join(TEMPORARY_ROOT, "public");
 const BASE_URL = "https://fradamroyal.com/";
+const ERROR_PAGE_PATH = "404.html";
 
 let pages;
 
@@ -35,7 +36,7 @@ function isRedirectPage(html) {
 
 function attributes(element) {
   const result = new Map();
-  const content = element.replace(/^<link\b/i, "").replace(/\s*>$/, "");
+  const content = element.replace(/^<[^\s>]+/i, "").replace(/\s*>$/, "");
   const pattern = /([^\s=/>]+)(?:\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+)))?/g;
   let match;
 
@@ -44,6 +45,18 @@ function attributes(element) {
   }
 
   return result;
+}
+
+function robotsDirectives(html) {
+  return [...html.matchAll(/<meta\b[^>]*>/gi)]
+    .map((match) => attributes(match[0]))
+    .filter((meta) => (meta.get("name") || "").toLowerCase() === "robots")
+    .flatMap((meta) =>
+      (meta.get("content") || "")
+        .toLowerCase()
+        .split(/[\s,]+/)
+        .filter(Boolean),
+    );
 }
 
 function canonicalLinks(html) {
@@ -109,10 +122,29 @@ test.after(() => {
   rmSync(TEMPORARY_ROOT, { recursive: true, force: true });
 });
 
-test("every generated indexable HTML page has one clean self-canonical URL", () => {
-  assert.ok(pages.size > 0, "Expected Hugo to generate indexable HTML pages.");
+test("the generated 404 page is noindex and has no canonical URL", () => {
+  const html = page(ERROR_PAGE_PATH);
+  assert.ok(
+    robotsDirectives(html).includes("noindex"),
+    `Expected ${ERROR_PAGE_PATH} to include a noindex robots directive.`,
+  );
+  assert.equal(
+    canonicalLinks(html).length,
+    0,
+    `Expected ${ERROR_PAGE_PATH} not to expose a canonical URL.`,
+  );
+});
 
-  pages.forEach((html, relativePath) => {
+test("every generated non-error HTML page is indexable with one clean self-canonical URL", () => {
+  const indexablePages = [...pages].filter(([relativePath]) => relativePath !== ERROR_PAGE_PATH);
+  assert.ok(indexablePages.length > 0, "Expected Hugo to generate indexable HTML pages.");
+
+  indexablePages.forEach(([relativePath, html]) => {
+    assert.equal(
+      robotsDirectives(html).includes("noindex"),
+      false,
+      `Expected non-error page ${relativePath} to remain indexable.`,
+    );
     const links = canonicalLinks(html);
     assert.equal(links.length, 1, `Expected one canonical link in ${relativePath}.`);
 

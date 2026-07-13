@@ -52,12 +52,12 @@ Baseline recorded July 12, 2026:
 
 ## Execution queue
 
-### NOW: Deploy and smoke-test the verified Phase 1.3 candidate
+### NOW: Establish title conventions in Phase 2.1
 
-Phase 1.3 is implemented and verified locally. Deploy it and confirm that the
-retired Posts and taxonomy HTML and feed URLs return HTTP 404, remain absent
-from the sitemap, and leave representative canonical section, year-archive,
-article, and tool URLs unchanged.
+Phases 1.3 and 1.4 are implemented and verified locally. Deployment and live
+smoke-testing for them remain pending. Continue with a centralized `seo_title`
+convention that gives Home and the main sections distinct document titles and
+can distinguish recurring homilies without changing their visible H1s or URLs.
 
 ## Phase 0 — Correct indexing signals and deploy the intended site
 
@@ -124,9 +124,8 @@ returned HTTP 404.
 **Outcome:** Important content is reachable through clear, useful navigation in
 approximately three clicks rather than dozens of sequential archive pages.
 
-**Status:** Phase 1.1 and 1.2 are implemented, deployed, and verified live. Phase
-1.3 is implemented and verified locally; deployment is pending. Phase 1.4
-remains queued.
+**Status:** Phase 1.1 and 1.2 are implemented, deployed, and verified live.
+Phases 1.3 and 1.4 are implemented and verified locally; deployment is pending.
 
 ### 1.1 Improve archive navigation
 
@@ -187,6 +186,13 @@ template changes.
 
 ### 1.4 Improve error recovery
 
+Implemented as a site-owned error page with a clear explanation and direct
+links to Home, Homilies, Reflections, and Tools. The error document is excluded
+from the sitemap, marked `noindex`, and emits neither a canonical URL nor
+page-level structured data. Generated-output tests protect those invariants and
+the host's `404-page` handling, while a local production server confirmed that
+an unknown URL returns the custom body with HTTP 404.
+
 - Add a useful custom `404.html` with links to Home, Homilies, Reflections, and
   Tools.
 - Preserve the HTTP 404 status.
@@ -198,7 +204,7 @@ template changes.
 - [x] Singles have previous/next navigation and visible breadcrumbs.
 - [x] Related-content links are evidence-based and explain their relationship.
 - [x] Empty Posts and taxonomy roots are absent from the sitemap.
-- [ ] The custom 404 is useful and still returns status 404.
+- [x] The custom 404 is useful and still returns status 404.
 - [x] Generated internal-link validation reports no broken links.
 
 ## Phase 2 — Improve search-result identity and transparent authorship

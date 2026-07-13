@@ -16,6 +16,7 @@ const REPOSITORY_ROOT = resolve(__dirname, "..");
 const TEMPORARY_ROOT = mkdtempSync(join(tmpdir(), "fradamroyal-navigation-"));
 const BUILD_ROOT = join(TEMPORARY_ROOT, "public");
 const BASE_URL = "https://fradamroyal.com/";
+const DEPLOYMENT_CONFIG_PATH = join(REPOSITORY_ROOT, "wrangler.toml");
 const LOW_VALUE_COLLECTION_ROOTS = ["categories", "posts", "series", "tags"];
 const REQUIRED_YEAR_ARCHIVES = new Map([
   ["homilies", ["2024", "2025", "2026"]],
@@ -454,6 +455,54 @@ test("low-value crawl surfaces are absent while canonical content remains indexe
     assert.ok(html, `Expected sitemap URL ${url} to resolve to canonical output.`);
     assert.ok(isIndexable(html), `Expected sitemap URL ${url} to remain indexable.`);
   });
+});
+
+test("custom 404 page provides useful recovery paths without entering the sitemap", () => {
+  const relativePath = "404.html";
+  const html = page(relativePath);
+  const pageURL = generatedURL(relativePath);
+  const main = html.match(/<main\b([^>]*)>([\s\S]*?)<\/main>/i);
+  assert.ok(main, `Expected a main recovery region in ${relativePath}.`);
+
+  const recoveryRegion = {
+    attributes: attributes(`<main${main[1]}>`),
+    html: main[0],
+    innerHTML: main[2],
+  };
+  assertVisible(recoveryRegion, `main recovery region in ${relativePath}`);
+  assert.match(
+    textContent(recoveryRegion.innerHTML),
+    /(?:not found|could not find|cannot find|does not exist|missing|unavailable|no longer be available)/i,
+    `Expected ${relativePath} to explain that the requested page is unavailable.`,
+  );
+
+  const recoveryLinks = anchors(recoveryRegion.innerHTML).map((anchor) => ({
+    name: anchor.name,
+    url: new URL(anchor.href, pageURL).href,
+  }));
+  [
+    ["Home", "index.html"],
+    ["Homilies", "homilies/index.html"],
+    ["Reflections", "reflections/index.html"],
+    ["Tools", "tools/index.html"],
+  ].forEach(([name, targetPath]) => {
+    const targetURL = generatedURL(targetPath);
+    assert.ok(
+      recoveryLinks.some((link) => link.name === name && link.url === targetURL),
+      `Expected ${relativePath} to provide a visible ${name} recovery link to ${targetURL}.`,
+    );
+  });
+
+  assert.equal(
+    sitemapURLs.has(pageURL),
+    false,
+    `Expected the error document ${pageURL} to stay out of the sitemap.`,
+  );
+  assert.match(
+    readFileSync(DEPLOYMENT_CONFIG_PATH, "utf8"),
+    /^\s*not_found_handling\s*=\s*["']404-page["']\s*$/m,
+    "Expected the static host to serve the custom error document with HTTP 404.",
+  );
 });
 
 test("section roots expose complete, compact year archives", () => {

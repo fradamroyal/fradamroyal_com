@@ -15,8 +15,10 @@ const { join, relative, resolve } = require("node:path");
 const REPOSITORY_ROOT = resolve(__dirname, "..");
 const TEMPORARY_ROOT = mkdtempSync(join(tmpdir(), "fradamroyal-structured-data-"));
 const BUILD_ROOT = join(TEMPORARY_ROOT, "public");
+const ERROR_PAGE_PATH = "404.html";
 
 let pages;
+let errorPageHTML;
 
 function htmlFiles(directory) {
   return readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
@@ -174,6 +176,10 @@ test.before(() => {
         );
         return [];
       }
+      if (relativePath === ERROR_PAGE_PATH) {
+        errorPageHTML = html;
+        return [];
+      }
       assert.equal(
         scripts.length,
         1,
@@ -198,8 +204,17 @@ test.after(() => {
   rmSync(TEMPORARY_ROOT, { recursive: true, force: true });
 });
 
-test("every generated HTML page has one valid, self-contained JSON-LD graph", () => {
-  assert.ok(pages.size > 0, "Expected Hugo to generate HTML pages.");
+test("the generated 404 page has no JSON-LD", () => {
+  assert.equal(typeof errorPageHTML, "string", `Expected Hugo to generate ${ERROR_PAGE_PATH}.`);
+  assert.equal(
+    structuredDataScripts(errorPageHTML).length,
+    0,
+    `Expected ${ERROR_PAGE_PATH} not to expose structured data.`,
+  );
+});
+
+test("every generated non-error HTML page has one valid, self-contained JSON-LD graph", () => {
+  assert.ok(pages.size > 0, "Expected Hugo to generate non-error HTML pages.");
 
   pages.forEach((document, relativePath) => {
     assert.equal(document["@context"], "https://schema.org");

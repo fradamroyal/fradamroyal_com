@@ -1,0 +1,22 @@
+{{- define "main" -}}
+<div class="container">
+    <section class="not-found" aria-labelledby="not-found-recovery-title">
+        <p class="not-found__code" aria-hidden="true">404</p>
+        <h2 id="not-found-recovery-title">Let&rsquo;s get you back to something useful.</h2>
+        <p>
+            The address may have changed, or the page may no longer be available.
+            Try one of these places instead.
+        </p>
+        <nav class="not-found__navigation" aria-label="Helpful destinations">
+            <ul>
+                <li><a href="{{ site.Home.RelPermalink }}">Home</a></li>
+                {{- range $section := slice "homilies" "reflections" "tools" }}
+                    {{- with site.GetPage (printf "/%s" $section) }}
+                <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                    {{- end }}
+                {{- end }}
+            </ul>
+        </nav>
+    </section>
+</div>
+{{- end -}}
