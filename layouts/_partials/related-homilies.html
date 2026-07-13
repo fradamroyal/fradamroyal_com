@@ -1,0 +1,65 @@
+{{/*
+    Relate homilies only through exact verified Scripture citations. Multiple
+    shared readings are shown first; one-reading matches fill the remaining
+    spaces. Responsorial Psalms and canticles are excluded because their
+    frequent reuse is too weak a signal on its own.
+*/}}
+{{- $currentReadings := partialCached "structured-data/readings.html" .Params.readings .RelPermalink -}}
+{{- $currentCitations := partialCached "related-content/scripture-citations.html" $currentReadings .RelPermalink -}}
+{{- $strongMatches := slice -}}
+{{- $singleMatches := slice -}}
+
+{{- if $currentCitations -}}
+    {{- $homilies := where .Site.RegularPages "Section" "homilies" -}}
+    {{- range $homilies.ByDate.Reverse -}}
+        {{- if ne .RelPermalink $.RelPermalink -}}
+            {{- $candidateReadings := partialCached "structured-data/readings.html" .Params.readings .RelPermalink -}}
+            {{- $candidateCitations := partialCached "related-content/scripture-citations.html" $candidateReadings .RelPermalink -}}
+            {{- $shared := collections.Intersect $currentCitations $candidateCitations -}}
+            {{- if ge (len $shared) 2 -}}
+                {{- $strongMatches = $strongMatches | append (dict "page" . "shared" $shared) -}}
+            {{- else if eq (len $shared) 1 -}}
+                {{- $singleMatches = $singleMatches | append (dict "page" . "shared" $shared) -}}
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+
+{{- $related := slice -}}
+{{- range $strongMatches -}}
+    {{- if lt (len $related) 3 -}}
+        {{- $related = $related | append . -}}
+    {{- end -}}
+{{- end -}}
+{{- range $singleMatches -}}
+    {{- if lt (len $related) 3 -}}
+        {{- $related = $related | append . -}}
+    {{- end -}}
+{{- end -}}
+
+{{- with $related }}
+<nav class="related-homilies" aria-labelledby="related-homilies-title">
+    <h2 id="related-homilies-title">Related homilies</h2>
+    <ul>
+        {{- range . }}
+        <li>
+            <a href="{{ .page.RelPermalink }}">{{ .page.Title }} ({{ .page.Date.Format "2006" }})</a>
+            <span class="related-homily-reason">
+                {{- $shown := first 2 .shared -}}
+                {{- if eq (len .shared) 1 -}}
+                    Shared reading:
+                {{- else if eq (len .shared) 2 -}}
+                    Shared readings:
+                {{- else -}}
+                    {{ len .shared }} shared readings:
+                {{- end }}
+                {{ delimit $shown "; " }}
+                {{- if gt (len .shared) 2 -}}
+                    ; and {{ sub (len .shared) 2 }} more
+                {{- end }}
+            </span>
+        </li>
+        {{- end }}
+    </ul>
+</nav>
+{{- end }}

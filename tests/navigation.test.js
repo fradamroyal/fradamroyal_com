@@ -177,6 +177,36 @@ function nodeByType(document, type, relativePath) {
   return result;
 }
 
+function scriptureCitations(citations = []) {
+  const values = Array.isArray(citations) ? citations : [citations];
+  const parsed = values.flatMap((value) => {
+    const separator = value.indexOf(": ");
+    if (separator === -1) {
+      const citation = value.trim();
+      return citation ? [citation] : [];
+    }
+
+    const label = value.slice(0, separator).trim();
+    const citation = value.slice(separator + 2).trim();
+    const normalizedLabel = label.toLowerCase();
+    const isResponsorial =
+      normalizedLabel.includes("psalm") || normalizedLabel.includes("canticle");
+    return citation && !isResponsorial ? [citation] : [];
+  });
+  return [...new Set(parsed)];
+}
+
+function relatedReason(shared) {
+  const shown = shared.slice(0, 2).join("; ");
+  if (shared.length === 1) {
+    return `Shared reading: ${shown}`;
+  }
+  if (shared.length === 2) {
+    return `Shared readings: ${shown}`;
+  }
+  return `${shared.length} shared readings: ${shown}; and ${shared.length - 2} more`;
+}
+
 function generatedURL(relativePath) {
   if (relativePath === "index.html") {
     return BASE_URL;
@@ -351,6 +381,7 @@ test.before(() => {
       const document = structuredData(html, relativePath);
       const article = nodeByType(document, "BlogPosting", relativePath);
       return {
+        citations: scriptureCitations(article.citation),
         datePublished: article.datePublished,
         html,
         relativePath,
@@ -505,6 +536,119 @@ test("article navigation links the chronological neighbors within each section",
   }
 
   assert.ok(crossYearLinks > 0, "Expected at least one adjacent-article link to cross a year boundary.");
+});
+
+test("related homilies use only exact shared non-responsorial Scripture citations", () => {
+  const homilies = articles.filter((article) => article.section === "homilies");
+
+  homilies.forEach((article) => {
+    const matches = homilies
+      .filter((candidate) => candidate.url !== article.url)
+      .map((candidate) => ({
+        candidate,
+        shared: article.citations.filter((citation) => candidate.citations.includes(citation)),
+      }))
+      .filter((match) => match.shared.length > 0);
+    const byNewest = (left, right) =>
+      Date.parse(right.candidate.datePublished) - Date.parse(left.candidate.datePublished) ||
+      left.candidate.url.localeCompare(right.candidate.url);
+    const expected = [
+      ...matches.filter((match) => match.shared.length >= 2).sort(byNewest),
+      ...matches.filter((match) => match.shared.length === 1).sort(byNewest),
+    ].slice(0, 3);
+    const relatedNavs = elementsWithClass(article.html, "nav", "related-homilies");
+
+    if (expected.length === 0) {
+      assert.equal(
+        relatedNavs.length,
+        0,
+        `Expected no related homilies without exact Scripture overlap in ${article.relativePath}.`,
+      );
+      return;
+    }
+
+    assert.equal(
+      relatedNavs.length,
+      1,
+      `Expected one related-homilies nav in ${article.relativePath}.`,
+    );
+    const nav = relatedNavs[0];
+    assertVisible(nav, `nav.related-homilies in ${article.relativePath}`);
+    assert.equal(nav.attributes.get("aria-labelledby"), "related-homilies-title");
+    const heading = nav.innerHTML.match(/<h2\b([^>]*)>([\s\S]*?)<\/h2>/i);
+    assert.ok(heading, `Expected a visible related-homilies heading in ${article.relativePath}.`);
+    assert.equal(attributes(`<h2${heading[1]}>`).get("id"), "related-homilies-title");
+    assert.equal(textContent(heading[2]), "Related homilies");
+
+    const listItems = [...nav.innerHTML.matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/gi)];
+    assert.equal(listItems.length, expected.length, `Unexpected related-link count in ${article.relativePath}.`);
+
+    const actualURLs = [];
+    listItems.forEach((match) => {
+      const itemLinks = anchors(match[1]);
+      assert.equal(itemLinks.length, 1, `Expected one link per related item in ${article.relativePath}.`);
+      const targetURL = new URL(itemLinks[0].href, article.url).href;
+      const relationship = expected.find((entry) => entry.candidate.url === targetURL);
+      assert.ok(relationship, `Unexpected related homily ${targetURL} in ${article.relativePath}.`);
+      assert.equal(
+        itemLinks[0].name,
+        `${relationship.candidate.title} (${relationship.candidate.year})`,
+        `Expected the related link to distinguish the article year in ${article.relativePath}.`,
+      );
+
+      const reasons = elementsWithClass(match[1], "span", "related-homily-reason");
+      assert.equal(reasons.length, 1, `Expected a visible relationship reason for ${targetURL}.`);
+      assert.equal(
+        textContent(reasons[0].html),
+        relatedReason(relationship.shared),
+        `Expected exact shared citations to explain ${targetURL} in ${article.relativePath}.`,
+      );
+      actualURLs.push(targetURL);
+    });
+
+    assert.deepEqual(
+      actualURLs,
+      expected.map((entry) => entry.candidate.url),
+      `Expected the strongest exact Scripture relationships first in ${article.relativePath}.`,
+    );
+  });
+
+  const allSaints = page("homilies/2025/all_saints/index.html");
+  const allSaintsLinks = anchors(
+    elementWithClass(allSaints, "nav", "related-homilies", "homilies/2025/all_saints/index.html").html,
+  ).map((anchor) => new URL(anchor.href, BASE_URL).href);
+  assert.deepEqual(
+    allSaintsLinks,
+    [
+      "https://fradamroyal.com/homilies/2024/all_saints/",
+      "https://fradamroyal.com/homilies/2026/fourth_sunday_ordinary_time/",
+    ],
+    "Expected the recurring All Saints homily to precede a newer one-passage match.",
+  );
+
+  const easterSundayLinks = anchors(
+    elementWithClass(
+      page("homilies/2026/easter_sunday/index.html"),
+      "nav",
+      "related-homilies",
+      "homilies/2026/easter_sunday/index.html",
+    ).html,
+  ).map((anchor) => new URL(anchor.href, BASE_URL).href);
+  assert.deepEqual(
+    easterSundayLinks,
+    ["https://fradamroyal.com/homilies/2025/easter_sunday/"],
+    "Expected citations to match exactly rather than by overlapping book and verse text.",
+  );
+
+  assert.equal(
+    elementsWithClass(
+      page("homilies/2026/sixth_sunday_easter/index.html"),
+      "nav",
+      "related-homilies",
+    ).length,
+    0,
+    "Expected a Psalm-only overlap not to create a related-homilies section.",
+  );
 });
 
 test("every generated internal HTML link resolves to generated output", () => {

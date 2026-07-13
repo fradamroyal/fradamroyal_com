@@ -52,12 +52,11 @@ Baseline recorded July 12, 2026:
 
 ## Execution queue
 
-### NOW: Implement restrained Phase 1.2 related-content paths
+### NOW: Deploy and smoke-test the verified Phase 1.2 candidate
 
-Phase 1.1 is live and its representative responses match the local production
-build. Use the completed homily readings backfill to add only accurate,
-reader-useful relationships, with focused generated-output tests and no
-arbitrary links added merely to increase link counts.
+Phase 1.2 is implemented and verified locally. Deploy it and confirm that
+representative recurring-feast, multi-reading, single-reading, and no-match
+homily pages agree with the local production build.
 
 ## Phase 0 — Correct indexing signals and deploy the intended site
 
@@ -124,8 +123,9 @@ returned HTTP 404.
 **Outcome:** Important content is reachable through clear, useful navigation in
 approximately three clicks rather than dozens of sequential archive pages.
 
-**Status:** Phase 1.1 is implemented, deployed, and verified live. Phase 1.2
-through 1.4 remain queued.
+**Status:** Phase 1.1 is implemented, deployed, and verified live. Phase 1.2 is
+implemented and verified locally; deployment is pending. Phase 1.3 and 1.4
+remain queued.
 
 ### 1.1 Improve archive navigation
 
@@ -145,6 +145,15 @@ fingerprinted stylesheet.
 - Add visible breadcrumbs that match `BreadcrumbList` structured data.
 
 ### 1.2 Add restrained related-content paths
+
+Implemented as a maximum of three related homilies supported by exact shared
+non-responsorial Scripture citations. Matches that share multiple readings are
+shown before single-reading matches, every relationship names representative
+shared citations, and pages without a defensible match render no
+related-content block. Repeated liturgies consequently connect the same feast
+or occasion across years when their readings coincide. Liturgical-season,
+reflection, and tool relationships remain absent until explicit metadata can
+support them accurately.
 
 Where metadata supports accurate relationships, link to:
 
@@ -175,6 +184,7 @@ Do not add arbitrary automated links merely to increase link counts.
 - [x] Important articles have a useful route of approximately three clicks.
 - [x] Year archives work without thin or duplicate output.
 - [x] Singles have previous/next navigation and visible breadcrumbs.
+- [x] Related-content links are evidence-based and explain their relationship.
 - [ ] Empty Posts and taxonomy roots are absent from the sitemap.
 - [ ] The custom 404 is useful and still returns status 404.
 - [x] Generated internal-link validation reports no broken links.

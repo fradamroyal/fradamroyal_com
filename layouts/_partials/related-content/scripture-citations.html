@@ -1,0 +1,13 @@
+{{/* Keep only exact, non-responsorial citations for restrained homily relationships. */}}
+{{- $citations := slice -}}
+{{- with . -}}
+    {{- range . -}}
+        {{- $label := lower (strings.TrimSpace (default "" .label)) -}}
+        {{- $citation := strings.TrimSpace (default "" .citation) -}}
+        {{- $isResponsorial := or (strings.Contains $label "psalm") (strings.Contains $label "canticle") -}}
+        {{- if and $citation (not $isResponsorial) -}}
+            {{- $citations = $citations | append $citation -}}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
+{{- return (collections.Uniq $citations) -}}
