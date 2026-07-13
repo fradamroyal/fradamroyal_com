@@ -72,6 +72,49 @@ function hasClass(elementAttributes, className) {
     .includes(className);
 }
 
+function startTagsWithClass(html, tagName, className) {
+  const pattern = new RegExp(`<${tagName}\\b[^>]*>`, "gi");
+  return [...html.matchAll(pattern)]
+    .map((match) => ({
+      attributes: attributes(match[0]),
+      html: match[0],
+      offset: match.index,
+    }))
+    .filter((element) => hasClass(element.attributes, className));
+}
+
+function unnestedElementWithClass(html, tagName, className, relativePath) {
+  const startTags = startTagsWithClass(html, tagName, className);
+  assert.equal(
+    startTags.length,
+    1,
+    `Expected exactly one ${tagName}.${className} in ${relativePath}.`,
+  );
+
+  const startTag = startTags[0];
+  const innerOffset = startTag.offset + startTag.html.length;
+  const closingTag = `</${tagName}>`;
+  const closingOffset = html.indexOf(closingTag, innerOffset);
+  assert.notEqual(
+    closingOffset,
+    -1,
+    `Expected ${tagName}.${className} to have a closing tag in ${relativePath}.`,
+  );
+  const innerHTML = html.slice(innerOffset, closingOffset);
+  assert.doesNotMatch(
+    innerHTML,
+    new RegExp(`<${tagName}\\b`, "i"),
+    `Expected ${tagName}.${className} not to nest another ${tagName} in ${relativePath}.`,
+  );
+
+  return {
+    attributes: startTag.attributes,
+    html: html.slice(startTag.offset, closingOffset + closingTag.length),
+    innerHTML,
+    offset: startTag.offset,
+  };
+}
+
 function elementsWithClass(html, tagName, className) {
   const elements = [];
   const pattern = new RegExp(`<${tagName}\\b[^>]*>[\\s\\S]*?<\\/${tagName}>`, "gi");
@@ -427,6 +470,141 @@ test("production pagination shows twelve articles per full archive page", () => 
     const previews = elementsWithClass(page(relativePath), "article", "post-preview");
     assert.equal(previews.length, 12, `Expected a full 12-item archive page in ${relativePath}.`);
   });
+});
+
+test("section introductions appear once while the home page remains introduction-free", () => {
+  const expectations = new Map([
+    [
+      "homilies/index.html",
+      {
+        primaryContent: [
+          ["nav", "year-archives"],
+          ["div", "posts-list"],
+        ],
+        text: "These homilies were preached at masses throughout the liturgical year. Most Sundays and Days of Obligation are present. There are occasional festal or ferial homilies as well. Browse recent homilies below, or use the year archives to jump to a particular year.",
+      },
+    ],
+    [
+      "reflections/index.html",
+      {
+        primaryContent: [
+          ["nav", "year-archives"],
+          ["div", "posts-list"],
+        ],
+        text: "These reflections consider Scripture, prayer, and Catholic life and most were preached at various parishes or ministry events. Occasional personal reflections may also be posted. Browse recent reflections below, or use the year archives to jump to a particular year.",
+      },
+    ],
+  ]);
+
+  const homeHTML = page("index.html");
+  assert.equal(
+    startTagsWithClass(homeHTML, "div", "archive-introduction").length,
+    0,
+    "Expected the home page not to render an archive introduction.",
+  );
+  assert.equal(
+    [...homeHTML.matchAll(/<h1\b[^>]*>/gi)].length,
+    1,
+    "Expected the introduction-free home page to retain one H1.",
+  );
+  assert.equal(
+    startTagsWithClass(homeHTML, "div", "posts-list").length,
+    1,
+    "Expected the introduction-free home page to retain its article list.",
+  );
+
+  expectations.forEach(({ primaryContent, text }, relativePath) => {
+    const html = page(relativePath);
+    const introduction = unnestedElementWithClass(
+      html,
+      "div",
+      "archive-introduction",
+      relativePath,
+    );
+    assertVisible(introduction, `div.archive-introduction in ${relativePath}`);
+    assert.equal(textContent(introduction.innerHTML), text);
+    assert.equal(
+      [...html.matchAll(/<h1\b[^>]*>/gi)].length,
+      1,
+      `Expected the introduction not to add another H1 in ${relativePath}.`,
+    );
+
+    primaryContent.forEach(([tagName, className]) => {
+      const primary = elementWithClass(html, tagName, className, relativePath);
+      assert.ok(
+        introduction.offset < html.indexOf(primary.html),
+        `Expected the introduction to precede ${tagName}.${className} in ${relativePath}.`,
+      );
+    });
+  });
+
+  REQUIRED_YEAR_ARCHIVES.forEach((years, section) => {
+    years.forEach((year) => {
+      const relativePath = `${section}/${year}/index.html`;
+      const introduction = unnestedElementWithClass(
+        page(relativePath),
+        "div",
+        "archive-introduction",
+        relativePath,
+      );
+      assertVisible(introduction, `div.archive-introduction in ${relativePath}`);
+      assert.equal(
+        textContent(introduction.innerHTML),
+        `Browse ${section} published in ${year}.`,
+      );
+    });
+  });
+});
+
+test("section introductions stay out of paginator pages, previews, and feeds", () => {
+  const introductionFragments = [
+    "preached at masses throughout the liturgical year",
+    "preached at various parishes or ministry events",
+  ];
+
+  const paginatorPages = [...pages].filter(([relativePath]) =>
+    /^(?:page|homilies\/page|reflections\/page)\/\d+\/index\.html$/.test(relativePath),
+  );
+  assert.ok(
+    paginatorPages.length > 0,
+    "Expected at least one generated paginator page for introduction-isolation coverage.",
+  );
+  paginatorPages.forEach(([relativePath, html]) => {
+    assert.equal(
+      startTagsWithClass(html, "div", "archive-introduction").length,
+      0,
+      `Expected ${relativePath} not to repeat the archive introduction.`,
+    );
+  });
+
+  ["index.html", "homilies/index.html", "reflections/index.html"].forEach(
+    (relativePath) => {
+      elementsWithClass(page(relativePath), "article", "post-preview").forEach(
+        (preview) => {
+          introductionFragments.forEach((fragment) => {
+            assert.equal(
+              textContent(preview.innerHTML).includes(fragment),
+              false,
+              `Expected ${relativePath} article previews not to include introduction copy.`,
+            );
+          });
+        },
+      );
+    },
+  );
+
+  ["index.xml", "homilies/index.xml", "reflections/index.xml"].forEach(
+    (relativePath) => {
+      const feed = decodeHTML(readFileSync(join(BUILD_ROOT, relativePath), "utf8"));
+      introductionFragments.forEach((fragment) => {
+        assert.equal(
+          feed.includes(fragment),
+          false,
+          `Expected ${relativePath} not to include archive introduction copy.`,
+        );
+      });
+    },
+  );
 });
 
 test("low-value crawl surfaces are absent while canonical content remains indexed", () => {

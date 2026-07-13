@@ -52,19 +52,21 @@ Baseline recorded July 12, 2026:
 
 ## Execution queue
 
-### NOW: Add useful home and section introductions
+### NOW: Normalize legacy reflection heading hierarchy
 
 Phases 1.3, 1.4, 2.1, the first-priority Phase 2.2 description convention,
-Phase 2.3, Phase 2.4, and the first bounded Phase 3.3 title-and-URL cleanup slice
+Phase 2.3, Phase 2.4, and the first two bounded Phase 3.3 presentation slices
 are implemented and verified locally. Deployment, live smoke-testing, and live
 metadata validation remain pending and were intentionally skipped. The Phase
 3.1 Scripture backfill and Phase 3.2 controlled-metadata backfill are complete
-for all 130 published homilies without generating hubs. Continue with the next
-bounded Phase 3.3 slice: replace the placeholder root-page text with a concise,
-accurate site introduction and add useful visible introductions to Homilies and
-Reflections. Render each introduction once before its primary archive content,
-keep article summaries and feeds unchanged, and add generated-output coverage
-for the copy and page structure.
+for all 130 published homilies without generating hubs. At the author's
+direction, the homepage remains free of body-level introduction copy. Continue
+with the next bounded Phase 3.3 slice: replace the 21 body-level Markdown H1s
+across the three affected 2024 reflections with 17 H2s and four genuinely
+nested H3s so every rendered article has one primary H1 and an accurate
+hierarchy. Preserve the visible wording, article summaries, feeds, URLs, and
+navigation, and add both source-level and generated-output coverage for the
+hierarchy.
 
 ## Phase 0 — Correct indexing signals and deploy the intended site
 
@@ -331,9 +333,10 @@ thin pages.
 
 **Status:** Phases 3.1 and 3.2 are complete for the existing homily corpus. All
 130 published homilies now have verified Scripture and controlled liturgical
-metadata. The legacy title and canonical-slug slice of Phase 3.3 is complete;
-hub implementation, the remaining Phase 3.3 presentation work, and Phase 3.4
-remain pending.
+metadata. The legacy title and canonical-slug slice and the root and main-
+section introduction cleanup slice of Phase 3.3 are complete; hub
+implementation, the remaining Phase 3.3 presentation work, and Phase 3.4 remain
+pending.
 
 ### 3.1 Backfill Scripture metadata
 
@@ -408,8 +411,19 @@ navigation labels, related links, feed items, sitemap entries, canonicals, and
 redirect rules. Deployment and live redirect verification remain intentionally
 deferred.
 
+The root and main-section introduction cleanup slice is also implemented. The
+placeholder root copy is removed, and the homepage deliberately remains
+without a body-level introduction according to the author's visual and
+editorial preference. The Homilies and Reflections roots explain their distinct
+purposes and archive navigation in the author's preferred language. The shared
+list template renders each section introduction once before the first archive
+page's primary content without repeating it on paginator depths. Generated-
+output coverage preserves the introduction-free homepage, existing year
+introductions, one-H1 structure, article previews, and feeds.
+
 - Add useful section introductions to Homilies and Reflections.
-- Replace placeholder text in the root source file.
+- Remove the root placeholder and keep the homepage introduction-free according
+  to the author's editorial preference.
 - Convert body-level Markdown H1s to H2/H3 so pages have one primary H1.
 - Add descriptive H2s to long articles where they improve reading and
   navigation.

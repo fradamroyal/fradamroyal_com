@@ -14,11 +14,16 @@
 {{ end }}
 
 {{ define "main" }}
+{{- $paginator := .Store.Get "listPaginator" -}}
+{{- $isFirstArchivePage := true -}}
+{{- with $paginator -}}
+    {{- $isFirstArchivePage = eq .PageNumber 1 -}}
+{{- end -}}
 <div class="container">
-    {{- if .Params.year }}
+    {{- if $isFirstArchivePage }}
     {{- with .Content }}
     <div class="archive-introduction">
-      {{ . }}
+        {{ . }}
     </div>
     {{- end }}
     {{- end }}
@@ -47,7 +52,7 @@
     </ol>
     {{- else }}
     <div class="posts-list">
-      {{ $pag := .Store.Get "listPaginator" }}
+      {{ $pag := $paginator }}
       {{ range $pag.Pages }}
         {{ partial "preview.html" . }}
       {{ end }}
