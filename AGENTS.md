@@ -21,6 +21,15 @@
 - Partial and shortcode directories now use leading underscores (`_partials`, `_shortcodes`). Keep new snippets there so Hugo loads them without warnings.
 - Use the new `all` layout only for site-wide overrides; otherwise inherit from `baseof.html`.
 
+## Site Architecture Guardrails
+- Keep document titles, descriptions, canonical URLs, social metadata, and JSON-LD on the shared resolvers used by `themes/latex_fradamroyal/layouts/_partials/head.html`; do not duplicate their fallback logic in individual layouts.
+- Preserve self-referential canonical URLs for every indexable page, including paginator pages. When changing pagination, update the page context before the head renders and keep `tests/canonical-links.test.js` passing.
+- Keep year archives and exact shared-Scripture related homilies as the site's collection paths. `liturgical_season` and `liturgical_occasion` are controlled, non-indexable metadata and must not automatically create taxonomy, term, season, occasion, or other thin collection pages.
+- Keep taxonomy and term output disabled unless a deliberate, reader-useful collection architecture and its generated-output coverage are added at the same time.
+- Preserve synchronization between visible breadcrumbs, article navigation, canonical URLs, sitemap entries, feeds, social metadata, and structured data. Add generated-output regressions whenever changing these surfaces.
+- Keep the custom 404 page out of the sitemap, marked `noindex`, and free of canonical and page-level structured data.
+- Treat authored semantic images as content: require descriptive alt text plus an exact local image target or explicit HTTPS source; image-led articles also require resolvable structured image metadata. Decorative images must be explicitly marked with empty alt text.
+
 ## Testing Guidelines
 - Watch `hugo server` for broken links, missing resources, or template warnings.
 - Run `hugo --templateMetrics --templateMetricsHints` to spot slow-rendering templates.
@@ -36,6 +45,7 @@
 
 ## Content Contribution Tips
 - Follow `CONTENT-MODEL.md` for `liturgical_season` and `liturgical_occasion`; keep generic `categories`, `tags`, and `series` unused while taxonomy output is disabled.
+- Article dates must be either `YYYY-MM-DD` or full RFC 3339 timestamps with `Z` or an explicit numeric offset; the date's civil year must match the article's year directory.
 - Use `seo_title` only when a document title should differ from the visible `title`; provide the unbranded page-specific text and let the centralized resolver append the site name.
 - Give every new page a concise, accurate `description` for search results; use `summary` separately when list or card copy should differ.
 - Prefer SBL book abbreviations for Scripture references, including homily `readings` metadata; use the canonical list in `SBL_BIBLE_ABBREVIATIONS.md`.
