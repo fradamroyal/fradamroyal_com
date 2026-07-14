@@ -651,7 +651,7 @@ test("Two Resurrections exposes verified image facts without changing its assets
     .map((match) => match[0]);
 
   assert.deepEqual(figures, [
-    '{{< figure src="painting_1.jpeg" alt="The risen Christ in a red mantle raises a hand in blessing and holds a victory banner above four armored guards around a stone tomb" caption="Hans Schäufelein, *Der Auferstandene Christus* (after 1508). Source: [Lempertz, lot 1138, 2007.](https://web.archive.org/web/20210422192854/https://www.lempertz.com/de/kataloge/lot/903-1/1138-hans-schaeufelein.html)" >}}',
+    '{{< figure src="painting_1.jpeg" alt="The risen Christ in a red mantle raises a hand in blessing and holds a victory banner above four armored guards around a stone tomb" caption="Attributed to Hans Schäufelein, *Der Auferstandene Christus* (after 1508). Sources: [Lempertz, lot 1138, 2007.](https://web.archive.org/web/20210422192854/https://www.lempertz.com/de/kataloge/lot/903-1/1138-hans-schaeufelein.html) [Christie\'s, lot 7.](https://www.christies.com/en/lot/lot-5309506)" >}}',
     '{{< figure src="painting_2.png" alt="The risen Christ in a red mantle holds an American flag above modern armed guards beside a concrete tomb and city skyline" caption="Contemporary Resurrection scene generated with GPT-4o in ChatGPT." >}}',
   ]);
 

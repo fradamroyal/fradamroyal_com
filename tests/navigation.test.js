@@ -10,7 +10,7 @@ const {
   rmSync,
 } = require("node:fs");
 const { tmpdir } = require("node:os");
-const { join, relative, resolve, sep } = require("node:path");
+const { extname, join, relative, resolve, sep } = require("node:path");
 const {
   LEGACY_HOMILY_MIGRATIONS,
 } = require("./fixtures/legacy-homily-migrations.js");
@@ -21,9 +21,26 @@ const {
 const REPOSITORY_ROOT = resolve(__dirname, "..");
 const TEMPORARY_ROOT = mkdtempSync(join(tmpdir(), "fradamroyal-navigation-"));
 const BUILD_ROOT = join(TEMPORARY_ROOT, "public");
+const IMAGE_LINT_BUILD_ROOT = join(TEMPORARY_ROOT, "image-lint-public");
 const BASE_URL = "https://fradamroyal.com/";
 const DEPLOYMENT_CONFIG_PATH = join(REPOSITORY_ROOT, "wrangler.toml");
 const LOW_VALUE_COLLECTION_ROOTS = ["categories", "posts", "series", "tags"];
+const IMAGE_EXTENSIONS = new Set([
+  ".apng",
+  ".avif",
+  ".bmp",
+  ".gif",
+  ".ico",
+  ".jpe",
+  ".jfif",
+  ".jpeg",
+  ".jpg",
+  ".png",
+  ".svg",
+  ".tif",
+  ".tiff",
+  ".webp",
+]);
 const REQUIRED_YEAR_ARCHIVES = new Map([
   ["homilies", ["2024", "2025", "2026"]],
   ["reflections", ["2024", "2025", "2026"]],
@@ -34,6 +51,8 @@ let allHTMLPages;
 let pages;
 let pagesByURL;
 let articles;
+let imageLintPages;
+let imageLintFiles;
 let hugoConfig;
 let sitemapURLs;
 
@@ -150,6 +169,29 @@ function elementWithClass(html, tagName, className, relativePath) {
   return elements[0];
 }
 
+function elementWithID(html, tagName, id, relativePath) {
+  const startTags = [...html.matchAll(new RegExp(`<${tagName}\\b[^>]*>`, "gi"))]
+    .filter((match) => attributes(match[0]).get("id") === id);
+  assert.equal(
+    startTags.length,
+    1,
+    `Expected exactly one ${tagName}#${id} in ${relativePath}.`,
+  );
+
+  const startTag = startTags[0];
+  const innerOffset = startTag.index + startTag[0].length;
+  const closingTag = `</${tagName}>`;
+  const closingOffset = html.indexOf(closingTag, innerOffset);
+  assert.notEqual(
+    closingOffset,
+    -1,
+    `Expected ${tagName}#${id} to have a closing tag in ${relativePath}.`,
+  );
+  return {
+    innerHTML: html.slice(innerOffset, closingOffset),
+  };
+}
+
 function assertVisible(element, description) {
   assert.equal(
     element.attributes.has("hidden"),
@@ -171,6 +213,7 @@ function decodeHTML(value) {
     ["lt", "<"],
     ["nbsp", " "],
     ["quot", '"'],
+    ["rsquo", "’"],
   ]);
 
   return value.replace(/&(?:#(\d+)|#x([\da-f]+)|([a-z]+));/gi, (entity, decimal, hex, name) => {
@@ -372,6 +415,26 @@ function outputCandidates(url) {
   return [path, `${path}/index.html`, `${path}.html`];
 }
 
+function generatedImagePath(url, description) {
+  let pathname;
+  assert.doesNotThrow(() => {
+    pathname = decodeURIComponent(url.pathname);
+  }, `Expected ${description} to use a valid encoded path.`);
+  const path = pathname.replace(/^\/+/, "");
+
+  assert.notEqual(path, "", `Expected ${description} to name an image file.`);
+  assert.equal(
+    pathname.endsWith("/"),
+    false,
+    `Expected ${description} not to resolve to a directory or HTML index.`,
+  );
+  assert.ok(
+    IMAGE_EXTENSIONS.has(extname(path).toLowerCase()),
+    `Expected ${description} to use a supported image extension.`,
+  );
+  return path;
+}
+
 function page(relativePath) {
   const result = pages.get(relativePath);
   assert.ok(result, `Expected Hugo to generate ${relativePath}.`);
@@ -481,6 +544,33 @@ test.before(() => {
     `Hugo build failed.\n${build.stdout || ""}\n${build.stderr || ""}`,
   );
 
+  const imageLintBuild = spawnSync(
+    "hugo",
+    [
+      "--gc",
+      "--minify",
+      "--buildDrafts",
+      "--buildExpired",
+      "--buildFuture",
+      "--destination",
+      IMAGE_LINT_BUILD_ROOT,
+    ],
+    {
+      cwd: REPOSITORY_ROOT,
+      encoding: "utf8",
+    },
+  );
+  assert.equal(
+    imageLintBuild.error,
+    undefined,
+    imageLintBuild.error && imageLintBuild.error.message,
+  );
+  assert.equal(
+    imageLintBuild.status,
+    0,
+    `Hugo authored-content lint build failed.\n${imageLintBuild.stdout || ""}\n${imageLintBuild.stderr || ""}`,
+  );
+
   const files = outputFiles(BUILD_ROOT);
   allFiles = new Set(
     files.map((path) => relative(BUILD_ROOT, path).split(sep).join("/")),
@@ -520,6 +610,25 @@ test.before(() => {
         year,
       };
     });
+
+  const imageLintOutput = outputFiles(IMAGE_LINT_BUILD_ROOT);
+  imageLintFiles = new Set(
+    imageLintOutput.map((path) =>
+      relative(IMAGE_LINT_BUILD_ROOT, path).split(sep).join("/"),
+    ),
+  );
+  imageLintPages = imageLintOutput
+    .filter((path) => path.endsWith(".html"))
+    .map((path) => {
+      const relativePath = relative(IMAGE_LINT_BUILD_ROOT, path).split(sep).join("/");
+      return [relativePath, readFileSync(path, "utf8")];
+    })
+    .filter(([, html]) => !isRedirectPage(html))
+    .map(([relativePath, html]) => ({
+      html,
+      relativePath,
+      url: generatedURL(relativePath),
+    }));
 });
 
 test.after(() => {
@@ -1069,6 +1178,133 @@ test("covered reflections render the intended H2 and H3 hierarchy", () => {
   assert.equal(coveredHeadings.filter(({ level }) => level === 3).length, 4);
 });
 
+test("authored images render accessibly and image-led articles expose metadata", () => {
+  let imageLedArticles = 0;
+  let semanticImageCount = 0;
+
+  imageLintPages.forEach((pageRecord) => {
+    const content = elementWithID(
+      pageRecord.html,
+      "main",
+      "main-content",
+      pageRecord.relativePath,
+    );
+    const figures = [...content.innerHTML.matchAll(/<figure\b[^>]*>[\s\S]*?<\/figure>/gi)]
+      .map((match) => {
+        const startTag = match[0].match(/^<figure\b[^>]*>/i)[0];
+        const figureAttributes = attributes(startTag);
+        const classes = (figureAttributes.get("class") || "").split(/\s+/);
+        return {
+          decorative:
+            figureAttributes.get("aria-hidden") === "true" ||
+            ["none", "presentation"].includes(figureAttributes.get("role")) ||
+            classes.includes("decorative"),
+          end: match.index + match[0].length,
+          start: match.index,
+        };
+      });
+    let semanticFigures = 0;
+
+    [...content.innerHTML.matchAll(/<img\b[^>]*>/gi)].forEach((match, index) => {
+      const image = attributes(match[0]);
+      const description = `image ${index + 1} in ${pageRecord.relativePath}`;
+      const alt = decodeHTML(image.get("alt") || "").replace(/\s+/g, " ").trim();
+      const src = decodeHTML(image.get("src") || "").trim();
+      const figure = figures.find(
+        ({ start, end }) => match.index >= start && match.index < end,
+      );
+
+      assert.ok(
+        image.has("alt"),
+        `Expected ${description} to declare alt text; use alt="" only when decorative.`,
+      );
+      assert.notEqual(src, "", `Expected ${description} to have a source.`);
+      const target = new URL(src, pageRecord.url);
+      assert.equal(target.protocol, "https:", `Expected ${description} to use HTTPS.`);
+      if (target.origin === new URL(BASE_URL).origin) {
+        const outputPath = generatedImagePath(target, description);
+        assert.ok(
+          imageLintFiles.has(outputPath),
+          `Expected rendered source ${src} in ${pageRecord.relativePath} to resolve to generated image output.`,
+        );
+      } else {
+        assert.match(
+          src,
+          /^https:\/\//i,
+          `Expected external source ${src} in ${pageRecord.relativePath} to be an explicit HTTPS URL.`,
+        );
+      }
+
+      if (alt === "" && (!figure || figure.decorative)) {
+        return;
+      }
+      assert.notEqual(
+        alt,
+        "",
+        `Expected semantic ${description} to have nonblank alt text.`,
+      );
+      assert.doesNotMatch(
+        alt,
+        /^(?:todo|tbd|placeholder|alt text|(?:(?:first|second|third|fourth|fifth|\d+)\s+)?(?:image|photo(?:graph)?|picture|painting|figure|graphic|illustration)(?:\s+(?:of|for)\b.*)?)$/i,
+        `Expected ${description} to have descriptive alt text.`,
+      );
+      semanticImageCount += 1;
+      if (figure && !figure.decorative) {
+        semanticFigures += 1;
+      }
+    });
+
+    if (semanticFigures === 0 || !articlePathParts(pageRecord.relativePath)) {
+      return;
+    }
+    imageLedArticles += 1;
+
+    const document = structuredData(pageRecord.html, pageRecord.relativePath);
+    const posting = nodeByType(document, "BlogPosting", pageRecord.relativePath);
+    const metadataImages = Array.isArray(posting.image)
+      ? posting.image
+      : posting.image
+        ? [posting.image]
+        : [];
+    assert.ok(
+      metadataImages.length > 0,
+      `Expected image-led article ${pageRecord.relativePath} to expose explicit image metadata.`,
+    );
+    assert.equal(
+      new Set(metadataImages).size,
+      metadataImages.length,
+      `Expected image metadata in ${pageRecord.relativePath} not to contain duplicates.`,
+    );
+    metadataImages.forEach((url) => {
+      const target = new URL(url);
+      assert.equal(
+        target.protocol,
+        "https:",
+        `Expected image metadata in ${pageRecord.relativePath} to use HTTPS.`,
+      );
+      if (target.origin === new URL(BASE_URL).origin) {
+        const outputPath = generatedImagePath(
+          target,
+          `image metadata in ${pageRecord.relativePath}`,
+        );
+        assert.ok(
+          imageLintFiles.has(outputPath),
+          `Expected image metadata URL ${url} in ${pageRecord.relativePath} to resolve to generated image output.`,
+        );
+      } else {
+        assert.match(
+          url,
+          /^https:\/\//i,
+          `Expected external image metadata in ${pageRecord.relativePath} to be an explicit HTTPS URL.`,
+        );
+      }
+    });
+  });
+
+  assert.ok(imageLedArticles > 0, "Expected at least one image-led article.");
+  assert.ok(semanticImageCount > 0, "Expected at least one semantic article image.");
+});
+
 test("Two Resurrections renders verified image descriptions and provenance", () => {
   const relativePath = "reflections/2025/two_paintings/index.html";
   const article = elementWithClass(
@@ -1093,11 +1329,15 @@ test("Two Resurrections renders verified image descriptions and provenance", () 
   assert.deepEqual(figures, [
     {
       alt: "The risen Christ in a red mantle raises a hand in blessing and holds a victory banner above four armored guards around a stone tomb",
-      caption: "Hans Schäufelein, Der Auferstandene Christus (after 1508). Source: Lempertz, lot 1138, 2007.",
+      caption: "Attributed to Hans Schäufelein, Der Auferstandene Christus (after 1508). Sources: Lempertz, lot 1138, 2007. Christie’s, lot 7.",
       links: [
         {
           href: "https://web.archive.org/web/20210422192854/https://www.lempertz.com/de/kataloge/lot/903-1/1138-hans-schaeufelein.html",
           name: "Lempertz, lot 1138, 2007.",
+        },
+        {
+          href: "https://www.christies.com/en/lot/lot-5309506",
+          name: "Christie’s, lot 7.",
         },
       ],
     },
