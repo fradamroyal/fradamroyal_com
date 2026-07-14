@@ -52,7 +52,7 @@ Baseline recorded July 12, 2026:
 
 ## Execution queue
 
-### NOW: Enforce required front matter on new articles
+### NOW: Enforce unambiguous article date precision
 
 Phases 1.3, 1.4, 2.1, the first-priority Phase 2.2 description convention,
 Phase 2.3, Phase 2.4, and all five bounded Phase 3.3 presentation slices are
@@ -106,15 +106,28 @@ source; no template or runtime normalization was added. Visible and structured
 readings still agree, related-homily selection is unchanged, and reading data
 remains absent from summaries, previews, and feeds.
 
-Continue with the following bounded Phase 3.4 slice: enforce exactly one valid
-title, date, and Boolean draft status on every authored homily and reflection,
-and require a nonblank human-written description on newly added articles. Keep
-the existing fallback for legacy articles, represent any grandfathered missing
-descriptions as an explicit auditable baseline, and make the lint fail if a new
-article omits its description or a stale exception remains after backfill.
-Cover drafts and future or expired content plus both archetypes, add focused
-failure fixtures, and do not mechanically backfill legacy descriptions or
-change rendered metadata behavior.
+Phase 3.4 required-front-matter linting now validates exactly one page-level,
+nonblank title, valid ISO date, and Boolean draft status across all 141 authored
+homilies and reflections. It reads source files directly without filtering by
+publication state, and focused fixtures cover published, draft, future, and
+expired articles plus malformed fields and nested-table mistakes. All 141
+legacy articles that lack descriptions are enumerated in a sorted, auditable
+baseline. A new omission fails, and the exact comparison also fails when a
+backfilled, removed, or renamed article leaves a stale exception. Generated
+Homily and Reflection archetypes are checked for their required blank
+description prompt and valid core fields. No legacy descriptions were
+mechanically backfilled, and rendered metadata behavior is unchanged.
+
+Continue with the following bounded Phase 3.4 slice: accept calendar dates in
+`YYYY-MM-DD` form and full RFC 3339 timestamps only when they carry a known
+`Z` or numeric offset. Reject offsetless timestamps and the RFC 3339 unknown-
+offset form `-00:00`, and require each article's civil year to match its year
+directory. Normalize the three ambiguous legacy timestamps without changing
+their civil dates or the intended Christmas Day-before-Night archive and
+adjacent-navigation order. Add focused fixtures and generated-output assertions
+for JSON-LD `datePublished`, RSS `pubDate`, archive ordering, and adjacent
+navigation. Keep visible date formatting, URLs, Git-derived `lastmod`, explicit
+known offsets, and unrelated content unchanged.
 
 ## Phase 0 — Correct indexing signals and deploy the intended site
 
@@ -385,9 +398,9 @@ metadata. Five bounded Phase 3.3 presentation slices are complete: legacy title
 and canonical-slug cleanup, root and main-section introduction cleanup, legacy
 reflection heading normalization, long-form structure for the illustrated `Two
 Resurrections` reflection, and accurate image facts. Corpus-wide source and
-rendered heading checks plus generalized authored-image checks from Phase 3.4
-and corpus-wide SBL reading-record checks are also implemented; hub selection
-and the other Phase 3.4 checks remain pending.
+rendered heading checks plus generalized authored-image, corpus-wide SBL
+reading-record, and required-front-matter checks from Phase 3.4 are also
+implemented; hub selection and unambiguous date/time checks remain pending.
 
 ### 3.1 Backfill Scripture metadata
 
@@ -534,11 +547,14 @@ article. SBL and reading-record linting derives its book vocabulary from the
 canonical reference, validates every authored record, covers the Bible
 planner's parenthetical Esther citation syntax with focused fixtures, and
 rejects incomplete data or malformed citations. Required-front-matter linting
-is the next bounded slice.
+validates the core page fields across every authored article and requires
+descriptions on new work while tracking legacy omissions in an exact auditable
+baseline. Unambiguous article date precision is the next bounded slice.
 
 Add automated checks or warnings for:
 
-- Required title, date, draft status, and description on new content.
+- Required title, date, draft status, and description on new content
+  (implemented with an explicit legacy-description baseline).
 - Duplicate SEO titles (implemented for indexable generated pages).
 - Heading hierarchy (implemented).
 - Broken internal links (implemented for generated HTML output).
@@ -546,7 +562,8 @@ Add automated checks or warnings for:
 - Missing image metadata on image-led articles (implemented for structured
   output).
 - SBL Scripture abbreviation and reading-data validation (implemented).
-- Date/time consistency where precise publication times matter.
+- Date/time consistency where precise publication times matter (next bounded
+  slice).
 
 ### Phase 3 gate
 

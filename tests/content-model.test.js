@@ -26,6 +26,11 @@ const {
   INVALID_SCRIPTURE_READING_FIXTURES,
   VALID_SCRIPTURE_READING_FIXTURES,
 } = require("./fixtures/scripture-readings.js");
+const {
+  ARTICLE_DESCRIPTION_BASELINE_PATHS,
+  INVALID_ARTICLE_FRONT_MATTER_FIXTURES,
+  VALID_ARTICLE_FRONT_MATTER_FIXTURES,
+} = require("./fixtures/article-front-matter.js");
 
 const REPOSITORY_ROOT = resolve(__dirname, "..");
 const MODEL_PATH = join(REPOSITORY_ROOT, "data", "content_model.json");
@@ -602,6 +607,126 @@ function scalarAssignment(source, field, path) {
   return matches[0][1];
 }
 
+function assignmentValues(source, field) {
+  const pattern = new RegExp(`^${field}[ \\t]*=[ \\t]*(.*?)[ \\t]*$`, "gm");
+  return [...source.matchAll(pattern)].map((match) => match[1]);
+}
+
+function quotedTomlValue(value) {
+  const match = value.match(/^(['"])(.*?)\1(?:[ \\t]+#.*)?$/);
+  return match && match[2];
+}
+
+function validIsoDate(value) {
+  const match = value.match(
+    /^(\d{4})-(\d{2})-(\d{2})(?:T(\d{2}):(\d{2}):(\d{2})(?:\.\d+)?(?:Z|([+-])(\d{2}):(\d{2}))?)?$/,
+  );
+  if (!match) {
+    return false;
+  }
+
+  const year = Number(match[1]);
+  const month = Number(match[2]);
+  const day = Number(match[3]);
+  if (year === 0 || month < 1 || month > 12) {
+    return false;
+  }
+  const daysInMonth = new Date(Date.UTC(year, month, 0)).getUTCDate();
+  if (day < 1 || day > daysInMonth) {
+    return false;
+  }
+
+  if (match[4] === undefined) {
+    return true;
+  }
+
+  const hour = Number(match[4]);
+  const minute = Number(match[5]);
+  const second = Number(match[6]);
+  const offsetHour = match[8] === undefined ? 0 : Number(match[8]);
+  const offsetMinute = match[9] === undefined ? 0 : Number(match[9]);
+  const validOffset =
+    offsetHour < 14 || (offsetHour === 14 && offsetMinute === 0);
+  return (
+    hour <= 23 &&
+    minute <= 59 &&
+    second <= 59 &&
+    offsetMinute <= 59 &&
+    validOffset
+  );
+}
+
+function validateArticleFrontMatter(
+  metadata,
+  sourcePath,
+  { allowBlankDescriptionPrompt = false, allowMissingDescription = false } = {},
+) {
+  const errors = [];
+  const firstTable = metadata.search(/^[ \\t]*\[/m);
+  const pageMetadata = firstTable === -1 ? metadata : metadata.slice(0, firstTable);
+
+  const titleAssignments = assignmentValues(pageMetadata, "title");
+  if (titleAssignments.length !== 1) {
+    errors.push(`Expected ${sourcePath} to define exactly one title.`);
+  } else {
+    const title = quotedTomlValue(titleAssignments[0]);
+    if (title === null) {
+      errors.push(`Expected ${sourcePath} title to be a quoted TOML string.`);
+    } else if (title.trim() === "") {
+      errors.push(`Expected ${sourcePath} to have a nonblank title.`);
+    } else if (title !== title.trim()) {
+      errors.push(`Expected ${sourcePath} title not to have surrounding whitespace.`);
+    }
+  }
+
+  const dateAssignments = assignmentValues(pageMetadata, "date");
+  if (dateAssignments.length !== 1) {
+    errors.push(`Expected ${sourcePath} to define exactly one date.`);
+  } else {
+    const date = dateAssignments[0].replace(/[ \\t]+#.*$/, "").trim();
+    if (!validIsoDate(date)) {
+      errors.push(`Expected ${sourcePath} to have a valid ISO 8601 date.`);
+    }
+  }
+
+  const draftAssignments = assignmentValues(pageMetadata, "draft");
+  if (draftAssignments.length !== 1) {
+    errors.push(`Expected ${sourcePath} to define exactly one draft status.`);
+  } else {
+    const draft = draftAssignments[0].replace(/[ \\t]+#.*$/, "").trim();
+    if (!/^(?:true|false)$/.test(draft)) {
+      errors.push(`Expected ${sourcePath} to have a Boolean draft status.`);
+    }
+  }
+
+  const descriptionAssignments = assignmentValues(pageMetadata, "description");
+  let hasDescription = false;
+  if (descriptionAssignments.length === 0 && allowMissingDescription) {
+    return { errors, hasDescription };
+  }
+  if (descriptionAssignments.length !== 1) {
+    errors.push(`Expected ${sourcePath} to define exactly one description.`);
+    return { errors, hasDescription };
+  }
+
+  const description = quotedTomlValue(descriptionAssignments[0]);
+  if (description === null) {
+    errors.push(`Expected ${sourcePath} description to be a quoted TOML string.`);
+  } else if (description.trim() === "") {
+    if (!allowBlankDescriptionPrompt) {
+      errors.push(`Expected ${sourcePath} to have a nonblank description.`);
+    }
+  } else if (description !== description.trim()) {
+    errors.push(
+      `Expected ${sourcePath} description not to have surrounding whitespace.`,
+    );
+  } else {
+    hasDescription = true;
+  }
+
+  return { errors, hasDescription };
+}
+
 function assertRegistry(registry, name) {
   assert.ok(registry && typeof registry === "object" && !Array.isArray(registry));
   const labels = new Set();
@@ -675,6 +800,22 @@ function assertControlledPrompts(source, kind) {
   });
 }
 
+function assertArticleArchetypePrompts(source, kind) {
+  const sourcePath = `generated ${kind}`;
+  const metadata = frontMatter(source, sourcePath);
+  const result = validateArticleFrontMatter(metadata, sourcePath, {
+    allowBlankDescriptionPrompt: true,
+  });
+
+  assert.deepEqual(result.errors, []);
+  assert.equal(result.hasDescription, false);
+  assert.match(
+    source,
+    /^description = '' # Required before publication; use summary separately for card copy\.$/m,
+  );
+  assert.equal(scalarAssignment(metadata, "draft", sourcePath), "true");
+}
+
 test.before(() => {
   cpSync(join(REPOSITORY_ROOT, "content"), NEUTRAL_CONTENT, { recursive: true });
   removeHomilyMetadata();
@@ -737,6 +878,63 @@ test("year and Scripture dimensions remain derived from canonical fields", () =>
     scripture_passages: { source: "readings[].citation" },
     scripture_books: { source: "readings[].citation" },
   });
+});
+
+test("article front-matter lint covers every supported publication state", () => {
+  VALID_ARTICLE_FRONT_MATTER_FIXTURES.forEach(({ name, metadata }) => {
+    const result = validateArticleFrontMatter(metadata, `valid fixture ${name}`);
+    assert.deepEqual(result.errors, [], name);
+    assert.equal(result.hasDescription, true, name);
+  });
+});
+
+test("article front-matter lint rejects malformed required fields", () => {
+  INVALID_ARTICLE_FRONT_MATTER_FIXTURES.forEach(
+    ({ name, metadata, expectedError }) => {
+      const result = validateArticleFrontMatter(
+        metadata,
+        `invalid fixture ${name}`,
+      );
+      assert.ok(
+        result.errors.some((error) => error.includes(expectedError)),
+        `${name}: expected an error containing ${JSON.stringify(expectedError)}; got ${JSON.stringify(result.errors)}.`,
+      );
+    },
+  );
+});
+
+test("every authored article has valid required front matter", () => {
+  assert.deepEqual(
+    ARTICLE_DESCRIPTION_BASELINE_PATHS,
+    [...ARTICLE_DESCRIPTION_BASELINE_PATHS].sort(),
+    "Expected the legacy description baseline to remain sorted and reviewable.",
+  );
+  assert.equal(
+    new Set(ARTICLE_DESCRIPTION_BASELINE_PATHS).size,
+    ARTICLE_DESCRIPTION_BASELINE_PATHS.length,
+    "Expected every legacy description exception to be unique.",
+  );
+
+  const baseline = new Set(ARTICLE_DESCRIPTION_BASELINE_PATHS);
+  const missingDescriptions = [];
+  articleSourcePaths().forEach((path) => {
+    const sourcePath = relative(REPOSITORY_ROOT, path);
+    const metadata = frontMatter(readFileSync(path, "utf8"), sourcePath);
+    const result = validateArticleFrontMatter(metadata, sourcePath, {
+      allowMissingDescription: baseline.has(sourcePath),
+    });
+
+    assert.deepEqual(result.errors, [], sourcePath);
+    if (!result.hasDescription) {
+      missingDescriptions.push(sourcePath);
+    }
+  });
+
+  assert.deepEqual(
+    missingDescriptions,
+    ARTICLE_DESCRIPTION_BASELINE_PATHS,
+    "Expected the legacy description baseline to match the current omissions exactly; remove stale exceptions after backfill and do not add new articles without descriptions.",
+  );
 });
 
 test("Scripture lint derives every abbreviation from the canonical SBL reference", () => {
@@ -1122,8 +1320,8 @@ test("hub policy cannot create thin or automatic collection pages", () => {
 test("Hugo scaffolds controlled homily metadata without duplicate dimensions", () => {
   const source = generatedArchetype("homilies", "homilies/2099/model.md");
   const metadata = frontMatter(source, "generated homily");
+  assertArticleArchetypePrompts(source, "homily");
   assertControlledPrompts(source, "homily");
-  assert.equal(scalarAssignment(metadata, "draft", "generated homily"), "true");
   assert.equal(
     quotedStringAssignment(metadata, "liturgical_season", "generated homily"),
     "",
@@ -1137,6 +1335,7 @@ test("Hugo scaffolds controlled homily metadata without duplicate dimensions", (
 
 test("Hugo scaffolds the same optional fields for reflections", () => {
   const source = generatedArchetype("reflections", "reflections/2099/model.md");
+  assertArticleArchetypePrompts(source, "reflection");
   assertControlledPrompts(source, "reflection");
   assert.doesNotMatch(source, /^\[\[readings\]\]$/m);
 });

@@ -444,7 +444,11 @@ test("the Bible planner keeps its card summary separate from its search descript
 });
 
 test("project archetypes prompt authors for a search description", () => {
-  ["archetypes/default.md", "archetypes/homilies.md"].forEach((relativePath) => {
+  [
+    "archetypes/default.md",
+    "archetypes/homilies.md",
+    "archetypes/reflections.md",
+  ].forEach((relativePath) => {
     const source = readFileSync(join(REPOSITORY_ROOT, relativePath), "utf8");
     assert.match(
       source,
