@@ -19,6 +19,9 @@ const { extname, join, relative, resolve } = require("node:path");
 const {
   LEGACY_HOMILY_MIGRATIONS,
 } = require("./fixtures/legacy-homily-migrations.js");
+const {
+  REFLECTION_HEADING_HIERARCHIES,
+} = require("./fixtures/reflection-heading-hierarchies.js");
 
 const REPOSITORY_ROOT = resolve(__dirname, "..");
 const MODEL_PATH = join(REPOSITORY_ROOT, "data", "content_model.json");
@@ -249,6 +252,51 @@ function frontMatter(source, path) {
   const match = source.match(/^\+\+\+\r?\n([\s\S]*?)\r?\n\+\+\+/);
   assert.ok(match, `Expected TOML front matter in ${path}.`);
   return match[1];
+}
+
+function markdownBody(source, path) {
+  const match = source.match(/^\+\+\+\r?\n[\s\S]*?\r?\n\+\+\+(?:\r?\n|$)/);
+  assert.ok(match, `Expected TOML front matter in ${path}.`);
+  return source.slice(match[0].length);
+}
+
+function markdownHeadings(source, path) {
+  const headings = [];
+  let fence;
+
+  markdownBody(source, path)
+    .split(/\r?\n/)
+    .forEach((line) => {
+      const fencedCode = line.match(/^\s{0,3}(`{3,}|~{3,})(.*)$/);
+      if (fencedCode) {
+        const marker = fencedCode[1][0];
+        const length = fencedCode[1].length;
+        if (!fence) {
+          fence = { marker, length };
+        } else if (
+          marker === fence.marker &&
+          length >= fence.length &&
+          fencedCode[2].trim() === ""
+        ) {
+          fence = undefined;
+        }
+        return;
+      }
+      if (fence) {
+        return;
+      }
+
+      const heading = line.match(/^\s{0,3}(#{1,6})[ \t]+(.+)$/);
+      if (!heading) {
+        return;
+      }
+      headings.push({
+        level: heading[1].length,
+        text: heading[2].replace(/[ \t]+#+[ \t]*$/, "").trimEnd(),
+      });
+    });
+
+  return headings;
 }
 
 function quotedStringAssignment(source, field, path) {
@@ -546,6 +594,52 @@ test("legacy Ordinary Time sources use canonical filenames and one-to-one aliase
       return /^aliases\s*=/m.test(frontMatter(contents, source));
     });
   assert.deepEqual(new Set(aliasedSources), expectedSources);
+});
+
+test("article sources use a valid hierarchy without body-level H1s", () => {
+  const articleSources = ["homilies", "reflections"]
+    .flatMap((section) =>
+      outputFiles(join(REPOSITORY_ROOT, "content", section)),
+    )
+    .filter((path) => path.endsWith(".md") && !path.endsWith("_index.md"));
+
+  articleSources.forEach((sourcePath) => {
+    const source = relative(REPOSITORY_ROOT, sourcePath);
+    const headings = markdownHeadings(readFileSync(sourcePath, "utf8"), source);
+    let previousLevel = 1;
+
+    headings.forEach((heading) => {
+      assert.notEqual(
+        heading.level,
+        1,
+        `Expected the template title to remain the only H1 for ${source}.`,
+      );
+      assert.ok(
+        heading.level <= previousLevel + 1,
+        `Expected ${source} not to skip from H${previousLevel} to H${heading.level}.`,
+      );
+      previousLevel = heading.level;
+    });
+  });
+
+  assert.equal(REFLECTION_HEADING_HIERARCHIES.length, 3);
+  const normalizedHeadings = [];
+  REFLECTION_HEADING_HIERARCHIES.forEach(({ sourcePath, headings }) => {
+    const actual = markdownHeadings(
+      readFileSync(join(REPOSITORY_ROOT, sourcePath), "utf8"),
+      sourcePath,
+    );
+    const expected = headings.map(({ level, sourceText }) => ({
+      level,
+      text: sourceText,
+    }));
+    assert.deepEqual(actual, expected, `Unexpected source hierarchy in ${sourcePath}.`);
+    normalizedHeadings.push(...actual);
+  });
+
+  assert.equal(normalizedHeadings.length, 21);
+  assert.equal(normalizedHeadings.filter(({ level }) => level === 2).length, 17);
+  assert.equal(normalizedHeadings.filter(({ level }) => level === 3).length, 4);
 });
 
 test("corpus metadata is byte-neutral across the complete generated site", () => {

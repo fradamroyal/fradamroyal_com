@@ -7,7 +7,7 @@ summary = "Christian life can’t be stitched together from separate compartment
 
 **NB:** This reflection was given on the feast of Our Lady of the Rosary
 
-# Introduction
+## Introduction
 
 
 Today, we celebrate a great feast of the Blessed Virgin Mary, and as with all of her feast days, I find myself reflecting on the integrity of the Christian life—how Christianity is not something we can neatly compartmentalize but rather must encompass every aspect of who we are. This is something that is easy for us to forget. We know, of course, that our faith is not something we put on just for Sundays and then set aside for the rest of the week, but it can still be easy to lose sight of how much Christ seeks to transform us, how much he desires to touch and sanctify every single part of our lives.
@@ -28,7 +28,7 @@ What St. Josemaría is telling us is that the spiritual life is like a piece of 
 Christ desires that every part of us—our prayer, our work, our penitence—be brought into harmony with his will. Only then will we have a complete spiritual life, a seamless garment worthy of God. Let us look at these three areas—prayer, work, and penitence—and how each is essential to the integrity of the Christian life.
 
 
-# Prayer
+## Prayer
 
 
 We all know the importance of prayer, but I think we often underestimate just how much prayer the Lord is calling us to. Scripture tells us to “pray without ceasing.” That is a tall order! And yet, this is the ideal we are called to strive toward. Prayer is not meant to be something we check off our list once a day and then move on. We are called to cultivate a constant awareness of God’s presence, to be in conversation with him throughout the day, in everything we do.
@@ -52,7 +52,7 @@ But prayer is not just for those moments when we are out and about. It should al
 If we practice this kind of prayer, we will begin to achieve the goal of praying without ceasing. Our words of prayer will gradually give way to actions of prayer, as everything we do becomes a prayer offered to God. This is the transformation Christ desires for us—that every aspect of our lives, from the mundane to the significant, becomes an act of worship.
 
 
-# Work
+## Work
 
 The second aspect of the Christian life that we must focus on is work. St. Josemaría has done a great service to the Church by reminding us of the sanctity of work. Too often, we view work as a punishment for original sin, as something to be endured rather than embraced. We imagine that Adam and Eve lived in the Garden of Eden without any need for work, and that it was only after the Fall that labor became necessary. But that is not what Scripture tells us. Even in the Garden, Adam and Eve were given work to do—they were tasked with tending and caring for the garden. It was only after the Fall that work became burdensome and filled with toil.
 
@@ -75,7 +75,7 @@ However, we must be careful not to fall into the trap of workaholism. While work
 Ultimately, work is a way to fulfill the command to love God and our neighbor. When we work well, we contribute to the common good. We serve others, even if indirectly, through the fruits of our labor. Whether we are producing something, providing a service, or simply performing our duties, we have the opportunity to impact the lives of others. This is why it is so important to put our hearts into our work. Christ calls us to serve one another through our daily tasks, and in doing so, we serve him.
 
 
-# Penitence
+## Penitence
 
 
 Now we turn to the final aspect of the Christian life: penitence. This is often the most neglected area because it requires us to actively embrace discomfort and suffering. We tend to associate penance with the season of Lent, but the reality is that penance should be a regular part of our spiritual lives. The Church has always taught that penance is necessary for spiritual growth, not just during Lent but throughout the entire year.
@@ -102,7 +102,7 @@ But we must also remember that penance is not just about suffering for the sake 
 Without penitence, our spiritual lives remain incomplete. Even if we have a strong prayer life and work diligently, there will still be gaps in our garment if we neglect penance. Just as prayer and work must be woven into the fabric of our spiritual life, so too must penitence. It is the thread that helps hold everything together, ensuring that our interior life is whole and unbroken.
 
 
-# Conclusion
+## Conclusion
 
 
 The Christian life is a call to integrity, a call to live out our faith in every aspect of our lives. Prayer, work, and penitence are not separate categories but are interwoven, forming a seamless garment of holiness. Each of these areas is essential to our spiritual growth. If we neglect one, the whole fabric of our spiritual life becomes frayed and torn. Christ desires to transform us completely, to make us into his image, and that requires us to submit every part of our lives to him.

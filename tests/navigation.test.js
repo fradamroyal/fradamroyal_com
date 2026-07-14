@@ -14,6 +14,9 @@ const { join, relative, resolve, sep } = require("node:path");
 const {
   LEGACY_HOMILY_MIGRATIONS,
 } = require("./fixtures/legacy-homily-migrations.js");
+const {
+  REFLECTION_HEADING_HIERARCHIES,
+} = require("./fixtures/reflection-heading-hierarchies.js");
 
 const REPOSITORY_ROOT = resolve(__dirname, "..");
 const TEMPORARY_ROOT = mkdtempSync(join(tmpdir(), "fradamroyal-navigation-"));
@@ -185,6 +188,18 @@ function textContent(html) {
   return decodeHTML(html.replace(/<[^>]*>/g, " "))
     .replace(/\s+/g, " ")
     .trim();
+}
+
+function renderedHeadings(html) {
+  return [...html.matchAll(/<h([1-6])\b([^>]*)>([\s\S]*?)<\/h\1>/gi)].map(
+    (match) => ({
+      attributes: attributes(`<h${match[1]}${match[2]}>`),
+      level: Number.parseInt(match[1], 10),
+      text: decodeHTML(match[3].replace(/<[^>]*>/g, ""))
+        .replace(/\s+/g, " ")
+        .trim(),
+    }),
+  );
 }
 
 function anchors(html) {
@@ -843,6 +858,52 @@ test("article bylines appear only on homily and reflection singles", () => {
       `Expected ${expectedCount} article byline${expectedCount === 1 ? "" : "s"} in ${relativePath}.`,
     );
   });
+});
+
+test("every article exposes one primary heading that matches its title", () => {
+  articles.forEach((article) => {
+    const primaryHeadings = renderedHeadings(article.html).filter(
+      ({ level }) => level === 1,
+    );
+    assert.equal(
+      primaryHeadings.length,
+      1,
+      `Expected one primary H1 in ${article.relativePath}.`,
+    );
+    assertVisible(primaryHeadings[0], `primary H1 in ${article.relativePath}`);
+    assert.equal(primaryHeadings[0].text, article.title);
+  });
+});
+
+test("normalized reflections render the intended H2 and H3 hierarchy", () => {
+  const normalizedHeadings = [];
+
+  REFLECTION_HEADING_HIERARCHIES.forEach(
+    ({ outputPath, title, headings: expectedHeadings }) => {
+      const html = page(outputPath);
+      const article = elementWithClass(html, "article", "blog-post", outputPath);
+      const actualHeadings = renderedHeadings(article.innerHTML);
+      const expected = expectedHeadings.map(({ level, renderedText }) => ({
+        level,
+        text: renderedText,
+      }));
+      const primaryHeadings = renderedHeadings(html).filter(
+        ({ level }) => level === 1,
+      );
+
+      assert.equal(primaryHeadings[0].text, title);
+      assert.deepEqual(
+        actualHeadings.map(({ level, text }) => ({ level, text })),
+        expected,
+        `Unexpected rendered hierarchy in ${outputPath}.`,
+      );
+      normalizedHeadings.push(...actualHeadings);
+    },
+  );
+
+  assert.equal(normalizedHeadings.length, 21);
+  assert.equal(normalizedHeadings.filter(({ level }) => level === 2).length, 17);
+  assert.equal(normalizedHeadings.filter(({ level }) => level === 3).length, 4);
 });
 
 test("article navigation links the chronological neighbors within each section", () => {

@@ -52,21 +52,29 @@ Baseline recorded July 12, 2026:
 
 ## Execution queue
 
-### NOW: Normalize legacy reflection heading hierarchy
+### NOW: Add long-form structure to `Two Resurrections`
 
 Phases 1.3, 1.4, 2.1, the first-priority Phase 2.2 description convention,
-Phase 2.3, Phase 2.4, and the first two bounded Phase 3.3 presentation slices
+Phase 2.3, Phase 2.4, and the first three bounded Phase 3.3 presentation slices
 are implemented and verified locally. Deployment, live smoke-testing, and live
 metadata validation remain pending and were intentionally skipped. The Phase
 3.1 Scripture backfill and Phase 3.2 controlled-metadata backfill are complete
 for all 130 published homilies without generating hubs. At the author's
-direction, the homepage remains free of body-level introduction copy. Continue
-with the next bounded Phase 3.3 slice: replace the 21 body-level Markdown H1s
-across the three affected 2024 reflections with 17 H2s and four genuinely
-nested H3s so every rendered article has one primary H1 and an accurate
-hierarchy. Preserve the visible wording, article summaries, feeds, URLs, and
-navigation, and add both source-level and generated-output coverage for the
-hierarchy.
+direction, the homepage remains free of body-level introduction copy. The
+legacy reflection hierarchy is normalized, and corpus-wide source and rendered
+heading checks now pass. Continue with one bounded Phase 3.3 slice on
+`content/reflections/2025/two_paintings/index.md`, the site's only illustrated
+article and a 3,125-word unstructured outlier: add six restrained descriptive
+H2s at the natural transitions between the traditional image and sacred
+anachronism, the different response to the contemporary image, Christ's
+presence to every age, modernity's claim to exception, Resurrection as new
+creation, and learning to recognize Christ now. Preserve every paragraph, the
+URL, summary and feed copy, both figures, asset names and order, and social and
+structured-data image URLs. Extend the source and generated-output hierarchy
+coverage to the page. Treat accurate alt text, captions, provenance, and
+attribution as the following bounded slice because the current files and
+history do not establish the creator, tool, source, date, or licensing facts;
+research or confirm them rather than guessing.
 
 ## Phase 0 — Correct indexing signals and deploy the intended site
 
@@ -333,10 +341,11 @@ thin pages.
 
 **Status:** Phases 3.1 and 3.2 are complete for the existing homily corpus. All
 130 published homilies now have verified Scripture and controlled liturgical
-metadata. The legacy title and canonical-slug slice and the root and main-
-section introduction cleanup slice of Phase 3.3 are complete; hub
-implementation, the remaining Phase 3.3 presentation work, and Phase 3.4 remain
-pending.
+metadata. The legacy title and canonical-slug slice, the root and main-section
+introduction cleanup slice, and the legacy reflection heading slice of Phase
+3.3 are complete. Corpus-wide source and rendered heading checks from Phase 3.4
+are also implemented; hub implementation, the remaining Phase 3.3 presentation
+work, and the other Phase 3.4 checks remain pending.
 
 ### 3.1 Backfill Scripture metadata
 
@@ -421,6 +430,14 @@ page's primary content without repeating it on paginator depths. Generated-
 output coverage preserves the introduction-free homepage, existing year
 introductions, one-H1 structure, article previews, and feeds.
 
+The legacy reflection heading slice is implemented. Twenty-one body-level
+Markdown H1s across three 2024 reflections are now 17 H2s and four H3s, with
+the four `Lectio Divina` steps nested beneath their H2 introduction. Visible
+wording, summaries, feeds, URLs, and navigation remain unchanged. Source tests
+reject body-level H1s and skipped heading levels throughout the homily and
+reflection corpus; generated-output tests require one title H1 on every article
+and preserve the exact order and wording of the normalized headings.
+
 - Add useful section introductions to Homilies and Reflections.
 - Remove the root placeholder and keep the homepage introduction-free according
   to the author's editorial preference.
@@ -436,11 +453,14 @@ introductions, one-H1 structure, article previews, and feeds.
 
 ### 3.4 Add content linting
 
+Heading-hierarchy linting is implemented for the complete authored homily and
+reflection corpus and for generated article output.
+
 Add automated checks or warnings for:
 
 - Required title, date, draft status, and description on new content.
 - Duplicate SEO titles.
-- Heading hierarchy.
+- Heading hierarchy (implemented).
 - Broken internal links.
 - Missing or empty image alt text.
 - Missing image metadata on image-led articles.
