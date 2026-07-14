@@ -1,5 +1,6 @@
 +++
 title = 'The Solemnity of the Most Holy Trinity'
+description = 'The Trinity reveals God as self-giving communion, and Christ restores the divine image in us so that holiness makes us fully human.'
 date = 2026-05-31
 draft = false
 liturgical_season = 'ordinary-time'

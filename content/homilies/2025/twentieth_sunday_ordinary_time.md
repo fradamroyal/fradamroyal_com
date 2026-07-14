@@ -1,5 +1,6 @@
 +++
 title = 'Twentieth Sunday in Ordinary Time'
+description = 'Jesus brings the refining fire of truth and costly love, exposing false comfort and calling us to honest speech, forgiveness, and attention.'
 date = 2025-08-17
 draft = false
 liturgical_season = 'ordinary-time'

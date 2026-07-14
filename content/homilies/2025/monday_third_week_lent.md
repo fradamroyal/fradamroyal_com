@@ -1,5 +1,6 @@
 +++
 title = 'Monday of the Third Week of Lent'
+description = 'Being chosen by God is not a guarantee of comfort or blessing but a responsibility to remain open, deepen faith, and pursue holiness every day.'
 date = 2025-03-24
 draft = false
 liturgical_season = 'lent'

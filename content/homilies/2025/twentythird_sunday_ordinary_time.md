@@ -1,5 +1,6 @@
 +++
 title = 'Twenty-third Sunday in Ordinary Time'
+description = 'Jesus calls disciples to put God first, ordering family, time, work, habits, and resources toward prayer, mercy, and self-giving love.'
 date = 2025-09-07
 draft = false
 liturgical_season = 'ordinary-time'

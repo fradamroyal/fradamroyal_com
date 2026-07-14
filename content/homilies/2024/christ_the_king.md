@@ -1,5 +1,6 @@
 +++
 title = 'Christ the King'
+description = 'A Christ the King homily on how Jesus transforms suffering and death through the cross and makes every patient sacrifice a work of salvation.'
 date = 2024-11-24
 draft = false
 liturgical_season = 'ordinary-time'

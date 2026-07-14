@@ -1,5 +1,6 @@
 +++
 title = 'Fifth Sunday in Ordinary Time'
+description = 'Jesus calls disciples beyond the safe shallows of faith to persevere in evangelization, trusting him to make faithful efforts fruitful even after failure.'
 date = 2025-02-09
 draft = false
 aliases = ['/homilies/2025/fifth_sunday_per_annum/']

@@ -1,5 +1,6 @@
 +++
 title = 'All Saints'
+description = 'An All Saints homily on choosing Christlike love, mercy, forgiveness, and peace over hatred as the path to holiness and communion with God.'
 date = 2024-11-01
 draft = false
 liturgical_season = 'ordinary-time'

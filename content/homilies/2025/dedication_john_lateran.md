@@ -1,5 +1,6 @@
 +++
 title = 'Dedication of the Lateran Basilica'
+description = 'The dedication of a church points to the living God who meets and transforms his people through word, sacrament, reconciliation, and the Eucharist.'
 date = 2025-11-09
 draft = false
 liturgical_season = 'ordinary-time'

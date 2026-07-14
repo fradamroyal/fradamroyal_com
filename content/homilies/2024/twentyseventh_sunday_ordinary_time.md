@@ -1,5 +1,6 @@
 +++
 title = 'Twenty-seventh Sunday in Ordinary Time'
+description = 'A homily on receiving the Kingdom of God like a child through simple obedience, trust in divine providence, and prayer that purifies the heart.'
 date = 2024-10-06
 draft = false
 aliases = ['/homilies/2024/twentyseventh_sunday_per_annum/']

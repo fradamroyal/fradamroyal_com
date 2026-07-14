@@ -1,5 +1,6 @@
 +++
 title = 'Fourth Sunday of Advent'
+description = 'An Advent homily on the faith of Mary, the fulfillment of the hopes of Israel in Christ, and trusting God to redeem loss and restore his people.'
 date = 2024-12-22
 draft = false
 liturgical_season = 'advent'

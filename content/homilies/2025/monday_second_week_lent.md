@@ -1,5 +1,6 @@
 +++
 title = 'Monday of the Second Week of Lent'
+description = 'Self-examination, renouncing vengeance, and practicing compassion form a path toward the merciful heart of the Father and prepare us for Easter.'
 date = 2025-03-17
 draft = false
 liturgical_season = 'lent'

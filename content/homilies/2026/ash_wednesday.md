@@ -1,5 +1,6 @@
 +++
 title = 'Ash Wednesday'
+description = 'Ash Wednesday’s ashes confront us with death and judgment, calling us to live now for the verdict that matters eternally.'
 date = 2026-02-18
 draft = false
 liturgical_season = 'lent'

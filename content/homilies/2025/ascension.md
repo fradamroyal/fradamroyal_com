@@ -1,5 +1,6 @@
 +++
 title = 'Ascension of the Lord'
+description = 'The Ascension calls disciples from uncertainty and passive waiting into Spirit-led prayer, active witness, and carrying the mercy of Christ into the world.'
 date = 2025-06-01
 draft = false
 liturgical_season = 'easter'

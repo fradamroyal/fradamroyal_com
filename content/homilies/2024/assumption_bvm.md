@@ -1,5 +1,6 @@
 +++
 title = 'Assumption of the Blessed Virgin Mary'
+description = 'A homily on the Assumption of Mary as a sign of divine generosity, Christian hope, and the promised resurrection of body and soul.'
 date = 2024-08-15
 draft = false
 liturgical_season = 'ordinary-time'

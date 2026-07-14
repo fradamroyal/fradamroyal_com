@@ -1,5 +1,6 @@
 +++
 title = 'First Sunday in Lent'
+description = 'Jesus’ desert victory teaches us to seek the Father’s voice through silence, prayer, fasting, and Scripture when life’s decisive crossroads come.'
 date = 2026-02-22
 draft = false
 liturgical_season = 'lent'

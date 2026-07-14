@@ -1,5 +1,6 @@
 +++
 title = 'Good Friday'
+description = 'Good Friday exposes how cowardice and compromise serve evil, calling us to kneel before the Cross and remain faithful when truth becomes costly.'
 date = 2026-04-03
 draft = false
 liturgical_season = 'paschal-triduum'

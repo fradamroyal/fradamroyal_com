@@ -1,5 +1,6 @@
 +++
 title = 'Eleventh Sunday in Ordinary Time'
+description = 'The Gospel and sacraments are gifts, not products, calling the Church to receive one another with gratitude and witness to Christ in unity.'
 date = 2026-06-14
 draft = false
 liturgical_season = 'ordinary-time'

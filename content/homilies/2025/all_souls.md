@@ -1,5 +1,6 @@
 +++
 title = 'All Souls (The Commemoration of All the Faithful Departed)'
+description = 'Purgatory is the merciful completion of divine work, and prayers for the faithful departed entrust them to the promise of resurrection and perfect love.'
 date = 2025-11-02
 draft = false
 liturgical_season = 'ordinary-time'

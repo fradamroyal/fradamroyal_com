@@ -1,5 +1,6 @@
 +++
 title = 'Feast of Our Lady of Guadalupe'
+description = 'Our Lady of Guadalupe and Saint Juan Diego show that God builds peace through humble encounter, service, repentance, and communion across divisions.'
 date = 2025-12-12
 draft = false
 liturgical_season = 'advent'

@@ -1,5 +1,6 @@
 +++
 title = 'Twenty-second Sunday in Ordinary Time'
+description = 'A homily on the enduring hope of Moses, the faithful love of God despite human failure, and the call to pour out that same love for others.'
 date = 2024-09-01
 draft = false
 aliases = ['/homilies/2024/twentysecond_sunday_per_annum/']

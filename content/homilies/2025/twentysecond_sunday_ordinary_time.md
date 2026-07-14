@@ -1,5 +1,6 @@
 +++
 title = 'Twenty-second Sunday in Ordinary Time'
+description = 'Jesus frees us from anxious status and performance, inviting humble hospitality that welcomes the poor, lonely, and overlooked without expecting repayment.'
 date = 2025-08-31
 draft = false
 liturgical_season = 'ordinary-time'

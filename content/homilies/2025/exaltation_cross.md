@@ -1,5 +1,6 @@
 +++
 title = 'Exaltation of the Holy Cross'
+description = 'The cross transforms death and sacrifice into healing, inviting us to entrust our time, gifts, and resources to Christ with generous and steady hearts.'
 date = 2025-09-14
 draft = false
 liturgical_season = 'ordinary-time'

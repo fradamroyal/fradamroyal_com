@@ -1,5 +1,6 @@
 +++
 title = 'Second Sunday in Lent'
+description = 'The Transfiguration shows Moses and Elijah shining beside Christ as proof that mercy can transform weakness and raise repentant lives into glory.'
 date = 2026-03-01
 draft = false
 liturgical_season = 'lent'

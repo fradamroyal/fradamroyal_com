@@ -1,5 +1,6 @@
 +++
 title = 'Easter Sunday'
+description = 'Christ’s Resurrection breaks the rule of death and fear, freeing us to forgive, love generously, and trust that nothing given in love is lost.'
 date = 2026-04-05
 draft = false
 liturgical_season = 'easter'

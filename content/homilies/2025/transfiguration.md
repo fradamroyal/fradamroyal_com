@@ -1,5 +1,6 @@
 +++
 title = 'Transfiguration of the Lord'
+description = 'The Transfiguration gives hope before the cross, while Christ’s mercy after failure restores repentant apostles to a calling God does not revoke.'
 date = 2025-08-06
 draft = false
 liturgical_season = 'ordinary-time'

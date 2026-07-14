@@ -1,5 +1,6 @@
 +++
 title = 'Third Sunday of Easter'
+description = 'When burdens exceed individual strength, the risen Christ meets us through a community that carries suffering with compassion and practical love.'
 date = 2025-05-04
 draft = false
 liturgical_season = 'easter'

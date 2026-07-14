@@ -1,5 +1,6 @@
 +++
 title = 'Third Sunday in Ordinary Time'
+description = 'Jesus enters Herod’s territory with fearless love, calling the baptized to drop the nets of complacency and make the Gospel’s light visible.'
 date = 2026-01-25
 draft = false
 liturgical_season = 'ordinary-time'

@@ -1,5 +1,6 @@
 +++
 title = 'Pentecost'
+description = 'The risen Christ breathes the Holy Spirit into fearful disciples, sending them beyond locked doors on a mission that heals and makes them whole.'
 date = 2026-05-24
 draft = false
 liturgical_season = 'easter'

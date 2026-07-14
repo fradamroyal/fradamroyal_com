@@ -1,5 +1,6 @@
 +++
 title = 'Twenty-sixth Sunday in Ordinary Time'
+description = 'The rich man and Lazarus warn that daily habits build isolation or communion, calling us to dismantle gates through stewardship and self-giving love.'
 date = 2025-09-28
 draft = false
 liturgical_season = 'ordinary-time'

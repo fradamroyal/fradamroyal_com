@@ -1,5 +1,6 @@
 +++
 title = 'Feast of the Holy Family of Jesus, Mary and Joseph'
+description = 'The Holy Family in Egypt shows that God enters places labeled hopeless and calls every Christian home to reject contempt and practice mercy.'
 date = 2025-12-28
 draft = false
 liturgical_season = 'christmas'

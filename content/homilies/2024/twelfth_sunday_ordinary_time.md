@@ -1,5 +1,6 @@
 +++
 title = 'Twelfth Sunday in Ordinary Time'
+description = 'A homily on Jesus calming the storm and trusting his constant presence as he leads us through fear, uncertainty, and the trials of life.'
 date = 2024-06-23
 draft = false
 aliases = ['/homilies/2024/twelth_sunday_per_annum/']

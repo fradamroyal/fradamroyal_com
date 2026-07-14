@@ -1,5 +1,6 @@
 +++
 title = 'Fifth Sunday of Easter'
+description = 'Christians are known by countercultural love expressed in patience, generosity, service, forgiveness, and care even for difficult people.'
 date = 2025-05-18
 draft = false
 liturgical_season = 'easter'

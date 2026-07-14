@@ -1,5 +1,6 @@
 +++
 title = 'Twentieth Sunday in Ordinary Time'
+description = 'A homily on the profound simplicity of the Eucharist, where communion with God teaches us to choose lasting relationships over passing spectacle.'
 date = 2024-08-18
 draft = false
 aliases = ['/homilies/2024/twentieth_sunday_per_annum/']

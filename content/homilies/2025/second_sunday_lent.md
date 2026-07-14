@@ -1,5 +1,6 @@
 +++
 title = 'Second Sunday of Lent'
+description = 'The Transfiguration reveals the goal of Lenten discipline: freedom from sin, transformation in divine love, and hope in resurrection glory.'
 date = 2025-03-16
 draft = false
 liturgical_season = 'lent'

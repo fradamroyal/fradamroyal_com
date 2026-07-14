@@ -1,5 +1,6 @@
 +++
 title = 'Saints Peter and Paul, Apostles'
+description = 'Saints Peter and Paul call Christians from consumer faith to humble obedience, receiving Church teaching and the Eucharist as gifts from Christ.'
 date = 2025-06-29
 draft = false
 liturgical_season = 'ordinary-time'

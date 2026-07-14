@@ -1,5 +1,6 @@
 +++
 title = 'Baptism of the Lord'
+description = 'Jesus enters the chaotic waters of the Jordan to begin a new creation, and through baptism we share his mission of bringing light, mercy, and renewal.'
 date = 2025-01-12
 draft = false
 liturgical_season = 'christmas'

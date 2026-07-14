@@ -1,5 +1,6 @@
 +++
 title = 'Twenty-fifth Sunday in Ordinary Time'
+description = 'Redeemed people answer mercy with decisive service, using time, talent, resources, and small concrete acts to make divine generosity visible.'
 date = 2025-09-21
 draft = false
 liturgical_season = 'ordinary-time'

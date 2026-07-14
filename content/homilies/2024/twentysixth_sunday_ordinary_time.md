@@ -1,5 +1,6 @@
 +++
 title = 'Twenty-sixth Sunday in Ordinary Time'
+description = 'A homily on invoking the name of Jesus as a source of blessing, reverence, sacramental grace, and healing rather than using it as a curse.'
 date = 2024-09-29
 draft = false
 aliases = ['/homilies/2024/twentysixth_sunday_per_annum/']

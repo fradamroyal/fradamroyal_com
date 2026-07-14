@@ -1,5 +1,6 @@
 +++
 title = 'Thursday of the Eighteenth Week in Ordinary Time'
+description = 'Peter confesses a faith revealed by the Father, warning us to test popular opinions and religious media through prayer rather than follow the crowd.'
 date = 2025-08-07
 draft = false
 liturgical_season = 'ordinary-time'

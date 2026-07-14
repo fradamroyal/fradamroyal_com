@@ -1,5 +1,6 @@
 +++
 title = 'Divine Mercy Sunday'
+description = 'The risen Christ enters our locked rooms with mercy, restoring peace by calling us back to the vocation and mission for which we were made.'
 date = 2026-04-12
 draft = false
 liturgical_season = 'easter'

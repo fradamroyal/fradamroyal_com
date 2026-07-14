@@ -1,5 +1,6 @@
 +++
 title = 'Twenty-eighth Sunday in Ordinary Time'
+description = 'Jesus heals ten lepers to reveal costly mercy that restores belonging and keeps giving even without gratitude, especially to those society excludes.'
 date = 2025-10-12
 draft = false
 liturgical_season = 'ordinary-time'

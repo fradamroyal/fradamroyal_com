@@ -1,5 +1,6 @@
 +++
 title = 'Sixth Sunday in Ordinary Time'
+description = 'Jesus draws the law into the heart, revealing marriage and every Christian promise as a call to faithful love shaped by God’s unbroken yes.'
 date = 2026-02-15
 draft = false
 liturgical_season = 'ordinary-time'

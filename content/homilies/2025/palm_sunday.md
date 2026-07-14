@@ -1,5 +1,6 @@
 +++
 title = 'Palm Sunday'
+description = 'Jesus enters Jerusalem to embrace the cross, assuring every wounded heart that no suffering is forgotten and no darkness lies beyond his healing love.'
 date = 2025-04-13
 draft = false
 liturgical_season = 'lent'

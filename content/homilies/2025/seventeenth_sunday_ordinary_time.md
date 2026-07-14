@@ -1,5 +1,6 @@
 +++
 title = 'Seventeenth Sunday in Ordinary Time'
+description = 'Abraham teaches bold intercession that grieves suffering and asks God to extend radical mercy beyond human calculations of justice or deserving.'
 date = 2025-07-27
 draft = false
 liturgical_season = 'ordinary-time'

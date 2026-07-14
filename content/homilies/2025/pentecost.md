@@ -1,5 +1,6 @@
 +++
 title = 'Pentecost'
+description = 'At Pentecost the Holy Spirit sanctifies human differences and forms a unity stronger than domination, empowering lives of mercy, peace, and hope.'
 date = 2025-06-08
 draft = false
 liturgical_season = 'easter'

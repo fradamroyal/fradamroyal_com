@@ -1,5 +1,6 @@
 +++
 title = 'Eighteenth Sunday in Ordinary Time'
+description = 'The rich fool warns against isolated self-sufficiency and calls us to turn every blessing toward relationship, gratitude, and generosity.'
 date = 2025-08-03
 draft = false
 liturgical_season = 'ordinary-time'

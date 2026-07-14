@@ -1,5 +1,6 @@
 +++
 title = 'Easter Vigil'
+description = 'The Easter Vigil gathers salvation history into Christ’s victory as the sacraments draw those entering the Church into his risen life.'
 date = 2026-04-04
 draft = false
 liturgical_season = 'paschal-triduum'

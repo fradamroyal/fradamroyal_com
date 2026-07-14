@@ -1,5 +1,6 @@
 +++
 title = 'All Saints'
+description = 'The Beatitudes call Christians beyond merely avoiding sin to imitate the self-giving love of Christ and begin living the holiness and joy of heaven now.'
 date = 2025-11-01
 draft = false
 liturgical_season = 'ordinary-time'

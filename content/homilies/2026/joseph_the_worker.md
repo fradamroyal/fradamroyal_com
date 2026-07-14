@@ -1,5 +1,6 @@
 +++
 title = 'St. Joseph the Worker'
+description = 'Christ’s life as a carpenter affirms the dignity of labor and calls Christians to defend workers against ideologies that reduce work to power or profit.'
 date = 2026-05-01
 draft = false
 liturgical_season = 'easter'

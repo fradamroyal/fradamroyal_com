@@ -1,5 +1,6 @@
 +++
 title = 'Fourteenth Sunday in Ordinary Time'
+description = 'Jesus sends disciples to lead with his peace, making reconciliation and welcome the first acts of evangelization in daily life.'
 date = 2025-07-06
 draft = false
 liturgical_season = 'ordinary-time'

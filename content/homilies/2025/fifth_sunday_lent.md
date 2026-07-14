@@ -1,5 +1,6 @@
 +++
 title = 'Fifth Sunday of Lent'
+description = 'Jesus offers mercy to accuser and accused, while his raising of Lazarus calls sinners from judgment, fear, and death into new life.'
 date = 2025-04-06
 draft = false
 liturgical_season = 'lent'

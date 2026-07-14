@@ -1,5 +1,6 @@
 +++
 title = 'Second Sunday of Advent'
+description = 'John the Baptist calls us to clear the road for Christ through repentance, reconciliation, service, and concrete hope that trusts God is already at work.'
 date = 2025-12-07
 draft = false
 liturgical_season = 'advent'

@@ -1,5 +1,6 @@
 +++
 title = 'Immaculate Conception'
+description = 'A homily on the Immaculate Conception as a gift of divine mercy and on responding, like Mary, with trust, surrender, and openness to grace.'
 date = 2024-12-09
 draft = false
 liturgical_season = 'advent'

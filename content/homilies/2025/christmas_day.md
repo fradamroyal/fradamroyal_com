@@ -1,5 +1,6 @@
 +++
 title = 'Nativity of the Lord, Mass During the Day'
+description = 'The Incarnation sanctifies ordinary human life, inviting us to practice gratitude, forgiveness, patience, and love in our daily routines.'
 date = 2025-12-25T09:00:00-06:00
 draft = false
 liturgical_season = 'christmas'

@@ -1,5 +1,6 @@
 +++
 title = 'Second Sunday in Ordinary Time'
+description = 'At Cana, Mary models prayer that names a need simply, entrusts the outcome to Jesus, and remains faithful to his goodness and timing.'
 date = 2025-01-19
 draft = false
 aliases = ['/homilies/2025/second_sunday_per_annum/']

@@ -1,5 +1,6 @@
 +++
 title = 'Assumption of the Blessed Virgin Mary - Vigil'
+description = 'The Assumption of Mary reveals divine generosity and promised resurrection, inviting us to hear the word, live in hope, and give ourselves in love.'
 date = 2025-08-14
 draft = false
 liturgical_season = 'ordinary-time'

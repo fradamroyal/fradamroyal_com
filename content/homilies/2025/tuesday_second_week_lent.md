@@ -1,5 +1,6 @@
 +++
 title = 'Tuesday of the Second Week of Lent'
+description = 'Lent reverses the habit of excusing ourselves and judging others by calling us to personal accountability and compassionate mercy.'
 date = 2025-03-18
 draft = false
 liturgical_season = 'lent'

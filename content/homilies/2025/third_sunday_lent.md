@@ -1,5 +1,6 @@
 +++
 title = 'Third Sunday of Lent'
+description = 'Jesus rejects blame as an explanation for tragedy and reveals a patient God who cultivates repentance, healing, and new fruit in a wounded world.'
 date = 2025-03-23
 draft = false
 liturgical_season = 'lent'

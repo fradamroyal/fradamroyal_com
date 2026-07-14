@@ -1,5 +1,6 @@
 +++
 title = 'Mary, Mother of God'
+description = 'Mary models a courageous and active faith that treasures, questions, and wrestles with the word of God without giving up on the call to say yes.'
 date = 2025-01-01
 draft = false
 liturgical_season = 'christmas'

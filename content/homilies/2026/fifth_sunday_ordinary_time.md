@@ -1,5 +1,6 @@
 +++
 title = 'Fifth Sunday in Ordinary Time'
+description = 'Christ’s living word makes disciples salt and light, and the Bishop’s Appeal carries that mission through seminarian formation and works of mercy.'
 date = 2026-02-08
 draft = false
 liturgical_season = 'ordinary-time'

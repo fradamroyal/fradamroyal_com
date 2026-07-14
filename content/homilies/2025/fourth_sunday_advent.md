@@ -1,5 +1,6 @@
 +++
 title = 'Fourth Sunday of Advent'
+description = 'Joseph shows that righteousness requires courage to surrender comfortable plans, welcome Christ into a complicated life, and accept the costly will of God.'
 date = 2025-12-21
 draft = false
 liturgical_season = 'advent'

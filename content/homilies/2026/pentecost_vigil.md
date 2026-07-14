@@ -1,5 +1,6 @@
 +++
 title = 'Pentecost - Vigil Mass'
+description = 'Pentecost answers our deepest thirst not by bending reality to our desires, but by giving the Holy Spirit to transform us into living water for others.'
 date = 2026-05-23
 draft = false
 liturgical_season = 'easter'

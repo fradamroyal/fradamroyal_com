@@ -1,5 +1,6 @@
 +++
 title = 'Solemnity of the Most Holy Body & Blood of Christ (Corpus Christi)'
+description = 'In the Eucharist, Christ answers scarcity with the abundance of his life, transforming hoarding and exclusion into trust, generosity, and unity.'
 date = 2025-06-22
 draft = false
 liturgical_season = 'ordinary-time'

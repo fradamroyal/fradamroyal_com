@@ -1,5 +1,6 @@
 +++
 title = 'Fourth Sunday of Easter'
+description = 'Amid the noise of screens and false voices, Christ the Good Shepherd calls us through Scripture and the Church into abundant life.'
 date = 2026-04-26
 draft = false
 liturgical_season = 'easter'

@@ -1,5 +1,6 @@
 +++
 title = 'Thirtieth Sunday in Ordinary Time'
+description = 'A stewardship homily on Bartimaeus, prayerful trust, and imitating the generous heart of Christ through gifts of time, talent, and treasure.'
 date = 2024-10-27
 draft = false
 aliases = ['/homilies/2024/thirtieth_sunday_per_annum/']

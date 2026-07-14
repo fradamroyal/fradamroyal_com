@@ -284,6 +284,11 @@ test("a homily page exposes an article with its four Scripture citations", () =>
   nodeByType(document, "BreadcrumbList");
 
   assert.equal(article.headline, "Fifteenth Sunday in Ordinary Time");
+  assert.equal(
+    article.description,
+    "The parable of the sower invites us to become rich soil where Christ’s word makes us a new creation and grows the gardens of paradise within us.",
+  );
+  assert.equal(webPage.description, article.description);
   assert.equal(article.genre, "Homily");
   assert.equal(article.articleSection, "Homilies");
   assert.deepEqual(article.citation, [

@@ -1,5 +1,6 @@
 +++
 title = 'Pentecost Vigil'
+description = 'The Holy Spirit is living water poured into believers so that patience, reconciliation, hope, and peace may flow into a world parched by conflict.'
 date = 2025-06-07
 draft = false
 liturgical_season = 'easter'

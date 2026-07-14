@@ -1,5 +1,6 @@
 +++
 title = 'Sixteenth Sunday in Ordinary Time'
+description = 'Mary at the feet of Jesus shows that lasting peace comes not from anxious achievement but from resting in the eternal love that defeats chaos and death.'
 date = 2025-07-20
 draft = false
 liturgical_season = 'ordinary-time'

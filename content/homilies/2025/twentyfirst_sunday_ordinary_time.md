@@ -1,5 +1,6 @@
 +++
 title = 'Twenty-first Sunday in Ordinary Time'
+description = 'Jesus turns questions about salvation toward the narrow gate, where sacramental grace strengthens us to carry the grieving, hungry, ashamed, and excluded.'
 date = 2025-08-24
 draft = false
 liturgical_season = 'ordinary-time'

@@ -1,5 +1,6 @@
 +++
 title = 'Twenty-third Sunday in Ordinary Time'
+description = 'A homily on the healing command Ephphatha, the sacramentality of creation, and the call to hear the word of God and proclaim his grace.'
 date = 2024-09-08
 draft = false
 aliases = ['/homilies/2024/twentythird_sunday_per_annum/']

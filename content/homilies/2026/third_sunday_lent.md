@@ -1,5 +1,6 @@
 +++
 title = 'Third Sunday in Lent'
+description = 'At Jacob’s well, Christ frees the Samaritan woman through truth, inviting us to surrender self-justification and receive the living water of mercy.'
 date = 2026-03-08
 draft = false
 liturgical_season = 'lent'

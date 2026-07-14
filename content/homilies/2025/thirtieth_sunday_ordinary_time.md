@@ -1,5 +1,6 @@
 +++
 title = 'Thirtieth Sunday in Ordinary Time'
+description = 'The tax collector shows that humility is honest truth before God, expressed through examination of conscience, confession, and a daily plea for mercy.'
 date = 2025-10-26
 draft = false
 liturgical_season = 'ordinary-time'

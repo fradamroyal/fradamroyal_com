@@ -1,5 +1,6 @@
 +++
 title = 'Sixteenth Sunday in Ordinary Time'
+description = 'A homily on Christ the shepherd-king, whose cross reveals the sacrificial love, forgiveness, and reconciliation that bring true peace.'
 date = 2024-07-21
 draft = false
 aliases = ['/homilies/2024/sixteenth_sunday_per_annum/']

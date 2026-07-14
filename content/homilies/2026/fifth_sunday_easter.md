@@ -1,5 +1,6 @@
 +++
 title = 'Fifth Sunday of Easter'
+description = 'Christ is the way to the Father, purifying the human heart until God’s image shines within and faith begins to see his face.'
 date = 2026-05-03
 draft = false
 liturgical_season = 'easter'

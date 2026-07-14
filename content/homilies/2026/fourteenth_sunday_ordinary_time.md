@@ -1,5 +1,6 @@
 +++
 title = 'Fourteenth Sunday in Ordinary Time'
+description = 'Sin’s hidden burdens exhaust the soul, while Christ’s demanding yoke of truth, forgiveness, and obedience leads to freedom and rest.'
 date = 2026-07-05
 draft = false
 liturgical_season = 'ordinary-time'

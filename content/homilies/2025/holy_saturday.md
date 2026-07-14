@@ -1,5 +1,6 @@
 +++
 title = 'Holy Saturday - Easter Vigil'
+description = 'The Easter Vigil proclaims that Christ has conquered sin and death, makes the baptized a new creation, and sends them to carry resurrection light.'
 date = 2025-04-19
 draft = false
 liturgical_season = 'paschal-triduum'

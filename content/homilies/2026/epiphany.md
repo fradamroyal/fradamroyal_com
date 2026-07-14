@@ -1,5 +1,6 @@
 +++
 title = 'Epiphany'
+description = 'The Magi reveal Christ as King of every people, calling the Church beyond tribal divisions to become a family with room for all.'
 date = 2026-01-04
 draft = false
 liturgical_season = 'christmas'

@@ -1,5 +1,6 @@
 +++
 title = 'Sixth Sunday of Easter'
+description = 'Unlike peace enforced by fear or bargains, the peace of Christ is freely given and grows as we follow his way of forgiveness, love, and justice.'
 date = 2025-05-25
 draft = false
 liturgical_season = 'easter'

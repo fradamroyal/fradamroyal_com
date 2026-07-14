@@ -1,5 +1,6 @@
 +++
 title = 'Fifteenth Sunday in Ordinary Time'
+description = 'The parable of the sower invites us to become rich soil where Christ’s word makes us a new creation and grows the gardens of paradise within us.'
 date = 2026-07-12
 draft = false
 

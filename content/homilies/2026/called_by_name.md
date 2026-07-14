@@ -1,5 +1,6 @@
 +++
 title = 'Called by Name Weekend'
+description = 'Fr. Adam recounts his conversion and call to the priesthood, inviting every person to discern and embrace the vocation God has given.'
 date = 2026-01-17
 draft = false
 liturgical_season = 'ordinary-time'

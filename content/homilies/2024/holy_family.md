@@ -1,5 +1,6 @@
 +++
 title = 'Holy Family'
+description = 'A Holy Family homily on finding God amid anxiety by quieting the heart and trusting that he already dwells within us.'
 date = 2024-12-29
 draft = false
 liturgical_season = 'christmas'

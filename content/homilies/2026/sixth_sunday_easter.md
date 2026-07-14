@@ -1,5 +1,6 @@
 +++
 title = 'Sixth Sunday of Easter'
+description = 'Christ’s apparent departure opens a deeper communion through the Holy Spirit, revealing every human life as made to share in God’s own life.'
 date = 2026-05-10
 draft = false
 liturgical_season = 'easter'

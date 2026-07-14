@@ -1,5 +1,6 @@
 +++
 title = 'Thirteenth Sunday in Ordinary Time'
+description = 'A homily on Jesus raising the daughter of Jairus and the Christian hope that no suffering, death, or person lies beyond the saving reach of God.'
 date = 2024-06-30
 draft = false
 aliases = ['/homilies/2024/thirteenth_sunday_per_annum/']

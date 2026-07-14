@@ -1,5 +1,6 @@
 +++
 title = 'Seventeenth Sunday in Ordinary Time'
+description = 'A homily on the feeding of the five thousand, the goodness present in every person, and the power of Christ to multiply even our smallest offering.'
 date = 2024-07-28
 draft = false
 aliases = ['/homilies/2024/seventeenth_sunday_per_annum/']

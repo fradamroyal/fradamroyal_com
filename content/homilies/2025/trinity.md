@@ -1,5 +1,6 @@
 +++
 title = 'Solemnity of the Most Holy Trinity'
+description = 'The Trinity reveals that relationship and love lie at the heart of reality, calling people made for communion to practice forgiveness and unity.'
 date = 2025-06-15
 draft = false
 liturgical_season = 'ordinary-time'

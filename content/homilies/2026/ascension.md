@@ -1,5 +1,6 @@
 +++
 title = 'The Ascension of the Lord'
+description = 'Christ’s Ascension sends the wounded Church outward to fill every empty place through concrete acts of love that make his mission visible.'
 date = 2026-05-17
 draft = false
 liturgical_season = 'easter'

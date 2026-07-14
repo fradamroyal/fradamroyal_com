@@ -1,5 +1,6 @@
 +++
 title = 'Fourth Sunday of Lent'
+description = 'The prodigal son and the man born blind reveal mercy that seeks the distant, rejects blame, welcomes conversion, and opens every heart to healing light.'
 date = 2025-03-30
 draft = false
 liturgical_season = 'lent'

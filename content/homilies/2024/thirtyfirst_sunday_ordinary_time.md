@@ -1,5 +1,6 @@
 +++
 title = 'Thirty-first Sunday in Ordinary Time'
+description = 'A homily on love as an active choice to seek the good of others, meet real needs, confront injustice, and help build the Kingdom of God.'
 date = 2024-11-03
 draft = false
 aliases = ['/homilies/2024/thirtyfirst_sunday_per_annum/']

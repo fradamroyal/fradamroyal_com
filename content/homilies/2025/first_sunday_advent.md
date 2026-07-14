@@ -1,5 +1,6 @@
 +++
 title = 'First Sunday of Advent'
+description = 'Advent calls us to wake from distraction and fear and prepare for Christ through prayer, Scripture, confession, Eucharist, and care for the poor.'
 date = 2025-11-30
 draft = false
 liturgical_season = 'advent'

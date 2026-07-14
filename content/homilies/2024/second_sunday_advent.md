@@ -1,5 +1,6 @@
 +++
 title = 'Second Sunday of Advent'
+description = 'An Advent homily on preparing the way of the Lord through patient trust, surrender, and concrete works of mercy rather than control or coercion.'
 date = 2024-12-08
 draft = false
 liturgical_season = 'advent'

@@ -1,5 +1,6 @@
 +++
 title = 'Fifteenth Sunday in Ordinary Time'
+description = 'The Good Samaritan reveals mercy arriving through unexpected people and calls us to cross divisions, forgive, reconcile, and enter the wounds of others.'
 date = 2025-07-13
 draft = false
 aliases = ['/homilies/2025/fifthteenth_sunday_ordinary_time/']

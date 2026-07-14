@@ -1,5 +1,6 @@
 +++
 title = 'Twenty-fifth Sunday in Ordinary Time'
+description = 'A homily on true greatness through humility and service, examining our own faults while seeing others with compassion, dignity, and mercy.'
 date = 2024-09-22
 draft = false
 aliases = ['/homilies/2024/twentyfifth_sunday_per_annum/']

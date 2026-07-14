@@ -389,17 +389,13 @@ test("priority pages expose distinct descriptions aligned with structured data",
   assert.equal(application.description, expectations.get("tools/bible-reading-plan/index.html"));
 });
 
-test("older content keeps summary- and body-derived description fallbacks", () => {
+test("legacy reflection content keeps its body-derived description fallback", () => {
   const siteFallback =
     "A collection of homilies and reflections to, hopefully, inspire and guide your faith.";
   const expectations = new Map([
     [
       "reflections/2025/advent_by_candlelight/index.html",
       "By candlelight, these four Advent reflections trace a path from wakefulness to repentance, from fragile faith to renewed trust. Beginning with Jesus’ warning to stay awake, they move through John’s call to bear fruit, Christ’s assurance that grace is truly at work, and the quiet courage of Joseph. Together they invite us to let God enter ordinary life, weakness, and uncertainty, so the light of Emmanuel can be born anew.",
-    ],
-    [
-      "homilies/2026/fifteenth_sunday_ordinary_time/index.html",
-      "The Lord’s parable and his stated reason for speaking in parables are mutually illuminating. Which is to say, the parable draws us into the logic of parables and reveals their purpose. A parable is not a mere story or a moral lesson. It is an invitation to step inside a symbolic world and meditate. Every object within the symbolic cosmos is polyvalent and saturated with meaning. Understanding, then, is not reducible to “figuring out the message,” as if one were solving a puzzle. Understanding is discovered through participation in the parable.",
     ],
   ]);
 

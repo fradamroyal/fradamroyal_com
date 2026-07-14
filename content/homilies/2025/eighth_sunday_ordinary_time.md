@@ -1,5 +1,6 @@
 +++
 title = 'Eighth Sunday in Ordinary Time'
+description = 'Jesus warns that sin distorts our vision and calls us to humble self-examination so that we may see others with truth, compassion, mercy, and love.'
 date = 2025-03-02
 draft = false
 aliases = ['/homilies/2025/eighth_sunday_per_annum/']

@@ -1,5 +1,6 @@
 +++
 title = 'Eighteenth Sunday in Ordinary Time'
+description = 'A homily on receiving the Eucharist as strength to follow Christ in sacrificial love through marriage, single life, priesthood, or religious life.'
 date = 2024-08-04
 draft = false
 aliases = ['/homilies/2024/eighteenth_sundery_per_annum/']

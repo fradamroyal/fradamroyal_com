@@ -1,5 +1,6 @@
 +++
 title = 'Third Sunday in Ordinary Time'
+description = 'Jesus fulfills the promise of freedom from sin and calls his body to serve people burdened by poverty, illness, addiction, and grief.'
 date = 2025-01-26
 draft = false
 aliases = ['/homilies/2025/third_sunday_per_annum/']

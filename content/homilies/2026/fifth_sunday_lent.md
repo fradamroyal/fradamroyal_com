@@ -1,5 +1,6 @@
 +++
 title = 'Fifth Sunday in Lent'
+description = 'Jesus’ delay at Bethany reveals a love preparing more than relief: a witness that death has met its Master and God never arrives too late.'
 date = 2026-03-22
 draft = false
 liturgical_season = 'lent'

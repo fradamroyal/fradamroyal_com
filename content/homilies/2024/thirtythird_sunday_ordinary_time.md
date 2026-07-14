@@ -1,5 +1,6 @@
 +++
 title = 'Thirty-third Sunday in Ordinary Time'
+description = 'A homily on reading the suffering around us as a sign of the return of Christ and responding with charity, perseverance, and hope in a renewed creation.'
 date = 2024-11-17
 draft = false
 aliases = ['/homilies/2024/thirtythird_sunday_per_annum/']

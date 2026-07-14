@@ -1,5 +1,6 @@
 +++
 title = 'First Sunday of Advent'
+description = 'An Advent homily on facing turmoil without fear, remaining vigilant in prayer, and awaiting the return of Christ with active hope.'
 date = 2024-12-01
 draft = false
 liturgical_season = 'advent'

@@ -1,5 +1,6 @@
 +++
 title = 'Presentation of the Lord'
+description = 'Christ is the light entrusted to the Church, and generosity carries that light through faith formation, care for vulnerable families, and service.'
 date = 2025-02-02
 draft = false
 liturgical_season = 'ordinary-time'

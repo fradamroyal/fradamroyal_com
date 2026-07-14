@@ -1,5 +1,6 @@
 +++
 title = 'Holy Thursday'
+description = 'Jesus washes his disciples’ feet and gives the Church a pattern: receive his cleansing mercy, then kneel to serve the wounded world.'
 date = 2026-04-02
 draft = false
 liturgical_season = 'paschal-triduum'

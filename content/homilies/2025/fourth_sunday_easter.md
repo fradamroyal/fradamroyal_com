@@ -1,5 +1,6 @@
 +++
 title = 'Fourth Sunday of Easter'
+description = 'Following the Good Shepherd means making faith visible through acts of kindness, forgiveness, humility, mercy, and sacrifice that help others believe.'
 date = 2025-05-11
 draft = false
 liturgical_season = 'easter'

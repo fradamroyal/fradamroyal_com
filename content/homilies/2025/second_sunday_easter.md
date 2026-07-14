@@ -1,5 +1,6 @@
 +++
 title = 'Second Sunday of Easter - Divine Mercy Sunday'
+description = 'Divine Mercy invites wounded hearts to begin the patient work of healing and forgiveness in Christ so they can carry resurrection hope to others.'
 date = 2025-04-27
 draft = false
 liturgical_season = 'easter'

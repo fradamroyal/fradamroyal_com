@@ -1,5 +1,6 @@
 +++
 title = 'The Baptism of the Lord'
+description = 'Jesus enters the Jordan in solidarity with sinners, revealing baptism as a call to bear others’ burdens and make his mission visible.'
 date = 2026-01-11
 draft = false
 liturgical_season = 'christmas'

@@ -1,5 +1,6 @@
 +++
 title = 'Easter Sunday'
+description = 'The empty tomb calls us to faith that resurrection has conquered death and that every act of love, forgiveness, and sacrifice has eternal meaning.'
 date = 2025-04-20
 draft = false
 liturgical_season = 'easter'

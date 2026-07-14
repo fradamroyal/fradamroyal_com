@@ -1,5 +1,6 @@
 +++
 title = 'Palm Sunday'
+description = 'Palm Sunday reveals the Cross as Christ’s throne, calling us to follow the King whose victory comes through obedient, self-giving love.'
 date = 2026-03-29
 draft = false
 liturgical_season = 'lent'

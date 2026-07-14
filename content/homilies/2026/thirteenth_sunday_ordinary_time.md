@@ -1,5 +1,6 @@
 +++
 title = 'Thirteenth Sunday in Ordinary Time'
+description = 'The woman of Shunem shows how hospitality and suffering become paths of faith when the cross is carried with Christ toward risen life.'
 date = 2026-06-28
 draft = false
 liturgical_season = 'ordinary-time'

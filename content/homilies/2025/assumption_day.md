@@ -1,5 +1,6 @@
 +++
 title = 'Assumption of the Blessed Virgin Mary - Day'
+description = 'The Assumption of Mary promises that Christ will raise us body and soul, calling those who trust divine generosity to become open-handed servants.'
 date = 2025-08-15
 draft = false
 liturgical_season = 'ordinary-time'

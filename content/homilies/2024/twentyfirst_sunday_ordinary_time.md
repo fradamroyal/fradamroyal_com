@@ -1,5 +1,6 @@
 +++
 title = 'Twenty-first Sunday in Ordinary Time'
+description = 'A homily on the choice between the way of self-giving love and the chaos of pride, and on the Eucharist as the remedy that makes us whole.'
 date = 2024-08-25
 draft = false
 aliases = ['/homilies/2024/twentyfirst_sunday_per_annum/']

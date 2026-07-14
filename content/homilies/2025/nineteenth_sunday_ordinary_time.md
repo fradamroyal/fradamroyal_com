@@ -1,5 +1,6 @@
 +++
 title = 'Nineteenth Sunday in Ordinary Time'
+description = 'Jesus calls the little flock to hopeful readiness through prayer, generosity, and mercy, trusting that the returning Lord comes to restore and serve.'
 date = 2025-08-10
 draft = false
 liturgical_season = 'ordinary-time'

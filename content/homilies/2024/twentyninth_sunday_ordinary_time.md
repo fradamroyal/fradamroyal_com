@@ -1,5 +1,6 @@
 +++
 title = 'Twenty-ninth Sunday in Ordinary Time'
+description = 'A homily on following Jesus without fear, becoming the servant of all, and trusting that sacrifice and humility lead to resurrection and joy.'
 date = 2024-10-20
 draft = false
 aliases = ['/homilies/2024/twentyninth_sunday_per_annum/']

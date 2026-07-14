@@ -1,5 +1,6 @@
 +++
 title = 'Christmas'
+description = 'A Christmas homily on the Incarnation, which sanctifies ordinary human life and reveals how everyday acts of love make God present.'
 date = 2024-12-25
 draft = false
 liturgical_season = 'christmas'

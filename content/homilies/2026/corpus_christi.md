@@ -1,5 +1,6 @@
 +++
 title = 'The Solemnity of the Most Holy Body and Blood of Christ'
+description = 'The Eucharist reveals creation as God’s gift: bread becomes Christ himself, drawing human lives into divine communion and the promise of eternal life.'
 date = 2026-06-07
 draft = false
 liturgical_season = 'ordinary-time'

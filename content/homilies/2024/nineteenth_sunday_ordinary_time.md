@@ -1,5 +1,6 @@
 +++
 title = 'Nineteenth Sunday in Ordinary Time'
+description = 'A homily on the Eucharist as the life of God given freely, transforming each recipient to carry divine mercy, comfort, and beauty into the world.'
 date = 2024-08-11
 draft = false
 aliases = ['/homilies/2024/nineteenth_sunday_per_annum/']

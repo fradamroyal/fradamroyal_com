@@ -1,5 +1,6 @@
 +++
 title = 'Twelfth Sunday in Ordinary Time'
+description = 'Christ warns that every secret will enter God’s light, calling us to learn forgiveness now so mercy can free us for the reconciled life of heaven.'
 date = 2026-06-21
 draft = false
 liturgical_season = 'ordinary-time'

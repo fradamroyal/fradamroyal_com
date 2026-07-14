@@ -1,5 +1,6 @@
 +++
 title = 'Good Friday'
+description = 'On the cross, Jesus answers cycles of power and injustice with self-giving love that enters suffering, redeems it, and transforms death into life.'
 date = 2025-04-18
 draft = false
 liturgical_season = 'paschal-triduum'

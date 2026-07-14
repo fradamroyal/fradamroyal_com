@@ -1,5 +1,6 @@
 +++
 title = 'Nativity of the Lord, Mass During the Night'
+description = 'Against the fear and violence of Caesar, the newborn Christ offers true peace through mercy, generosity, patience, and the costly way of love.'
 date = 2025-12-25T00:00:01-06:00
 draft = false
 liturgical_season = 'christmas'

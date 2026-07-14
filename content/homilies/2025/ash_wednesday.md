@@ -1,5 +1,6 @@
 +++
 title = 'Ash Wednesday'
+description = 'Lenten penance is not punishment but a gift that frees us from self-sufficiency and returns us to the God whose sustaining love gives us life.'
 date = 2025-03-05T14:39:49-05:00
 draft = false
 liturgical_season = 'lent'

@@ -1,5 +1,6 @@
 +++
 title = 'Fourth Sunday in Lent'
+description = 'Jesus heals the man born blind and leads us from blame into mercy, teaching us to see suffering as a place where God can act.'
 date = 2026-03-15
 draft = false
 liturgical_season = 'lent'

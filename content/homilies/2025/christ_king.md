@@ -1,5 +1,6 @@
 +++
 title = 'Solemnity of Our Lord Jesus Christ, King of the Universe (Christ the King)'
+description = 'Christ reigns from the cross through mercy, freeing us from political fear and calling us to submit every part of life to his kingdom.'
 date = 2025-11-23
 draft = false
 liturgical_season = 'ordinary-time'

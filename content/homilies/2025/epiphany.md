@@ -1,5 +1,6 @@
 +++
 title = 'Epiphany'
+description = 'The fear of Herod and Jerusalem exposes resistance to a Messiah whose kingdom humbles privilege, lifts the oppressed, and judges injustice.'
 date = 2025-01-05
 draft = false
 liturgical_season = 'christmas'

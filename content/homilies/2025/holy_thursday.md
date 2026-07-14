@@ -1,5 +1,6 @@
 +++
 title = 'Holy Thursday'
+description = 'Jesus washing feet reveals that Eucharistic communion is inseparable from humble service to the poor, hurting, imprisoned, and excluded.'
 date = 2025-04-17
 draft = false
 liturgical_season = 'paschal-triduum'

@@ -1,5 +1,6 @@
 +++
 title = 'Fourth Sunday in Ordinary Time'
+description = 'The Beatitudes call Christians beyond a minimum moral checklist into the freedom, mercy, purity, and peacemaking of life with God.'
 date = 2026-02-01
 draft = false
 liturgical_season = 'ordinary-time'

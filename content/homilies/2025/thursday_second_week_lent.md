@@ -1,5 +1,6 @@
 +++
 title = 'Thursday of the Second Week of Lent'
+description = 'The rich man and Lazarus call us to listen deeply to the word of God so Lenten practices move beyond checklists and lead to genuine conversion.'
 date = 2025-03-20
 draft = false
 liturgical_season = 'lent'

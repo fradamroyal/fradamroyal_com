@@ -1,5 +1,6 @@
 +++
 title = 'Fifteenth Sunday in Ordinary Time'
+description = 'A homily on disciples sent without provisions, the radical equality of rich and poor before God, and the call to carry holiness into the world.'
 date = 2024-07-14
 draft = false
 aliases = ['/homilies/2024/fifthteenth_sunday_per_annum/']

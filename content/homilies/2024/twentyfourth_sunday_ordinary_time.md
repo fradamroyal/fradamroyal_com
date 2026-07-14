@@ -1,5 +1,6 @@
 +++
 title = 'Twenty-fourth Sunday in Ordinary Time'
+description = 'A homily on taking up the cross by seeing local suffering, bearing the burdens of others, and remaining beside them with sacrificial love.'
 date = 2024-09-15
 draft = false
 aliases = ['/homilies/2024/twentyfourth_sunday_per_annum/']

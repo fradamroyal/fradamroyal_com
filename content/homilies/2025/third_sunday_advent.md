@@ -1,5 +1,6 @@
 +++
 title = 'Third Sunday of Advent'
+description = 'Advent leads us beyond comfort and self-sufficiency into the honest wilderness of confession, generosity, silence, and dependence on Christ.'
 date = 2025-12-14
 draft = false
 liturgical_season = 'advent'

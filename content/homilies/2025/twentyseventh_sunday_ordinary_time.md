@@ -1,5 +1,6 @@
 +++
 title = 'Twenty-seventh Sunday in Ordinary Time'
+description = 'Faith as small as a seed sustains an all-consuming discipleship of gratitude, prayer, excellent work, unseen service, and dependence on grace.'
 date = 2025-10-05
 draft = false
 liturgical_season = 'ordinary-time'

@@ -1,5 +1,6 @@
 +++
 title = 'Third Sunday of Easter'
+description = 'On the road to Emmaus, the risen Christ purifies restless human desire and leads it through Scripture and the Eucharist to its true fulfillment.'
 date = 2026-04-19
 draft = false
 liturgical_season = 'easter'

@@ -1,5 +1,6 @@
 +++
 title = 'Twenty-ninth Sunday in Ordinary Time'
+description = 'The persistent widow reveals divine love that keeps seeking our attention, repentance, surrender, Eucharistic welcome, and concrete charity.'
 date = 2025-10-19
 draft = false
 liturgical_season = 'ordinary-time'
