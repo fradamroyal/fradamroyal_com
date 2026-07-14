@@ -19,9 +19,7 @@ Many Christians would recognize it instinctively as the kind of image that belon
 
 ## The Sacred Meaning of Anachronism
 
-And then, once the eye settles, one detail begins to work on the mind: the soldiers.
-
-They do not look like Roman soldiers from the first century. They look like soldiers from the painter’s own world. Their armor and weapons belong to a later time. The scene contains a deliberate anachronism, and it is precisely this “mistake” that makes the painting theologically intelligent. The artist is not careless. He is proclaiming something.
+Once the eye settles, one detail begins to work on the mind: the soldiers. They do not look like Roman soldiers from the first century. They look like soldiers from the painter’s own world. Their armor and weapons belong to a later time. The scene contains a deliberate anachronism, and it is precisely this “mistake” that makes the painting theologically intelligent. The artist is not careless. He is proclaiming something.
 
 We live in an era that often equates historical accuracy with truthfulness. We tend to assume that to depict the Resurrection properly, one must depict it as it happened, as though the goal were an archaeological reconstruction. But sacred art is not documentary photography. Its purpose is not merely to inform, but to reveal. It is meant to speak of realities that are not imprisoned in one moment. In that sense, the anachronism in the first painting is not a flaw. It is essential. It is one of the ways the artist confesses the Incarnation.
 
@@ -37,15 +35,11 @@ There is also something worth noticing in how naturally the first image achieves
 
 ## Why the Contemporary Image Feels Different
 
-But then we turn to the second image—the contemporary version—and the response changes.
-
-It may be difficult even to name what we feel at first. It is not exactly disbelief. We recognize the symbolic structure: Christ stands at the center, bearing the banner of triumph; soldiers slump around him, overwhelmed and powerless. Yet the image strikes many viewers as odd, even unsettling. For some, it may feel irreverent or offensive. Something in us resists seeing Christ in such a setting. The modern gear, the urban background, the traffic cones, the rifles—these details jolt us out of the devotional posture we easily assume before the first painting.
+We turn to the second image—the contemporary version—and the response changes. It may be difficult even to name what we feel at first. It is not exactly disbelief. We recognize the symbolic structure: Christ stands at the center, bearing the banner of triumph; soldiers slump around him, overwhelmed and powerless. Yet the image strikes many viewers as odd, even unsettling. For some, it may feel irreverent or offensive. Something in us resists seeing Christ in such a setting. The modern gear, the urban background, the traffic cones, the rifles—these details jolt us out of the devotional posture we easily assume before the first painting.
 
 It is certainly AI-generated, and one might be tempted to make that the decisive point: the first painting is art; the second is an artificial imitation. Yet that is not the heart of what troubles us. Even if the second image were painted by a master, many would still feel discomfort. The problem is not primarily the medium. The problem is recognition.
 
-We struggle to see Jesus in today’s world.
-
-That line is not an accusation as much as a confession. It reveals something about the imagination of faith in our time. We are often willing to grant that Christ can be present to medieval Europe on a panel painting. But we hesitate when Christ is placed—visibly, bodily—into our own contemporary landscapes. We prefer the safety of distance. We find it easier to contemplate Christ when he is framed by “religious time,” by the aesthetic language of the past. But when the image moves too close, when it presses the Resurrection up against the textures of modern life, we begin to protest.
+We struggle to see Jesus in today’s world. That line is not an accusation as much as a confession. It reveals something about the imagination of faith in our time. We are often willing to grant that Christ can be present to medieval Europe on a panel painting. But we hesitate when Christ is placed—visibly, bodily—into our own contemporary landscapes. We prefer the safety of distance. We find it easier to contemplate Christ when he is framed by “religious time,” by the aesthetic language of the past. But when the image moves too close, when it presses the Resurrection up against the textures of modern life, we begin to protest.
 
 Why?
 
@@ -59,9 +53,7 @@ Yet this discomfort exposes something serious: if we cannot see Christ in our ow
 
 ## Christ Is Present to Every Age
 
-Christ is still among us. He is present to us in his body.
-
-That is not pious metaphor. Christianity is not a religion of nostalgic remembrance. The Resurrection is not merely the story of a man who lived long ago. Christ died and rose for us, and he remains present to us: in the Church, in the sacraments, in the poor, in the proclamation of the word, and above all in the Eucharist, where his Body is not remembered but given.
+Christ is still among us. He is present to us in his body. That is not pious metaphor. Christianity is not a religion of nostalgic remembrance. The Resurrection is not merely the story of a man who lived long ago. Christ died and rose for us, and he remains present to us: in the Church, in the sacraments, in the poor, in the proclamation of the word, and above all in the Eucharist, where his Body is not remembered but given.
 
 To say that Christ is present to us in his body is to say something cosmic. The humanity he assumed is not a temporary costume. It is now inseparable from the divine life. Human nature has been taken into God. That means that the story of the world has changed, not only morally but ontologically—at the level of what reality now is. The Resurrection is not simply a happy ending to a tragedy. It is the beginning of a new creation.
 
@@ -75,15 +67,9 @@ This is the problem the second image forces us to face. It looks odd because it 
 
 ## Our Age Is Not an Exception
 
-And this leads to another uncomfortable truth: we are tempted to treat our moment in history as special.
+And this leads to another uncomfortable truth: we are tempted to treat our moment in history as special. Modern people often imagine themselves as standing at the peak of an upward climb. We have advanced technologically. We have developed systems of governance and medicine and communication that our ancestors could not have imagined. We can place satellites in orbit and map the human genome. We can build machines that generate images at the click of a button. All of this can create the feeling that we live in a uniquely important time—that we are somehow the culmination of human history.
 
-Modern people often imagine themselves as standing at the peak of an upward climb. We have advanced technologically. We have developed systems of governance and medicine and communication that our ancestors could not have imagined. We can place satellites in orbit and map the human genome. We can build machines that generate images at the click of a button. All of this can create the feeling that we live in a uniquely important time—that we are somehow the culmination of human history.
-
-But from the standpoint of the gospel, that is not how history works.
-
-Today—this moment—is not, in the grand scheme of things, special. It is one more moment. We are not better than our ancestors, and we are not worse. We have different temptations, different forms of anxiety, different conveniences and dangers, but we remain the same humanity: fragile, longing, capable of beauty and cruelty, made for communion, often choosing isolation. Our technology, our progress, our systems of governance—these are continuations of the long arc of human history, but still fundamentally human and natural. They are not the arrival of a new kind of creature.
-
-We remain human beings, and human beings still need the same salvation.
+From the standpoint of the gospel, that is not how history works. Today—this moment—is not, in the grand scheme of things, special. It is one more moment. We are not better than our ancestors, and we are not worse. We have different temptations, different forms of anxiety, different conveniences and dangers, but we remain the same humanity: fragile, longing, capable of beauty and cruelty, made for communion, often choosing isolation. Our technology, our progress, our systems of governance—these are continuations of the long arc of human history, but still fundamentally human and natural. They are not the arrival of a new kind of creature. We remain human beings, and human beings still need the same salvation.
 
 ## The Resurrection Begins a New Creation
 
@@ -91,9 +77,7 @@ The Resurrection, then, is not an archaic story that we keep for sentimental rea
 
 To say this is to say that Christ confronts every age. He confronts the age of swords and armor, and he confronts the age of rifles and surveillance. He confronts the age of empire and the age of democracy. He confronts the age of parchment and the age of algorithms. None of these ages are neutral. Each has its idols. Each has its fears. Each has its forms of injustice and its possibilities for virtue. But in every age, the Lord of history stands with his wounds and his blessing, not as a relic, but as the living judge and savior.
 
-This is why a greater appreciation of the Incarnation is not a luxury for theologians; it is a necessity for faith.
-
-Without the Incarnation, Christianity becomes either a moral system or a mythic story. If Christ did not truly take our nature, then the sacraments become symbolic gestures rather than divine actions. The Church becomes a human institution rather than the Body of Christ. Salvation becomes self-improvement rather than the transformation of the world.
+This is why a greater appreciation of the Incarnation is not a luxury for theologians; it is a necessity for faith. Without the Incarnation, Christianity becomes either a moral system or a mythic story. If Christ did not truly take our nature, then the sacraments become symbolic gestures rather than divine actions. The Church becomes a human institution rather than the Body of Christ. Salvation becomes self-improvement rather than the transformation of the world.
 
 But if the Incarnation is true—if God has become man—then the whole of reality is charged with new meaning. Matter matters. Time matters. Bodies matter. History matters. Human suffering matters—not because it is romantic or noble, but because God has chosen to meet humanity precisely there.
 
@@ -109,9 +93,7 @@ If this is true, then the Christian task is not to retreat into nostalgia. It is
 
 That rediscovery is not primarily an artistic project, though art can help. It is a spiritual conversion. It requires that we stop imagining holiness as belonging only to the past or only to explicitly sacred spaces. It requires that we learn to see the world as the place where God has acted and continues to act.
 
-And this is where the discomfort of the second image can become a gift.
-
-If we find it odd to place Christ amid modern soldiers and concrete, perhaps the image is exposing the places where our faith remains compartmentalized. Perhaps it is revealing how readily we treat modern life as though it were “outside” the reach of salvation. Perhaps it is showing that we have not yet learned to contemplate the Resurrection as something that judges and redeems not only medieval battlefields, but modern ones too; not only the anxieties of peasants and kings, but the anxieties of modern people surrounded by information and noise.
+And this is where the discomfort of the second image can become a gift. If we find it odd to place Christ amid modern soldiers and concrete, perhaps the image is exposing the places where our faith remains compartmentalized. Perhaps it is revealing how readily we treat modern life as though it were “outside” the reach of salvation. Perhaps it is showing that we have not yet learned to contemplate the Resurrection as something that judges and redeems not only medieval battlefields, but modern ones too; not only the anxieties of peasants and kings, but the anxieties of modern people surrounded by information and noise.
 
 Christ is still among us. He is present to us in his body. He died and rose for us. That means he has something to say to this moment. Not because this moment is uniquely important, but because this moment is part of the same human story that he has entered and redeemed.
 
@@ -123,6 +105,4 @@ Only by rediscovering the Incarnation can we truly rediscover our faith. Only by
 
 The first painting consoles us with beauty and tradition, and it teaches us incarnational truth through its anachronism. The second painting unsettles us, and in doing so it asks a pointed question: if Christ can be depicted as present in the artist’s age, why do we resist seeing him in ours?
 
-The answer to that question is not a matter of aesthetics. It is a matter of faith.
-
-And the invitation is clear: to let the Resurrection move from being a cherished image of the past to being the living center of the present; to let the Incarnation stretch our imagination until we can confess not only that Christ was among us, but that Christ is among us—and that, therefore, no age is abandoned, no moment is beyond redemption, and no corner of human history is outside the reach of the risen Lord.
+The answer to that question is not a matter of aesthetics but of faith. And the invitation is clear: to let the Resurrection move from being a cherished image of the past to being the living center of the present; to let the Incarnation stretch our imagination until we can confess not only that Christ was among us, but that Christ is among us—and that, therefore, no age is abandoned, no moment is beyond redemption, and no corner of human history is outside the reach of the risen Lord.
