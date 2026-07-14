@@ -22,10 +22,29 @@ const {
 const {
   REFLECTION_HEADING_HIERARCHIES,
 } = require("./fixtures/reflection-heading-hierarchies.js");
+const {
+  INVALID_SCRIPTURE_READING_FIXTURES,
+  VALID_SCRIPTURE_READING_FIXTURES,
+} = require("./fixtures/scripture-readings.js");
 
 const REPOSITORY_ROOT = resolve(__dirname, "..");
 const MODEL_PATH = join(REPOSITORY_ROOT, "data", "content_model.json");
 const HOMILY_ROOT = join(REPOSITORY_ROOT, "content", "homilies");
+const ARTICLE_ROOTS = [
+  HOMILY_ROOT,
+  join(REPOSITORY_ROOT, "content", "reflections"),
+];
+const SBL_ABBREVIATIONS_PATH = join(
+  REPOSITORY_ROOT,
+  "SBL_BIBLE_ABBREVIATIONS.md",
+);
+const ONE_CHAPTER_BOOKS = new Set([
+  "Obad",
+  "Phlm",
+  "2 John",
+  "3 John",
+  "Jude",
+]);
 const TEMPORARY_ROOT = mkdtempSync(join(tmpdir(), "fradamroyal-content-model-"));
 const TEMPORARY_CONTENT = join(TEMPORARY_ROOT, "archetype-content");
 const BUILD_ROOT = join(TEMPORARY_ROOT, "candidate-public");
@@ -33,6 +52,12 @@ const NEUTRAL_CONTENT = join(TEMPORARY_ROOT, "neutral-content");
 const NEUTRAL_BUILD_ROOT = join(TEMPORARY_ROOT, "neutral-public");
 mkdirSync(TEMPORARY_CONTENT, { recursive: true });
 const model = JSON.parse(readFileSync(MODEL_PATH, "utf8"));
+const SBL_BOOK_ROWS = canonicalSblBookRows(
+  readFileSync(SBL_ABBREVIATIONS_PATH, "utf8"),
+);
+const SBL_ABBREVIATIONS = new Set(
+  SBL_BOOK_ROWS.flatMap((row) => row.abbreviations),
+);
 const EXCLUDED_AUTHORED_FIELDS = [
   "categories",
   "tags",
@@ -183,6 +208,253 @@ function homilySourcePaths() {
   return outputFiles(HOMILY_ROOT)
     .filter((path) => extname(path) === ".md" && !path.endsWith("_index.md"))
     .sort();
+}
+
+function articleSourcePaths() {
+  return ARTICLE_ROOTS.flatMap((root) => outputFiles(root))
+    .filter((path) => extname(path) === ".md" && !path.endsWith("_index.md"))
+    .sort();
+}
+
+function canonicalSblBookRows(source) {
+  return source.split(/\r?\n/).flatMap((line) => {
+    const row = line.match(/^\|\s*([^|]+?)\s*\|\s*(.*?)\s*\|\s*$/);
+    if (!row) {
+      return [];
+    }
+
+    const abbreviations = [...row[2].matchAll(/`([^`]+)`/g)].map(
+      (match) => match[1],
+    );
+    return abbreviations.length > 0
+      ? [{ book: row[1].trim(), abbreviations }]
+      : [];
+  });
+}
+
+function readingRecordBlocks(metadata) {
+  const headers = [
+    ...metadata.matchAll(
+      /^[ \t]*\[\[[ \t]*readings[ \t]*\]\][ \t]*(?:#.*)?$/gm,
+    ),
+  ];
+
+  return headers.map((header, index) => {
+    const contentStart = header.index + header[0].length;
+    const remainder = metadata.slice(contentStart);
+    const nextTable = remainder.search(
+      /^[ \t]*(?:\[\[[^\]\r\n]+\]\]|\[[^\]\r\n]+\])[ \t]*(?:#.*)?$/m,
+    );
+    const contentEnd = nextTable === -1
+      ? metadata.length
+      : contentStart + nextTable;
+
+    return {
+      body: metadata.slice(contentStart, contentEnd),
+      number: index + 1,
+    };
+  });
+}
+
+function quotedFieldValues(record, field) {
+  const assignment = new RegExp(
+    `^${field}[ \\t]*=[ \\t]*(['"])(.*?)\\1[ \\t]*(?:#.*)?$`,
+    "gm",
+  );
+  return [...record.body.matchAll(assignment)].map((match) => match[2]);
+}
+
+function verseEndpointAscends(startVerse, startSuffix, endVerse, endSuffix) {
+  const start = Number(startVerse);
+  const end = Number(endVerse);
+  if (end !== start) {
+    return end > start;
+  }
+  if (!startSuffix || !endSuffix) {
+    return true;
+  }
+  return endSuffix.at(-1) >= startSuffix[0];
+}
+
+function oneChapterRangesAscend(passage) {
+  return passage.split(", ").every((segment) => {
+    const range = segment.match(
+      /^([1-9]\d*)([a-e]*)(?:–([1-9]\d*)([a-e]*))?$/,
+    );
+    return (
+      !range[3] ||
+      verseEndpointAscends(range[1], range[2], range[3], range[4])
+    );
+  });
+}
+
+function chapterRangesAscend(passage) {
+  const wholeChapters = passage.match(/^([1-9]\d*)(?:–([1-9]\d*))?$/);
+  if (wholeChapters) {
+    return (
+      !wholeChapters[2] ||
+      Number(wholeChapters[2]) >= Number(wholeChapters[1])
+    );
+  }
+
+  return passage.split("; ").every((group) => {
+    const chapterAndSegments = group.match(/^([1-9]\d*):(.*)$/);
+    const startChapter = Number(chapterAndSegments[1]);
+    return chapterAndSegments[2].split(", ").every((segment) => {
+      const range = segment.match(
+        /^([1-9]\d*)([a-e]*)(?:–(?:([1-9]\d*):)?([1-9]\d*)([a-e]*))?$/,
+      );
+      if (!range[4]) {
+        return true;
+      }
+
+      const endChapter = range[3] ? Number(range[3]) : startChapter;
+      return (
+        endChapter > startChapter ||
+        (endChapter === startChapter &&
+          verseEndpointAscends(range[1], range[2], range[4], range[5]))
+      );
+    });
+  });
+}
+
+function sblRangesAscend(book, passage) {
+  if (ONE_CHAPTER_BOOKS.has(book)) {
+    return oneChapterRangesAscend(passage);
+  }
+
+  const estherAddition = passage.match(
+    /^[A-F](?::([^ ]+))? \(([^)]+)\)$/,
+  );
+  if (book === "Esth" && estherAddition) {
+    return (
+      (!estherAddition[1] || oneChapterRangesAscend(estherAddition[1])) &&
+      chapterRangesAscend(estherAddition[2])
+    );
+  }
+
+  return chapterRangesAscend(passage);
+}
+
+function validSblPassage(book, passage) {
+  const integer = "[1-9]\\d*";
+  const suffix = [
+    "(?:a(?:b(?:c(?:d(?:e)?)?)?)?",
+    "b(?:c(?:d(?:e)?)?)?",
+    "c(?:d(?:e)?)?",
+    "d(?:e)?",
+    "e)?",
+  ].join("|");
+  const verse = `${integer}${suffix}`;
+  const verseRange = `${verse}(?:–${verse})?`;
+
+  if (ONE_CHAPTER_BOOKS.has(book)) {
+    return (
+      new RegExp(`^${verseRange}(?:, ${verseRange})*$`).test(passage) &&
+      sblRangesAscend(book, passage)
+    );
+  }
+
+  const chapterVerse = `${integer}:${verse}`;
+  const chapterRange = `${chapterVerse}(?:–(?:${verse}|${chapterVerse}))?`;
+  const continuedVerseRange = `${verse}(?:–(?:${verse}|${chapterVerse}))?`;
+  const chapterGroup = `${chapterRange}(?:, ${continuedVerseRange})*`;
+  const chapterReference = `${integer}(?:–${integer})?`;
+  const standardPassage = new RegExp(
+    `^(?:${chapterReference}|${chapterGroup}(?:; ${chapterGroup})*)$`,
+  ).test(passage);
+  const estherAddition = new RegExp(
+    `^[A-F](?::${verseRange})? \\(${chapterRange}\\)$`,
+  ).test(passage);
+
+  if (book === "Esth" && estherAddition) {
+    return sblRangesAscend(book, passage);
+  }
+  if (!standardPassage || !sblRangesAscend(book, passage)) {
+    return false;
+  }
+
+  const wholeChapters = passage.match(
+    new RegExp(`^(${integer})(?:–(${integer}))?$`),
+  );
+  let spansMultipleChapters = Boolean(
+    wholeChapters &&
+      wholeChapters[2] &&
+      wholeChapters[1] !== wholeChapters[2],
+  );
+  if (!wholeChapters) {
+    const chapters = new Set();
+    for (const match of passage.matchAll(
+      new RegExp(`(?:^|; )(${integer}):|–(${integer}):`, "g"),
+    )) {
+      chapters.add(match[1] || match[2]);
+    }
+    spansMultipleChapters = chapters.size > 1;
+  }
+
+  if (book === "Pss") {
+    return spansMultipleChapters;
+  }
+  if (book === "Ps") {
+    return !spansMultipleChapters;
+  }
+  return true;
+}
+
+function validateReadingMetadata(metadata, sourcePath, allowedAbbreviations) {
+  const errors = [];
+  const abbreviationsByLength = [...allowedAbbreviations].sort(
+    (left, right) => right.length - left.length || left.localeCompare(right),
+  );
+  const records = readingRecordBlocks(metadata).map((record) => {
+    const context = `${sourcePath} reading ${record.number}`;
+    const values = {};
+
+    ["label", "citation"].forEach((field) => {
+      const assignments = quotedFieldValues(record, field);
+      if (assignments.length !== 1) {
+        errors.push(`Expected ${context} to define exactly one ${field}.`);
+        return;
+      }
+
+      values[field] = assignments[0];
+      if (assignments[0].trim() === "") {
+        errors.push(`Expected ${context} to have a nonblank ${field}.`);
+      } else if (assignments[0] !== assignments[0].trim()) {
+        errors.push(
+          `Expected ${context} ${field} not to have surrounding whitespace.`,
+        );
+      }
+    });
+
+    const citation = values.citation;
+    if (!citation || citation.trim() === "") {
+      return { ...record, ...values };
+    }
+
+    const book = abbreviationsByLength.find(
+      (abbreviation) => citation.startsWith(`${abbreviation} `),
+    );
+    if (!book) {
+      if (allowedAbbreviations.has(citation)) {
+        errors.push(`Expected ${context} to have a valid SBL passage locator.`);
+      } else {
+        errors.push(
+          `Expected ${context} to start with a canonical SBL book abbreviation.`,
+        );
+      }
+      return { ...record, ...values };
+    }
+
+    const passage = citation.slice(book.length + 1);
+    if (!validSblPassage(book, passage)) {
+      errors.push(`Expected ${context} to have a valid SBL passage locator.`);
+    }
+
+    return { ...record, ...values, book, passage };
+  });
+
+  return { errors, records };
 }
 
 function buildSite(contentDir, destination, cacheDir) {
@@ -467,6 +739,89 @@ test("year and Scripture dimensions remain derived from canonical fields", () =>
   });
 });
 
+test("Scripture lint derives every abbreviation from the canonical SBL reference", () => {
+  assert.equal(SBL_BOOK_ROWS.length, 73);
+  assert.equal(SBL_ABBREVIATIONS.size, 74);
+  assert.equal(
+    SBL_BOOK_ROWS.flatMap((row) => row.abbreviations).length,
+    SBL_ABBREVIATIONS.size,
+    "Expected every canonical SBL abbreviation to be unique.",
+  );
+  assert.deepEqual(
+    SBL_BOOK_ROWS.find((row) => row.book === "Psalms").abbreviations,
+    ["Ps", "Pss"],
+  );
+  ONE_CHAPTER_BOOKS.forEach((abbreviation) =>
+    assert.ok(SBL_ABBREVIATIONS.has(abbreviation)),
+  );
+});
+
+test("Scripture lint accepts the site's supported SBL citation forms", () => {
+  VALID_SCRIPTURE_READING_FIXTURES.forEach(({ name, metadata }) => {
+    const result = validateReadingMetadata(
+      metadata,
+      `valid fixture ${name}`,
+      SBL_ABBREVIATIONS,
+    );
+    assert.deepEqual(result.errors, [], name);
+    assert.equal(result.records.length, 1, name);
+  });
+});
+
+test("Scripture lint rejects incomplete records and malformed citations", () => {
+  INVALID_SCRIPTURE_READING_FIXTURES.forEach(
+    ({ name, metadata, expectedError }) => {
+      const result = validateReadingMetadata(
+        metadata,
+        `invalid fixture ${name}`,
+        SBL_ABBREVIATIONS,
+      );
+      assert.ok(
+        result.errors.some((error) => error.includes(expectedError)),
+        `${name}: expected an error containing ${JSON.stringify(expectedError)}; got ${JSON.stringify(result.errors)}.`,
+      );
+    },
+  );
+});
+
+test("every authored reading record is complete and uses an SBL citation", () => {
+  const recordCounts = new Set();
+  const labels = new Set();
+  let sourcesWithReadings = 0;
+  let totalRecords = 0;
+
+  articleSourcePaths().forEach((path) => {
+    const sourcePath = relative(REPOSITORY_ROOT, path);
+    const metadata = frontMatter(readFileSync(path, "utf8"), sourcePath);
+    const result = validateReadingMetadata(
+      metadata,
+      sourcePath,
+      SBL_ABBREVIATIONS,
+    );
+
+    assert.deepEqual(result.errors, [], sourcePath);
+    if (result.records.length === 0) {
+      return;
+    }
+
+    sourcesWithReadings += 1;
+    totalRecords += result.records.length;
+    recordCounts.add(result.records.length);
+    result.records.forEach((record) => labels.add(record.label));
+  });
+
+  assert.equal(sourcesWithReadings, 131);
+  assert.equal(totalRecords, 550);
+  [1, 3, 4, 5, 8, 17].forEach((count) => assert.ok(recordCounts.has(count)));
+  [
+    "Responsorial Psalm",
+    "Third Responsorial Canticle",
+    "Second Scrutiny Responsorial Psalm",
+    "Psalm after Seventh Reading",
+    "Year C Responsorial Psalm",
+  ].forEach((label) => assert.ok(labels.has(label)));
+});
+
 test("every published homily has complete registered metadata", () => {
   const paths = homilySourcePaths();
   const seasonCounts = {};
@@ -502,12 +857,10 @@ test("every published homily has complete registered metadata", () => {
       return;
     }
 
-    const readings = [...metadata.matchAll(/^\[\[readings\]\]$/gm)].length;
-    const citations = [...metadata.matchAll(/^citation\s*=\s*(['\"]).+?\1$/gm)].length;
+    const readings = readingRecordBlocks(metadata).length;
     assert.notEqual(season.trim(), "", `Expected liturgical_season in ${sourcePath}.`);
     assert.notEqual(occasion.trim(), "", `Expected liturgical_occasion in ${sourcePath}.`);
     assert.ok(readings > 0, `Expected at least one reading in ${sourcePath}.`);
-    assert.equal(citations, readings, `Expected one citation per reading in ${sourcePath}.`);
 
     publishedCount += 1;
     seasonCounts[season] = (seasonCounts[season] || 0) + 1;

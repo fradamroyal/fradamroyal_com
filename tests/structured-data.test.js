@@ -318,7 +318,7 @@ test("a reflection may expose optional Scripture citations", () => {
   assert.equal(article.headline, "Widow Ministry Reflection");
   assert.equal(article.genre, "Reflection");
   assert.equal(article.articleSection, "Reflections");
-  assert.deepEqual(article.citation, ["Gospel: Luke 7:11-17"]);
+  assert.deepEqual(article.citation, ["Gospel: Luke 7:11–17"]);
 });
 
 test("an image-bearing reflection exposes its explicitly named page resources", () => {

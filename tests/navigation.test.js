@@ -1060,7 +1060,7 @@ test("structured readings render on homilies and opt-in reflections", () => {
       page("reflections/2024/widow_ministry_reflection/index.html"),
       "reflections/2024/widow_ministry_reflection/index.html",
     ),
-    ["Gospel: Luke 7:11-17"],
+    ["Gospel: Luke 7:11–17"],
   );
 });
 
@@ -1069,7 +1069,7 @@ test("optional reflection readings stay out of previews and feeds", () => {
     "reflections/2024/widow_ministry_reflection/index.html";
   const articleURL = generatedURL(articlePath);
   const archivePath = "reflections/2024/index.html";
-  const forbidden = ["homily-readings", "Gospel:", "Luke 7:11-17"];
+  const forbidden = ["homily-readings", "Gospel:", "Luke 7:11–17"];
   const previews = [...pages].flatMap(([relativePath, html]) =>
     elementsWithClass(html, "article", "post-preview")
       .filter((candidate) =>

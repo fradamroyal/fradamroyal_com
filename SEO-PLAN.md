@@ -52,7 +52,7 @@ Baseline recorded July 12, 2026:
 
 ## Execution queue
 
-### NOW: Validate Scripture readings against the SBL citation standard
+### NOW: Enforce required front matter on new articles
 
 Phases 1.3, 1.4, 2.1, the first-priority Phase 2.2 description convention,
 Phase 2.3, Phase 2.4, and all five bounded Phase 3.3 presentation slices are
@@ -90,15 +90,31 @@ current inventory. The exact provenance, captions, asset bytes and order, page
 URL, summary, feed copy, social images, and structured-data images for `Two
 Resurrections` remain protected.
 
-Continue with the following bounded Phase 3.4 slice: validate every authored
-`[[readings]]` record against `SBL_BIBLE_ABBREVIATIONS.md`. Derive or otherwise
-keep the allowed book abbreviations synchronized with that canonical list,
-support the real multi-part and parenthetical citation forms in the corpus, and
-reject unknown book tokens, blank or malformed references, and incomplete
-reading records. Add focused failure fixtures as well as corpus-wide coverage,
-preserve variable reading counts and responsorial labels, and do not silently
-rewrite citations or change related-content, visible-reading, summary, or feed
-behavior.
+Phase 3.4 Scripture linting now derives all 74 accepted tokens for the 73-book
+Catholic canon directly from `SBL_BIBLE_ABBREVIATIONS.md`, including the
+parenthetical `Pss` alias. It validates all 550 authored reading records across
+131 homilies and reflections, including unpublished content, and requires
+exactly one nonblank label and citation per record without imposing a fixed
+reading count or label vocabulary. The grammar covers whole chapters,
+one-chapter books, comma and semicolon parts, verse suffixes, cross-chapter
+ranges, multiple psalms, and the parenthetical Esther syntax used by the Bible
+planner. Focused fixtures reject incomplete records, duplicate fields, unknown
+book tokens, ASCII, dangling, or descending ranges, malformed locators, and
+arbitrary parenthetical annotations. The corpus had no parenthesized authored
+reading value. Its one ASCII range was corrected explicitly to an en dash in
+source; no template or runtime normalization was added. Visible and structured
+readings still agree, related-homily selection is unchanged, and reading data
+remains absent from summaries, previews, and feeds.
+
+Continue with the following bounded Phase 3.4 slice: enforce exactly one valid
+title, date, and Boolean draft status on every authored homily and reflection,
+and require a nonblank human-written description on newly added articles. Keep
+the existing fallback for legacy articles, represent any grandfathered missing
+descriptions as an explicit auditable baseline, and make the lint fail if a new
+article omits its description or a stale exception remains after backfill.
+Cover drafts and future or expired content plus both archetypes, add focused
+failure fixtures, and do not mechanically backfill legacy descriptions or
+change rendered metadata behavior.
 
 ## Phase 0 — Correct indexing signals and deploy the intended site
 
@@ -370,8 +386,8 @@ and canonical-slug cleanup, root and main-section introduction cleanup, legacy
 reflection heading normalization, long-form structure for the illustrated `Two
 Resurrections` reflection, and accurate image facts. Corpus-wide source and
 rendered heading checks plus generalized authored-image checks from Phase 3.4
-are also implemented; hub selection and the other Phase 3.4 checks remain
-pending.
+and corpus-wide SBL reading-record checks are also implemented; hub selection
+and the other Phase 3.4 checks remain pending.
 
 ### 3.1 Backfill Scripture metadata
 
@@ -514,7 +530,11 @@ decorative images, requires semantic images to have meaningful alt text and an
 exact generated image target or explicit HTTPS source, and requires resolvable
 structured image metadata on image-led articles. Exact provenance and asset-
 integrity coverage remains in place for the site's only current image-led
-article. SBL and reading-record validation is the next bounded slice.
+article. SBL and reading-record linting derives its book vocabulary from the
+canonical reference, validates every authored record, covers the Bible
+planner's parenthetical Esther citation syntax with focused fixtures, and
+rejects incomplete data or malformed citations. Required-front-matter linting
+is the next bounded slice.
 
 Add automated checks or warnings for:
 
@@ -525,7 +545,7 @@ Add automated checks or warnings for:
 - Missing or empty image alt text (implemented for semantic rendered images).
 - Missing image metadata on image-led articles (implemented for structured
   output).
-- SBL Scripture abbreviation and reading-data validation.
+- SBL Scripture abbreviation and reading-data validation (implemented).
 - Date/time consistency where precise publication times matter.
 
 ### Phase 3 gate
@@ -534,7 +554,7 @@ Add automated checks or warnings for:
 - [ ] Priority and recent homilies have verified readings and descriptions.
 - [ ] Every generated hub serves a clear reader purpose and has sufficient
       content.
-- [ ] Heading, link, image, and Scripture lint checks pass.
+- [x] Heading, link, image, and Scripture lint checks pass.
 - [x] No metadata leaks into summaries or RSS against repository policy.
 
 ## Phase 4 — Measure, learn, and maintain

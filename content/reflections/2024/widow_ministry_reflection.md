@@ -6,7 +6,7 @@ summary = "At the gates of Nain, Jesus meets a widow carrying the weight of grie
 
 [[readings]]
 label = 'Gospel'
-citation = 'Luke 7:11-17'
+citation = 'Luke 7:11–17'
 +++
 
 ## Jesus and the Widow of Nain
