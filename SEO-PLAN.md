@@ -52,19 +52,19 @@ Baseline recorded July 12, 2026:
 
 ## Execution queue
 
-### NOW: Build the first reader-useful recurring-occasion hub
+### NOW: Use post-deployment evidence to choose the next editorial slice
 
 Phases 1.3, 1.4, 2.1, the first-priority Phase 2.2 description convention,
 Phase 2.3, Phase 2.4, and all five bounded Phase 3.3 presentation slices are
 implemented and verified locally. Deployment, live smoke-testing, and live
 metadata validation remain pending and were intentionally skipped. The Phase
 3.1 Scripture backfill and Phase 3.2 controlled-metadata backfill are complete
-for all 130 published homilies without generating hubs. At the author's
-direction, the homepage remains free of body-level introduction copy. The
-legacy reflection hierarchy is normalized, and corpus-wide source and rendered
-heading checks now pass. The two `Two Resurrections` images have accurate,
-descriptive alt text and captions limited to supported facts. The archived
-Lempertz record listed the historical panel as Hans Schäufelein's `Der
+for all 130 published homilies without creating new collection pages. At the
+author's direction, the homepage remains free of body-level introduction copy.
+The legacy reflection hierarchy is normalized, and corpus-wide source and
+rendered heading checks now pass. The two `Two Resurrections` images have
+accurate, descriptive alt text and captions limited to supported facts. The
+archived Lempertz record listed the historical panel as Hans Schäufelein's `Der
 Auferstandene Christus`, created substantially after 1508 and auctioned as lot
 1138 in 2007; a later Christie's record qualifies the work as attributed to
 Schäufelein and cites it under rejected attributions, so the visible caption now
@@ -130,17 +130,14 @@ the Christmas Day-before-Night archive order, and both pages' adjacent
 navigation. URLs, date templates, Git-derived `lastmod` resolution, existing
 known offsets, and unrelated content remain unchanged.
 
-Implement one manually curated hub for the Fifteenth Sunday in Ordinary Time,
-linking the 2024, 2025, and 2026 homilies. It is one of only two recurring
-occasions that currently meets the policy floor of three articles across three
-years, it includes the newest homily, and its three lectionary cycles share no
-exact non-responsorial citation that would connect them through the existing
-related-homily path. Give the hub a unique human-written title, description,
-useful introduction, section navigation, canonical and indexable metadata,
-sitemap inclusion, and focused generated-output coverage. Keep taxonomy and
-term output disabled, generate no other hubs automatically, preserve every
-member article URL and feed entry, and do not add speculative article
-descriptions. Deployment and live smoke-testing remain out of scope.
+Recurring-occasion collection pages are no longer planned. Existing year
+archives and exact-Scripture related-homily links remain the intended discovery
+paths for those articles. Legacy-description backfill also remains paused until
+search or reader evidence identifies a useful target. The next evidence-
+gathering boundary is to deploy the verified candidate, validate its live
+metadata, and establish Search Console and Bing baselines. Deployment and
+external measurement remain out of scope until separately requested; no
+additional speculative local SEO expansion is queued.
 
 ## Phase 0 — Correct indexing signals and deploy the intended site
 
@@ -399,7 +396,7 @@ validator runs remain pending and were intentionally skipped.
 - [x] Favicon and social-preview metadata render correctly.
 - [x] Structured data is valid and matches visible content.
 
-## Phase 3 — Build durable editorial metadata and content hubs
+## Phase 3 — Build durable editorial metadata and priority content
 
 **Outcome:** New and important content carries enough accurate metadata to
 support useful discovery by feast, season, year, and Scripture without creating
@@ -413,8 +410,9 @@ reflection heading normalization, long-form structure for the illustrated `Two
 Resurrections` reflection, and accurate image facts. Corpus-wide source and
 rendered heading checks plus generalized authored-image, corpus-wide SBL
 reading-record, required-front-matter, and article-date checks from Phase 3.4
-are also implemented. The first manually selected hub is the next bounded
-slice.
+are also implemented. Recurring-occasion collection pages are out of scope;
+further editorial expansion now waits for post-deployment reader or search
+evidence.
 
 ### 3.1 Backfill Scripture metadata
 
@@ -450,8 +448,8 @@ does not alter established presentation or URLs.
 Focused generated-output tests require complete registry coverage with no
 unused occasion values and compare the complete rendered site against the same
 corpus with both authored fields removed. They prove that the metadata is
-byte-neutral and that no raw metadata, feed content, or automatic hub URL is
-introduced. No hub is generated.
+byte-neutral and that no raw metadata, feed content, or new indexable
+collection URL is introduced.
 
 Authored fields are deliberately limited to:
 
@@ -467,13 +465,9 @@ pages cannot share one unambiguous value. Themes remain deferred until a small
 editorial vocabulary and reader-demand evidence exist. Generic categories,
 tags, and series remain unused with taxonomy output disabled.
 
-A hub is never automatic and always requires a unique editorial title,
-description, useful introduction, section navigation, and generated-output
-coverage. Eligibility floors are six articles across two years for a season,
-three across three years for an occasion, twelve across three years for a
-Scripture book, and four across three years for an exact Scripture passage.
-Meeting a floor does not require a hub when an existing year archive or
-exact-Scripture related-content path already serves the reader better.
+The controlled fields remain non-indexable editorial metadata. Year archives
+and exact-Scripture related-content paths provide the intended collection
+surfaces; season and occasion metadata must not create additional pages.
 
 ### 3.3 Improve priority content presentation
 
@@ -585,8 +579,6 @@ Add automated checks or warnings for:
 
 - [x] New content follows the metadata convention automatically.
 - [ ] Priority and recent homilies have verified readings and descriptions.
-- [ ] Every generated hub serves a clear reader purpose and has sufficient
-      content.
 - [x] Heading, link, image, Scripture, and article-date lint checks pass.
 - [x] No metadata leaks into summaries or RSS against repository policy.
 
