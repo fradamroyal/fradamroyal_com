@@ -2,6 +2,11 @@
 # caching limited to fingerprinted assets and published reflection images that
 # are never replaced at the same URL.
 
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), geolocation=(), microphone=(), payment=()
+
 /css/site.*.css
   Cache-Control: public, max-age=31536000, immutable
 

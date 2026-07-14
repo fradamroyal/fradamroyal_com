@@ -9,7 +9,13 @@ const REPOSITORY_ROOT = resolve(__dirname, "..");
 const HEADERS_PATH = join(REPOSITORY_ROOT, "static", "_headers");
 const IMMUTABLE_CACHE_CONTROL =
   "Cache-Control: public, max-age=31536000, immutable";
-const EXPECTED_PATTERNS = [
+const GLOBAL_SECURITY_PATTERN = "/*";
+const BASELINE_SECURITY_HEADERS = [
+  "X-Content-Type-Options: nosniff",
+  "Referrer-Policy: strict-origin-when-cross-origin",
+  "Permissions-Policy: camera=(), geolocation=(), microphone=(), payment=()",
+];
+const EXPECTED_CACHE_PATTERNS = [
   "/css/site.*.css",
   "/js/bible-reading-plan.*.js",
   "/css/*.woff",
@@ -42,12 +48,30 @@ function matchesHeaderPattern(pattern, path) {
   );
 }
 
+function immutableHeaderRules(source) {
+  return headerRules(source).filter(([, ...headers]) =>
+    headers.includes(IMMUTABLE_CACHE_CONTROL),
+  );
+}
+
+test("baseline security headers apply globally without enabling HSTS", () => {
+  const source = readFileSync(HEADERS_PATH, "utf8");
+  const securityRules = headerRules(source).filter(
+    ([pattern]) => pattern === GLOBAL_SECURITY_PATTERN,
+  );
+
+  assert.deepEqual(securityRules, [
+    [GLOBAL_SECURITY_PATTERN, ...BASELINE_SECURITY_HEADERS],
+  ]);
+  assert.doesNotMatch(source, /Strict-Transport-Security/i);
+});
+
 test("fingerprinted assets and reflection images receive an immutable policy", () => {
-  const rules = headerRules(readFileSync(HEADERS_PATH, "utf8"));
+  const rules = immutableHeaderRules(readFileSync(HEADERS_PATH, "utf8"));
 
   assert.deepEqual(
     rules.map(([pattern]) => pattern),
-    EXPECTED_PATTERNS,
+    EXPECTED_CACHE_PATTERNS,
   );
   for (const [pattern, ...headers] of rules) {
     assert.equal(
@@ -60,7 +84,9 @@ test("fingerprinted assets and reflection images receive an immutable policy", (
 });
 
 test("the immutable policy excludes broad and homily image patterns", () => {
-  const source = readFileSync(HEADERS_PATH, "utf8");
+  const patterns = immutableHeaderRules(
+    readFileSync(HEADERS_PATH, "utf8"),
+  ).map(([pattern]) => pattern);
 
   for (const unsafePattern of [
     "/css/*",
@@ -76,7 +102,7 @@ test("the immutable policy excludes broad and homily image patterns", () => {
     "/*",
   ]) {
     assert.equal(
-      source.split("\n").some((line) => line.trim() === unsafePattern),
+      patterns.includes(unsafePattern),
       false,
       `${unsafePattern} would apply an immutable policy too broadly.`,
     );
@@ -84,9 +110,9 @@ test("the immutable policy excludes broad and homily image patterns", () => {
 });
 
 test("the patterns match nested reflection images without matching other images", () => {
-  const patterns = headerRules(readFileSync(HEADERS_PATH, "utf8")).map(
-    ([pattern]) => pattern,
-  );
+  const patterns = immutableHeaderRules(
+    readFileSync(HEADERS_PATH, "utf8"),
+  ).map(([pattern]) => pattern);
   const immutableAssets = [
     `/css/site.${"a".repeat(64)}.css`,
     `/js/bible-reading-plan.${"b".repeat(64)}.js`,
