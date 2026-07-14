@@ -202,6 +202,56 @@ function renderedHeadings(html) {
   );
 }
 
+function visibleReadings(html, relativePath) {
+  const sections = elementsWithClass(html, "section", "homily-readings");
+  assert.ok(
+    sections.length <= 1,
+    `Expected at most one Scripture-readings section in ${relativePath}.`,
+  );
+  if (sections.length === 0) {
+    return [];
+  }
+
+  const section = sections[0];
+  assertVisible(section, `Scripture-readings section in ${relativePath}`);
+  assert.equal(section.attributes.get("aria-label"), "Scripture readings");
+  const list = elementWithClass(
+    section.innerHTML,
+    "ul",
+    "homily-readings-list",
+    relativePath,
+  );
+  const items = [...list.innerHTML.matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/gi)];
+  assert.ok(items.length > 0, `Expected visible readings in ${relativePath}.`);
+
+  return items.map((match, index) => {
+    const labels = elementsWithClass(
+      match[1],
+      "span",
+      "homily-reading-label",
+    );
+    const citations = elementsWithClass(
+      match[1],
+      "span",
+      "homily-reading-citation",
+    );
+    assert.ok(
+      labels.length <= 1,
+      `Expected at most one label for reading ${index + 1} in ${relativePath}.`,
+    );
+    assert.equal(
+      citations.length,
+      1,
+      `Expected one citation for reading ${index + 1} in ${relativePath}.`,
+    );
+    labels.forEach((label) =>
+      assertVisible(label, `reading label in ${relativePath}`),
+    );
+    assertVisible(citations[0], `reading citation in ${relativePath}`);
+    return textContent(match[1]);
+  });
+}
+
 function anchors(html) {
   const result = [];
   const pattern = /<a\b[^>]*>[\s\S]*?<\/a>/gi;
@@ -858,6 +908,119 @@ test("article bylines appear only on homily and reflection singles", () => {
       `Expected ${expectedCount} article byline${expectedCount === 1 ? "" : "s"} in ${relativePath}.`,
     );
   });
+});
+
+test("structured readings render on homilies and opt-in reflections", () => {
+  let reflectionsWithReadings = 0;
+  let ordinaryReflections = 0;
+
+  articles.forEach((article) => {
+    const document = structuredData(article.html, article.relativePath);
+    const posting = nodeByType(document, "BlogPosting", article.relativePath);
+    const expected = posting.citation
+      ? Array.isArray(posting.citation)
+        ? posting.citation
+        : [posting.citation]
+      : [];
+    assert.deepEqual(
+      visibleReadings(article.html, article.relativePath),
+      expected,
+      `Expected visible and structured readings to agree in ${article.relativePath}.`,
+    );
+
+    if (article.section !== "reflections") {
+      return;
+    }
+    if (expected.length > 0) {
+      reflectionsWithReadings += 1;
+    } else {
+      ordinaryReflections += 1;
+    }
+  });
+
+  assert.ok(
+    reflectionsWithReadings > 0,
+    "Expected at least one reflection to opt into structured readings.",
+  );
+  assert.ok(
+    ordinaryReflections > 0,
+    "Expected readings to remain optional for ordinary reflections.",
+  );
+  assert.deepEqual(
+    visibleReadings(
+      page("reflections/2024/widow_ministry_reflection/index.html"),
+      "reflections/2024/widow_ministry_reflection/index.html",
+    ),
+    ["Gospel: Luke 7:11-17"],
+  );
+});
+
+test("optional reflection readings stay out of previews and feeds", () => {
+  const articlePath =
+    "reflections/2024/widow_ministry_reflection/index.html";
+  const articleURL = generatedURL(articlePath);
+  const archivePath = "reflections/2024/index.html";
+  const forbidden = ["homily-readings", "Gospel:", "Luke 7:11-17"];
+  const previews = [...pages].flatMap(([relativePath, html]) =>
+    elementsWithClass(html, "article", "post-preview")
+      .filter((candidate) =>
+        anchors(candidate.html).some(
+          (anchor) =>
+            new URL(anchor.href, generatedURL(relativePath)).href === articleURL,
+        ),
+      )
+      .map((preview) => ({ preview, relativePath })),
+  );
+  assert.ok(previews.length > 0, `Expected a generated preview for ${articleURL}.`);
+
+  previews.forEach(({ preview, relativePath }) => {
+    forbidden.forEach((marker) => {
+      assert.equal(
+        preview.html.includes(marker),
+        false,
+        `Expected ${relativePath} not to expose ${marker} in the preview for ${articleURL}.`,
+      );
+    });
+  });
+  forbidden.forEach((marker) => {
+    assert.equal(
+      page(archivePath).includes(marker),
+      false,
+      `Expected ${archivePath} not to expose ${marker}.`,
+    );
+  });
+
+  let feedSightings = 0;
+  [...allFiles]
+    .filter((relativePath) => relativePath.endsWith("index.xml"))
+    .forEach((relativePath) => {
+      const feed = readFileSync(join(BUILD_ROOT, relativePath), "utf8");
+      [...feed.matchAll(/<item>([\s\S]*?)<\/item>/gi)].forEach((match) => {
+        const link = match[1].match(/<link>([\s\S]*?)<\/link>/i);
+        assert.ok(link, `Expected every item in ${relativePath} to have a link.`);
+        if (decodeHTML(link[1].trim()) !== articleURL) {
+          return;
+        }
+
+        feedSightings += 1;
+        const title = match[1].match(/<title>([\s\S]*?)<\/title>/i);
+        assert.ok(title, `Expected ${articleURL} in ${relativePath} to have a title.`);
+        assert.equal(decodeHTML(title[1].trim()), "Widow Ministry Reflection");
+        const item = decodeHTML(match[1]);
+        forbidden.forEach((marker) => {
+          assert.equal(
+            item.includes(marker),
+            false,
+            `Expected ${relativePath} not to expose ${marker} for ${articleURL}.`,
+          );
+        });
+      });
+    });
+
+  assert.ok(
+    feedSightings > 0,
+    `Expected at least one feed item for ${articleURL}.`,
+  );
 });
 
 test("every article exposes one primary heading that matches its title", () => {

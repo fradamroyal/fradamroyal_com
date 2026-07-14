@@ -6,6 +6,9 @@
         {{ partial "author-byline.html" . }}
       </div>
       <br>
+      {{ if and (eq .Section "reflections") .Params.readings }}
+        {{ partial "homily-readings.html" . }}
+      {{ end }}
       {{ partial "content-with-toc.html" . }}
 
       {{ partial "article-navigation.html" . }}

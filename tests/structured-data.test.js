@@ -309,6 +309,18 @@ test("a reflection page uses reflection-specific article metadata", () => {
   assertReferenceType(document, webPage, "mainEntity", "BlogPosting");
 });
 
+test("a reflection may expose optional Scripture citations", () => {
+  const document = page(
+    "reflections/2024/widow_ministry_reflection/index.html",
+  );
+  const article = nodeByType(document, "BlogPosting");
+
+  assert.equal(article.headline, "Widow Ministry Reflection");
+  assert.equal(article.genre, "Reflection");
+  assert.equal(article.articleSection, "Reflections");
+  assert.deepEqual(article.citation, ["Gospel: Luke 7:11-17"]);
+});
+
 test("an image-bearing reflection exposes its explicitly named page resources", () => {
   const document = page("reflections/2025/two_paintings/index.html");
   const article = nodeByType(document, "BlogPosting");

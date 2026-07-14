@@ -67,7 +67,7 @@ const REFLECTION_HEADING_HIERARCHIES = [
   {
     sourcePath: "content/reflections/2024/widow_ministry_reflection.md",
     outputPath: "reflections/2024/widow_ministry_reflection/index.html",
-    title: "Widow Ministry Reflection - Luke 7:11-17",
+    title: "Widow Ministry Reflection",
     headings: [
       {
         level: 2,
