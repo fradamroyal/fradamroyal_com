@@ -6,10 +6,10 @@ summary = 'Two images of the Resurrection—one traditional, one contemporary—
 images = ['painting_1.jpeg', 'painting_2.png']
 +++
 
-{{< figure src="painting_1.jpeg" alt="First Painting of the Resurrection" caption="First Painting" >}}
+{{< figure src="painting_1.jpeg" alt="The risen Christ in a red mantle raises a hand in blessing and holds a victory banner above four armored guards around a stone tomb" caption="Hans Schäufelein, *Der Auferstandene Christus* (after 1508). Source: [Lempertz, lot 1138, 2007.](https://web.archive.org/web/20210422192854/https://www.lempertz.com/de/kataloge/lot/903-1/1138-hans-schaeufelein.html)" >}}
 
 ---
-{{< figure src="painting_2.png" alt="Second Painting of the Resurrection" caption="Second Painting" >}}
+{{< figure src="painting_2.png" alt="The risen Christ in a red mantle holds an American flag above modern armed guards beside a concrete tomb and city skyline" caption="Contemporary Resurrection scene generated with GPT-4o in ChatGPT." >}}
 
 ---
 

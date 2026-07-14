@@ -1069,6 +1069,46 @@ test("covered reflections render the intended H2 and H3 hierarchy", () => {
   assert.equal(coveredHeadings.filter(({ level }) => level === 3).length, 4);
 });
 
+test("Two Resurrections renders verified image descriptions and provenance", () => {
+  const relativePath = "reflections/2025/two_paintings/index.html";
+  const article = elementWithClass(
+    page(relativePath),
+    "article",
+    "blog-post",
+    relativePath,
+  );
+  const figures = [...article.innerHTML.matchAll(/<figure\b[^>]*>([\s\S]*?)<\/figure>/gi)]
+    .map((match, index) => {
+      const image = match[1].match(/<img\b[^>]*>/i);
+      const caption = match[1].match(/<figcaption\b[^>]*>([\s\S]*?)<\/figcaption>/i);
+      assert.ok(image, `Expected figure ${index + 1} in ${relativePath} to contain an image.`);
+      assert.ok(caption, `Expected figure ${index + 1} in ${relativePath} to contain a caption.`);
+      return {
+        alt: decodeHTML(attributes(image[0]).get("alt")),
+        caption: textContent(caption[1]),
+        links: anchors(caption[1]).map(({ href, name }) => ({ href, name })),
+      };
+    });
+
+  assert.deepEqual(figures, [
+    {
+      alt: "The risen Christ in a red mantle raises a hand in blessing and holds a victory banner above four armored guards around a stone tomb",
+      caption: "Hans Schäufelein, Der Auferstandene Christus (after 1508). Source: Lempertz, lot 1138, 2007.",
+      links: [
+        {
+          href: "https://web.archive.org/web/20210422192854/https://www.lempertz.com/de/kataloge/lot/903-1/1138-hans-schaeufelein.html",
+          name: "Lempertz, lot 1138, 2007.",
+        },
+      ],
+    },
+    {
+      alt: "The risen Christ in a red mantle holds an American flag above modern armed guards beside a concrete tomb and city skyline",
+      caption: "Contemporary Resurrection scene generated with GPT-4o in ChatGPT.",
+      links: [],
+    },
+  ]);
+});
+
 test("article navigation links the chronological neighbors within each section", () => {
   let crossYearLinks = 0;
 

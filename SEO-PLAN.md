@@ -52,26 +52,36 @@ Baseline recorded July 12, 2026:
 
 ## Execution queue
 
-### NOW: Establish image facts for `Two Resurrections`
+### NOW: Generalize image accessibility and metadata linting
 
 Phases 1.3, 1.4, 2.1, the first-priority Phase 2.2 description convention,
-Phase 2.3, Phase 2.4, and the first four bounded Phase 3.3 presentation slices
-are implemented and verified locally. Deployment, live smoke-testing, and live
+Phase 2.3, Phase 2.4, and all five bounded Phase 3.3 presentation slices are
+implemented and verified locally. Deployment, live smoke-testing, and live
 metadata validation remain pending and were intentionally skipped. The Phase
 3.1 Scripture backfill and Phase 3.2 controlled-metadata backfill are complete
 for all 130 published homilies without generating hubs. At the author's
 direction, the homepage remains free of body-level introduction copy. The
 legacy reflection hierarchy is normalized, and corpus-wide source and rendered
-heading checks now pass. The 3,125-word `Two Resurrections` reflection now has
-six restrained descriptive H2s at its natural thematic transitions, with every
-original paragraph and image surface preserved. Continue with the following
-bounded Phase 3.3 slice on its two central images: research or confirm the
-creator or tool, source, date, and licensing status for each file before
-replacing the placeholder alt text and captions or adding visible attribution
-and provenance. Preserve both asset files and their order, the page URL,
-summary and feed copy, and the existing social and structured-data image URLs.
-Add source and generated-output coverage for every fact that can be
-established, and leave unknown facts unstated rather than guessing.
+heading checks now pass. The two `Two Resurrections` images now have accurate,
+descriptive alt text and captions limited to supported facts. The historical
+panel is identified from the archived Lempertz lot record as Hans Schäufelein's
+`Der Auferstandene Christus`, created substantially after 1508 and auctioned as
+lot 1138 in 2007. The contemporary PNG's embedded Content Credentials identify
+GPT-4o in ChatGPT and trained-algorithmic media. Neither source establishes a
+reusable license for the exact file, and the credential does not establish a
+defensible creation date, so no such claims were added. Source and rendered-
+output tests preserve the captions, alt text, catalogue link, embedded
+provenance markers, and exact asset bytes and order. Existing canonical and
+structured-data coverage protects the page and image metadata surfaces, while
+the source diff leaves the page URL, summary, and feed copy unchanged.
+
+Continue with the following bounded Phase 3.4 slice: generalize the exact image
+coverage into corpus-wide linting for authored figure shortcodes and Markdown
+images. Require meaningful nonblank alt text for semantic images, require image
+sources to resolve, and require explicit image metadata on image-led articles.
+Keep decorative theme assets out of the authored-content rule, avoid depending
+on Hugo's generated resource filenames, and preserve the existing page and
+metadata behavior.
 
 ## Phase 0 — Correct indexing signals and deploy the intended site
 
@@ -445,6 +455,21 @@ and order, and the social and structured-data image URLs remain unchanged.
 Source and generated-output tests preserve the exact heading order, levels, and
 wording alongside the corpus-wide hierarchy checks.
 
+The image-facts presentation slice is implemented. Reverse-image comparison
+against the archived Lempertz catalogue identifies `painting_1.jpeg` as Hans
+Schäufelein's `Der Auferstandene Christus`; the catalogue places the panel
+substantially after 1508 and records it as lot 1138 in the 19 May 2007 auction.
+Embedded Content Credentials in `painting_2.png` identify GPT-4o in ChatGPT and
+trained-algorithmic media. The first source provides no reuse license for the
+exact reproduction, while the second provides neither a defensible creation
+date nor a reuse license, so those unknown facts remain unstated. Both figures
+now have accurate descriptive alt text and factual captions, including a
+visible archived-catalogue link for the historical panel. Source and generated-
+output tests preserve every stated fact and the original asset hashes and
+order. Existing canonical and structured-data tests continue to protect the
+page and image metadata surfaces, while the source diff leaves page, summary,
+and feed behavior unchanged.
+
 - Add useful section introductions to Homilies and Reflections.
 - Remove the root placeholder and keep the homepage introduction-free according
   to the author's editorial preference.
@@ -461,16 +486,21 @@ wording alongside the corpus-wide hierarchy checks.
 ### 3.4 Add content linting
 
 Heading-hierarchy linting is implemented for the complete authored homily and
-reflection corpus and for generated article output.
+reflection corpus and for generated article output. Duplicate indexable-title
+and generated internal-link checks are also implemented. Exact source and
+rendered-image coverage protects the site's only current image-led article;
+generalized authored-image linting remains the next bounded slice.
 
 Add automated checks or warnings for:
 
 - Required title, date, draft status, and description on new content.
-- Duplicate SEO titles.
+- Duplicate SEO titles (implemented for indexable generated pages).
 - Heading hierarchy (implemented).
-- Broken internal links.
-- Missing or empty image alt text.
-- Missing image metadata on image-led articles.
+- Broken internal links (implemented for generated HTML output).
+- Missing or empty image alt text (exact current coverage implemented;
+  generalized lint pending).
+- Missing image metadata on image-led articles (exact current coverage
+  implemented; generalized lint pending).
 - SBL Scripture abbreviation and reading-data validation.
 - Date/time consistency where precise publication times matter.
 

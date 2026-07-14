@@ -15,7 +15,7 @@ const {
   writeFileSync,
 } = require("node:fs");
 const { tmpdir } = require("node:os");
-const { extname, join, relative, resolve } = require("node:path");
+const { dirname, extname, join, relative, resolve } = require("node:path");
 const {
   LEGACY_HOMILY_MIGRATIONS,
 } = require("./fixtures/legacy-homily-migrations.js");
@@ -640,6 +640,45 @@ test("article sources use a valid hierarchy without body-level H1s", () => {
   assert.equal(coveredHeadings.length, 27);
   assert.equal(coveredHeadings.filter(({ level }) => level === 2).length, 23);
   assert.equal(coveredHeadings.filter(({ level }) => level === 3).length, 4);
+});
+
+test("Two Resurrections exposes verified image facts without changing its assets", () => {
+  const sourcePath = "content/reflections/2025/two_paintings/index.md";
+  const absoluteSourcePath = join(REPOSITORY_ROOT, sourcePath);
+  const bundlePath = dirname(absoluteSourcePath);
+  const source = readFileSync(absoluteSourcePath, "utf8");
+  const figures = [...markdownBody(source, sourcePath).matchAll(/^\{\{< figure .* >\}\}$/gm)]
+    .map((match) => match[0]);
+
+  assert.deepEqual(figures, [
+    '{{< figure src="painting_1.jpeg" alt="The risen Christ in a red mantle raises a hand in blessing and holds a victory banner above four armored guards around a stone tomb" caption="Hans Schäufelein, *Der Auferstandene Christus* (after 1508). Source: [Lempertz, lot 1138, 2007.](https://web.archive.org/web/20210422192854/https://www.lempertz.com/de/kataloge/lot/903-1/1138-hans-schaeufelein.html)" >}}',
+    '{{< figure src="painting_2.png" alt="The risen Christ in a red mantle holds an American flag above modern armed guards beside a concrete tomb and city skyline" caption="Contemporary Resurrection scene generated with GPT-4o in ChatGPT." >}}',
+  ]);
+
+  const expectedDigests = new Map([
+    ["painting_1.jpeg", "3bd8a4390f3a561a6d6aae908d96fe5d1887faf89cdf548f10bd3831f135011b"],
+    ["painting_2.png", "cec72d92ef5d65abaac45466d4e951ea750db8bbdacf28b3be61f3bb155bb049"],
+  ]);
+  expectedDigests.forEach((expectedDigest, filename) => {
+    const image = readFileSync(join(bundlePath, filename));
+    assert.equal(createHash("sha256").update(image).digest("hex"), expectedDigest);
+  });
+
+  const contemporaryImage = readFileSync(
+    join(bundlePath, "painting_2.png"),
+  );
+  [
+    "c2pa.actions.v2",
+    "c2pa.created",
+    "GPT-4o",
+    "ChatGPT",
+    "http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia",
+  ].forEach((marker) => {
+    assert.ok(
+      contemporaryImage.includes(Buffer.from(marker)),
+      `Expected painting_2.png Content Credentials to include ${marker}.`,
+    );
+  });
 });
 
 test("corpus metadata is byte-neutral across the complete generated site", () => {
