@@ -622,8 +622,8 @@ test("article sources use a valid hierarchy without body-level H1s", () => {
     });
   });
 
-  assert.equal(REFLECTION_HEADING_HIERARCHIES.length, 3);
-  const normalizedHeadings = [];
+  assert.equal(REFLECTION_HEADING_HIERARCHIES.length, 4);
+  const coveredHeadings = [];
   REFLECTION_HEADING_HIERARCHIES.forEach(({ sourcePath, headings }) => {
     const actual = markdownHeadings(
       readFileSync(join(REPOSITORY_ROOT, sourcePath), "utf8"),
@@ -634,12 +634,12 @@ test("article sources use a valid hierarchy without body-level H1s", () => {
       text: sourceText,
     }));
     assert.deepEqual(actual, expected, `Unexpected source hierarchy in ${sourcePath}.`);
-    normalizedHeadings.push(...actual);
+    coveredHeadings.push(...actual);
   });
 
-  assert.equal(normalizedHeadings.length, 21);
-  assert.equal(normalizedHeadings.filter(({ level }) => level === 2).length, 17);
-  assert.equal(normalizedHeadings.filter(({ level }) => level === 3).length, 4);
+  assert.equal(coveredHeadings.length, 27);
+  assert.equal(coveredHeadings.filter(({ level }) => level === 2).length, 23);
+  assert.equal(coveredHeadings.filter(({ level }) => level === 3).length, 4);
 });
 
 test("corpus metadata is byte-neutral across the complete generated site", () => {

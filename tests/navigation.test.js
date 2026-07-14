@@ -1038,8 +1038,8 @@ test("every article exposes one primary heading that matches its title", () => {
   });
 });
 
-test("normalized reflections render the intended H2 and H3 hierarchy", () => {
-  const normalizedHeadings = [];
+test("covered reflections render the intended H2 and H3 hierarchy", () => {
+  const coveredHeadings = [];
 
   REFLECTION_HEADING_HIERARCHIES.forEach(
     ({ outputPath, title, headings: expectedHeadings }) => {
@@ -1060,13 +1060,13 @@ test("normalized reflections render the intended H2 and H3 hierarchy", () => {
         expected,
         `Unexpected rendered hierarchy in ${outputPath}.`,
       );
-      normalizedHeadings.push(...actualHeadings);
+      coveredHeadings.push(...actualHeadings);
     },
   );
 
-  assert.equal(normalizedHeadings.length, 21);
-  assert.equal(normalizedHeadings.filter(({ level }) => level === 2).length, 17);
-  assert.equal(normalizedHeadings.filter(({ level }) => level === 3).length, 4);
+  assert.equal(coveredHeadings.length, 27);
+  assert.equal(coveredHeadings.filter(({ level }) => level === 2).length, 23);
+  assert.equal(coveredHeadings.filter(({ level }) => level === 3).length, 4);
 });
 
 test("article navigation links the chronological neighbors within each section", () => {

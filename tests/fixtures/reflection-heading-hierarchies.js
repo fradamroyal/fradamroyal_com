@@ -111,6 +111,43 @@ const REFLECTION_HEADING_HIERARCHIES = [
       },
     ],
   },
+  {
+    sourcePath: "content/reflections/2025/two_paintings/index.md",
+    outputPath: "reflections/2025/two_paintings/index.html",
+    title: "Two Resurrections",
+    headings: [
+      {
+        level: 2,
+        sourceText: "The Sacred Meaning of Anachronism",
+        renderedText: "The Sacred Meaning of Anachronism",
+      },
+      {
+        level: 2,
+        sourceText: "Why the Contemporary Image Feels Different",
+        renderedText: "Why the Contemporary Image Feels Different",
+      },
+      {
+        level: 2,
+        sourceText: "Christ Is Present to Every Age",
+        renderedText: "Christ Is Present to Every Age",
+      },
+      {
+        level: 2,
+        sourceText: "Our Age Is Not an Exception",
+        renderedText: "Our Age Is Not an Exception",
+      },
+      {
+        level: 2,
+        sourceText: "The Resurrection Begins a New Creation",
+        renderedText: "The Resurrection Begins a New Creation",
+      },
+      {
+        level: 2,
+        sourceText: "Learning to Recognize Christ Now",
+        renderedText: "Learning to Recognize Christ Now",
+      },
+    ],
+  },
 ];
 
 module.exports = { REFLECTION_HEADING_HIERARCHIES };

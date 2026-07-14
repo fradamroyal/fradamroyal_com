@@ -17,6 +17,8 @@ There is something immediately compelling about the first painting. Even for som
 
 Many Christians would recognize it instinctively as the kind of image that belongs in a church: not merely decorative, but devotional—something that can bear contemplation. It has inspired many. It has endured. It has done what sacred art is meant to do: not simply illustrate an event, but open the heart to the reality of it. The Resurrection is not presented as a distant myth, but as a moment of victory that still addresses the viewer. Christ’s gesture of blessing, the wounds in his hands and feet, the banner of triumph, the helplessness of the guards—all of it draws the viewer into the strange and holy reversal at the heart of the gospel: the dead man lives; the one who was slain reigns.
 
+## The Sacred Meaning of Anachronism
+
 And then, once the eye settles, one detail begins to work on the mind: the soldiers.
 
 They do not look like Roman soldiers from the first century. They look like soldiers from the painter’s own world. Their armor and weapons belong to a later time. The scene contains a deliberate anachronism, and it is precisely this “mistake” that makes the painting theologically intelligent. The artist is not careless. He is proclaiming something.
@@ -32,6 +34,8 @@ That is why the anachronisms matter. The painter is saying, in his own visual la
 In the first painting, Christ stands bodily present in a landscape that resembles the painter’s world. He rises before soldiers who look like men the painter might have passed on a street or seen at a city gate. That is not a careless blending of times. It is an incarnational claim: Jesus is as present bodily in the age of the artist as he was in the age of Pilate and Caesar. The Resurrection is not an event that belongs only to those who lived within a few miles of Jerusalem two thousand years ago. It is an event that addresses every age because it reveals what God has done with human nature itself.
 
 There is also something worth noticing in how naturally the first image achieves this. We do not experience the anachronism as offensive. At most we experience it as quaint. We may even find it charming. It is easy to accept that medieval or Renaissance soldiers might appear at the tomb. We can make room for the painter’s “translation” of the gospel story into his own moment. We can accept that the sacred event speaks into his time.
+
+## Why the Contemporary Image Feels Different
 
 But then we turn to the second image—the contemporary version—and the response changes.
 
@@ -53,6 +57,8 @@ Part of it is spiritual. We have been trained—subtly, over centuries—to imag
 
 Yet this discomfort exposes something serious: if we cannot see Christ in our own age, then we have not fully received the Incarnation.
 
+## Christ Is Present to Every Age
+
 Christ is still among us. He is present to us in his body.
 
 That is not pious metaphor. Christianity is not a religion of nostalgic remembrance. The Resurrection is not merely the story of a man who lived long ago. Christ died and rose for us, and he remains present to us: in the Church, in the sacraments, in the poor, in the proclamation of the word, and above all in the Eucharist, where his Body is not remembered but given.
@@ -67,6 +73,8 @@ Perhaps it is because we quietly believe—without saying it out loud—that our
 
 This is the problem the second image forces us to face. It looks odd because it insists that the Resurrection is not merely a past event but a present claim. It insists that Christ is not only a figure of religious art, but the living Lord who confronts every culture and every century.
 
+## Our Age Is Not an Exception
+
 And this leads to another uncomfortable truth: we are tempted to treat our moment in history as special.
 
 Modern people often imagine themselves as standing at the peak of an upward climb. We have advanced technologically. We have developed systems of governance and medicine and communication that our ancestors could not have imagined. We can place satellites in orbit and map the human genome. We can build machines that generate images at the click of a button. All of this can create the feeling that we live in a uniquely important time—that we are somehow the culmination of human history.
@@ -76,6 +84,8 @@ But from the standpoint of the gospel, that is not how history works.
 Today—this moment—is not, in the grand scheme of things, special. It is one more moment. We are not better than our ancestors, and we are not worse. We have different temptations, different forms of anxiety, different conveniences and dangers, but we remain the same humanity: fragile, longing, capable of beauty and cruelty, made for communion, often choosing isolation. Our technology, our progress, our systems of governance—these are continuations of the long arc of human history, but still fundamentally human and natural. They are not the arrival of a new kind of creature.
 
 We remain human beings, and human beings still need the same salvation.
+
+## The Resurrection Begins a New Creation
 
 The Resurrection, then, is not an archaic story that we keep for sentimental reasons. It is the truth about what God has done for humanity as such. It is the proclamation that death does not have the last word. It is the announcement that the world’s deepest reality is not violence or decay or entropy, but the self-giving love of God that raises the dead.
 
@@ -92,6 +102,8 @@ The first painting, with its anachronistic soldiers, quietly teaches this. It tr
 Yet the gospel is uncompromising: Christ is risen now, and therefore the world is not what it appears to be. The powers that seem unshakable—political power, military power, economic power, cultural power—are not ultimate. The guards at the tomb represent the world’s attempt to keep death secure, to make the grave the final boundary. They are the image of human authority trying to police the edges of reality. And in every age, God steps over those boundaries.
 
 This is the cosmic dimension of salvation. Christ does not rise merely to prove a point. He rises to begin a new creation. He rises as the firstborn of the dead, the first fruits, the pledge that what has happened to him will happen to the whole world. In him, the future has already entered the present. The Resurrection is not simply about Jesus; it is about what humanity is meant to become.
+
+## Learning to Recognize Christ Now
 
 If this is true, then the Christian task is not to retreat into nostalgia. It is not to preserve the faith as a museum piece. It is to rediscover the Incarnation in such a way that we can recognize Christ in the middle of contemporary life, not as a decorative overlay but as the world’s true Lord.
 
