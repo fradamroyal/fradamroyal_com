@@ -146,6 +146,28 @@ const ARTICLE_DESCRIPTION_BASELINE_PATHS = [
 
 const VALID_ARTICLE_FRONT_MATTER_FIXTURES = [
   {
+    name: "calendar-date article",
+    sourcePath: "content/homilies/2026/calendar_date.md",
+    metadata: `title = 'Calendar-date Article'
+description = 'A concise description of the calendar-date article.'
+date = 2026-07-12
+draft = false`,
+  },
+  {
+    name: "UTC timestamp article",
+    metadata: `title = 'UTC Timestamp Article'
+description = 'A concise description of the UTC timestamp article.'
+date = 2026-07-12T15:00:00Z
+draft = false`,
+  },
+  {
+    name: "known numeric zero-offset article",
+    metadata: `title = 'Known Numeric Zero-offset Article'
+description = 'A concise description of the known numeric zero-offset article.'
+date = 2026-07-12T15:00:00+00:00
+draft = false`,
+  },
+  {
     name: "published article",
     metadata: `title = 'Published Article'
 description = 'A concise description of the published article.'
@@ -207,7 +229,7 @@ draft = false`,
 description = 'A concise article description.'
 date = 'July 12, 2026'
 draft = false`,
-    expectedError: "valid ISO 8601 date",
+    expectedError: "valid calendar date or offset-qualified RFC 3339 timestamp",
   },
   {
     name: "impossible calendar date",
@@ -215,7 +237,7 @@ draft = false`,
 description = 'A concise article description.'
 date = 2026-02-30
 draft = false`,
-    expectedError: "valid ISO 8601 date",
+    expectedError: "valid calendar date or offset-qualified RFC 3339 timestamp",
   },
   {
     name: "invalid publication time",
@@ -223,7 +245,7 @@ draft = false`,
 description = 'A concise article description.'
 date = 2026-07-12T24:00:00-05:00
 draft = false`,
-    expectedError: "valid ISO 8601 date",
+    expectedError: "valid calendar date or offset-qualified RFC 3339 timestamp",
   },
   {
     name: "invalid UTC offset",
@@ -231,7 +253,32 @@ draft = false`,
 description = 'A concise article description.'
 date = 2026-07-12T10:00:00+14:01
 draft = false`,
-    expectedError: "valid ISO 8601 date",
+    expectedError: "valid calendar date or offset-qualified RFC 3339 timestamp",
+  },
+  {
+    name: "offsetless publication timestamp",
+    metadata: `title = 'Offsetless Publication Timestamp'
+description = 'A concise article description.'
+date = 2026-07-12T10:00:00
+draft = false`,
+    expectedError: "valid calendar date or offset-qualified RFC 3339 timestamp",
+  },
+  {
+    name: "unknown local offset",
+    metadata: `title = 'Unknown Local Offset'
+description = 'A concise article description.'
+date = 2026-07-12T10:00:00-00:00
+draft = false`,
+    expectedError: "valid calendar date or offset-qualified RFC 3339 timestamp",
+  },
+  {
+    name: "date civil year differs from directory",
+    sourcePath: "content/reflections/2025/directory_year_mismatch.md",
+    metadata: `title = 'Directory Year Mismatch'
+description = 'A concise article description.'
+date = 2026-01-01
+draft = false`,
+    expectedError: "date civil year 2026 to match its 2025 directory",
   },
   {
     name: "missing date",

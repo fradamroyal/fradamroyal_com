@@ -1,6 +1,6 @@
 +++
 title = 'Pride & Humility in Franciscan Spirituality'
-date = 2025-08-24T18:30:00-00:00
+date = 2025-08-24T18:30:00-05:00
 draft = false
 +++
 

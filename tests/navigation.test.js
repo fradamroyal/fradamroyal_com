@@ -1407,6 +1407,97 @@ test("article navigation links the chronological neighbors within each section",
   assert.ok(crossYearLinks > 0, "Expected at least one adjacent-article link to cross a year boundary.");
 });
 
+test("normalized legacy timestamps preserve feed dates and Christmas chronology", () => {
+  const rss = readFileSync(join(BUILD_ROOT, "index.xml"), "utf8");
+  const rssItems = [...rss.matchAll(/<item>([\s\S]*?)<\/item>/gi)].map(
+    (match, index) => {
+      const link = match[1].match(/<link>([^<]+)<\/link>/i);
+      const pubDate = match[1].match(/<pubDate>([^<]+)<\/pubDate>/i);
+      assert.ok(link, `Expected RSS item ${index + 1} to contain a link.`);
+      assert.ok(pubDate, `Expected RSS item ${index + 1} to contain a pubDate.`);
+      return {
+        pubDate: decodeHTML(pubDate[1]),
+        url: decodeHTML(link[1]),
+      };
+    },
+  );
+  const rssByURL = new Map(rssItems.map((item) => [item.url, item.pubDate]));
+  const expectedFeedDates = new Map([
+    [
+      "https://fradamroyal.com/homilies/2025/christmas_day/",
+      "Thu, 25 Dec 2025 09:00:00 -0600",
+    ],
+    [
+      "https://fradamroyal.com/homilies/2025/christmas_midnight/",
+      "Thu, 25 Dec 2025 00:00:01 -0600",
+    ],
+    [
+      "https://fradamroyal.com/reflections/2025/pride_humility_franciscan/",
+      "Sun, 24 Aug 2025 18:30:00 -0500",
+    ],
+  ]);
+
+  expectedFeedDates.forEach((pubDate, url) => {
+    assert.equal(
+      rssByURL.get(url),
+      pubDate,
+      `Expected the home feed to preserve the normalized publication time for ${url}.`,
+    );
+  });
+
+  const expectedArchiveOrder = [
+    "https://fradamroyal.com/homilies/2025/holy_family/",
+    "https://fradamroyal.com/homilies/2025/christmas_day/",
+    "https://fradamroyal.com/homilies/2025/christmas_midnight/",
+    "https://fradamroyal.com/homilies/2025/fourth_sunday_advent/",
+  ];
+  const expectedArchiveURLs = new Set(expectedArchiveOrder);
+  const archiveOrder = anchors(page("homilies/2025/index.html"))
+    .map((anchor) => internalURL(anchor.href, "https://fradamroyal.com/homilies/2025/"))
+    .filter((url) => url && expectedArchiveURLs.has(url.href))
+    .map((url) => url.href);
+  assert.deepEqual(
+    archiveOrder,
+    expectedArchiveOrder,
+    "Expected the Christmas Day homily to remain ahead of the Night homily in the 2025 archive.",
+  );
+
+  const expectedNavigation = new Map([
+    [
+      "https://fradamroyal.com/homilies/2025/christmas_day/",
+      [
+        "https://fradamroyal.com/homilies/2025/holy_family/",
+        "https://fradamroyal.com/homilies/2025/christmas_midnight/",
+      ],
+    ],
+    [
+      "https://fradamroyal.com/homilies/2025/christmas_midnight/",
+      [
+        "https://fradamroyal.com/homilies/2025/christmas_day/",
+        "https://fradamroyal.com/homilies/2025/fourth_sunday_advent/",
+      ],
+    ],
+  ]);
+  expectedNavigation.forEach((expectedURLs, articleURL) => {
+    const article = articles.find((candidate) => candidate.url === articleURL);
+    assert.ok(article, `Expected a generated article for ${articleURL}.`);
+    const nav = elementWithClass(
+      article.html,
+      "nav",
+      "article-navigation",
+      article.relativePath,
+    );
+    const linkedURLs = anchors(nav.html).map(
+      (anchor) => internalURL(anchor.href, articleURL).href,
+    );
+    assert.deepEqual(
+      linkedURLs,
+      expectedURLs,
+      `Expected ${article.relativePath} to retain its Christmas chronology.`,
+    );
+  });
+});
+
 test("renamed Ordinary Time canonicals replace retired URLs in discovery surfaces", () => {
   assert.equal(LEGACY_HOMILY_MIGRATIONS.length, 25);
   assert.match(

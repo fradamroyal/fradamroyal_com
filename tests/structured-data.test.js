@@ -309,6 +309,32 @@ test("a reflection page uses reflection-specific article metadata", () => {
   assertReferenceType(document, webPage, "mainEntity", "BlogPosting");
 });
 
+test("legacy article timestamps expose their normalized known offsets", () => {
+  const expectedDates = new Map([
+    [
+      "homilies/2025/christmas_day/index.html",
+      "2025-12-25T09:00:00-06:00",
+    ],
+    [
+      "homilies/2025/christmas_midnight/index.html",
+      "2025-12-25T00:00:01-06:00",
+    ],
+    [
+      "reflections/2025/pride_humility_franciscan/index.html",
+      "2025-08-24T18:30:00-05:00",
+    ],
+  ]);
+
+  expectedDates.forEach((datePublished, relativePath) => {
+    const article = nodeByType(page(relativePath), "BlogPosting");
+    assert.equal(
+      article.datePublished,
+      datePublished,
+      `Expected ${relativePath} to preserve its explicit publication offset.`,
+    );
+  });
+});
+
 test("a reflection may expose optional Scripture citations", () => {
   const document = page(
     "reflections/2024/widow_ministry_reflection/index.html",

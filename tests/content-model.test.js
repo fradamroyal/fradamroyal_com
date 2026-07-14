@@ -121,13 +121,13 @@ const NORMALIZATION_CASES = [
   },
   {
     source: "content/homilies/2025/christmas_midnight.md",
-    date: "2025-12-25T00:00:01",
+    date: "2025-12-25T00:00:01-06:00",
     season: "christmas",
     occasion: "nativity-of-the-lord",
   },
   {
     source: "content/homilies/2025/christmas_day.md",
-    date: "2025-12-25T09:00:00",
+    date: "2025-12-25T09:00:00-06:00",
     season: "christmas",
     occasion: "nativity-of-the-lord",
   },
@@ -617,9 +617,9 @@ function quotedTomlValue(value) {
   return match && match[2];
 }
 
-function validIsoDate(value) {
+function validArticleDate(value) {
   const match = value.match(
-    /^(\d{4})-(\d{2})-(\d{2})(?:T(\d{2}):(\d{2}):(\d{2})(?:\.\d+)?(?:Z|([+-])(\d{2}):(\d{2}))?)?$/,
+    /^(\d{4})-(\d{2})-(\d{2})(?:T(\d{2}):(\d{2}):(\d{2})(?:\.\d+)?(Z|([+-])(\d{2}):(\d{2})))?$/,
   );
   if (!match) {
     return false;
@@ -643,8 +643,8 @@ function validIsoDate(value) {
   const hour = Number(match[4]);
   const minute = Number(match[5]);
   const second = Number(match[6]);
-  const offsetHour = match[8] === undefined ? 0 : Number(match[8]);
-  const offsetMinute = match[9] === undefined ? 0 : Number(match[9]);
+  const offsetHour = match[9] === undefined ? 0 : Number(match[9]);
+  const offsetMinute = match[10] === undefined ? 0 : Number(match[10]);
   const validOffset =
     offsetHour < 14 || (offsetHour === 14 && offsetMinute === 0);
   return (
@@ -652,7 +652,8 @@ function validIsoDate(value) {
     minute <= 59 &&
     second <= 59 &&
     offsetMinute <= 59 &&
-    validOffset
+    validOffset &&
+    !(match[8] === "-" && offsetHour === 0 && offsetMinute === 0)
   );
 }
 
@@ -684,8 +685,20 @@ function validateArticleFrontMatter(
     errors.push(`Expected ${sourcePath} to define exactly one date.`);
   } else {
     const date = dateAssignments[0].replace(/[ \\t]+#.*$/, "").trim();
-    if (!validIsoDate(date)) {
-      errors.push(`Expected ${sourcePath} to have a valid ISO 8601 date.`);
+    if (!validArticleDate(date)) {
+      errors.push(
+        `Expected ${sourcePath} to have a valid calendar date or offset-qualified RFC 3339 timestamp.`,
+      );
+    } else {
+      const yearDirectory = sourcePath.match(
+        /^content[\\/](?:homilies|reflections)[\\/](\d{4})[\\/]/,
+      );
+      const civilYear = date.slice(0, 4);
+      if (yearDirectory && yearDirectory[1] !== civilYear) {
+        errors.push(
+          `Expected ${sourcePath} date civil year ${civilYear} to match its ${yearDirectory[1]} directory.`,
+        );
+      }
     }
   }
 
@@ -881,8 +894,11 @@ test("year and Scripture dimensions remain derived from canonical fields", () =>
 });
 
 test("article front-matter lint covers every supported publication state", () => {
-  VALID_ARTICLE_FRONT_MATTER_FIXTURES.forEach(({ name, metadata }) => {
-    const result = validateArticleFrontMatter(metadata, `valid fixture ${name}`);
+  VALID_ARTICLE_FRONT_MATTER_FIXTURES.forEach(({ name, metadata, sourcePath }) => {
+    const result = validateArticleFrontMatter(
+      metadata,
+      sourcePath || `valid fixture ${name}`,
+    );
     assert.deepEqual(result.errors, [], name);
     assert.equal(result.hasDescription, true, name);
   });
@@ -890,10 +906,10 @@ test("article front-matter lint covers every supported publication state", () =>
 
 test("article front-matter lint rejects malformed required fields", () => {
   INVALID_ARTICLE_FRONT_MATTER_FIXTURES.forEach(
-    ({ name, metadata, expectedError }) => {
+    ({ name, metadata, expectedError, sourcePath }) => {
       const result = validateArticleFrontMatter(
         metadata,
-        `invalid fixture ${name}`,
+        sourcePath || `invalid fixture ${name}`,
       );
       assert.ok(
         result.errors.some((error) => error.includes(expectedError)),

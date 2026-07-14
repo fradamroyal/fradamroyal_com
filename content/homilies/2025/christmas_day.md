@@ -1,6 +1,6 @@
 +++
 title = 'Nativity of the Lord, Mass During the Day'
-date = 2025-12-25T09:00:00
+date = 2025-12-25T09:00:00-06:00
 draft = false
 liturgical_season = 'christmas'
 liturgical_occasion = 'nativity-of-the-lord'

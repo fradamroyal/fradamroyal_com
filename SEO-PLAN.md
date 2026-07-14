@@ -52,7 +52,7 @@ Baseline recorded July 12, 2026:
 
 ## Execution queue
 
-### NOW: Enforce unambiguous article date precision
+### NOW: Build the first reader-useful recurring-occasion hub
 
 Phases 1.3, 1.4, 2.1, the first-priority Phase 2.2 description convention,
 Phase 2.3, Phase 2.4, and all five bounded Phase 3.3 presentation slices are
@@ -107,9 +107,9 @@ readings still agree, related-homily selection is unchanged, and reading data
 remains absent from summaries, previews, and feeds.
 
 Phase 3.4 required-front-matter linting now validates exactly one page-level,
-nonblank title, valid ISO date, and Boolean draft status across all 141 authored
-homilies and reflections. It reads source files directly without filtering by
-publication state, and focused fixtures cover published, draft, future, and
+nonblank title, valid article date, and Boolean draft status across all 141
+authored homilies and reflections. It reads source files directly without
+filtering by publication state, and focused fixtures cover published, draft, future, and
 expired articles plus malformed fields and nested-table mistakes. All 141
 legacy articles that lack descriptions are enumerated in a sorted, auditable
 baseline. A new omission fails, and the exact comparison also fails when a
@@ -118,16 +118,29 @@ Homily and Reflection archetypes are checked for their required blank
 description prompt and valid core fields. No legacy descriptions were
 mechanically backfilled, and rendered metadata behavior is unchanged.
 
-Continue with the following bounded Phase 3.4 slice: accept calendar dates in
-`YYYY-MM-DD` form and full RFC 3339 timestamps only when they carry a known
-`Z` or numeric offset. Reject offsetless timestamps and the RFC 3339 unknown-
-offset form `-00:00`, and require each article's civil year to match its year
-directory. Normalize the three ambiguous legacy timestamps without changing
-their civil dates or the intended Christmas Day-before-Night archive and
-adjacent-navigation order. Add focused fixtures and generated-output assertions
-for JSON-LD `datePublished`, RSS `pubDate`, archive ordering, and adjacent
-navigation. Keep visible date formatting, URLs, Git-derived `lastmod`, explicit
-known offsets, and unrelated content unchanged.
+Phase 3.4 article-date linting now accepts calendar dates in `YYYY-MM-DD` form
+and full RFC 3339 timestamps only when they carry a known `Z` or numeric offset.
+It rejects offsetless timestamps and the RFC 3339 unknown-offset form `-00:00`,
+and it requires each article's lexical civil year to match its year directory.
+The two Christmas 2025 homilies now carry the source-appropriate `-06:00`
+offset, and the August 2025 Franciscan reflection carries `-05:00`; their civil
+dates and visible formatting are unchanged. Focused source and generated-output
+coverage preserves the exact JSON-LD `datePublished` and RSS `pubDate` values,
+the Christmas Day-before-Night archive order, and both pages' adjacent
+navigation. URLs, date templates, Git-derived `lastmod` resolution, existing
+known offsets, and unrelated content remain unchanged.
+
+Implement one manually curated hub for the Fifteenth Sunday in Ordinary Time,
+linking the 2024, 2025, and 2026 homilies. It is one of only two recurring
+occasions that currently meets the policy floor of three articles across three
+years, it includes the newest homily, and its three lectionary cycles share no
+exact non-responsorial citation that would connect them through the existing
+related-homily path. Give the hub a unique human-written title, description,
+useful introduction, section navigation, canonical and indexable metadata,
+sitemap inclusion, and focused generated-output coverage. Keep taxonomy and
+term output disabled, generate no other hubs automatically, preserve every
+member article URL and feed entry, and do not add speculative article
+descriptions. Deployment and live smoke-testing remain out of scope.
 
 ## Phase 0 — Correct indexing signals and deploy the intended site
 
@@ -399,8 +412,9 @@ and canonical-slug cleanup, root and main-section introduction cleanup, legacy
 reflection heading normalization, long-form structure for the illustrated `Two
 Resurrections` reflection, and accurate image facts. Corpus-wide source and
 rendered heading checks plus generalized authored-image, corpus-wide SBL
-reading-record, and required-front-matter checks from Phase 3.4 are also
-implemented; hub selection and unambiguous date/time checks remain pending.
+reading-record, required-front-matter, and article-date checks from Phase 3.4
+are also implemented. The first manually selected hub is the next bounded
+slice.
 
 ### 3.1 Backfill Scripture metadata
 
@@ -549,7 +563,10 @@ planner's parenthetical Esther citation syntax with focused fixtures, and
 rejects incomplete data or malformed citations. Required-front-matter linting
 validates the core page fields across every authored article and requires
 descriptions on new work while tracking legacy omissions in an exact auditable
-baseline. Unambiguous article date precision is the next bounded slice.
+baseline. Article-date linting accepts calendar dates or offset-qualified RFC
+3339 timestamps, rejects ambiguous timestamp offsets, and requires civil years
+to match source directories. Focused generated-output coverage preserves exact
+publication timestamps and chronology for the three normalized legacy values.
 
 Add automated checks or warnings for:
 
@@ -562,8 +579,7 @@ Add automated checks or warnings for:
 - Missing image metadata on image-led articles (implemented for structured
   output).
 - SBL Scripture abbreviation and reading-data validation (implemented).
-- Date/time consistency where precise publication times matter (next bounded
-  slice).
+- Date/time consistency where precise publication times matter (implemented).
 
 ### Phase 3 gate
 
@@ -571,7 +587,7 @@ Add automated checks or warnings for:
 - [ ] Priority and recent homilies have verified readings and descriptions.
 - [ ] Every generated hub serves a clear reader purpose and has sufficient
       content.
-- [x] Heading, link, image, and Scripture lint checks pass.
+- [x] Heading, link, image, Scripture, and article-date lint checks pass.
 - [x] No metadata leaks into summaries or RSS against repository policy.
 
 ## Phase 4 — Measure, learn, and maintain
