@@ -15,6 +15,10 @@ const EXPECTED_PATTERNS = [
   "/css/*.woff",
   "/css/*.woff2",
   "/css/*.ttf",
+  "/reflections/*.jpg",
+  "/reflections/*.jpeg",
+  "/reflections/*.png",
+  "/reflections/*.webp",
 ];
 
 function headerRules(source) {
@@ -38,7 +42,7 @@ function matchesHeaderPattern(pattern, path) {
   );
 }
 
-test("fingerprinted assets receive a one-year immutable browser cache policy", () => {
+test("fingerprinted assets and reflection images receive an immutable policy", () => {
   const rules = headerRules(readFileSync(HEADERS_PATH, "utf8"));
 
   assert.deepEqual(
@@ -55,7 +59,7 @@ test("fingerprinted assets receive a one-year immutable browser cache policy", (
   }
 });
 
-test("the immutable policy excludes mutable and authored asset URLs", () => {
+test("the immutable policy excludes broad and homily image patterns", () => {
   const source = readFileSync(HEADERS_PATH, "utf8");
 
   for (const unsafePattern of [
@@ -65,6 +69,10 @@ test("the immutable policy excludes mutable and authored asset URLs", () => {
     "/*.jpeg",
     "/*.png",
     "/*.webp",
+    "/homilies/*.jpg",
+    "/homilies/*.jpeg",
+    "/homilies/*.png",
+    "/homilies/*.webp",
     "/*",
   ]) {
     assert.equal(
@@ -75,7 +83,7 @@ test("the immutable policy excludes mutable and authored asset URLs", () => {
   }
 });
 
-test("the patterns match fingerprinted output without matching unhashed bundles", () => {
+test("the patterns match nested reflection images without matching other images", () => {
   const patterns = headerRules(readFileSync(HEADERS_PATH, "utf8")).map(
     ([pattern]) => pattern,
   );
@@ -85,13 +93,18 @@ test("the patterns match fingerprinted output without matching unhashed bundles"
     "/css/Libertinus-regular-QCO4PQ33.woff2",
     "/css/LM-regular-OADBJPBU.woff",
     "/css/LM-regular-6IUDCRRB.ttf",
+    "/reflections/2025/two_paintings/painting_1.jpeg",
+    "/reflections/2025/two_paintings/painting_2.png",
+    `/reflections/2025/two_paintings/painting_1_hu_${"c".repeat(32)}.webp`,
+    "/reflections/2026/example/photo.jpg",
   ];
   const mutableAssets = [
     "/css/site.css",
     "/css/site.css.map",
     "/js/bible-reading-plan.js",
     "/js/bible-reading-plan.js.map",
-    "/reflections/2025/two_paintings/painting_1.jpeg",
+    "/homilies/2026/example/photo.jpg",
+    "/images/portrait.jpeg",
   ];
 
   for (const path of immutableAssets) {

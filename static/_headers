@@ -1,5 +1,6 @@
 # Workers Static Assets does not use zone-level Cache Rules. Keep long browser
-# caching limited to filenames that change whenever their contents change.
+# caching limited to fingerprinted assets and published reflection images that
+# are never replaced at the same URL.
 
 /css/site.*.css
   Cache-Control: public, max-age=31536000, immutable
@@ -14,4 +15,16 @@
   Cache-Control: public, max-age=31536000, immutable
 
 /css/*.ttf
+  Cache-Control: public, max-age=31536000, immutable
+
+/reflections/*.jpg
+  Cache-Control: public, max-age=31536000, immutable
+
+/reflections/*.jpeg
+  Cache-Control: public, max-age=31536000, immutable
+
+/reflections/*.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/reflections/*.webp
   Cache-Control: public, max-age=31536000, immutable
