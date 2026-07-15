@@ -1,0 +1,6 @@
+Contact: mailto:security@fradamroyal.com
+Expires: 2027-07-01T00:00:00Z
+Encryption: https://fradamroyal.com/.well-known/security.asc
+Encryption: openpgp4fpr:5F8C690F4C7CF0C9567017C739DE4D4667D8673A
+Canonical: https://fradamroyal.com/.well-known/security.txt
+Preferred-Languages: en
