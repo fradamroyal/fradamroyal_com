@@ -20,9 +20,7 @@ label = 'Gospel'
 citation = 'Matt 11:25–27'
 +++
 
-“You have hidden these things from the wise and the learned and revealed them to the childlike.”
-
-In these words, Christ calls us to simplicity—not ignorance, but simplicity of heart.
+“You have hidden these things from the wise and the learned and revealed them to the childlike.” In these words, Christ calls us to simplicity—not ignorance, but simplicity of heart.
 
 I think of a letter St. Francis Xavier wrote while serving as a missionary in India. He had encountered whole communities eager to receive the faith, but there were not enough priests to teach them, administer the sacraments, and satisfy their hunger for God.
 
@@ -30,9 +28,7 @@ Writing back to Europe, Xavier thought of the learned men at the University of P
 
 That is a striking criticism. These men had devoted themselves to profound and subtle questions about God, but they had not allowed their knowledge to touch their hearts and transform their lives. They knew much about God, yet that knowledge had not become the burning love which would send them out to proclaim the Gospel and draw others into his Kingdom.
 
-This is part of the simplicity Christ praises.
-
-Our faith can be immensely deep. Its mysteries can occupy the greatest minds for an entire lifetime. Yet at its heart, the faith is simple:
+This is part of the simplicity Christ praises. Our faith can be immensely deep. Its mysteries can occupy the greatest minds for an entire lifetime. Yet at its heart, the faith is simple:
 
 Love God.
 
@@ -44,13 +40,9 @@ Turn the other cheek.
 
 These truths are simple enough for a child to understand, yet deep enough to transform an entire life. They are not given merely to inform us. They are meant to convert us—to set our hearts on fire with love for God and for one another.
 
-We must never love learning about God more than we love God himself. Knowledge of God must become friendship with God. Theology must become charity. What we have received must send us out to share the simple, saving truth of the Gospel.
+We must never love learning about God more than we love God himself. Knowledge of God must become friendship with God. Theology must become charity. What we have received must send us out to share the simple, saving truth of the Gospel. But our Lord’s words mean still more when we hear them in context.
 
-But our Lord’s words mean still more when we hear them in context.
-
-Immediately before this passage, Jesus rebukes the towns that witnessed his mighty deeds but refused to repent. He warns Chorazin, Bethsaida, and Capernaum that judgment will be more tolerable for Tyre, Sidon, and even Sodom than for them. Those who considered themselves wise and secure had failed to recognize what was directly before their eyes.
-
-Christ is therefore warning us about our own cleverness.
+Immediately before this passage, Jesus rebukes the towns that witnessed his mighty deeds but refused to repent. He warns Chorazin, Bethsaida, and Capernaum that judgment will be more tolerable for Tyre, Sidon, and even Sodom than for them. Those who considered themselves wise and secure had failed to recognize what was directly before their eyes. Christ is therefore warning us about our own cleverness.
 
 Human intelligence is a great gift. We are made in the image of the infinitely wise God. But precisely because intelligence is powerful, it can also be misused. We can construct systems of thought so subtle and abstract that they no longer clarify the truth but obscure it. Eventually, they may even invert it, teaching us to call evil good and good evil.
 
