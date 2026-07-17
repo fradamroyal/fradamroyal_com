@@ -31,7 +31,7 @@ alone.
 
 Add a new occasion only when a page needs it and no registered value expresses
 the same liturgy. Keep identifiers stable and add an accurate human label to
-the registry. The current published corpus uses 77 occasions across 133
+the registry. The current published corpus uses 78 occasions across 134
 homilies; every addition must remain deliberate and backed by a real content
 record, including a draft in progress. Registry membership never generates a
 hub automatically.
