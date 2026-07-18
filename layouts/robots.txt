@@ -1,7 +1,5 @@
 User-agent: *
-Content-signal: search=yes, ai-input=yes, ai-train=yes
+Content-signal: search=yes, ai-input=yes, ai-train=yes, use=full
 Allow: /
 
 Sitemap: {{ .Site.BaseURL }}sitemap.xml
-Host: {{ .Site.BaseURL }}
-
