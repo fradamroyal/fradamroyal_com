@@ -606,23 +606,37 @@ test("social titles preserve literal punctuation without double escaping", () =>
 });
 
 test("only explicitly illustrated content exposes social-preview images", () => {
-  const illustratedPath = "reflections/2025/two_paintings/index.html";
-  const illustratedHTML = page(illustratedPath);
-  const expectedImages = [
-    "https://fradamroyal.com/reflections/2025/two_paintings/painting_1.jpeg",
-    "https://fradamroyal.com/reflections/2025/two_paintings/painting_2.png",
-  ];
-  assert.deepEqual(metaValues(illustratedHTML, "property", "og:image"), expectedImages);
-  assert.deepEqual(metaValues(illustratedHTML, "name", "twitter:image"), [expectedImages[0]]);
+  const illustratedPages = new Map([
+    [
+      "reflections/2025/two_paintings/index.html",
+      [
+        "https://fradamroyal.com/reflections/2025/two_paintings/painting_1.jpeg",
+        "https://fradamroyal.com/reflections/2025/two_paintings/painting_2.png",
+      ],
+    ],
+    [
+      "reflections/2026/wheat_weeds_end_of_history/index.html",
+      [
+        "https://fradamroyal.com/reflections/2026/wheat_weeds_end_of_history/Lolium_temulentum_illustration_(02).jpg",
+        "https://fradamroyal.com/reflections/2026/wheat_weeds_end_of_history/Triticum_aestivum_illustration_(01).jpg",
+      ],
+    ],
+  ]);
 
-  const illustratedArticle = structuredData(illustratedHTML)["@graph"].find((node) =>
-    nodeTypes(node).includes("BlogPosting"),
-  );
-  assert.ok(illustratedArticle, `Expected a BlogPosting in ${illustratedPath}.`);
-  assert.deepEqual(illustratedArticle.image, expectedImages);
+  illustratedPages.forEach((expectedImages, illustratedPath) => {
+    const illustratedHTML = page(illustratedPath);
+    assert.deepEqual(metaValues(illustratedHTML, "property", "og:image"), expectedImages);
+    assert.deepEqual(metaValues(illustratedHTML, "name", "twitter:image"), [expectedImages[0]]);
+
+    const illustratedArticle = structuredData(illustratedHTML)["@graph"].find((node) =>
+      nodeTypes(node).includes("BlogPosting"),
+    );
+    assert.ok(illustratedArticle, `Expected a BlogPosting in ${illustratedPath}.`);
+    assert.deepEqual(illustratedArticle.image, expectedImages);
+  });
 
   pages.forEach((html, relativePath) => {
-    if (relativePath === ERROR_PAGE_PATH || relativePath === illustratedPath) {
+    if (relativePath === ERROR_PAGE_PATH || illustratedPages.has(relativePath)) {
       return;
     }
     assert.deepEqual(
