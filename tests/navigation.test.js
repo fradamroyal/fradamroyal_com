@@ -1178,6 +1178,38 @@ test("covered reflections render the intended H2 and H3 hierarchy", () => {
   assert.equal(coveredHeadings.filter(({ level }) => level === 3).length, 4);
 });
 
+test("links inside sidenotes always open in a new tab", () => {
+  let sidenoteLinkCount = 0;
+
+  allHTMLPages.forEach((html, relativePath) => {
+    elementsWithClass(html, "span", "sidenote").forEach((sidenote, index) => {
+      anchors(sidenote.html).forEach((anchor) => {
+        sidenoteLinkCount += 1;
+        assert.equal(
+          anchor.attributes.get("target"),
+          "_blank",
+          `Expected sidenote ${index + 1} in ${relativePath} to open ${anchor.href} in a new tab.`,
+        );
+
+        const relationships = (anchor.attributes.get("rel") || "")
+          .toLowerCase()
+          .split(/\s+/)
+          .filter(Boolean);
+        assert.ok(
+          relationships.includes("noopener"),
+          `Expected sidenote link ${anchor.href} in ${relativePath} to prevent opener access.`,
+        );
+        assert.ok(
+          relationships.includes("noreferrer"),
+          `Expected sidenote link ${anchor.href} in ${relativePath} not to send referrer data.`,
+        );
+      });
+    });
+  });
+
+  assert.ok(sidenoteLinkCount > 0, "Expected at least one rendered sidenote link.");
+});
+
 test("authored images render accessibly and image-led articles expose metadata", () => {
   let imageLedArticles = 0;
   let semanticImageCount = 0;

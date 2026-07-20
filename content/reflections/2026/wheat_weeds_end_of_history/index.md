@@ -39,7 +39,7 @@ That is the key: he knows.
 
 Our discomfort often comes from imagining this as an arbitrary decision imposed by God in advance. Yet God’s knowledge does not force our choices. {{< sidenote >}} [*Catechism of the Catholic Church*, 600](https://www.vatican.va/content/catechism/en/part_one/section_two/chapter_two/article_4/paragraph_2_jesus_died_crucified.html) {{< /sidenote >}} We truly choose, and God knows fully what we will choose. The parable assumes an omniscient narrator—and omniscient in the fullest possible sense. The one telling the story is the Lord of history.
 
-Jesus speaks from the perspective of the eschaton, the end of history. From that vantage point, the wheat and the weeds are fixed because every choice has been made and every life has reached its completion. When the master says, “Let both grow together until the harvest,” {{< sidenote >}} [Matt 13:30](https://bible.usccb.org/bible/readings/071926.cfm) {{< /sidenote >}} he speaks of a harvest whose outcome is already visible to him.
+Jesus speaks from the perspective of the eschaton, the end of history. From that vantage point, the wheat and the weeds are fixed because every choice has been made and every life has reached its completion. When the master says, “Let both grow together until the harvest,” {{< sidenote >}} Matt 13:30 {{< /sidenote >}} he speaks of a harvest whose outcome is already visible to him.
 
 In its historical sense, the parable does not focus primarily on the process of conversion or the complexity of human choice. It shows us where history is going. The Kingdom of God is moving toward its fulfillment: the separation of righteousness from evil and the inauguration of Christ’s perfect and everlasting reign.
 
