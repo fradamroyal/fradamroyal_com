@@ -1025,8 +1025,8 @@ test("every authored reading record is complete and uses an SBL citation", () =>
     result.records.forEach((record) => labels.add(record.label));
   });
 
-  assert.equal(sourcesWithReadings, 136);
-  assert.equal(totalRecords, 566);
+  assert.equal(sourcesWithReadings, 137);
+  assert.equal(totalRecords, 567);
   [1, 3, 4, 5, 8, 17].forEach((count) => assert.ok(recordCounts.has(count)));
   [
     "Responsorial Psalm",
