@@ -25,7 +25,7 @@ citation = 'Matt 2:1–12'
 
 The story of the Epiphany is almost ironic. A great king, Herod, with the full backing of the Roman Empire, is terrified of a child—a newborn baby born in humble circumstances to a young girl and her understandably skeptical husband. Yet, this reaction fits the ancient world. Kings often had to fear even the young. They never knew when someone might rally the people and overthrow them, especially among the Jews, who were actively awaiting a messiah. To protect their power, rulers would resort to ruthless measures, even murder. So, while Herod’s fear may seem absurd, it is what we might expect from that culture and time.
 
-What should truly surprise us, however, is a small detail we might overlook in the story. Listen again to the third verse: “When King Herod heard this, he was greatly troubled, and all Jerusalem with him.” {{< sidenote >}}Matt 2:3{{< /sidenote >}} Not only was Herod afraid, but all of Jerusalem shared his fear.
+What should truly surprise us, however, is a small detail we might overlook in the story. Listen again to the third verse: “When King Herod heard this, he was greatly troubled, and all Jerusalem with him.”{{< sidenote >}}Matt 2:3{{< /sidenote >}} Not only was Herod afraid, but all of Jerusalem shared his fear.
 
 This is startling. Jerusalem should have rejoiced at the coming of the Messiah. The Messiah was expected to bring peace, free the people from bondage, heal the sick, and usher in an era of joy and prosperity. Yet they were afraid. Why? For the same reason Herod was afraid. The Messiah would bring a new kingdom—a radically different kind of kingdom.
 

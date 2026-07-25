@@ -22,13 +22,13 @@ citation = 'Matt 13:10–17'
 
 I think today’s Gospel can initially be unsettling. It can sound as though the Lord is intentionally withholding his message from certain people. But we have to look more carefully to understand what he is really saying.
 
-Our lectionary says, “Gross is the heart of this people.” Other translations say, “[T]his people’s heart has grown dull.” {{< sidenote >}} NRSVCE {{< /sidenote >}} The word behind "gross" and "dull" literally means “to make fat” or “to fatten up.” {{< sidenote >}} Gk *pachyno* {{< /sidenote >}} The image is of a heart that has grown heavy and sluggish—a heart that can no longer move as freely or respond as readily as it was meant to.
+Our lectionary says, “Gross is the heart of this people.” Other translations say, “[T]his people’s heart has grown dull.”{{< sidenote >}} NRSVCE {{< /sidenote >}} The word behind "gross" and "dull" literally means “to make fat” or “to fatten up.”{{< sidenote >}} Gk *pachyno* {{< /sidenote >}} The image is of a heart that has grown heavy and sluggish—a heart that can no longer move as freely or respond as readily as it was meant to.
 
 Jesus is saying that these people are no longer willing to listen and hear. Through their own choices, they have closed themselves off to that possibility. If we are unwilling to seek the knowledge of the Kingdom of God, its mysteries cannot simply be forced upon us.
 
 Christ offers us his words, but then it falls to us to desire understanding enough to seek it. That is one reason he speaks in parables. A parable asks something of us. We are meant to think about it, carry it with us, and return to it throughout the day.
 
-In the Book of Psalms, the psalmist speaks of turning his mind to a parable in order to understand the difficult problem before him. {{< sidenote >}} Ps 49:4 NRSVCE. Some translations may place it at 49:5 or even 48:5. The Hebrew word used is *masal* which means parable, words of wisdom, or even riddle.  {{< /sidenote >}} He spends time with those words of wisdom, meditating upon them until they begin to illuminate his situation.
+In the Book of Psalms, the psalmist speaks of turning his mind to a parable in order to understand the difficult problem before him.{{< sidenote >}} Ps 49:4 NRSVCE. Some translations may place it at 49:5 or even 48:5. The Hebrew word used is *masal* which means parable, words of wisdom, or even riddle. {{< /sidenote >}} He spends time with those words of wisdom, meditating upon them until they begin to illuminate his situation.
 
 That is also Christ’s intention with his parables. We are not supposed to hear them once and then let them go.
 

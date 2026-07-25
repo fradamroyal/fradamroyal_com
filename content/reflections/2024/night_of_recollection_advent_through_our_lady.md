@@ -10,7 +10,7 @@ Tonight, I invite you to explore a profound way of praying—one that can deepen
 > “This time of Advent is a time for hope. These great horizons of our Christian vocation, this unity of life built on the presence of God, our Father, can and ought to be a daily reality.
 
 
->Ask Our Lady, along with me, to make it come true. Try to imagine how she spent these months waiting for her Son to be born. And Our Lady, Holy Mary, will make of you *alter Christus*, *ipse Christus*, another Christ, Christ himself!” {{< sidenote >}} [Christ is Passing By, 11](https://escriva.org/en/es-cristo-que-pasa/11/) {{< /sidenote >}}
+>Ask Our Lady, along with me, to make it come true. Try to imagine how she spent these months waiting for her Son to be born. And Our Lady, Holy Mary, will make of you *alter Christus*, *ipse Christus*, another Christ, Christ himself!”{{< sidenote >}} [Christ is Passing By, 11](https://escriva.org/en/es-cristo-que-pasa/11/) {{< /sidenote >}}
 
 Advent, as St. Josemaría reminds us, is a time to turn to Our Lady. She stands as the model of Advent spirituality—waiting, preparing, and hoping in perfect harmony with God’s will. Reflecting on her journey helps us embrace this sacred season in its fullness.
 

@@ -4,5 +4,6 @@
 {{- $content := .Inner | markdownify -}}
 {{- $content = replaceRE `(?i)<a(\s|>)` `<a target="_blank" rel="noopener noreferrer"$1` $content -}}
 <input type="checkbox" id="{{ $id }}" class="sidenote-toggle" aria-label="Show sidenote {{ $number }}" aria-controls="{{ $contentID }}" />
+{{- /* Keep the marker adjacent so justified text cannot stretch a leading gap. */ -}}
 <label for="{{ $id }}" class="sidenote-toggle sidenote-number"></label>
 <span id="{{ $contentID }}" class="sidenote">{{ $content | safeHTML }}</span>

@@ -1210,6 +1210,36 @@ test("article sources use a valid hierarchy without body-level H1s", () => {
   assert.equal(coveredHeadings.filter(({ level }) => level === 3).length, 4);
 });
 
+test("sidenote calls attach markers while preserving following prose spacing", () => {
+  let openingCount = 0;
+  let closingCount = 0;
+
+  articleSourcePaths().forEach((sourcePath) => {
+    const source = relative(REPOSITORY_ROOT, sourcePath);
+    const body = markdownBody(readFileSync(sourcePath, "utf8"), source);
+
+    [...body.matchAll(/\{\{< sidenote\b/g)].forEach((match) => {
+      openingCount += 1;
+      assert.ok(
+        match.index > 0 && !/\s/.test(body[match.index - 1]),
+        `Expected the sidenote marker to attach to the preceding text in ${source}.`,
+      );
+    });
+
+    [...body.matchAll(/\{\{< \/sidenote >\}\}/g)].forEach((match) => {
+      closingCount += 1;
+      const followingCharacter = body[match.index + match[0].length];
+      assert.ok(
+        followingCharacter === undefined || /\s/.test(followingCharacter),
+        `Expected prose after the sidenote marker to remain separated in ${source}.`,
+      );
+    });
+  });
+
+  assert.ok(openingCount > 0, "Expected authored sidenote shortcodes.");
+  assert.equal(closingCount, openingCount);
+});
+
 test("Two Resurrections exposes verified image facts without changing its assets", () => {
   const sourcePath = "content/reflections/2025/two_paintings/index.md";
   const absoluteSourcePath = join(REPOSITORY_ROOT, sourcePath);

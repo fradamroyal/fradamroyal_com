@@ -1210,6 +1210,42 @@ test("links inside sidenotes always open in a new tab", () => {
   assert.ok(sidenoteLinkCount > 0, "Expected at least one rendered sidenote link.");
 });
 
+test("sidenote markers render without stretchable leading whitespace", () => {
+  let markerCount = 0;
+
+  allHTMLPages.forEach((html, relativePath) => {
+    startTagsWithClass(html, "input", "sidenote-toggle").forEach((input) => {
+      markerCount += 1;
+      const followingHTML = html.slice(input.offset + input.html.length);
+      const label = followingHTML.match(/^<label\b[^>]*><\/label>/i);
+      assert.ok(
+        label,
+        `Expected the sidenote label to follow its hidden input without whitespace in ${relativePath}.`,
+      );
+
+      const inputID = input.attributes.get("id");
+      const contentID = input.attributes.get("aria-controls");
+      const labelAttributes = attributes(label[0].match(/^<label\b[^>]*>/i)[0]);
+      assert.ok(
+        hasClass(labelAttributes, "sidenote-number"),
+        `Expected the sidenote label to expose its numbered marker in ${relativePath}.`,
+      );
+      assert.equal(labelAttributes.get("for"), inputID);
+
+      const controlledSpan = followingHTML
+        .slice(label[0].length)
+        .match(/^\s*<span\b[^>]*>/i);
+      assert.ok(
+        controlledSpan,
+        `Expected the sidenote content to follow its numbered label in ${relativePath}.`,
+      );
+      assert.equal(attributes(controlledSpan[0].trimStart()).get("id"), contentID);
+    });
+  });
+
+  assert.ok(markerCount > 0, "Expected at least one rendered sidenote marker.");
+});
+
 test("authored images render accessibly and image-led articles expose metadata", () => {
   let imageLedArticles = 0;
   let semanticImageCount = 0;
