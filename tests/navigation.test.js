@@ -1246,6 +1246,22 @@ test("sidenote markers render without stretchable leading whitespace", () => {
   assert.ok(markerCount > 0, "Expected at least one rendered sidenote marker.");
 });
 
+test("a sidenote after a bold practice lead preserves emphasis and attachment", () => {
+  const relativePath = "reflections/2025/envy_kindness_franciscan/index.html";
+  const html = page(relativePath);
+
+  assert.match(
+    html,
+    /<li><strong>“Outdo one another in showing honor\.”<\/strong><input\b/,
+    `Expected the bold practice lead and its sidenote marker to render adjacently in ${relativePath}.`,
+  );
+  assert.doesNotMatch(
+    html,
+    /\*\*“Outdo one another in showing honor\.”\*\*/,
+    `Expected Markdown emphasis delimiters not to leak into ${relativePath}.`,
+  );
+});
+
 test("authored images render accessibly and image-led articles expose metadata", () => {
   let imageLedArticles = 0;
   let semanticImageCount = 0;
