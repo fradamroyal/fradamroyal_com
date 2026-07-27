@@ -8,7 +8,6 @@ const ARTICLE_DESCRIPTION_BASELINE_PATHS = [
   "content/reflections/2024/night_of_recollection_prayer_work_penitence.md",
   "content/reflections/2024/widow_ministry_reflection.md",
   "content/reflections/2025/advent_by_candlelight.md",
-  "content/reflections/2025/pride_humility_franciscan.md",
   "content/reflections/2025/tragedy_solomon.md",
   "content/reflections/2025/two_paintings/index.md",
   "content/reflections/2026/catholic_response_fear.md",
