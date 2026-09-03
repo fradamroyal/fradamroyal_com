@@ -79,7 +79,7 @@ const EXPECTED_SEASON_COUNTS = {
   christmas: 11,
   easter: 19,
   lent: 17,
-  "ordinary-time": 105,
+  "ordinary-time": 106,
   "paschal-triduum": 6,
 };
 const NORMALIZATION_CASES = [
@@ -196,6 +196,12 @@ const NORMALIZATION_CASES = [
     date: "2026-05-31",
     season: "ordinary-time",
     occasion: "most-holy-trinity",
+  },
+  {
+    source: "content/homilies/2026/thursday_twentysecond_week_ordinary_time/index.md",
+    date: "2026-09-03",
+    season: "ordinary-time",
+    occasion: "thursday-of-the-twenty-second-week-in-ordinary-time",
   },
 ];
 
@@ -1025,8 +1031,8 @@ test("every authored reading record is complete and uses an SBL citation", () =>
     result.records.forEach((record) => labels.add(record.label));
   });
 
-  assert.equal(sourcesWithReadings, 169);
-  assert.equal(totalRecords, 672);
+  assert.equal(sourcesWithReadings, 170);
+  assert.equal(totalRecords, 675);
   [1, 3, 4, 5, 8, 17].forEach((count) => assert.ok(recordCounts.has(count)));
   [
     "Responsorial Psalm",
@@ -1083,10 +1089,10 @@ test("every published homily has complete registered metadata", () => {
     readingCount += readings;
   });
 
-  assert.equal(publishedCount, 167);
+  assert.equal(publishedCount, 168);
   assert.deepEqual(seasonCounts, EXPECTED_SEASON_COUNTS);
-  assert.equal(readingCount, 670);
-  assert.equal(publishedOccasions.size, 102);
+  assert.equal(readingCount, 673);
+  assert.equal(publishedOccasions.size, 103);
   assert.deepEqual(
     [...registeredOccasionUsage].sort(),
     Object.keys(model.liturgical_occasions),
@@ -1298,7 +1304,7 @@ test("corpus metadata does not leak into pages, summaries, feeds, or hub URLs", 
 
     const output = join(
       "homilies",
-      relative(HOMILY_ROOT, sourcePath).replace(/\.md$/, "/index.html"),
+      relative(HOMILY_ROOT, sourcePath).replace(/(?:\/index)?\.md$/, "/index.html"),
     );
     assert.doesNotThrow(
       () => readFileSync(join(BUILD_ROOT, output), "utf8"),
