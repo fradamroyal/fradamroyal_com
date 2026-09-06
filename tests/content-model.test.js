@@ -198,7 +198,7 @@ const NORMALIZATION_CASES = [
     occasion: "most-holy-trinity",
   },
   {
-    source: "content/homilies/2026/thursday_twentysecond_week_ordinary_time/index.md",
+    source: "content/homilies/2026/thursday_twentysecond_week_ordinary_time.md",
     date: "2026-09-03",
     season: "ordinary-time",
     occasion: "thursday-of-the-twenty-second-week-in-ordinary-time",

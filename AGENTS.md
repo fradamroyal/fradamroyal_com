@@ -1,7 +1,7 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-- `content/` stores Markdown entries with TOML front matter; add homilies as `content/homilies/<slug>/index.md` and reflections in `content/reflections/` (use `hugo new` to scaffold).
+- `content/` stores Markdown entries with TOML front matter; add homilies as standalone `content/homilies/<year>/<slug>.md` files by default. Use a leaf bundle at `content/homilies/<year>/<slug>/index.md` only when supporting resources, such as images, require it. Add reflections in `content/reflections/` (use `hugo new` to scaffold).
 - `assets/` holds pipeline-managed CSS/JS, while `static/` keeps pass-through assets; leave the generated `public/` directory untouched.
 - `themes/latex_fradamroyal/` contains the customized LaTeX theme; keep template, partial, shortcode, and archetype work here.
 - `layouts/` is for repo-level overrides (for example `layouts/robots.txt`).
