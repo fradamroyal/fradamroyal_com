@@ -49,5 +49,6 @@
 - Use `seo_title` only when a document title should differ from the visible `title`; provide the unbranded page-specific text and let the centralized resolver append the site name.
 - Give every new page a concise, accurate `description` for search results; use `summary` separately when list or card copy should differ.
 - Prefer SBL book abbreviations for Scripture references, including homily `readings` metadata; use the canonical list in `SBL_BIBLE_ABBREVIATIONS.md`.
+- Add body citations to the day's readings only when necessary for clarity; the `readings` front matter already provides those references.
 - Do not hand-author JSON-LD in content; use ordinary front matter and maintain its centralized mapping in `layouts/_partials/structured-data.html`.
 - Store supporting media under `static/images/<slug>/` and reference them via relative paths in Markdown to ensure Hugo copies them intact.
