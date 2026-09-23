@@ -1,5 +1,5 @@
 +++
-title = 'Saint Pius of Pietrelcina'
+title = 'Memorial of Saint Pius of Pietrelcina, Priest'
 description = 'Jesus sends the apostles onward when a place does not receive them, inviting us to discern when faithfulness to our mission calls for persistence or a new beginning.'
 date = 2026-09-23
 draft = false
