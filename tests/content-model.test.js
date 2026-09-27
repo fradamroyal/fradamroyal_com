@@ -79,7 +79,7 @@ const EXPECTED_SEASON_COUNTS = {
   christmas: 11,
   easter: 19,
   lent: 17,
-  "ordinary-time": 123,
+  "ordinary-time": 124,
   "paschal-triduum": 6,
 };
 const NORMALIZATION_CASES = [
@@ -1031,8 +1031,8 @@ test("every authored reading record is complete and uses an SBL citation", () =>
     result.records.forEach((record) => labels.add(record.label));
   });
 
-  assert.equal(sourcesWithReadings, 187);
-  assert.equal(totalRecords, 729);
+  assert.equal(sourcesWithReadings, 188);
+  assert.equal(totalRecords, 733);
   [1, 3, 4, 5, 8, 17].forEach((count) => assert.ok(recordCounts.has(count)));
   [
     "Responsorial Psalm",
@@ -1089,9 +1089,9 @@ test("every published homily has complete registered metadata", () => {
     readingCount += readings;
   });
 
-  assert.equal(publishedCount, 185);
+  assert.equal(publishedCount, 186);
   assert.deepEqual(seasonCounts, EXPECTED_SEASON_COUNTS);
-  assert.equal(readingCount, 727);
+  assert.equal(readingCount, 731);
   assert.equal(publishedOccasions.size, 117);
   assert.deepEqual(
     [...registeredOccasionUsage].sort(),
