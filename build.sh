@@ -4,57 +4,34 @@
 # @file
 # Builds a Hugo site hosted on a Cloudflare Worker.
 #
-# The Cloudflare Worker automatically installs Node.js dependencies.
+# Wrangler uses the build environment's Node.js. The site uses prebuilt Hugo.
 #------------------------------------------------------------------------------
 
-main() {
-
-  GO_VERSION=1.26.6
-  HUGO_VERSION=0.165.0
-  NODE_VERSION=24.19.0
-
-  export TZ=America/Chicago
-
-  # Install Go
-  echo "Installing Go ${GO_VERSION}..."
-  curl -sLJO "https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz"
-  tar -C "${HOME}/.local" -xf "go${GO_VERSION}.linux-amd64.tar.gz"
-  rm "go${GO_VERSION}.linux-amd64.tar.gz"
-  export PATH="${HOME}/.local/go/bin:${PATH}"
-
-  # Install Hugo
-  echo "Installing Hugo ${HUGO_VERSION}..."
-  curl -sLJO "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-amd64.tar.gz"
-  mkdir "${HOME}/.local/hugo"
-  tar -C "${HOME}/.local/hugo" -xf "hugo_${HUGO_VERSION}_linux-amd64.tar.gz"
-  rm "hugo_${HUGO_VERSION}_linux-amd64.tar.gz"
-  export PATH="${HOME}/.local/hugo:${PATH}"
-
-  # Install Node.js
-  echo "Installing Node.js ${NODE_VERSION}..."
-  curl -sLJO "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz"
-  tar -C "${HOME}/.local" -xf "node-v${NODE_VERSION}-linux-x64.tar.xz"
-  rm "node-v${NODE_VERSION}-linux-x64.tar.xz"
-  export PATH="${HOME}/.local/node-v${NODE_VERSION}-linux-x64/bin:${PATH}"
-
-  # Verify installations
-  echo "Verifying installations..."
-  echo Go: "$(go version)"
-  echo Hugo: "$(hugo version)"
-  echo Node.js: "$(node --version)"
-
-  # Configure Git
-  echo "Configuring Git..."
-  git config core.quotepath false
-  if [ "$(git rev-parse --is-shallow-repository)" = "true" ]; then
-    git fetch --unshallow
-  fi
-
-  # Build the site
-  echo "Building the site..."
-  hugo --gc --minify --buildFuture
-
-}
-
 set -euo pipefail
-main "$@"
+
+HUGO_VERSION=0.165.0
+export TZ=America/Chicago
+
+build_work_dir=$(mktemp -d)
+trap 'rm -rf "$build_work_dir"' EXIT
+
+# Install Hugo without depending on persistent installation directories.
+echo "Installing Hugo ${HUGO_VERSION}..."
+curl --fail --show-error --silent --location --retry 3 \
+  --output "${build_work_dir}/hugo.tar.gz" \
+  "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-amd64.tar.gz"
+tar -C "$build_work_dir" -xzf "${build_work_dir}/hugo.tar.gz"
+
+echo "Verifying Hugo..."
+"${build_work_dir}/hugo" version
+
+# Hugo uses Git history for article modification dates.
+echo "Configuring Git..."
+git config core.quotepath false
+repository_is_shallow=$(git rev-parse --is-shallow-repository)
+if [ "$repository_is_shallow" = "true" ]; then
+  git fetch --unshallow
+fi
+
+echo "Building the site..."
+"${build_work_dir}/hugo" --gc --minify --buildFuture
