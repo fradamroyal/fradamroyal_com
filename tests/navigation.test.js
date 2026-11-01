@@ -1731,10 +1731,11 @@ test("related homilies use only exact shared non-responsorial Scripture citation
   assert.deepEqual(
     allSaintsLinks,
     [
+      "https://fradamroyal.com/homilies/2026/all_saints/",
       "https://fradamroyal.com/homilies/2024/all_saints/",
       "https://fradamroyal.com/homilies/2026/fourth_sunday_ordinary_time/",
     ],
-    "Expected the recurring All Saints homily to precede a newer one-passage match.",
+    "Expected recurring All Saints homilies, newest first, to precede a one-passage match.",
   );
 
   const easterSundayLinks = anchors(
