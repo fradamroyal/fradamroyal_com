@@ -13,7 +13,7 @@ citation = 'Wis 4:7–15'
 
 [[readings]]
 label = 'Responsorial Psalm'
-citation = 'Ps 27'
+citation = 'Ps 27:1, 4, 7, 8b, 9a, 13–14'
 
 [[readings]]
 label = 'Second Reading'
